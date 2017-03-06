@@ -1,0 +1,2 @@
+class PickupStatus < ApplicationRecord
+end

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event description:</strong>
+  <%= @event.event_description %>
+</p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @event.event_date %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @event.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @event.end_time %>
+</p>
+
+<p>
+  <strong>Event type:</strong>
+  <%= @event.event_type_id %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @event.color_id %>
+</p>
+
+<p>
+  <strong>Event status:</strong>
+  <%= @event.event_status_id %>
+</p>
+
+<p>
+  <strong>Grand total:</strong>
+  <%= @event.grand_total %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

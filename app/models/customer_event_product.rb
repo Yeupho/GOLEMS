@@ -1,0 +1,2 @@
+class CustomerEventProduct < ApplicationRecord
+end

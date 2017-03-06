@@ -1,0 +1,52 @@
+<%= form_for(customer_event) do |f| %>
+  <% if customer_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer_event.errors.count, "error") %> prohibited this customer_event from being saved:</h2>
+
+      <ul>
+      <% customer_event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :event_id %>
+    <%= f.number_field :event_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :customer_id %>
+    <%= f.number_field :customer_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number_in_party %>
+    <%= f.number_field :number_in_party %>
+  </div>
+
+  <div class="field">
+    <%= f.label :adults_painting %>
+    <%= f.number_field :adults_painting %>
+  </div>
+
+  <div class="field">
+    <%= f.label :kids_painting %>
+    <%= f.number_field :kids_painting %>
+  </div>
+
+  <div class="field">
+    <%= f.label :deposit %>
+    <%= f.check_box :deposit %>
+  </div>
+
+  <div class="field">
+    <%= f.label :customer_total %>
+    <%= f.text_field :customer_total %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

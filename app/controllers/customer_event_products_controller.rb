@@ -1,0 +1,74 @@
+class CustomerEventProductsController < ApplicationController
+  before_action :set_customer_event_product, only: [:show, :edit, :update, :destroy]
+
+  # GET /customer_event_products
+  # GET /customer_event_products.json
+  def index
+    @customer_event_products = CustomerEventProduct.all
+  end
+
+  # GET /customer_event_products/1
+  # GET /customer_event_products/1.json
+  def show
+  end
+
+  # GET /customer_event_products/new
+  def new
+    @customer_event_product = CustomerEventProduct.new
+  end
+
+  # GET /customer_event_products/1/edit
+  def edit
+  end
+
+  # POST /customer_event_products
+  # POST /customer_event_products.json
+  def create
+    @customer_event_product = CustomerEventProduct.new(customer_event_product_params)
+
+    respond_to do |format|
+      if @customer_event_product.save
+        format.html { redirect_to @customer_event_product, notice: 'Customer event product was successfully created.' }
+        format.json { render :show, status: :created, location: @customer_event_product }
+      else
+        format.html { render :new }
+        format.json { render json: @customer_event_product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /customer_event_products/1
+  # PATCH/PUT /customer_event_products/1.json
+  def update
+    respond_to do |format|
+      if @customer_event_product.update(customer_event_product_params)
+        format.html { redirect_to @customer_event_product, notice: 'Customer event product was successfully updated.' }
+        format.json { render :show, status: :ok, location: @customer_event_product }
+      else
+        format.html { render :edit }
+        format.json { render json: @customer_event_product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /customer_event_products/1
+  # DELETE /customer_event_products/1.json
+  def destroy
+    @customer_event_product.destroy
+    respond_to do |format|
+      format.html { redirect_to customer_event_products_url, notice: 'Customer event product was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_customer_event_product
+      @customer_event_product = CustomerEventProduct.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def customer_event_product_params
+      params.require(:customer_event_product).permit(:customer_event_id, :product_id, :quantity, :product_total, :pickup_status_id)
+    end
+end

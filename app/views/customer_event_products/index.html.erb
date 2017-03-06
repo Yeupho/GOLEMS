@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customer Event Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer event</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Product total</th>
+      <th>Pickup status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer_event_products.each do |customer_event_product| %>
+      <tr>
+        <td><%= customer_event_product.customer_event_id %></td>
+        <td><%= customer_event_product.product_id %></td>
+        <td><%= customer_event_product.quantity %></td>
+        <td><%= customer_event_product.product_total %></td>
+        <td><%= customer_event_product.pickup_status_id %></td>
+        <td><%= link_to 'Show', customer_event_product %></td>
+        <td><%= link_to 'Edit', edit_customer_event_product_path(customer_event_product) %></td>
+        <td><%= link_to 'Destroy', customer_event_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer Event Product', new_customer_event_product_path %>

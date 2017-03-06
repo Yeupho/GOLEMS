@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @customer_event.event_id %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @customer_event.customer_id %>
+</p>
+
+<p>
+  <strong>Number in party:</strong>
+  <%= @customer_event.number_in_party %>
+</p>
+
+<p>
+  <strong>Adults painting:</strong>
+  <%= @customer_event.adults_painting %>
+</p>
+
+<p>
+  <strong>Kids painting:</strong>
+  <%= @customer_event.kids_painting %>
+</p>
+
+<p>
+  <strong>Deposit:</strong>
+  <%= @customer_event.deposit %>
+</p>
+
+<p>
+  <strong>Customer total:</strong>
+  <%= @customer_event.customer_total %>
+</p>
+
+<%= link_to 'Edit', edit_customer_event_path(@customer_event) %> |
+<%= link_to 'Back', customer_events_path %>

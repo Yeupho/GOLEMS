@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Customer Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Customer</th>
+      <th>Number in party</th>
+      <th>Adults painting</th>
+      <th>Kids painting</th>
+      <th>Deposit</th>
+      <th>Customer total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer_events.each do |customer_event| %>
+      <tr>
+        <td><%= customer_event.event_id %></td>
+        <td><%= customer_event.customer_id %></td>
+        <td><%= customer_event.number_in_party %></td>
+        <td><%= customer_event.adults_painting %></td>
+        <td><%= customer_event.kids_painting %></td>
+        <td><%= customer_event.deposit %></td>
+        <td><%= customer_event.customer_total %></td>
+        <td><%= link_to 'Show', customer_event %></td>
+        <td><%= link_to 'Edit', edit_customer_event_path(customer_event) %></td>
+        <td><%= link_to 'Destroy', customer_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customer Event', new_customer_event_path %>

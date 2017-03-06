@@ -1,0 +1,22 @@
+<%= form_for(employee_status) do |f| %>
+  <% if employee_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee_status.errors.count, "error") %> prohibited this employee_status from being saved:</h2>
+
+      <ul>
+      <% employee_status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :employee_status_desc %>
+    <%= f.number_field :employee_status_desc %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

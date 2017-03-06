@@ -1,0 +1,22 @@
+<%= form_for(customer_status) do |f| %>
+  <% if customer_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer_status.errors.count, "error") %> prohibited this customer_status from being saved:</h2>
+
+      <ul>
+      <% customer_status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :customer_status_description %>
+    <%= f.text_field :customer_status_description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
