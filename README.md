@@ -16,6 +16,13 @@ Pulling from master:
 - git checkout -b branch_name
 - git branch (to make sure you're in the correct branch)
 - git commit -a -m "Description"
+- if there is an error saying "Please tell me who you are." run both commands
+ git config --global user.email "you@example.com"
+ git config --global user.name "Your Name"
+ Example using BitBucket information:
+  git config --global user.email "joshm2050@gmail.com"
+  git config --global user.name "jmohan123"
+ Then run the git commit -a -m "Description" command again
 - git push -u origin branch_name
 - Enter your password and enter
 - Make sure changes are located in the branch in the repository
@@ -34,4 +41,5 @@ OR
 - Do something new: GOLEMS_development
 - rails db:migrate
 
+josh test
 
