@@ -34,4 +34,5 @@ OR
 - Do something new: GOLEMS_development
 - rails db:migrate
 
+josh test
 
