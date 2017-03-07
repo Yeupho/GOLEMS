@@ -20,11 +20,11 @@ Pulling from master:
 - Enter your password and enter
 - Make sure changes are located in the branch in the repository
 
-# Pulls from the master branch after directory has been made
-- git pull (does a git fetch and git pull in one go)
-- git fetch then git pull 
-- git clone https://(yourloginname)@bitbucket.org/yeupho/golems.git
-- git push -u origin master
+# Ways to pull project 
+This works if you already have the project folder in your computer
+- git fetch then git pull
+OR
+- git pull (does a git fetch and git pull) 
 
 # Steps after cloning
 - First establish connection to postgres in the database tab in intellij, download drivers#
