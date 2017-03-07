@@ -19,7 +19,7 @@ Software requirements:
 - bundle install
 - rails db:create
 - After you db:create, replace the database name in the postgres connection to:
-GOLEMS_development
+- Do something new: GOLEMS_development
 - rails db:migrate
 
 
