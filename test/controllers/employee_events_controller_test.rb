@@ -17,7 +17,7 @@ class EmployeeEventsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create employee_event" do
     assert_difference('EmployeeEvent.count') do
-      post employee_events_url, params: { employee_event: { employee_id: @employee_event.employee_id, event_id: @employee_event.event_id } }
+      post employee_events_url, params: { employee_event: { archive: @employee_event.archive, employee_id: @employee_event.employee_id, event_id: @employee_event.event_id } }
     end
 
     assert_redirected_to employee_event_url(EmployeeEvent.last)
@@ -34,7 +34,7 @@ class EmployeeEventsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update employee_event" do
-    patch employee_event_url(@employee_event), params: { employee_event: { employee_id: @employee_event.employee_id, event_id: @employee_event.event_id } }
+    patch employee_event_url(@employee_event), params: { employee_event: { archive: @employee_event.archive, employee_id: @employee_event.employee_id, event_id: @employee_event.event_id } }
     assert_redirected_to employee_event_url(@employee_event)
   end
 

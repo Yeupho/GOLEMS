@@ -4,8 +4,10 @@ one:
   product_name: MyString
   product_price: 9.99
   product_type_id: 1
+  archive: false
 
 two:
   product_name: MyString
   product_price: 9.99
   product_type_id: 1
+  archive: false

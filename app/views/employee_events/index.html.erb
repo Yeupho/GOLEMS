@@ -7,6 +7,7 @@
     <tr>
       <th>Employee</th>
       <th>Event</th>
+      <th>Archive</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= employee_event.employee_id %></td>
         <td><%= employee_event.event_id %></td>
+        <td><%= employee_event.archive %></td>
         <td><%= link_to 'Show', employee_event %></td>
         <td><%= link_to 'Edit', edit_employee_event_path(employee_event) %></td>
         <td><%= link_to 'Destroy', employee_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

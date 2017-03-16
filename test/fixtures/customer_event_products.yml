@@ -4,12 +4,12 @@ one:
   customer_event_id: 1
   product_id: 1
   quantity: 1
-  product_total: 9.99
   pickup_status_id: 1
+  archive: false
 
 two:
   customer_event_id: 1
   product_id: 1
   quantity: 1
-  product_total: 9.99
   pickup_status_id: 1
+  archive: false

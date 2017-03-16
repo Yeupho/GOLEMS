@@ -7,7 +7,7 @@ one:
   adults_painting: 1
   kids_painting: 1
   deposit: false
-  customer_total: 9.99
+  archive: false
 
 two:
   event_id: 1
@@ -16,4 +16,4 @@ two:
   adults_painting: 1
   kids_painting: 1
   deposit: false
-  customer_total: 9.99
+  archive: false

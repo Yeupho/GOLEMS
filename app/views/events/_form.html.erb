@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :event_description %>
-    <%= f.text_field :event_description %>
+    <%= f.label :event_name %>
+    <%= f.text_field :event_name %>
   </div>
 
   <div class="field">
@@ -47,8 +47,13 @@
   </div>
 
   <div class="field">
-    <%= f.label :grand_total %>
-    <%= f.text_field :grand_total %>
+    <%= f.label :event_description %>
+    <%= f.text_field :event_description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :archive %>
+    <%= f.check_box :archive %>
   </div>
 
   <div class="actions">

@@ -3,27 +3,27 @@
 one:
   first_name: MyString
   last_name: MyString
-  email: MyString
+  emai: MyString
   phone: 1
   address: MyString
   city: MyString
   state_id: 1
   zipcode: 1
-  comments: MyText
-  payrate: 9.99
+  country_id: 1
+  comment: MyText
   employee_status_id: 1
-  employee_type: 1
+  archive: false
 
 two:
   first_name: MyString
   last_name: MyString
-  email: MyString
+  emai: MyString
   phone: 1
   address: MyString
   city: MyString
   state_id: 1
   zipcode: 1
-  comments: MyText
-  payrate: 9.99
+  country_id: 1
+  comment: MyText
   employee_status_id: 1
-  employee_type: 1
+  archive: false

@@ -8,8 +8,8 @@
       <th>Customer event</th>
       <th>Product</th>
       <th>Quantity</th>
-      <th>Product total</th>
       <th>Pickup status</th>
+      <th>Archive</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,8 +20,8 @@
         <td><%= customer_event_product.customer_event_id %></td>
         <td><%= customer_event_product.product_id %></td>
         <td><%= customer_event_product.quantity %></td>
-        <td><%= customer_event_product.product_total %></td>
         <td><%= customer_event_product.pickup_status_id %></td>
+        <td><%= customer_event_product.archive %></td>
         <td><%= link_to 'Show', customer_event_product %></td>
         <td><%= link_to 'Edit', edit_customer_event_product_path(customer_event_product) %></td>
         <td><%= link_to 'Destroy', customer_event_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>

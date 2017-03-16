@@ -69,6 +69,6 @@ class CustomerEventProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_event_product_params
-      params.require(:customer_event_product).permit(:customer_event_id, :product_id, :quantity, :product_total, :pickup_status_id)
+      params.require(:customer_event_product).permit(:customer_event_id, :product_id, :quantity, :pickup_status_id, :archive)
     end
 end

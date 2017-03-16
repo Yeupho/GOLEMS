@@ -2,24 +2,28 @@
 
 one:
   first_name: MyString
-  lastname: MyString
+  last_name: MyString
   email: MyString
   phone: 1
   address: MyString
   city: MyString
   state_id: 1
   zipcode: 1
-  comments: MyText
+  country_id: 1
+  comment: MyString
   customer_status_id: 1
+  archive: false
 
 two:
   first_name: MyString
-  lastname: MyString
+  last_name: MyString
   email: MyString
   phone: 1
   address: MyString
   city: MyString
   state_id: 1
   zipcode: 1
-  comments: MyText
+  country_id: 1
+  comment: MyString
   customer_status_id: 1
+  archive: false

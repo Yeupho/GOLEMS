@@ -1,21 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  event_description: MyString
-  event_date: 2017-03-06
-  start_time: 2017-03-06 13:08:06
-  end_time: 2017-03-06 13:08:06
+  event_name: MyString
+  event_date: 2017-03-16
+  start_time: 2017-03-16 01:05:00
+  end_time: 2017-03-16 01:05:00
   event_type_id: 1
   color_id: 1
   event_status_id: 1
-  grand_total: 9.99
+  event_description: MyString
+  archive: false
 
 two:
-  event_description: MyString
-  event_date: 2017-03-06
-  start_time: 2017-03-06 13:08:06
-  end_time: 2017-03-06 13:08:06
+  event_name: MyString
+  event_date: 2017-03-16
+  start_time: 2017-03-16 01:05:00
+  end_time: 2017-03-16 01:05:00
   event_type_id: 1
   color_id: 1
   event_status_id: 1
-  grand_total: 9.99
+  event_description: MyString
+  archive: false
