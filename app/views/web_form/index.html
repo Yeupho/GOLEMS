@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web_Form</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400i,700" rel="stylesheet">
+</head>
+<body>
+<div class="box1">
+    <img src="http://www.glazedoverceramics.com/uploads/3/4/8/8/34887163/1427308090.png">
+
+</div>
+<div class="sidebar">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#home">About Us</a></li>
+        <li><a href="#home">Hours and Location</a></li>
+        <li><a href="#home">Intro to Glass Classes</a></li>
+        <li><a href="#home">Events</a></li>
+        <li><a href="#home">Galleries</a></li>
+        <li><a href="#home">Videos</a></li>
+        <li><a href="#home">Specials</a></li>
+        <li><a href="#home">Monthly Events</a></li>
+        <li><a href="#home">Schedule an Event</a></li>
+    </ul>
+</div>
+<div class="main">
+    <p>Web Form</p>
+    <p>Want to schedule an event with us? Send us some dank shit and we'll do that for you!</p>
+    <form action="/my-handling-form-page" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="user_name">
+        </div>
+        <div>
+            <label for="mail">E-mail:</label>
+            <input type="email" id="mail" name="user_mail">
+        </div>
+        <div>
+            <input type="radio" name="birthday" value="Birthday"> Birthday<br>
+            <input type="radio" name="Party" value="party"> Party<br>
+            <input type="radio" name="Special Event" value="special"> Special Event<br>
+        </div>
+        <div>
+            <label for="msg">Message:</label>
+            <textarea id="msg" name="user_message"></textarea>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

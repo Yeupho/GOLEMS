@@ -17,7 +17,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product" do
     assert_difference('Product.count') do
-      post products_url, params: { product: { product_name: @product.product_name, product_price: @product.product_price, product_type_id: @product.product_type_id } }
+      post products_url, params: { product: { archive: @product.archive, product_name: @product.product_name, product_price: @product.product_price, product_type_id: @product.product_type_id } }
     end
 
     assert_redirected_to product_url(Product.last)
@@ -34,7 +34,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update product" do
-    patch product_url(@product), params: { product: { product_name: @product.product_name, product_price: @product.product_price, product_type_id: @product.product_type_id } }
+    patch product_url(@product), params: { product: { archive: @product.archive, product_name: @product.product_name, product_price: @product.product_price, product_type_id: @product.product_type_id } }
     assert_redirected_to product_url(@product)
   end
 

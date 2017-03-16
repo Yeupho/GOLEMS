@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Event description:</strong>
-  <%= @event.event_description %>
+  <strong>Event name:</strong>
+  <%= @event.event_name %>
 </p>
 
 <p>
@@ -36,8 +36,13 @@
 </p>
 
 <p>
-  <strong>Grand total:</strong>
-  <%= @event.grand_total %>
+  <strong>Event description:</strong>
+  <%= @event.event_description %>
+</p>
+
+<p>
+  <strong>Archive:</strong>
+  <%= @event.archive %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

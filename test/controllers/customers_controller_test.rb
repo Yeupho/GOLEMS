@@ -17,7 +17,7 @@ class CustomersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create customer" do
     assert_difference('Customer.count') do
-      post customers_url, params: { customer: { address: @customer.address, city: @customer.city, comments: @customer.comments, customer_status_id: @customer.customer_status_id, email: @customer.email, first_name: @customer.first_name, lastname: @customer.lastname, phone: @customer.phone, state_id: @customer.state_id, zipcode: @customer.zipcode } }
+      post customers_url, params: { customer: { address: @customer.address, archive: @customer.archive, city: @customer.city, comment: @customer.comment, country_id: @customer.country_id, customer_status_id: @customer.customer_status_id, email: @customer.email, first_name: @customer.first_name, last_name: @customer.last_name, phone: @customer.phone, state_id: @customer.state_id, zipcode: @customer.zipcode } }
     end
 
     assert_redirected_to customer_url(Customer.last)
@@ -34,7 +34,7 @@ class CustomersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update customer" do
-    patch customer_url(@customer), params: { customer: { address: @customer.address, city: @customer.city, comments: @customer.comments, customer_status_id: @customer.customer_status_id, email: @customer.email, first_name: @customer.first_name, lastname: @customer.lastname, phone: @customer.phone, state_id: @customer.state_id, zipcode: @customer.zipcode } }
+    patch customer_url(@customer), params: { customer: { address: @customer.address, archive: @customer.archive, city: @customer.city, comment: @customer.comment, country_id: @customer.country_id, customer_status_id: @customer.customer_status_id, email: @customer.email, first_name: @customer.first_name, last_name: @customer.last_name, phone: @customer.phone, state_id: @customer.state_id, zipcode: @customer.zipcode } }
     assert_redirected_to customer_url(@customer)
   end
 

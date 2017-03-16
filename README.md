@@ -33,13 +33,18 @@ This works if you already have the project folder in your computer
 OR
 - git pull (does a git fetch and git pull) 
 
+# Steps after pulling
+- bundle install
+- rails db:drop
+- rails db:create
+- rails db:migrate
+- rails db:seed 
+
 # Steps after cloning
 - First establish connection to postgres in the database tab in intellij, download drivers#
 - bundle install
-- rails db:create
+- rails db:create (creates dev and test databases based on database.yml)
 - After you db:create, replace the database name in the postgres connection to:
 - Do something new: GOLEMS_development
 - rails db:migrate
-
-josh test
 

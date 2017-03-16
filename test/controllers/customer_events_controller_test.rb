@@ -17,7 +17,7 @@ class CustomerEventsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create customer_event" do
     assert_difference('CustomerEvent.count') do
-      post customer_events_url, params: { customer_event: { adults_painting: @customer_event.adults_painting, customer_id: @customer_event.customer_id, customer_total: @customer_event.customer_total, deposit: @customer_event.deposit, event_id: @customer_event.event_id, kids_painting: @customer_event.kids_painting, number_in_party: @customer_event.number_in_party } }
+      post customer_events_url, params: { customer_event: { adults_painting: @customer_event.adults_painting, archive: @customer_event.archive, customer_id: @customer_event.customer_id, deposit: @customer_event.deposit, event_id: @customer_event.event_id, kids_painting: @customer_event.kids_painting, number_in_party: @customer_event.number_in_party } }
     end
 
     assert_redirected_to customer_event_url(CustomerEvent.last)
@@ -34,7 +34,7 @@ class CustomerEventsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update customer_event" do
-    patch customer_event_url(@customer_event), params: { customer_event: { adults_painting: @customer_event.adults_painting, customer_id: @customer_event.customer_id, customer_total: @customer_event.customer_total, deposit: @customer_event.deposit, event_id: @customer_event.event_id, kids_painting: @customer_event.kids_painting, number_in_party: @customer_event.number_in_party } }
+    patch customer_event_url(@customer_event), params: { customer_event: { adults_painting: @customer_event.adults_painting, archive: @customer_event.archive, customer_id: @customer_event.customer_id, deposit: @customer_event.deposit, event_id: @customer_event.event_id, kids_painting: @customer_event.kids_painting, number_in_party: @customer_event.number_in_party } }
     assert_redirected_to customer_event_url(@customer_event)
   end
 

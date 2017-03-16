@@ -3,7 +3,9 @@
 one:
   employee_id: 1
   event_id: 1
+  archive: false
 
 two:
   employee_id: 1
   event_id: 1
+  archive: false

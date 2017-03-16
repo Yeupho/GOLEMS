@@ -7,16 +7,16 @@
     <tr>
       <th>First name</th>
       <th>Last name</th>
-      <th>Email</th>
+      <th>Emai</th>
       <th>Phone</th>
       <th>Address</th>
       <th>City</th>
       <th>State</th>
       <th>Zipcode</th>
-      <th>Comments</th>
-      <th>Payrate</th>
+      <th>Country</th>
+      <th>Comment</th>
       <th>Employee status</th>
-      <th>Employee type</th>
+      <th>Archive</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,16 +26,16 @@
       <tr>
         <td><%= employee.first_name %></td>
         <td><%= employee.last_name %></td>
-        <td><%= employee.email %></td>
+        <td><%= employee.emai %></td>
         <td><%= employee.phone %></td>
         <td><%= employee.address %></td>
         <td><%= employee.city %></td>
         <td><%= employee.state_id %></td>
         <td><%= employee.zipcode %></td>
-        <td><%= employee.comments %></td>
-        <td><%= employee.payrate %></td>
+        <td><%= employee.country_id %></td>
+        <td><%= employee.comment %></td>
         <td><%= employee.employee_status_id %></td>
-        <td><%= employee.employee_type %></td>
+        <td><%= employee.archive %></td>
         <td><%= link_to 'Show', employee %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>

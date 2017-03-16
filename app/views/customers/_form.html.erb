@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :lastname %>
-    <%= f.text_field :lastname %>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
   </div>
 
   <div class="field">
@@ -52,13 +52,23 @@
   </div>
 
   <div class="field">
-    <%= f.label :comments %>
-    <%= f.text_area :comments %>
+    <%= f.label :country_id %>
+    <%= f.number_field :country_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_field :comment %>
   </div>
 
   <div class="field">
     <%= f.label :customer_status_id %>
     <%= f.number_field :customer_status_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :archive %>
+    <%= f.check_box :archive %>
   </div>
 
   <div class="actions">

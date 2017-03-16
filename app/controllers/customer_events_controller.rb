@@ -69,6 +69,6 @@ class CustomerEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_event_params
-      params.require(:customer_event).permit(:event_id, :customer_id, :number_in_party, :adults_painting, :kids_painting, :deposit, :customer_total)
+      params.require(:customer_event).permit(:event_id, :customer_id, :number_in_party, :adults_painting, :kids_painting, :deposit, :archive)
     end
 end
