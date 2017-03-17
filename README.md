@@ -2,7 +2,8 @@
 Software requirements: 
 - Ruby 2.3.3
 - Rails 5.0.1
-- Postgres & pgAdmin 4
+- Postgres
+- pgAdmin 4
 
 # Initial Git:
 You must already have created a login to do these steps.
@@ -13,19 +14,19 @@ Pulling from master:
 - Test connection and continue 
 
 # Pushing your changes:
-- git checkout -b branch_name
-- git branch (to make sure you're in the correct branch)
-- git commit -a -m "Description"
-- if there is an error saying "Please tell me who you are." run both commands
- git config --global user.email "you@example.com"
- git config --global user.name "Your Name"
- Example using BitBucket information:
-  git config --global user.email "joshm2050@gmail.com"
-  git config --global user.name "jmohan123"
- Then run the git commit -a -m "Description" command again
-- git push -u origin branch_name
-- Enter your password and enter
-- Make sure changes are located in the branch in the repository
+1. git checkout -b branch_name
+2. git branch (to make sure you're in the correct branch)
+3. git commit -a -m "Description"
+    * if there is an error saying "Please tell me who you are." run both commands
+    * git config --global user.email "you@example.com"
+    * git config --global user.name "Your Name"
+    * Example using BitBucket information:
+    * git config --global user.email "joshm2050@gmail.com"
+    * git config --global user.name "jmohan123"
+    * Then run the git commit -a -m "Description" command again
+4. git push -u origin branch_name
+    * Enter your password and enter if necessary
+    * Make sure changes are located in the branch in the repository
 
 # Ways to pull project 
 This works if you already have the project folder in your computer
