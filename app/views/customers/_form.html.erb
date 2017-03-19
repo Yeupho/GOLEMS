@@ -11,67 +11,56 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
+    <div class="row"><h4 class="col-lg-10 col-lg-offset-1">Name</h4></div>
 
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-1"><%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %></div>
+      <div class="col-lg-6"><%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %></div>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
+    <br><div class="row"><h4 class="row col-lg-10 col-lg-offset-1">Address</h4></div>
 
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.number_field :phone %>
-  </div>
+    <div class="row"><div class="col-lg-10 col-lg-offset-1"><%= f.text_field :address, placeholder: "Address", class: "form-control" %></div></div>
 
-  <div class="field">
-    <%= f.label :address %>
-    <%= f.text_field :address %>
-  </div>
+    <br>
 
-  <div class="field">
-    <%= f.label :city %>
-    <%= f.text_field :city %>
-  </div>
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1"><%= f.text_field :city, placeholder: "City", class: "form-control" %></div>
+      <div class="col-lg-4 col-lg-offset-1"><%= f.number_field :state_id, placeholder: "State/Province", class: "form-control" %></div>
+    </div>
 
-  <div class="field">
-    <%= f.label :state_id %>
-    <%= f.number_field :state_id %>
-  </div>
+    <br>
 
-  <div class="field">
-    <%= f.label :zipcode %>
-    <%= f.number_field :zipcode %>
-  </div>
+    <div class="row"><div class="col-lg-3 col-lg-offset-1"><%= f.text_field :zipcode, placeholder: "Postal Code", class: "form-control" %></div></div>
 
-  <div class="field">
-    <%= f.label :country_id %>
-    <%= f.number_field :country_id %>
-  </div>
+    <br>
 
-  <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_field :comment %>
-  </div>
+    <div class="row"><div class="col-lg-5 col-lg-offset-1"><%= f.number_field :country_id, placeholder: "Country", class: "form-control" %></div></div>
 
-  <div class="field">
-    <%= f.label :customer_status_id %>
-    <%= f.number_field :customer_status_id %>
-  </div>
+    <br>
 
-  <div class="field">
-    <%= f.label :archive %>
-    <%= f.check_box :archive %>
-  </div>
+    <div class="row">
+      <h4 class="col-lg-4 col-lg-offset-1">Phone</h4>
+      <h4 class="col-lg-6">Email</h4>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-1"><%= f.text_field :phone, placeholder: "Phone Number", class: "form-control" %></div>
+      <div class="col-lg-6"><%= f.text_field :email, placeholder: "Email", class: "form-control" %></div>
+    </div>
+
+    <br><div class="row"><h4 class="row col-lg-10 col-lg-offset-1">Notes</h4></div>
+
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1"><%= f.text_area :comment, rows: "4", class: "form-control" %></div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="actions col-lg-offset-7">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </div>
 <% end %>

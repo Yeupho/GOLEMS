@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Event</h2>
+  </div>
+  <div class="panel-body">
+
+    <div class="imaginary_container">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Event name</th>
+          <th>Time</th>
+          <th>Event type</th>
+          <th>Total</th>
+          <th>Color</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @events.each do |event| %>
+            <tr data-link="<%= customer_path(event) %>">
+              <td><%= event.event_name %></td>
+              <td><%= event.start_time %> "-" <%= event.end_time %></td>
+              <td><%= event.event_type_id %></td>
+              <td></td>
+            </tr>
+        <% end %>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,197 @@
+@import 'bootstrap-sprockets'
+@import 'bootstrap'
+
+$white: #FFFFFF
+$white-smoke: #F7F5F5
+
+$celestial: #C33764 , #C33764, #1D2671
+
+body
+  background: $white-smoke
+  font-family: 'Roboto', Sans-Serif
+
+.imaginary_container
+  margin-top: 1.8%
+
+#page-content-wrapper
+  width: 100%
+  position: absolute
+  padding: 15px
+  padding-left: 12%
+
+.container-fluid
+  padding-right: 0 !important
+  padding-left: 15px !important
+
+.pager
+  margin: 0 !important
+
+/***************************************************/
+/*                    Login                        */
+/***************************************************/
+#bg-img
+  background: image_url('coffee-cup.jpg') no-repeat center center
+  background-size: cover
+  position: relative
+  top: 0
+  bottom: 0
+  height: 100vh
+
+#bg-gradient
+  position: absolute
+  background: linear-gradient(45deg, rgba(190,242,236,.6) 1%,rgba(190,242,236,.6) 46%,rgba(192,207,240,.6) 81%)
+  top: 0
+  bottom: 0
+  height: 100%
+  width: 100%
+
+.home
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+
+.item
+  height: 500px
+  width: 500px
+  background: $white-smoke
+  border-radius: 8px
+  box-shadow: 15px 25px 15px -10px rgba(0, 0, 0, .1)
+
+.content
+  height: 100%
+  padding: 70px
+  display: flex
+  align-items: center
+  justify-content: center
+
+.in
+  padding: 15px
+
+.logo
+  width: 90px
+  height: 90px
+  margin-bottom: 20px
+  padding: 2px
+  line-height: 90px
+  border: 3px solid #94979c
+  border-radius: 50%
+  margin: 0 auto
+
+.checkbox-label, .checkbox
+  padding-left: 5px !important
+  margin: 0 !important
+  color: #585b5e
+
+.form-control-2
+  background: 0 0
+  border: 0
+  box-shadow: none
+  border-bottom: 1px solid #AFB3C1
+  border-radius: 0
+
+.input-group-addon-2
+  background: 0 0
+  border: 0
+  color: #AFB5C1
+
+.input-group-2, .form-group
+  padding-top: 8%
+
+.btn-info
+  background: linear-gradient(45deg, rgba(192,207,240,270) 1% ,rgba(192,207,240,350) 40%)
+  border: 0
+  border-radius: 12px
+  &:hover
+    box-shadow: 0px 16px 5px -15px rgba(0,0,0,.15)
+
+/***************************************************/
+/*                    SideBar                      */
+/***************************************************/
+#sidebar-wrapper
+  z-index: 1
+  position: absolute
+  width: 12%
+  height: 100%
+  overflow-y: hidden
+  background: linear-gradient(to bottom, #1D2671, #C33764)
+
+.sidebar-nav
+  padding: 0
+  list-style: none
+
+.sidebar-nav li
+  text-indent: 20px
+  line-height: 40px
+  letter-spacing: .09em
+
+.sidebar-nav li a
+  display: block
+  text-decoration: none
+  color: $white-smoke
+
+.sidebar-nav li a:hover
+  opacity: .6
+
+.sidebar-logo
+  height: 15%
+
+/***************************************************/
+/*                    SEARCH BAR                   */
+/***************************************************/
+.stylish-input-group
+  box-shadow: 0px 3px 5px -2px rgba(0,0,0,.2)
+
+.stylish-input-group .input-group-addon
+  background: $white !important
+
+.stylish-input-group .form-control
+  border-right: 0
+  box-shadow: 0 0 0
+  border-color: #ccc
+
+.stylish-input-group button
+  border: 0
+  background: transparent
+
+/***************************************************/
+/*                    Table                        */
+/***************************************************/
+.new-tbl-btn
+  width: 50px
+  height: 50px
+  padding: 10px 16px
+  font-size: 12px
+  line-height: 2.2
+  border-radius: 25px
+  color: $white
+  cursor: pointer
+  transition: all ease-in-out 300ms
+  background: linear-gradient(to bottom right, $celestial)
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,.2)
+  &:hover
+    box-shadow: 0px 9px 10px -2px rgba(0,0,0,.3)
+    color: $white
+  &:focus
+    outline: 0 !important
+    background: linear-gradient(to bottom right, $celestial)
+
+
+.panel > .panel-heading
+  background-image: none
+  background: linear-gradient(to bottom right, $celestial)
+  color: $white-smoke
+
+.btn-previous, .btn-next
+  background: linear-gradient(to bottom right, $celestial)
+  color: $white-smoke
+  box-shadow: 0px 1px 5px -1px rgba(0,0,0,.1)
+  &:hover
+    box-shadow: 0px 8px 10px -5px rgba(0,0,0,.2)
+    color: $white
+  &:focus
+    outline: 0 !important
+    background: linear-gradient(to bottom right, $celestial)
+
+

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'dashboards#index'
+
   resources :customer_event_products
   resources :customer_events
   resources :employee_events
@@ -18,6 +20,18 @@ Rails.application.routes.draw do
   resources :customer_statuses
   resources :states
   resources :web_form
+  resources :dashboards
+  resources :pickups
+
+  get 'events/index'
+
+  get 'customers/index'
+
+  get 'dashboards/index'
+
+  get 'employees/index'
+
+  get 'pickups/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -13,4 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
+jQuery(function($) {
+    $(document).on('click', "tr", function() {
+        window.location = $(this).data("link")
+    });
+});

@@ -3,12 +3,31 @@
   <head>
     <title>GOLEMS</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device=width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
 
   <body>
-    <%= yield %>
+  <div id="wrapper">
+        <div id="sidebar-wrapper">
+          <span class="glyphicon glyphicon-home sidebar-logo"></span>
+          <ul class="sidebar-nav" data-spy="affix">
+            <li><%= link_to '<span class="glyphicon glyphicon-home"> Dashboard</span>'.html_safe, dashboards_path%></li>
+            <li><%= link_to '<span class="glyphicon glyphicon-heart"> Event</span>'.html_safe, events_path%></li>
+            <li><%= link_to '<span class="glyphicon glyphicon-user"> Customer</span>'.html_safe, customers_path%></li>
+            <li><%= link_to '<span class="glyphicon glyphicon-user"> Employee</span>'.html_safe, employees_path%></li>
+            <li><%= link_to '<span class="glyphicon glyphicon-user"> Pickup</span>'.html_safe, pickups_path%></li>
+          </ul>
+        </div>
+
+        <div id="page-content-wrapper">
+          <div class="container-fluid">
+            <%= yield %>
+          </div>
+        </div>
+  </div>
+
   </body>
 </html>
