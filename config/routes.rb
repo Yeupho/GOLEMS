@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root 'dashboards#index'
 
-  resources :customer_event_products
-  resources :customer_events
+
+  resources :customer_events do
+    resources :customer_event_products, except: [:index]
+  end
+
   resources :employee_events
   resources :events
   resources :products

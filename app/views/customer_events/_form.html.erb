@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :event_id %>
-    <%= f.number_field :event_id %>
+    <%= f.collection_select :event_id, Event.all, :id, :event_name, {include_blank: true}  %>
   </div>
 
   <div class="field">
     <%= f.label :customer_id %>
-    <%= f.number_field :customer_id %>
+    <%= f.collection_select :customer_id, Customer.all, :id, :first_name, {include_blank: true} %>
   </div>
 
   <div class="field">

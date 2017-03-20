@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Customer Events</h1>
+<%= form_tag customer_events_path, method: :get do %>
+    <%= text_field_tag 'search[date_from]', @search.date_from %>
+    <%= text_field_tag 'search[date_to]', @search.date_to %>
+    <%= submit_tag 'Search' %>
+ <% end %>
+
+  <h1>Customer Events</h1>
 
 <table>
   <thead>

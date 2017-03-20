@@ -14,6 +14,7 @@ class CustomerEventProductsController < ApplicationController
 
   # GET /customer_event_products/new
   def new
+    @customer_event = CustomerEvent.find(params[:customer_event_id])
     @customer_event_product = CustomerEventProduct.new
   end
 
@@ -24,15 +25,17 @@ class CustomerEventProductsController < ApplicationController
   # POST /customer_event_products
   # POST /customer_event_products.json
   def create
+    @customer_event = CustomerEvent.find(params[:customer_event_id])
     @customer_event_product = CustomerEventProduct.new(customer_event_product_params)
+    @customer_event_product.customer_event = @customer_event
 
     respond_to do |format|
       if @customer_event_product.save
-        format.html { redirect_to @customer_event_product, notice: 'Customer event product was successfully created.' }
-        format.json { render :show, status: :created, location: @customer_event_product }
+        format.html { redirect_to @customer_event, notice: 'Customer event product was successfully created.' }
+        format.json { render :show, status: :created, location: @customer_event }
       else
         format.html { render :new }
-        format.json { render json: @customer_event_product.errors, status: :unprocessable_entity }
+        format.json { render json: @customer_event.errors, status: :unprocessable_entity }
       end
     end
   end
