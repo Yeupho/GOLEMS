@@ -15,10 +15,11 @@
 
     <div class="row">
       <div class="col-lg-4 col-lg-offset-1"><%= f.text_field :first_name, placeholder: "First Name", class: "form-control" %></div>
+      <br>
       <div class="col-lg-6"><%= f.text_field :last_name, placeholder: "Last Name", class: "form-control" %></div>
     </div>
 
-    <br><div class="row"><h4 class="row col-lg-10 col-lg-offset-1">Address</h4></div>
+    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Address</h4></div>
 
     <div class="row"><div class="col-lg-10 col-lg-offset-1"><%= f.text_field :address, placeholder: "Address", class: "form-control" %></div></div>
 
@@ -26,6 +27,7 @@
 
     <div class="row">
       <div class="col-lg-5 col-lg-offset-1"><%= f.text_field :city, placeholder: "City", class: "form-control" %></div>
+      <br>
       <div class="col-lg-4 col-lg-offset-1"><%= f.number_field :state_id, placeholder: "State/Province", class: "form-control" %></div>
     </div>
 
@@ -40,16 +42,16 @@
     <br>
 
     <div class="row">
-      <h4 class="col-lg-4 col-lg-offset-1">Phone</h4>
-      <h4 class="col-lg-6">Email</h4>
+      <h4 class="col-lg-4 col-lg-offset-1">Phone/Email</h4>
     </div>
 
     <div class="row">
       <div class="col-lg-4 col-lg-offset-1"><%= f.text_field :phone, placeholder: "Phone Number", class: "form-control" %></div>
+      <br>
       <div class="col-lg-6"><%= f.text_field :email, placeholder: "Email", class: "form-control" %></div>
     </div>
 
-    <br><div class="row"><h4 class="row col-lg-10 col-lg-offset-1">Notes</h4></div>
+    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Notes</h4></div>
 
     <div class="row">
       <div class="col-lg-10 col-lg-offset-1"><%= f.text_area :comment, rows: "4", class: "form-control" %></div>

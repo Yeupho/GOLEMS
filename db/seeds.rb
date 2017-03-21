@@ -62,13 +62,13 @@ StatusList.each do |name|
   EventStatus.create!(event_status_desc:name)
 end
 
-# State
-# File.open("#{Rails.root}/db/datafiles/State.csv") do |states|
-#   states.read.each_line do |state|
-#     state_name, state_abbrev = state.chomp.split(",")
-#     State.create!(:state_name=>state_name, :state_abbrev=>state_abbrev)
-#   end
-# end
+ State
+ File.open("#{Rails.root}/db/datafiles/State.csv") do |states|
+   states.read.each_line do |state|
+    state_name, state_abbrev = state.chomp.split(",")
+     State.create!(:state_name=>state_name, :state_abbrev=>state_abbrev)
+ end
+end
 
 # Country Also needs to be added onto ERD | Luke, Mar 3, 2017
 # File.open("#{Rails.root}/db/datafiles/Country.csv") do |countries|
