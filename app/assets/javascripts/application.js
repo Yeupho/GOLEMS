@@ -14,10 +14,29 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 
 jQuery(function($) {
     $(document).on('click', "tr", function() {
-        window.location = $(this).data("link")
+        window.location = $(this).data("link");
+    });
+
+});
+
+$(document).ready(function(){
+    $('#phone').mask("(999) 999-9999");
+});
+
+jQuery(function($) {
+    $(document).on('click', ".timepicker", function () {
+        $(this).datetimepicker = format('LT');
+    });
+});
+
+jQuery(function($) {
+    $(document).on('click', "#datepicker", function () {
+        $(this).datetimepicker = format('MMMM D');
     });
 });
