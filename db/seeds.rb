@@ -90,7 +90,7 @@ end
 # ===================================================================================
 
 #Employee
-File.open("#{Rails.root}/db/datafiles/Emp.csv") do |employees|
+File.open("#{Rails.root}/db/datafiles/Employee.csv") do |employees|
   employees.read.each_line do |employee|
     first_name, last_name, email, phone, address, city, state_id, zipcode, country_id,
         comment, employee_status_id= employee.chomp.split(",")

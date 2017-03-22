@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
+  resources :change_columns
+  get 'pickups/index'
+
   root 'dashboards#index'
+
+  get 'events/index'
+
+  get 'customers/index'
+
+  get 'dashboards/index'
+
+  get 'employees/index'
+
+  get 'layouts/new_release' => 'layout#new_release', :as => :new_release
+  get 'pickups/index'
 
   resources :customer_event_products
   resources :customer_events
@@ -22,16 +36,6 @@ Rails.application.routes.draw do
   resources :web_form
   resources :dashboards
   resources :pickups
-
-  get 'events/index'
-
-  get 'customers/index'
-
-  get 'dashboards/index'
-
-  get 'employees/index'
-
-  get 'pickups/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

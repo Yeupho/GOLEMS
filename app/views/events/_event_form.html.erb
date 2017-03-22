@@ -1,0 +1,79 @@
+<%= form_for(event) do |f| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="row"><h4 class="col-lg-10 col-lg-offset-1">Event</h4></div>
+
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-1"><%= f.text_field :event_name, placeholder: "Event", class: "form-control" %></div>
+      <div class="col-lg-4"><%= f.collection_select(:event_type_id, EventType.all, :id, :event_type_desc, {prompt: "Event Category"}, {class: "form-control"}) %></div>
+    </div>
+
+    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Date</h4></div>
+
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1">
+        <div class='input-group' id='datepicker'>
+          <%= f.text_field :event_date, date: {behaviour: "datepicker"}, class: "form-control" %>
+          <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Time</h4></div>
+
+    <div class="row">
+      <div class='col-lg-5 col-lg-offset-1'>
+        <div class='input-group timepicker'>
+          <%= f.text_field :start_time, date: {behaviour: "datepicker"}, class: "form-control" %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-time"></span>
+
+            </span>
+        </div>
+      </div>
+
+      <div class='col-lg-5'>
+        <div class='input-group timepicker'>
+          <%= f.text_field :end_time, date: {behaviour: "datepicker"}, class: "form-control" %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-time"></span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Color</h4></div>
+
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1">
+        <%= f.number_field :color_id %>
+      </div>
+    </div>
+
+    <br><div class="row"><h4 class="row col-lg-10 col-lg-offset-1">Description</h4></div>
+
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1"><%= f.text_area :event_description, rows: "3", class: "form-control" %></div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="actions col-lg-offset-7">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </div>
+<% end %>

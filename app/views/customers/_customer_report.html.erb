@@ -44,7 +44,7 @@
             <tr data-link="<%= customer_path(customer) %>">
               <td><%= customer.first_name %></td>
               <td><%= customer.last_name %></td>
-              <td><%= customer.phone %></td>
+              <td><%= number_to_phone(customer.phone, area_code: true) %></td>
               <td><%= customer.email %></td>
             </tr>
         <% end %>

@@ -14,11 +14,11 @@
         <div id="sidebar-wrapper">
           <span class="glyphicon glyphicon-home sidebar-logo"></span>
           <ul class="sidebar-nav" data-spy="affix">
-            <li><%= link_to '<span class="glyphicon glyphicon-home"> Dashboard</span>'.html_safe, dashboards_path%></li>
-            <li><%= link_to '<span class="glyphicon glyphicon-heart"> Event</span>'.html_safe, events_path%></li>
-            <li><%= link_to '<span class="glyphicon glyphicon-user"> Customer</span>'.html_safe, customers_path%></li>
-            <li><%= link_to '<span class="glyphicon glyphicon-user"> Employee</span>'.html_safe, employees_path%></li>
-            <li><%= link_to '<span class="glyphicon glyphicon-user"> Pickup</span>'.html_safe, pickups_path%></li>
+            <li><%= link_to '<span class="glyphicon glyphicon-stats"> Dashboard</span>'.html_safe, dashboards_path%></li>
+            <li><%= link_to '<span class="glyphicon glyphicon-calendar"> Event</span>'.html_safe, events_path%></li>
+            <li><%= link_to '<span class="glyphicon glyphicon-shopping-cart"> Customer</span>'.html_safe, customers_path%></li>
+            <li><%= link_to '<span class="glyphicon glyphicon-briefcase"> Employee</span>'.html_safe, employees_path%></li>
+            <li><%= link_to '<span class="glyphicon glyphicon-gift"> Pickup</span>'.html_safe, new_release_path, data: {toggle: "modal", target: "#pickupModal"} %></li>
           </ul>
         </div>
 
@@ -27,6 +27,21 @@
             <%= yield %>
           </div>
         </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="pickupModal" tabindex="-1" role="dialog" aria-labelledby="pickupLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="pickupLabel">Choose a Pick-Up Report</h4>
+        </div>
+        <div class="modal-body">
+          <%= render 'pickup_switch' %>
+        </div>
+      </div>
+    </div>
   </div>
 
   </body>
