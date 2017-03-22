@@ -63,28 +63,28 @@ StatusList.each do |name|
 end
 
 # State
-# File.open("#{Rails.root}/db/datafiles/State.csv") do |states|
-#   states.read.each_line do |state|
-#     state_name, state_abbrev = state.chomp.split(",")
-#     State.create!(:state_name=>state_name, :state_abbrev=>state_abbrev)
-#   end
-# end
+File.open("#{Rails.root}/db/datafiles/State.csv") do |states|
+  states.read.each_line do |state|
+    state_name, state_abbrev = state.chomp.split(",")
+    State.create!(:state_name=>state_name, :state_abbrev=>state_abbrev)
+  end
+end
 
 # Country Also needs to be added onto ERD | Luke, Mar 3, 2017
-# File.open("#{Rails.root}/db/datafiles/Country.csv") do |countries|
-#   countries.read.each_line do |country|
-#     country_name, country_abbrev = country.chomp.split(",")
-#     Country.create!(:country_name=>country_name, :country_abbrev=>country_abbrev)
-#   end
-# end
+File.open("#{Rails.root}/db/datafiles/Country.csv") do |countries|
+  countries.read.each_line do |country|
+    country_name, country_abbrev = country.chomp.split(",")
+    Country.create!(:country_name=>country_name, :country_abbrev=>country_abbrev)
+  end
+end
 
-# # Color
-# File.open("#{Rails.root}/db/datafiles/Color.csv") do |colors|
-#   colors.read.each_line do |color|
-#     color_code, color_name = color.chomp.split(",")
-#     Color.create!(:color_code=>color_code, :color_name=>color_name)
-#   end
-# end
+# Color
+File.open("#{Rails.root}/db/datafiles/Color.csv") do |colors|
+  colors.read.each_line do |color|
+    color_code, color_name = color.chomp.split(",")
+    Color.create!(:color_code=>color_code, :color_name=>color_name)
+  end
+end
 # ===================================================================================
 # ================ Non-associative Tables (Comes Second) ============================
 # ===================================================================================
@@ -101,18 +101,26 @@ File.open("#{Rails.root}/db/datafiles/Emp.csv") do |employees|
 end
 
 # Customer
-
+File.open("#{Rails.root}/db/datafiles/Customer.csv") do |customers|
+  customers.read.each_line do |customer|
+    first_name, last_name, email, phone, address, city, state_id, zipcode, country_id,
+        comment, customer_status_id= customer.chomp.split(",")
+    Customer.create!(:first_name=>first_name, :last_name=>last_name, :email=>email, :phone=>phone, :address=>address,
+                     :city=> city, :state_id=>state_id, :zipcode=>zipcode, :country_id=>country_id,
+                     :comment=>comment, :customer_status_id=>customer_status_id)
+  end
+end
 
 # Event
-# File.open("#{Rails.root}/db/datafiles/Event.csv") do |events|
-#   events.read.each_line do |event|
-#     event_name, event_date, start_time, end_time, event_type_id, color_id,
-#         event_status_id, event_description = event.chomp.split(",")
-#     Employee.create!(:event_name=>event_name, :event_date=>event_date, :start_time=>start_time, :end_time=>end_time,
-#                     :event_type_id=>event_type_id, :color_id=>color_id, :event_status_id=>event_status_id,
-#                     :event_description=>event_description)
-#   end
-# end
+File.open("#{Rails.root}/db/datafiles/Event.csv") do |events|
+  events.read.each_line do |event|
+    event_name, event_date, start_time, end_time, event_type_id, color_id,
+        event_status_id, event_description = event.chomp.split(",")
+    Event.create!(:event_name=>event_name, :event_date=>event_date, :start_time=>start_time, :end_time=>end_time,
+                    :event_type_id=>event_type_id, :color_id=>color_id, :event_status_id=>event_status_id,
+                    :event_description=>event_description)
+  end
+end
 
 # Product
 File.open("#{Rails.root}/db/datafiles/Product.csv") do |products|
@@ -136,8 +144,22 @@ File.open("#{Rails.root}/db/datafiles/Position.csv") do |positions|
 end
 
 # Employee Event
+File.open("#{Rails.root}/db/datafiles/EmployeeEvent.csv") do |employee_events|
+  employee_events.read.each_line do |employee_event|
+    employee_id, event_id = employee_event.chomp.split(",")
+    EmployeeEvent.create!(:employee_id=>employee_id, :event_id=>event_id)
+  end
+end
 
 # Customer Event
+File.open("#{Rails.root}/db/datafiles/CustomerEvent.csv") do |customer_events|
+  customer_events.read.each_line do |customer_event|
+    event_id, customer_id, number_in_party, adults_painting,
+        kids_painting, deposit = customer_event.chomp.split(",")
+    CustomerEvent.create!(:event_id=>event_id, :customer_id=>customer_id, :number_in_party=>number_in_party,
+    :adults_painting=>adults_painting, :kids_painting=>kids_painting, :deposit=>deposit)
+  end
+end
 
 # Customer Event Product | Josh will revamp this one.
 File.open("#{Rails.root}/db/datafiles/CEP.csv") do |customer_event_products|
