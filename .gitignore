@@ -9,8 +9,6 @@
 # Ignore .idea folder
 .idea/
 
-# Ignore .idea
-.idea/
 
 # Ignore all logfiles and tempfiles.
 /log/*
