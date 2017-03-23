@@ -12,7 +12,6 @@ class CreateEmployees < ActiveRecord::Migration[5.0]
       t.integer :country_id
       t.text :comment
       t.integer :employee_status_id
-      t.boolean :archive, :default =>false
 
       t.timestamps
     end
