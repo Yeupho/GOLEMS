@@ -21,6 +21,7 @@
         <div class="col-lg-1 col-lg-offset-1">
           <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#newModal">
             <span class="glyphicon glyphicon-plus"></span>
+            <br>
             New Customer
           </button>
         </div>
@@ -53,13 +54,10 @@
       </table>
     </div>
 
-    <div class="imaginary_container">
-      <nav aria-label="...">
-        <ul class="pager">
-          <li class="previous"><a class="btn-previous" href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
-          <li class="next"><a class="btn-next" href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
-        </ul>
-      </nav>
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-4">
+        <%= will_paginate @customers %>
+      </div>
     </div>
 
   </div>
