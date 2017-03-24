@@ -21,6 +21,7 @@
         <div class="col-lg-1 col-lg-offset-1">
           <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#newModal">
             <span class="glyphicon glyphicon-plus"></span>
+            <br>
             New Employee
           </button>
         </div>
@@ -46,6 +47,7 @@
               <td><%= employee.last_name %></td>
               <td><%= number_to_phone(employee.phone, area_code: true) %></td>
               <td><%= employee.email %></td>
+              <td><%= link_to 'Archive', employee, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
         </tbody>

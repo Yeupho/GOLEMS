@@ -23,7 +23,7 @@
         <td><%= customer_event_product.pickup_status_id %></td>
         <td><%= link_to 'Show', customer_event_product %></td>
         <td><%= link_to 'Edit', edit_customer_event_product_path(customer_event_product) %></td>
-        <td><%= link_to 'Destroy', customer_event_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Archive', customer_event_product, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
