@@ -16,6 +16,7 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
+//= require fullcalendar
 //= require_tree .
 
 jQuery(function($) {
@@ -23,20 +24,12 @@ jQuery(function($) {
         window.location = $(this).data("link");
     });
 
-});
-
-$(document).ready(function(){
-    $('#phone').mask("(999) 999-9999");
-});
-
-jQuery(function($) {
-    $(document).on('click', ".timepicker", function () {
-        $(this).datetimepicker = format('LT');
+    $(window).load(function(){
+        $('#calendar').fullCalendar({
+            height: 500
+        });
     });
+
 });
 
-jQuery(function($) {
-    $(document).on('click', "#datepicker", function () {
-        $(this).datetimepicker = format('MMMM D');
-    });
-});
+

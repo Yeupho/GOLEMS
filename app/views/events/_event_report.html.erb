@@ -18,7 +18,7 @@
 
         <tbody>
         <% @events.each do |event| %>
-            <tr data-link="<%= customer_path(event) %>">
+            <tr data-link="<%= event_path(event) %>">
               <td><%= event.event_name %></td>
               <td><%= event.start_time.strftime("%l:%M %p") %> - <%= event.end_time.strftime("%l:%M %p") %></td>
               <td><%= event.event_type_id %></td>

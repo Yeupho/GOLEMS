@@ -1,6 +1,7 @@
 @import 'bootstrap-sprockets'
 @import 'bootstrap'
 @import 'bootstrap-datetimepicker'
+@import 'fullcalendar'
 
 $white: #FFFFFF
 $white-smoke: #F7F5F5
@@ -24,8 +25,8 @@ body
   padding-right: 0 !important
   padding-left: 15px !important
 
-.pager
-  margin: 0 !important
+.btn
+  font-size: 16px !important
 
 /***************************************************/
 /*                    Login                        */
@@ -184,15 +185,5 @@ body
   background: linear-gradient(to bottom right, $celestial)
   color: $white-smoke
 
-.btn-previous, .btn-next
-  background: linear-gradient(to bottom right, $celestial)
-  color: $white-smoke
-  box-shadow: 0px 1px 5px -1px rgba(0,0,0,.1)
-  &:hover
-    box-shadow: 0px 8px 10px -5px rgba(0,0,0,.2)
-    color: $white
-  &:focus
-    outline: 0 !important
-    background: linear-gradient(to bottom right, $celestial)
 
 
