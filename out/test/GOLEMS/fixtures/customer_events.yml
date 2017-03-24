@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_id: 1
+  customer_id: 1
+  number_in_party: 1
+  adults_painting: 1
+  kids_painting: 1
+  deposit: false
+  archive: false
+
+two:
+  event_id: 1
+  customer_id: 1
+  number_in_party: 1
+  adults_painting: 1
+  kids_painting: 1
+  deposit: false
+  archive: false
