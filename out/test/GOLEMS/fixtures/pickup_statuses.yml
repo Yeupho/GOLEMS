@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pickup_status_desc: MyString
+
+two:
+  pickup_status_desc: MyString

@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get 'layouts/new_release' => 'layout#new_release', :as => :new_release
   get 'pickups/index'
 
+  get 'archive' => 'archive#index'
+
+  resources :archive
   resources :customer_event_products
   resources :customer_events
   resources :employee_events

@@ -24,6 +24,7 @@
               <td><%= event.event_type_id %></td>
               <td></td>
               <td><%= event.color_id %></td>
+              <td><%= link_to 'Archive', event, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
         </tbody>

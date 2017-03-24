@@ -35,7 +35,7 @@ Position.destroy_all
 # Employee Type
 File.open("#{Rails.root}/db/datafiles/EmpType.csv") do |employee_types|
   employee_types.read.each_line do |employee_type|
-    employee_type_desc = employee_type.chomp.split(",")
+    employee_type_desc = employee_type
     EmployeeType.create!(:employee_type_desc=>employee_type_desc)
   end
 end
@@ -43,7 +43,7 @@ end
 # Event Type
 File.open("#{Rails.root}/db/datafiles/EventType.csv") do |event_types|
   event_types.read.each_line do |event_type|
-    event_type_desc = event_type.chomp.split(",")
+    event_type_desc = event_type
     EventType.create!(:event_type_desc=>event_type_desc)
   end
 end
@@ -161,12 +161,12 @@ File.open("#{Rails.root}/db/datafiles/CustomerEvent.csv") do |customer_events|
   end
 end
 
-# Customer Event Product | Josh will revamp this one.
+# Customer Event Product
 File.open("#{Rails.root}/db/datafiles/CEP.csv") do |customer_event_products|
   customer_event_products.read.each_line do |customer_event_product|
-    customer_event_id, product_id, quantity, pickup_status_id, archive= customer_event_product.chomp.split(",")
+    customer_event_id, product_id, quantity, pickup_status_id= customer_event_product.chomp.split(",")
     CustomerEventProduct.create!(:customer_event_id=>customer_event_id, :product_id=>product_id, :quantity=>quantity,
-                                 :pickup_status_id=>pickup_status_id, :archive=>archive )
+                                 :pickup_status_id=>pickup_status_id)
   end
 end
 

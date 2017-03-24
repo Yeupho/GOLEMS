@@ -12,7 +12,6 @@ class CreateCustomers < ActiveRecord::Migration[5.0]
       t.integer :country_id
       t.string :comment
       t.integer :customer_status_id
-      t.boolean :archive, :default =>false
 
       t.timestamps
     end
