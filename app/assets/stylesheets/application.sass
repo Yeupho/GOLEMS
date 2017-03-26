@@ -2,31 +2,39 @@
 @import 'bootstrap'
 @import 'bootstrap-datetimepicker'
 @import 'fullcalendar'
+@import 'jquery.simplecolorpicker.css'
+@import "jquery.simplecolorpicker-glyphicons.css"
 
 $white: #FFFFFF
 $white-smoke: #F7F5F5
-
 $celestial: #C33764 , #C33764, #1D2671
+$change: #4281A4
+
+@import 'buttons'
 
 body
   background: $white-smoke
   font-family: 'Roboto', Sans-Serif
 
 .imaginary_container
-  margin-top: 1.8%
+  margin-top: 1.6%
 
 #page-content-wrapper
   width: 100%
   position: absolute
+  height: 100%
   padding: 15px
   padding-left: 12%
+  overflow: auto
 
 .container-fluid
   padding-right: 0 !important
   padding-left: 15px !important
 
-.btn
-  font-size: 16px !important
+
+.footer
+  padding: 15px
+  border-top: 1px solid #E5E5E5
 
 /***************************************************/
 /*                    Login                        */
@@ -160,30 +168,18 @@ body
 /***************************************************/
 /*                    Table                        */
 /***************************************************/
-.new-tbl-btn
-  width: 50px
-  height: 50px
-  padding: 10px 16px
-  font-size: 12px
-  line-height: 2.2
-  border-radius: 25px
-  color: $white
-  cursor: pointer
-  transition: all ease-in-out 300ms
-  background: linear-gradient(to bottom right, $celestial)
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,.2)
-  &:hover
-    box-shadow: 0px 9px 10px -2px rgba(0,0,0,.3)
-    color: $white
-  &:focus
-    outline: 0 !important
-    background: linear-gradient(to bottom right, $celestial)
-
 
 .panel > .panel-heading
   background-image: none
   background: linear-gradient(to bottom right, $celestial)
   color: $white-smoke
+
+.simplecolorpicker
+  min-width: 200px
+  border: 1px solid #E5E5E5
+
+.color
+  min-width: 25px
 
 
 

@@ -17,7 +17,7 @@ class CustomerEventProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create customer_event_product" do
     assert_difference('CustomerEventProduct.count') do
-      post customer_event_products_url, params: { customer_event_product: { archive: @customer_event_product.archive, customer_event_id: @customer_event_product.customer_event_id, pickup_status_id: @customer_event_product.pickup_status_id, product_id: @customer_event_product.product_id, quantity: @customer_event_product.quantity } }
+      post customer_event_products_url, params: { customer_event_product: {archive: @customer_event_product.archive, customer_event_id: @customer_event_product.customer_event_id, pickup_status_id: @customer_event_product.pickup_status_id, product_id: @customer_event_product.product_id, quantity: @customer_event_product.quantity } }
     end
 
     assert_redirected_to customer_event_product_url(CustomerEventProduct.last)
@@ -34,7 +34,7 @@ class CustomerEventProductsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update customer_event_product" do
-    patch customer_event_product_url(@customer_event_product), params: { customer_event_product: { archive: @customer_event_product.archive, customer_event_id: @customer_event_product.customer_event_id, pickup_status_id: @customer_event_product.pickup_status_id, product_id: @customer_event_product.product_id, quantity: @customer_event_product.quantity } }
+    patch customer_event_product_url(@customer_event_product), params: { customer_event_product: {archive: @customer_event_product.archive, customer_event_id: @customer_event_product.customer_event_id, pickup_status_id: @customer_event_product.pickup_status_id, product_id: @customer_event_product.product_id, quantity: @customer_event_product.quantity } }
     assert_redirected_to customer_event_product_url(@customer_event_product)
   end
 

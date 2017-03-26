@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-
-
 <div class="page-header">
   <div class="row">
 
@@ -10,19 +8,9 @@
         <small></small>
       </h1>
     </div>
+
     <div class="col-lg-4">
-      <div class="row text-center">
-        <div class="col-lg-4">
-          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#editModal">
-            <span class="glyphicon glyphicon-edit"></span>
-            <br>
-            Edit
-          </button>
-        </div>
-        <div class="col-lg-4">
-          <%= link_to '<span class="glyphicon glyphicon-remove-sign"><br>Back</span>'.html_safe, customers_path, class: "btn btn-primary btn-md", :method => :get %>
-        </div>
-      </div>
+      <%= render 'customers/show/buttons' %>
     </div>
 
   </div>
@@ -33,6 +21,7 @@
     <div class="well">
 
       <div class="row">
+
         <div class="col-lg-4">
           <address>
             <strong>Address</strong><br>
@@ -57,6 +46,7 @@
             </p>
           </div>
         </div>
+
       </div>
 
       <div class="row">
@@ -78,26 +68,12 @@
     <%= @customer.customer_status_id %>
   </p>
 
-
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editCustomerLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editCustomerLabel">Update Employee</h4>
-      </div>
-      <div class="modal-body">
-        <%= render 'form', customer: @customer %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'customers/show/edit_modal' %>
 
 <div class="row">
-  <div class="col-lg-8">
+  <div class="col-lg-9">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
@@ -107,9 +83,9 @@
             </a>
           </h4>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
-            <%= render 'customer_progress' %>
+            <%= render 'customers/show/customer_progress' %>
           </div>
         </div>
       </div>
@@ -123,7 +99,7 @@
         </div>
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
           <div class="panel-body">
-            <%= render 'customer_ready' %>
+            <%= render 'customers/show/customer_ready' %>
           </div>
         </div>
       </div>
@@ -137,14 +113,14 @@
         </div>
         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
           <div class="panel-body">
-            <%= render 'customer_collected' %>
+            <%= render 'customers/show/customer_collected' %>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-lg-4">
+  <div class="col-lg-3">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h2 class="panel-title">Recent Transactions</h2>
