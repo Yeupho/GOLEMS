@@ -1,0 +1,12 @@
+<div class="row text-center">
+  <div class="col-lg-5">
+    <button type="button" class="btn btn-primary btn-md show-btn" data-toggle="modal" data-target="#editModal">
+      <span class="glyphicon glyphicon-edit"></span>
+      <br>
+      Edit
+    </button>
+  </div>
+  <div class="col-lg-5">
+    <%= link_to '<span class="glyphicon glyphicon-remove-sign"></span><br>Back'.html_safe, customers_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
+  </div>
+</div>
