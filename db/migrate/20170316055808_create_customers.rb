@@ -11,7 +11,7 @@ class CreateCustomers < ActiveRecord::Migration[5.0]
       t.integer :zipcode
       t.integer :country_id
       t.string :comment
-      t.integer :customer_status_id
+      t.integer :customer_status_id, :default=>1
 
       t.timestamps
     end

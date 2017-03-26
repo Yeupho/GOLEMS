@@ -49,8 +49,8 @@ File.open("#{Rails.root}/db/datafiles/EventType.csv") do |event_types|
 end
 
 # Pickup Status
-  PickupStatus.create([{ pickup_status_desc: 'Not Ready' }, { pickup_status_desc: 'In Kiln' },
-                      { pickup_status_desc: 'Ready for Pickup' }])
+  PickupStatus.create([{ pickup_status_desc: 'Not Ready' }, { pickup_status_desc: 'Ready' },
+                      { pickup_status_desc: 'Picked Up' }])
 # Product Types
   ProductType.create([{ product_type_desc: 'Bisque' }, { product_type_desc: 'Glass' }])
 
