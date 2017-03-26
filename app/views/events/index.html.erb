@@ -1,29 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
+  <div class="col-lg-3 col-lg-offset-8">
+    <%= render 'events/index/buttons' %>
+  </div>
+</div>
+
+<div class="imaginary_container">
+  <div class="row">
+    <div class="col-lg-10 col-lg-offset-1">
+      <%= render 'events/index/calendar' %>
+    </div>
+  </div>
+
   <div class="imaginary_container">
-
-    <div class="col-lg-1 col-lg-offset-9">
-      <%= link_to '<span class="glyphicon glyphicon-plus">New Event</span>'.html_safe, new_event_path, class: "btn btn-default", :method => :get %>
+    <div class="row">
+      <div class="col-lg-12">
+        <%= render 'events/index/event_report' %>
+      </div>
     </div>
+  </div>
 
-    <div class="col-lg-1">
-      <%= link_to '<span class="glyphicon glyphicon-plus">New Walk-In</span>'.html_safe, new_customer_path, class: "btn btn-default", :method => :get %>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <%= render 'events/index/walk_in_report' %>
     </div>
-
   </div>
 </div>
-
-<div class="row">
-  <div class="col-lg-12">
-    <%= render 'event_report' %>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-lg-12">
-    <%= render 'walkin_report' %>
-  </div>
-</div>
-

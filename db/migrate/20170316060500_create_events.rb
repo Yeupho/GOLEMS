@@ -7,9 +7,8 @@ class CreateEvents < ActiveRecord::Migration[5.0]
       t.time :end_time
       t.integer :event_type_id
       t.integer :color_id
-      t.integer :event_status_id
+      t.integer :event_status_id, :default=>1
       t.string :event_description
-      t.boolean :archive, :default =>false
 
       t.timestamps
     end

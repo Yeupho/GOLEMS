@@ -14,10 +14,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
+//= require fullcalendar
+//= require jquery.simplecolorpicker.js
 //= require_tree .
 
 jQuery(function($) {
     $(document).on('click', "tr", function() {
-        window.location = $(this).data("link")
+        window.location = $(this).data("link");
     });
+
+    $(window).load(function(){
+        $('#calendar').fullCalendar({
+            height: 500
+        });
+    });
+
 });
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316060924) do
+ActiveRecord::Schema.define(version: 20170323193958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,9 +34,10 @@ ActiveRecord::Schema.define(version: 20170316060924) do
     t.integer  "product_id"
     t.integer  "quantity"
     t.integer  "pickup_status_id"
-    t.boolean  "archive",           default: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_customer_event_products_on_deleted_at", using: :btree
   end
 
   create_table "customer_events", force: :cascade do |t|
@@ -46,9 +47,10 @@ ActiveRecord::Schema.define(version: 20170316060924) do
     t.integer  "adults_painting"
     t.integer  "kids_painting"
     t.boolean  "deposit"
-    t.boolean  "archive",         default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_customer_events_on_deleted_at", using: :btree
   end
 
   create_table "customer_statuses", force: :cascade do |t|
@@ -61,7 +63,7 @@ ActiveRecord::Schema.define(version: 20170316060924) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "address"
     t.string   "city"
     t.integer  "state_id"
@@ -69,17 +71,19 @@ ActiveRecord::Schema.define(version: 20170316060924) do
     t.integer  "country_id"
     t.string   "comment"
     t.integer  "customer_status_id"
-    t.boolean  "archive",            default: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_customers_on_deleted_at", using: :btree
   end
 
   create_table "employee_events", force: :cascade do |t|
     t.integer  "employee_id"
     t.integer  "event_id"
-    t.boolean  "archive",     default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_employee_events_on_deleted_at", using: :btree
   end
 
   create_table "employee_statuses", force: :cascade do |t|
@@ -98,7 +102,7 @@ ActiveRecord::Schema.define(version: 20170316060924) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "address"
     t.string   "city"
     t.integer  "state_id"
@@ -106,9 +110,10 @@ ActiveRecord::Schema.define(version: 20170316060924) do
     t.integer  "country_id"
     t.text     "comment"
     t.integer  "employee_status_id"
-    t.boolean  "archive",            default: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
   end
 
   create_table "event_statuses", force: :cascade do |t|
@@ -132,9 +137,10 @@ ActiveRecord::Schema.define(version: 20170316060924) do
     t.integer  "color_id"
     t.integer  "event_status_id"
     t.string   "event_description"
-    t.boolean  "archive",           default: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_events_on_deleted_at", using: :btree
   end
 
   create_table "pickup_statuses", force: :cascade do |t|
@@ -160,9 +166,10 @@ ActiveRecord::Schema.define(version: 20170316060924) do
     t.string   "product_name"
     t.decimal  "product_price"
     t.integer  "product_type_id"
-    t.boolean  "archive",         default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_products_on_deleted_at", using: :btree
   end
 
   create_table "states", force: :cascade do |t|

@@ -17,7 +17,7 @@ class EmployeesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create employee" do
     assert_difference('Employee.count') do
-      post employees_url, params: { employee: { address: @employee.address, archive: @employee.archive, city: @employee.city, comment: @employee.comment, country_id: @employee.country_id, emai: @employee.emai, employee_status_id: @employee.employee_status_id, first_name: @employee.first_name, last_name: @employee.last_name, phone: @employee.phone, state_id: @employee.state_id, zipcode: @employee.zipcode } }
+      post employees_url, params: { employee: {address: @employee.address, archive: @employee.archive, city: @employee.city, comment: @employee.comment, country_id: @employee.country_id, emai: @employee.emai, employee_status_id: @employee.employee_status_id, first_name: @employee.first_name, last_name: @employee.last_name, phone: @employee.phone, state_id: @employee.state_id, zipcode: @employee.zipcode } }
     end
 
     assert_redirected_to employee_url(Employee.last)
@@ -34,7 +34,7 @@ class EmployeesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update employee" do
-    patch employee_url(@employee), params: { employee: { address: @employee.address, archive: @employee.archive, city: @employee.city, comment: @employee.comment, country_id: @employee.country_id, emai: @employee.emai, employee_status_id: @employee.employee_status_id, first_name: @employee.first_name, last_name: @employee.last_name, phone: @employee.phone, state_id: @employee.state_id, zipcode: @employee.zipcode } }
+    patch employee_url(@employee), params: { employee: {address: @employee.address, archive: @employee.archive, city: @employee.city, comment: @employee.comment, country_id: @employee.country_id, emai: @employee.emai, employee_status_id: @employee.employee_status_id, first_name: @employee.first_name, last_name: @employee.last_name, phone: @employee.phone, state_id: @employee.state_id, zipcode: @employee.zipcode } }
     assert_redirected_to employee_url(@employee)
   end
 

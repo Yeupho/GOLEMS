@@ -1,64 +1,69 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @employee.first_name %>
-</p>
+<div class="page-header">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1><%= @employee.first_name %> <%= @employee.last_name %>
+        <small></small>
+      </h1>
+    </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @employee.last_name %>
-</p>
+      <div class="col-lg-3">
+        <%= render 'employees/show/buttons' %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Emai:</strong>
-  <%= @employee.email %>
-</p>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="well">
 
-<p>
-  <strong>Phone:</strong>
-  <%= @employee.phone %>
-</p>
+      <div class="row">
+        <div class="col-lg-4">
+          <address>
+            <strong>Address</strong><br>
+            <%= @employee.address %><br>
+            <%= @employee.city %>, <%= @employee.state_id %> <%= @employee.zipcode %><br>
+            <%= @employee.country_id %>
+          </address>
+        </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @employee.address %>
-</p>
+        <div class="col-lg-4 col-lg-offset-4 text-center">
+          <div class="row">
+            <p>
+              <strong>Phone:</strong><br>
+              <%= number_to_phone(@employee.phone, area_code: true) %>
+            </p>
+          </div>
+          <br>
+          <div class="row">
+            <p>
+              <strong>Email</strong><br>
+              <%= @employee.email%>
+            </p>
+          </div>
+        </div>
+      </div>
 
-<p>
-  <strong>City:</strong>
-  <%= @employee.city %>
-</p>
+      <div class="row">
+        <div class="col-lg-12">
+          <p>
+            <strong>Comment:</strong><br>
+          <blockquote>
+            <%= @employee.comment %>
+          </blockquote>
+          </p>
+        </div>
+      </div>
 
-<p>
-  <strong>State:</strong>
-  <%= @employee.state_id %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @employee.zipcode %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @employee.country_id %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @employee.comment %>
-</p>
+    </div>
+  </div>
+</div>
 
 <p>
   <strong>Employee status:</strong>
   <%= @employee.employee_status_id %>
 </p>
 
-<p>
-  <strong>Archive:</strong>
-  <%= @employee.archive %>
-</p>
-
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+<%= render 'employees/show/edit_modal' %>

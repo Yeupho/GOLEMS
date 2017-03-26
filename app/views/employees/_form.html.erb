@@ -25,7 +25,7 @@
 
     <div class="row">
       <div class="col-lg-5 col-lg-offset-1"><%= f.text_field :city, placeholder: "City", class: "form-control" %></div>
-      <div class="col-lg-4 col-lg-offset-1"><%= f.number_field :state_id, placeholder: "State/Province", class: "form-control" %></div>
+      <div class="col-lg-4 col-lg-offset-1"><%= f.collection_select(:state_id, State.all, :id, :state_name, {prompt: "State/Province"}, {class: "form-control"}) %></div>
     </div>
 
     <br>
@@ -34,7 +34,7 @@
 
     <br>
 
-    <div class="row"><div class="col-lg-5 col-lg-offset-1"><%= f.number_field :country_id, placeholder: "Country", class: "form-control" %></div></div>
+    <div class="row"><div class="col-lg-5 col-lg-offset-1"><%= f.collection_select(:country_id, Country.all, :id, :country_name, {prompt: "Country"}, {class: "form-control"}) %></div></div>
 
     <br>
 
@@ -44,21 +44,23 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-4 col-lg-offset-1"><%= f.text_field :phone, placeholder: "Phone Number", class: "form-control" %></div>
+      <div class="col-lg-4 col-lg-offset-1"><%= f.text_field :phone, placeholder: "Phone Number", class: "form-control", id: "phone" %></div>
       <div class="col-lg-6"><%= f.text_field :email, placeholder: "Email", class: "form-control" %></div>
     </div>
 
     <br><div class="row"><h4 class="row col-lg-10 col-lg-offset-1">Notes</h4></div>
 
     <div class="row">
-      <div class="col-lg-10 col-lg-offset-1"><%= f.text_area :comment, rows: "4", class: "form-control" %></div>
+      <div class="col-lg-10 col-lg-offset-1"><%= f.text_area :comment, rows: "3", class: "form-control" %></div>
     </div>
 
-    <hr>
+    <br>
 
-    <div class="row">
-      <div class="actions col-lg-offset-7">
+    <div class="row footer">
+      <div class="col-lg-3 col-lg-offset-5 text-right">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+      <div class="col-lg-4 text-left">
         <%= f.submit class: "btn btn-primary" %>
       </div>
     </div>

@@ -4,15 +4,14 @@ class CreateEmployees < ActiveRecord::Migration[5.0]
       t.string :first_name
       t.string :last_name
       t.string :email
-      t.integer :phone
+      t.string :phone
       t.string :address
       t.string :city
       t.integer :state_id
       t.integer :zipcode
       t.integer :country_id
       t.text :comment
-      t.integer :employee_status_id
-      t.boolean :archive, :default =>false
+      t.integer :employee_status_id, :default=>1
 
       t.timestamps
     end

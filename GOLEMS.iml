@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RUBY_MODULE" version="4">
+  <component name="CompassSettings">
+    <option name="compassExecutableFilePath" value="$USER_HOME$/.rbenv/versions/2.3.2/lib/ruby/gems/2.3.0/gems/compass-1.0.3/bin/compass" />
+    <option name="importPaths">
+      <list>
+        <option value="$USER_HOME$/.rbenv/versions/2.3.2/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets" />
+      </list>
+    </option>
+  </component>
   <component name="FacetManager">
     <facet type="RailsFacetType" name="Ruby on Rails">
       <configuration>
@@ -34,6 +42,7 @@
     <orderEntry type="library" scope="PROVIDED" name="autoprefixer-rails (v6.7.7, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v3.3.7, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, ruby-2.3.3-p222) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.14.6, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.2.1, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.4.1, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.12.2, ruby-2.3.3-p222) [gem]" level="application" />
@@ -57,8 +66,6 @@
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.12.1, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.0.0, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.7.0.1, ruby-2.3.3-p222) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="pg (v0.19.0, ruby-2.3.3-p222) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="puma (v3.7.1, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v2.0.1, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.3, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails (v5.0.2, ruby-2.3.3-p222) [gem]" level="application" />
@@ -76,12 +83,10 @@
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.2.0, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v0.19.4, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, ruby-2.3.3-p222) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tilt (v2.0.6, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbolinks (v5.0.1, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="turbolinks-source (v5.0.0, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v1.2.2, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo-data (v1.2017.1, ruby-2.3.3-p222) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="uglifier (v3.1.4, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v3.4.0, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.6.5, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.2, ruby-2.3.3-p222) [gem]" level="application" />
