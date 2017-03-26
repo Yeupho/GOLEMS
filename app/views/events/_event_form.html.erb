@@ -58,7 +58,7 @@
 
     <div class="row">
       <div class="col-lg-10 col-lg-offset-1">
-        <%= f.number_field :color_id %>
+        <%= select_tag :color_id, options_for_select(Color.all.collect{ |c| [c.color_name, c.color_code]}) %>
       </div>
     </div>
 
@@ -68,11 +68,13 @@
       <div class="col-lg-10 col-lg-offset-1"><%= f.text_area :event_description, rows: "3", class: "form-control" %></div>
     </div>
 
-    <hr>
+    <br>
 
-    <div class="row">
-      <div class="actions col-lg-offset-7">
+    <div class="row footer">
+      <div class="col-lg-3 col-lg-offset-5 text-right">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+      <div class="col-lg-4 text-left">
         <%= f.submit class: "btn btn-primary" %>
       </div>
     </div>
@@ -87,7 +89,15 @@
 
     $(function() {
         $('#datepicker').datetimepicker({
-            format: 'MMMM D'
+            format: 'MMMM D, YYYY',
+            daysOfWeekDisabled: [2]
         });
+    });
+
+    $(document).ready(function() {
+        $('#color_id').on('click', function() {
+            $('select[name="color_id"]').simplecolorpicker({picker: true, theme: 'glyphicons'});
+        });
+        $('#color_id').trigger('click');
     });
 </script>

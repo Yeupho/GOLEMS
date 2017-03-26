@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   acts_as_paranoid
+
   has_many :customer_events
   has_many :customers, :through => :customer_events
   has_many :employee_events

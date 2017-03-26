@@ -61,3 +61,5 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'will_paginate', '~> 3.0'
 
 gem 'fullcalendar-rails'
+
+gem 'jquery-simplecolorpicker-rails'

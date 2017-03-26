@@ -17,6 +17,7 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require fullcalendar
+//= require jquery.simplecolorpicker.js
 //= require_tree .
 
 jQuery(function($) {

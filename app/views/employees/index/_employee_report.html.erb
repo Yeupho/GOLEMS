@@ -5,8 +5,6 @@
   <div class="panel-body">
 
     <div class="row">
-      <div class="imaginary_container">
-
         <div class="col-lg-8 col-lg-offset-1">
           <div class="input-group stylish-input-group">
             <input type="text" class="form-control" placeholder="Search">
@@ -25,8 +23,6 @@
             New Employee
           </button>
         </div>
-
-      </div>
     </div>
 
     <div class="imaginary_container">
@@ -37,6 +33,7 @@
           <th>Last Name</th>
           <th>Phone</th>
           <th>Email</th>
+          <th></th>
         </tr>
         </thead>
 
@@ -55,29 +52,7 @@
       </table>
     </div>
 
-    <div class="imaginary_container">
-      <nav aria-label="...">
-        <ul class="pager">
-          <li class="previous"><a class="btn-previous" href="#"><span aria-hidden="true">&larr;</span> Previous</a></li>
-          <li class="next"><a class="btn-next" href="#">Next <span aria-hidden="true">&rarr;</span></a></li>
-        </ul>
-      </nav>
-    </div>
-
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="newEmployeeLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="newEmployeeLabel">New Employee</h4>
-      </div>
-      <div class="modal-body">
-        <%= render 'form', employee: @employee %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'employees/index/new_modal' %>
