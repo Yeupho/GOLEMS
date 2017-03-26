@@ -1,0 +1,58 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Employee</h2>
+  </div>
+  <div class="panel-body">
+
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-1">
+          <div class="input-group stylish-input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-addon">
+                    <button type="submit">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+          </div>
+        </div>
+
+        <div class="col-lg-1 col-lg-offset-1">
+          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#newModal">
+            <span class="glyphicon glyphicon-plus"></span>
+            <br>
+            New Employee
+          </button>
+        </div>
+    </div>
+
+    <div class="imaginary_container">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @employees.each do |employee| %>
+            <tr data-link="<%= employee_path(employee) %>">
+              <td><%= employee.first_name %></td>
+              <td><%= employee.last_name %></td>
+              <td><%= number_to_phone(employee.phone, area_code: true) %></td>
+              <td><%= employee.email %></td>
+              <td><%= link_to 'Archive', employee, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<%= render 'employees/index/new_modal' %>

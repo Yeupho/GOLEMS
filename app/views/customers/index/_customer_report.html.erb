@@ -1,0 +1,47 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Customer</h2>
+  </div>
+  <div class="panel-body">
+    <%= render 'customers/index/table_tools' %>
+
+    <div class="imaginary_container">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @customers.each do |customer| %>
+            <tr data-link="<%= customer_path(customer) %>">
+              <td><%= customer.first_name %></td>
+              <td><%= customer.last_name %></td>
+              <td><%= number_to_phone(customer.phone, area_code: true) %></td>
+              <td><%= customer.email %></td>
+              <td><%= link_to 'Archive', customer, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row text-center">
+      <div class="col-lg-3 col-lg-offset-4">
+        <%= will_paginate @customers %>
+        <% if @customers.length > 0 && @customers.total_pages > 1 %>
+            <div class="page_info">
+              <%= page_entries_info @customers %>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'customers/index/new_modal' %>
