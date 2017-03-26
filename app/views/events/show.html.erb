@@ -1,7 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <div class="page-header">
-  <h1><%= @event.event_name %></h1>
+  <div class="row">
+
+    <div class="col-lg-8">
+      <h1><%= @event.event_name %>
+        <small></small>
+      </h1>
+    </div>
+    <div class="col-lg-4">
+      <div class="row text-center">
+        <div class="col-lg-5">
+          <button type="button" class="btn btn-primary btn-md show-btn" data-toggle="modal" data-target="#editModal">
+            <span class="glyphicon glyphicon-edit"></span>
+            <br>
+            Edit
+          </button>
+        </div>
+        <div class="col-lg-5">
+          <%= link_to '<span class="glyphicon glyphicon-remove-sign"></span><br>Back'.html_safe, events_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <div class="row">
@@ -59,20 +81,6 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg-1 col-lg-offset-4">
-    <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#editModal">
-      <span class="glyphicon glyphicon-edit"></span>
-      <br>
-      Edit
-    </button>
-  </div>
-
-  <div class="col-lg-1">
-    <%= link_to '<span class="glyphicon glyphicon-remove-sign"><br>Back</span>'.html_safe, events_path, class: "btn btn-primary btn-md", :method => :get %>
-  </div>
-</div>
-
 <p>
   <strong>Event status:</strong>
   <%= @event.event_status_id %>
@@ -83,18 +91,4 @@
   <%= @event.event_description %>
 </p>
 
-
-<!-- Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editEventLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editEventLabel">Update Employee</h4>
-      </div>
-      <div class="modal-body">
-        <%= render 'event_form', event: @event %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'events/show/edit_modal' %>
