@@ -20,7 +20,17 @@
     <%= f.label :color_name %>
     <%= f.text_field :color_name %>
   </div>
-
+  <div>
+      <script>
+          $(".basic").spectrum();
+          $(".override").spectrum({
+              color: "yellow"
+          });
+          (".startEmpty").spectrum({
+              allowEmpty: true
+          });
+      </script>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
