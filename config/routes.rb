@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   get 'archive' => 'archive#index'
 
   resources :archive
-  resources :customer_event_products
-  resources :customer_events
+  resources :customer_events do
+    resources :customer_event_products, except: [:index, :show]
+  end
   resources :employee_events
   resources :events
   resources :products
