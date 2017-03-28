@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
+<%= form_tag customer_events_path, method: :get do %>
+    <%= text_field_tag 'search[date_from]', @search.date_from %>
+    <%= text_field_tag 'search[date_to]', @search.date_to %>
+    <%= submit_tag 'Search' %>
+<% end %>
+
 
 <h1>Customer Events</h1>
 
@@ -6,6 +12,7 @@
   <thead>
     <tr>
       <th>Event</th>
+      <th>Event Date</th>
       <th>Customer</th>
       <th>Number in party</th>
       <th>Adults painting</th>
@@ -19,8 +26,9 @@
   <tbody>
     <% @customer_events.each do |customer_event| %>
       <tr>
-        <td><%= customer_event.event_id %></td>
-        <td><%= customer_event.customer_id %></td>
+        <td><%= customer_event.event.event_name %></td>
+        <td><%= customer_event.event.event_date %></td>
+        <td><%= customer_event.customer.first_name %></td>
         <td><%= customer_event.number_in_party %></td>
         <td><%= customer_event.adults_painting %></td>
         <td><%= customer_event.kids_painting %></td>
