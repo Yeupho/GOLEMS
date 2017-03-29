@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @event = Event.new
+    @customer_event = CustomerEvent.new
     @walk_in = CustomerEvent.find_by_sql("SELECT * FROM customer_events ce JOIN events e ON e.id = ce.event_id WHERE e.event_type_id = '7' ORDER BY e.start_time ASC")
   end
 

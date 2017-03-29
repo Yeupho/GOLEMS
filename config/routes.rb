@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
   get 'archive' => 'archive#index'
 
+  match '/customer_events/create' => 'customer_events#create', via: [:get, :post], :as => :create_customer_event
+  match '/customers/create' => 'customers#create', via: [:get, :post], :as => :create_customer
+
   resources :archive
   resources :customer_event_products
   resources :customer_events
