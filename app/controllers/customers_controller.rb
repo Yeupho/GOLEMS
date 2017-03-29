@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy, :restore]
 
   # GET /customers
   # GET /customers.json
@@ -62,6 +62,10 @@ class CustomersController < ApplicationController
     end
   end
 
+  def restore
+    @customer.restore
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
@@ -70,6 +74,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:first_name, :last_name, :email, :phone, :address, :city, :state_id, :zipcode, :country_id, :comment, :customer_status_id, :archive)
+      params.require(:customer).permit(:first_name, :last_name, :email, :phone, :address, :city, :state_id, :zipcode, :country_id, :comment, :customer_status_id)
     end
 end
