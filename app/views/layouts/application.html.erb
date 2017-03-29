@@ -19,6 +19,7 @@
             <li><%= link_to '<span class="glyphicon glyphicon-shopping-cart"> Customer</span>'.html_safe, customers_path%></li>
             <li><%= link_to '<span class="glyphicon glyphicon-briefcase"> Employee</span>'.html_safe, employees_path%></li>
             <li><%= link_to '<span class="glyphicon glyphicon-gift"> Pickup</span>'.html_safe, new_release_path, data: {toggle: "modal", target: "#pickupModal"} %></li>
+            <li><%= link_to '<span class="glyphicon glyphicon-user"> Admin</span>'.html_safe, new_release_path, data: {toggle: "modal", target: "#adminModal"} %></li>
             <li><%= link_to '<span class="glyphicon glyphicon-hdd"> Archive</span>'.html_safe, archive_path %></li>
           </ul>
         </div>
@@ -40,6 +41,20 @@
         </div>
         <div class="modal-body">
           <%= render 'pickup_switch' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="pickupLabel">Choose a table to modify</h4>
+        </div>
+        <div class="modal-body">
+          <%= render 'admin_switch' %>
         </div>
       </div>
     </div>
