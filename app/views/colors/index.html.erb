@@ -13,7 +13,7 @@
 
   <tbody>
     <% @colors.each do |color| %>
-      <tr>
+      <tr data-link="<%= color_path(color) %>">
         <td><%= color.color_code %></td>
         <td><%= color.color_name %></td>
         <td><%= link_to 'Show', color %></td>

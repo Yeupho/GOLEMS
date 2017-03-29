@@ -1,4 +1,5 @@
 class Employee < ApplicationRecord
+  after_initialize :set_defaults
   acts_as_paranoid
 
   has_many :employee_events
@@ -8,5 +9,9 @@ class Employee < ApplicationRecord
   belongs_to :employee_status
   belongs_to :state
   belongs_to :country
+
+  def set_defaults
+    self.employee_status_id ||= 1
+  end
 
 end

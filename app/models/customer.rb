@@ -1,4 +1,6 @@
 class Customer < ApplicationRecord
+  after_initialize :set_defaults
+  acts_as_paranoid
 
   has_many :customer_events
   has_many :events, :through => :customer_events
@@ -6,5 +8,8 @@ class Customer < ApplicationRecord
   belongs_to :state
   belongs_to :country
 
-  acts_as_paranoid
+  def set_defaults
+    self.customer_status_id ||= 1
+  end
+
 end

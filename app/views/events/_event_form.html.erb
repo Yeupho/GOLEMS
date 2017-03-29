@@ -58,7 +58,8 @@
 
     <div class="row">
       <div class="col-lg-10 col-lg-offset-1">
-        <%= select_tag :color_id, options_for_select(Color.all.collect{ |c| [c.color_name, c.color_code]}) %>
+        <%= select_tag :color_id, options_for_select(Color.all.collect{ |c| [c.color_name, c.color_code, {'id' => c.id}]}) %>
+        <div id="result"></div>
       </div>
     </div>
 
@@ -75,7 +76,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
       <div class="col-lg-4 text-left">
-        <%= f.submit class: "btn btn-primary" %>
+        <%= f.submit class: "btn btn-primary", id: "submit" %>
       </div>
     </div>
 <% end %>
@@ -94,10 +95,19 @@
         });
     });
 
+    var selectedOption = "";
+
     $(document).ready(function() {
+
+        $('#color_id').change(function() {
+            selectedOption = $(this).find('option:selected').attr('id');
+            $('#result').html(selectedOption);
+        });
+
         $('#color_id').on('click', function() {
             $('select[name="color_id"]').simplecolorpicker({picker: true, theme: 'glyphicons'});
         });
         $('#color_id').trigger('click');
+
     });
 </script>

@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @event = Event.new
+    @walk_in = CustomerEvent.find_by_sql("SELECT * FROM customer_events ce JOIN events e ON e.id = ce.event_id WHERE e.event_type_id = '7' ORDER BY e.start_time ASC")
   end
 
   # GET /events/1
@@ -32,7 +33,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :index }
+        format.html { render :show }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -46,7 +47,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
-        format.html { render :edit }
+        format.html { render :show }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
