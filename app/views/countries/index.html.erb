@@ -13,11 +13,9 @@
 
   <tbody>
     <% @countries.each do |country| %>
-      <tr>
+      <tr data-link="<%= country_path(country) %>">
         <td><%= country.country_name %></td>
         <td><%= country.country_abbrev %></td>
-        <td><%= link_to 'Show', country %></td>
-        <td><%= link_to 'Edit', edit_country_path(country) %></td>
         <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -13,11 +13,9 @@
 
   <tbody>
     <% @colors.each do |color| %>
-      <tr>
+      <tr data-link="<%= color_path(color) %>">
         <td><%= color.color_code %></td>
         <td><%= color.color_name %></td>
-        <td><%= link_to 'Show', color %></td>
-        <td><%= link_to 'Edit', edit_color_path(color) %></td>
         <td><%= link_to 'Destroy', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

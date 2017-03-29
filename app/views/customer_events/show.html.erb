@@ -2,12 +2,12 @@
 
 <p>
   <strong>Event:</strong>
-  <%= @customer_event.event_id %>
+  <%= @customer_event.event.event_name %>
 </p>
 
 <p>
   <strong>Customer:</strong>
-  <%= @customer_event.customer_id %>
+  <%= @customer_event.customer.first_name %>
 </p>
 
 <p>
@@ -30,6 +30,44 @@
   <%= @customer_event.deposit %>
 </p>
 
+<h1>Customer Event Products</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Product total</th>
+    <th>Pickup status</th>
+    <th></th>
+    <th></th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% running_total = 0 %>
+  <% @customer_event_products.each do |customer_event_product| %>
+      <tr>
+        <td><%= customer_event_product.product.product_name %></td>
+        <td><%= customer_event_product.quantity %></td>
+        <td><%= number_to_currency(customer_event_product.product.product_price)%></td>
+        <td><%= number_to_currency(customer_event_product.quantity * customer_event_product.product.product_price) %></td>
+        <td><%= customer_event_product.pickup_status.pickup_status_desc %></td>
+        <td><%= link_to "Edit", edit_customer_event_customer_event_product_path(customer_event_id: @customer_event.id, id: customer_event_product.id) %></td>
+        <td><%= link_to "Remove Item", [@customer_event, customer_event_product], method: :delete, comfirm: "Are you sure remove this item?" %></td>
+        <% running_total =  running_total + (customer_event_product.quantity * customer_event_product.product.product_price)%>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add New Product', new_customer_event_customer_event_product_path(@customer_event) %>
+
+<br>
+
+<h4 class="pull-left">Custom Event Total <%= number_to_currency(running_total) %> </h4>
 
 <%= link_to 'Edit', edit_customer_event_path(@customer_event) %> |
 <%= link_to 'Back', customer_events_path %>
