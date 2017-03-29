@@ -22,9 +22,9 @@
             <tr data-link="<%= event_path(event) %>">
               <td><%= event.event_name %></td>
               <td><%= event.start_time.strftime("%l:%M %p") %> - <%= event.end_time.strftime("%l:%M %p") %></td>
-              <td><%= event.event_type_id %></td>
+              <td><%= event.event_type.event_type_desc %></td>
               <td></td>
-              <td><%= event.color_id %></td>
+              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= event.color.color_code %>;"></span></td>
               <td><%= link_to 'Archive', event, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
