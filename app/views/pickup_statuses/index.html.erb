@@ -12,10 +12,8 @@
 
   <tbody>
     <% @pickup_statuses.each do |pickup_status| %>
-      <tr>
+      <tr data-link="<%= pickup_status_path(pickup_status) %>">
         <td><%= pickup_status.pickup_status_desc %></td>
-        <td><%= link_to 'Show', pickup_status %></td>
-        <td><%= link_to 'Edit', edit_pickup_status_path(pickup_status) %></td>
         <td><%= link_to 'Destroy', pickup_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

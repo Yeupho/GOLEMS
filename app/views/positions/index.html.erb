@@ -13,11 +13,9 @@
 
   <tbody>
     <% @positions.each do |position| %>
-      <tr>
+      <tr data-link="<%= position_path(position) %>">
         <td><%= position.employee_id %></td>
         <td><%= position.employee_type_id %></td>
-        <td><%= link_to 'Show', position %></td>
-        <td><%= link_to 'Edit', edit_position_path(position) %></td>
         <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

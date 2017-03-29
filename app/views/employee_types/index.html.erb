@@ -12,10 +12,8 @@
 
   <tbody>
     <% @employee_types.each do |employee_type| %>
-      <tr>
+      <tr data-link="<%= employee_type_path(employee_type) %>">
         <td><%= employee_type.employee_type_desc %></td>
-        <td><%= link_to 'Show', employee_type %></td>
-        <td><%= link_to 'Edit', edit_employee_type_path(employee_type) %></td>
         <td><%= link_to 'Destroy', employee_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
