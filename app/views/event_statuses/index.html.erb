@@ -12,10 +12,8 @@
 
   <tbody>
     <% @event_statuses.each do |event_status| %>
-      <tr>
+      <tr data-link="<%= event_status_path(event_status) %>">
         <td><%= event_status.event_status_desc %></td>
-        <td><%= link_to 'Show', event_status %></td>
-        <td><%= link_to 'Edit', edit_event_status_path(event_status) %></td>
         <td><%= link_to 'Destroy', event_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

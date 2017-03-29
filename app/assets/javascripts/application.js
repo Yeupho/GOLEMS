@@ -21,9 +21,8 @@
 //= require_tree .
 
 jQuery(function($) {
-    $(document).change('click', "tr", function() {
-        var url = $(this).data('url');
-        window.location = url;
+    $(document).on('click', "tr", function() {
+        window.location = $(this).data("link");
     });
 
     $(window).load(function(){
