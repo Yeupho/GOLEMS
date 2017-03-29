@@ -13,9 +13,22 @@
           <th>Time</th>
           <th>Total</th>
           <th>Color</th>
+          <th></th>
         </tr>
         </thead>
 
+        <tbody>
+        <% @walk_in.each do |walk_in| %>
+            <tr data-link="<%= event_path(walk_in) %>">
+              <td><%= walk_in.customer.first_name %></td>
+              <td><%= walk_in.customer.last_name %></td>
+              <td><%= walk_in.event.start_time.strftime("%l:%M %p") %> - <%= walk_in.event.end_time.strftime("%l:%M %p") %></td>
+              <td></td>
+              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= walk_in.event.color.color_code %>;"></span></td>
+              <td><%= link_to 'Archive', walk_in, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
       </table>
     </div>
 
