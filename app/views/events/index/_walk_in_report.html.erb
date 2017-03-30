@@ -3,7 +3,6 @@
     <h2 class="panel-title">Walk-In</h2>
   </div>
   <div class="panel-body">
-
     <div class="imaginary_container">
       <table class="table table-hover">
         <thead>
@@ -32,5 +31,15 @@
       </table>
     </div>
 
+    <div class="row text-center">
+      <div class="col-lg-3 col-lg-offset-4">
+        <% if @walk_in.length > 0 && @walk_in.total_pages > 1 %>
+            <%= will_paginate @walk_in %>
+            <div class="page_info">
+              <%= page_entries_info @walk_in %>
+            </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

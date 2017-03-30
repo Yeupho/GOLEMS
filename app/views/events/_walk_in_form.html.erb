@@ -1,21 +1,21 @@
 <%= form_for @customer_event, :url => create_customer_event_path, :html => {:method => :post} do |f| %>
-  <% if @customer_event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@customer_event.errors.count, "error") %> prohibited this customer_event from being saved:</h2>
+    <% if @customer_event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@customer_event.errors.count, "error") %> prohibited this customer_event from being saved:</h2>
 
-      <ul>
-      <% @customer_event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% @customer_event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
     <div class="row"><h4 class="col-lg-10 col-lg-offset-1">Phone</h4></div>
 
     <div class="row">
       <div class="col-lg-4">
-        <%= f.text_field :phone, data: {autocomplete_source: search_customer_path} %>
+        <%= f.text_field :phone %>
       </div>
     </div>
 
@@ -63,9 +63,9 @@
 <% end %>
 
 <script>
-    jQuery(function(){
-        return $('#customer_event_phone').autocomplete({
-            source: $('#customer_event_phone').data('autocomplete-source')
+    $(document).ready(function(){
+        $('#customer_event_phone').autocomplete({
+            source: ["apple", "apricot", "avocado"]
         });
     });
 </script>

@@ -1,10 +1,11 @@
 class CustomersController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all.paginate(page: params[:page], per_page: 12)
+    @customers = Customer.find_by_sql("SELECT * FROM customers c WHERE c.customer_status_id = '1'").paginate(page: params[:page], per_page: 12)
     @customer = Customer.new
   end
 
@@ -20,6 +21,11 @@ class CustomersController < ApplicationController
 
   # GET /customers/1/edit
   def edit
+  end
+
+  def search
+    @customers = Customer.order(:phone).where("phone like ?", "%#{params[:term]}%")
+    render json: @customers.map(&:phone)
   end
 
   # POST /customers

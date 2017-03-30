@@ -1,13 +1,14 @@
 class EventsController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.find_by_sql("SELECT * FROM events e").paginate(page: params[:page], per_page: 12)
     @event = Event.new
     @customer_event = CustomerEvent.new
-    @walk_in = CustomerEvent.find_by_sql("SELECT * FROM customer_events ce JOIN events e ON e.id = ce.event_id WHERE e.event_type_id = '7' ORDER BY e.start_time ASC")
+    @walk_in = CustomerEvent.find_by_sql("SELECT * FROM customer_events ce JOIN events e ON e.id = ce.event_id WHERE e.event_type_id = '7' ORDER BY e.start_time ASC").paginate(page: params[:page], per_page: 12)
   end
 
   # GET /events/1
