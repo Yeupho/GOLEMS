@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy, :restore]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers
   # GET /customers.json
@@ -55,6 +55,13 @@ class CustomersController < ApplicationController
   # DELETE /customers/1
   # DELETE /customers/1.json
   def destroy
+    @customer = Customer.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @customer.delete
+    elsif params[:type]=='restore'
+      @customer.restore
+    end
+
     @customer.destroy
     respond_to do |format|
       format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
@@ -62,14 +69,11 @@ class CustomersController < ApplicationController
     end
   end
 
-  def restore
-    @customer.restore
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
-      @customer = Customer.find(params[:id])
+      @customer = Customer.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

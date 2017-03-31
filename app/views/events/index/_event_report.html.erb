@@ -25,7 +25,15 @@
               <td><%= event.event_type.event_type_desc %></td>
               <td></td>
               <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= event.color.color_code %>;"></span></td>
-              <td><%= link_to 'Archive', event, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+              <td><div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <row><%= link_to 'Detail', event %></row>
+                  <row><%= link_to 'Edit', edit_event_path(event) %></row>
+                  <row><%= link_to 'Archive', event_path(event, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></row>
+                </ul>
+              </div></td>
+
             </tr>
         <% end %>
         </tbody>
