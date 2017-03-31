@@ -65,3 +65,5 @@ gem 'fullcalendar-rails'
 gem 'jquery-simplecolorpicker-rails'
 
 gem 'jquery-ui-rails'
+
+gem 'will_paginate-bootstrap'
