@@ -24,8 +24,8 @@ body
   width: 100%
   position: absolute
   height: 100%
-  padding: 15px
-  padding-left: 12%
+  padding-right: 15px
+  padding-left: 170px
   overflow: auto
 
 .container-fluid
@@ -123,30 +123,30 @@ body
 #sidebar-wrapper
   z-index: 1
   position: absolute
-  width: 12%
+  min-width: 170px
   height: 100%
   overflow-y: hidden
   background: linear-gradient(to bottom, #1D2671, #C33764)
 
-.sidebar-nav
-  padding: 0
-  list-style: none
+.sidebar
+  line-height: 3
+  font-size: 18px
+  margin: 0
 
-.sidebar-nav li
-  text-indent: 20px
-  line-height: 40px
-  letter-spacing: .09em
-
-.sidebar-nav li a
-  display: block
-  text-decoration: none
-  color: $white-smoke
-
-.sidebar-nav li a:hover
-  opacity: .6
+.sidebar-item
+  padding: 10%
+  padding-left: 20%
+  a
+    display: block
+    text-decoration: none
+    color: $white-smoke
+    &:hover
+      opacity: .6
 
 .sidebar-logo
-  height: 15%
+  padding-top: 30px
+  padding-bottom: 20px
+  color: $white-smoke
 
 /***************************************************/
 /*                    SEARCH BAR                   */
@@ -237,4 +237,15 @@ ul.ui-autocomplete
   a.ui-state-hover, a.ui-state-active
     background-color: #FFFCB2
 
+.color-circle
+  min-width: 40px !important
+  min-height: 40px !important
+  border-radius: 20px
 
+.close
+  color: #B00100
+  opacity: .5
+  font-size: 25px
+  &:hover
+    opacity: 1
+    color: #B00100

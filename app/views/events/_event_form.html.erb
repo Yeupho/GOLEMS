@@ -58,7 +58,11 @@
 
     <div class="row">
       <div class="col-lg-9 col-lg-offset-1">
-        <%= select_tag :color_id, options_for_select(Color.all.collect{ |c| [c.color_name, c.color_code, {'id' => c.id}]}) %>
+        <% unless current_page?(events_path) %>
+            <%= select_tag :color_id, options_for_select(Color.all.collect{ |c| [c.color_name, c.color_code, {'id' => c.id}]}, {selected: @event.color.color_code}) %>
+        <% else %>
+            <%= select_tag :color_id, options_for_select(Color.all.collect{ |c| [c.color_name, c.color_code, {'id' => c.id}]}, {include_blank: "Select Color"}) %>
+        <% end %>
         <div id="result"></div>
       </div>
       <div class="col-lg-1">

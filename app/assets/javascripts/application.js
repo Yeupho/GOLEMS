@@ -23,7 +23,7 @@
 //= require_tree .
 
 jQuery(function($) {
-    $(document).on('click', "tr", function() {
+    $(document).on('click', ".clickable-row", function() {
         window.location = $(this).data("link");
     });
 });

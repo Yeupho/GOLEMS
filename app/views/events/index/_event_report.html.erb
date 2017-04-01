@@ -18,7 +18,7 @@
 
         <tbody>
         <% @events.each do |event| %>
-            <tr data-link="<%= event_path(event) %>">
+            <tr data-link="<%= event_path(event) %>" class="clickable-row">
               <td><%= event.event_name %></td>
               <td><%= event.start_time.strftime("%l:%M %p") %> - <%= event.end_time.strftime("%l:%M %p") %></td>
               <td><%= event.event_type.event_type_desc %></td>
@@ -31,10 +31,10 @@
       </table>
     </div>
 
-    <div class="row text-center">
+    <div class="row text-center", id="event_report">
       <div class="col-lg-3 col-lg-offset-4">
         <% if @events.length > 0 && @events.total_pages > 1 %>
-            <%= will_paginate @events %>
+            <%= will_paginate @events, renderer: BootstrapPagination::Rails %>
             <div class="page_info">
               <%= page_entries_info @events %>
             </div>

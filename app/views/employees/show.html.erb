@@ -4,7 +4,11 @@
   <div class="row">
     <div class="col-lg-8">
       <h1><%= @employee.first_name %> <%= @employee.last_name %>
-        <small></small>
+        <small>
+          <% @employee.positions.each do |position| %>
+          <%= position.employee_type.employee_type_desc %>
+          <% end %>
+        </small>
       </h1>
     </div>
 
@@ -60,12 +64,6 @@
     </div>
   </div>
 
-  <div class="col-lg-6">
-    <% EmployeeType.all.each do |employee_type| %>
-        <%= check_box_tag "employee[employee_type_id][]", employee_type.id %>
-        <%= employee_type.employee_type_desc %>
-    <% end %>
-  </div>
 </div>
 
 <p>

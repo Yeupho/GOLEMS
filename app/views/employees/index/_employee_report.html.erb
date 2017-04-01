@@ -39,7 +39,7 @@
 
         <tbody>
         <% @employees.each do |employee| %>
-            <tr data-link="<%= employee_path(employee) %>">
+            <tr data-link="<%= employee_path(employee) %>" class="clickable-row">
               <td><%= employee.first_name %></td>
               <td><%= employee.last_name %></td>
               <td><%= number_to_phone(employee.phone, area_code: true) %></td>

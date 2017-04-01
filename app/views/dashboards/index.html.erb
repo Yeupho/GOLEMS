@@ -1,12 +1,14 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
-
 <div class="row">
-  <div class="col-lg-6 col-lg-offset-1">
-    <%= render 'check_in' %>
+  <div class="col-lg-7 col-lg-offset-1">
+    <div class="row">
+      <%= render 'check_in' %>
+    </div>
+    <div class="row">
+      <%= render 'dues' %>
+    </div>
   </div>
 
-  <div class="col-lg-4">
+  <div class="col-lg-3">
     <%= render 'today_list' %>
   </div>
 </div>
