@@ -64,6 +64,7 @@ class EventsController < ApplicationController
       @event.destroy
     elsif params[:type] == 'restore'
       @event.restore
+      @event.update(deleted_at: nil)
     end
 
     respond_to do |format|

@@ -70,6 +70,7 @@ class CustomersController < ApplicationController
       @customer.delete
     elsif params[:type]=='restore'
       @customer.restore
+      @customer.update(deleted_at: nil)
     end
 
     @customer.destroy

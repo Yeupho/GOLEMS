@@ -28,7 +28,7 @@
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <row><%= link_to 'Detail', event %></row>
-                  <row><%= link_to 'Edit', edit_event_path(event) %></row>
+                  <row data-toggle="modal" data-target="#editModal">Edit</row>
                   <row><%= link_to 'Archive', event_path(event, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></row>
                 </ul>
               </div></td>
@@ -49,3 +49,4 @@
     </div>
   </div>
 </div>
+<%= render 'events/show/edit_model' %>
