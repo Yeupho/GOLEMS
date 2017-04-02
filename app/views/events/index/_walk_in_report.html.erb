@@ -35,7 +35,15 @@
               <td><%= walk_in.customer.first_name %></td>
               <td><%= walk_in.customer.last_name %></td>
               <td></td>
-              <td><%= link_to 'Archive', walk_in, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= walk_in.event.color.color_code %>;"></span></td>
+              <td><div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <%= link_to 'Detail', walk_in %>
+                  <%= link_to 'Edit', edit_event_path(walk_in) %>
+                  <%= link_to 'Archive', walk_in, method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %>
+                </ul>
+              </div></td>
             </tr>
         <% end %>
         </tbody>

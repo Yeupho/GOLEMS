@@ -49,3 +49,7 @@ OR
 - Do something new: GOLEMS_development
 - rails db:migrate
 
+
+# Shutdown Rails stuff
+- View sessions with lsof -wni tcp:3000
+
