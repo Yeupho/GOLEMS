@@ -8,23 +8,23 @@
       <table class="table table-hover">
         <thead>
         <tr>
-          <th>First name</th>
-          <th>Last name</th>
+          <th>Name</th>
           <th>Phone</th>
           <th>Due Date</th>
           <th>Event</th>
           <th>Dues</th>
+          <th>Action</th>
         </tr>
         </thead>
 
         <tbody>
         <% @check_in.each do |check_in| %>
             <tr data-toggle="collapse" data-target="#accordion" class="clickable">
-              <td><%= check_in.customer.first_name %></td>
-              <td><%= check_in.customer.last_name %></td>
+              <td><%= check_in.customer.first_name %> <%= check_in.customer.last_name %></td>
               <td><%= number_to_phone(check_in.customer.phone, area_code: true) %></td>
               <td><%= check_in.event.event_date.strftime("%-m/%-d") %></td>
               <td><%= check_in.event.event_name %></td>
+              <td></td>
               <td></td>
             </tr>
         <% end %>

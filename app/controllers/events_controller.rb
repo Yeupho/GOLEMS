@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @events = Event.find_by_sql("SELECT * FROM events e WHERE e.event_type_id <> '7'").paginate(page: params[:event_page], per_page: 4)
     @event = Event.new
     @customer_event = CustomerEvent.new
-    @walk_in = CustomerEvent.find_by_sql("SELECT * FROM customer_events ce JOIN events e ON e.id = ce.event_id WHERE e.event_type_id = '7' ORDER BY e.start_time ASC").paginate(page: params[:walk_in_page], per_page: 10)
+    @walk_ins = CustomerEvent.find_by_sql("SELECT * FROM customer_events ce JOIN events e ON e.id = ce.event_id WHERE e.event_type_id = '7' ORDER BY e.start_time ASC").paginate(page: params[:walk_in_page], per_page: 10)
   end
 
   # GET /events/1

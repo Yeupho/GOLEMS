@@ -5,17 +5,17 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.find_by_sql("SELECT * FROM customers c WHERE c.customer_status_id = '1'").paginate(page: params[:page], per_page: 12)
+    @customers = Customer.find_by_sql("SELECT * FROM customers c WHERE c.customer_status_id = '1'").paginate(page: params[:page], per_page: 13)
     @customer = Customer.new
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
-    @customer = Customer.find(params[:id])
-    @not_ready = CustomerEventProduct.where(pickup_status_id: '1')
-    @ready = CustomerEventProduct.where(pickup_status_id: '2')
-    @collected = CustomerEventProduct.where(pickup_status_id: '3')
+    @events = Event.joins(:customers).where("customers.id = ?", params[:id]).order("event_date DESC")
+    @not_ready = CustomerEventProduct.joins(:customer_event).joins(customer_event: :customer).where(pickup_status_id: '1').where("customers.id = ?", params[:id])
+    @ready = CustomerEventProduct.joins(:customer_event).joins(customer_event: :customer).where(pickup_status_id: '2').where("customers.id = ?", params[:id])
+    @collected = CustomerEventProduct.joins(:customer_event).joins(customer_event: :customer).where(pickup_status_id: '3').where("customers.id = ?", params[:id])
   end
 
   # GET /customers/new

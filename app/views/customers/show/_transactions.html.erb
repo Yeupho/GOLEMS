@@ -13,7 +13,7 @@
         </thead>
 
         <tbody>
-        <% @customer.events.each do |event| %>
+        <% @events.each do |event| %>
             <tr>
               <td><%= event.event_date.strftime("%-m/%-d/%y") %></td>
               <td></td>
