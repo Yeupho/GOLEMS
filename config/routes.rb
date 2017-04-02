@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
   get 'archive' => 'archive#index'
 
+  get 'admin' => 'admin#index'
+
+  resources :admin
   resources :archive
   resources :customer_events do
     resources :customer_event_products, except: [:index, :show]
