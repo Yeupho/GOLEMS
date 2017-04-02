@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RUBY_MODULE" version="4">
-  <component name="CompassSettings">
-    <option name="compassExecutableFilePath" value="$USER_HOME$/.rbenv/versions/2.3.2/lib/ruby/gems/2.3.0/gems/compass-1.0.3/bin/compass" />
-    <option name="importPaths">
-      <list>
-        <option value="$USER_HOME$/.rbenv/versions/2.3.2/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets" />
-      </list>
-    </option>
-  </component>
   <component name="FacetManager">
     <facet type="RailsFacetType" name="Ruby on Rails">
       <configuration>
@@ -28,7 +20,7 @@
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bundle" />
     </content>
-    <orderEntry type="jdk" jdkName="ruby-2.3.3-p222" jdkType="RUBY_SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="actioncable (v5.0.2, ruby-2.3.3-p222) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionmailer (v5.0.2, ruby-2.3.3-p222) [gem]" level="application" />
