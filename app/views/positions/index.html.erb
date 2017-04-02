@@ -14,7 +14,7 @@
   <tbody>
     <% @positions.each do |position| %>
       <tr data-link="<%= position_path(position) %>">
-        <td><%= position.employee_id %></td>
+        <td><%= position.employee.first_name %></td>
         <td><%= position.employee_type.employee_type_desc %></td>
         <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
