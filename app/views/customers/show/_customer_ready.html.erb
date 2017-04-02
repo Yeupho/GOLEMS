@@ -6,13 +6,20 @@
       <th>Color</th>
       <th>Event</th>
       <th>Date</th>
-      <th>Time</th>
-      <th></th>
+      <th>Status</th>
     </tr>
     </thead>
 
     <tbody>
+    <% @ready.each do |r| %>
+        <tr>
+          <td><%= r.product.product_name %></td>
+          <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= r.customer_event.event.color.color_code %>;"></span></td>
+          <td><%= r.customer_event.event.event_name %></td>
+          <td><%= r.customer_event.event.event_date.strftime("%-m/%-d/%y") %></td>
+          <td></td>
+        </tr>
+    <% end %>
     </tbody>
-
   </table>
 </div>

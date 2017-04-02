@@ -3,7 +3,6 @@
     <h2 class="panel-title">Event</h2>
   </div>
   <div class="panel-body">
-
     <div class="imaginary_container">
       <table class="table table-hover">
         <thead>
@@ -11,7 +10,7 @@
           <th>Event name</th>
           <th>Time</th>
           <th>Event type</th>
-          <th>Total</th>
+          <th>Sales</th>
           <th>Color</th>
           <th></th>
         </tr>
@@ -19,19 +18,26 @@
 
         <tbody>
         <% @events.each do |event| %>
-            <tr data-link="<%= event_path(event) %>">
+            <tr data-link="<%= event_path(event) %>" class="clickable-row">
               <td><%= event.event_name %></td>
               <td><%= event.start_time.strftime("%l:%M %p") %> - <%= event.end_time.strftime("%l:%M %p") %></td>
-              <td><%= event.event_type_id %></td>
+              <td><%= event.event_type.event_type_desc %></td>
               <td></td>
-              <td><%= event.color_id %></td>
+              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= event.color.color_code %>;"></span></td>
               <td><%= link_to 'Archive', event, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
         </tbody>
-
       </table>
     </div>
 
+    <div class="row text-center">
+      <% if @events.length > 0 && @events.total_pages > 1 %>
+          <%= will_paginate @events, renderer: BootstrapPagination::Rails, :param_name => 'event_page' %>
+          <div class="page_info">
+            <%= page_entries_info @events %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,7 +1,18 @@
 class CustomerEventProductsController < ApplicationController
   before_action :set_customer_event
-  before_action :set_customer_event_product, except: [:new, :create]
+  before_action :set_customer_event_product, only: [:show, :edit, :update, :destroy]
 
+  # GET /customer_event_products
+  # GET /customer_event_products.json
+  def index
+    @customer_event_products = CustomerEventProduct.all
+    @customer_event_product = CustomerEventProduct.new
+  end
+
+  # GET /customer_event_products/1
+  # GET /customer_event_products/1.json
+  def show
+  end
 
   # GET /customer_event_products/new
   def new
@@ -10,7 +21,6 @@ class CustomerEventProductsController < ApplicationController
 
   # GET /customer_event_products/1/edit
   def edit
-
   end
 
   # POST /customer_event_products
@@ -19,14 +29,13 @@ class CustomerEventProductsController < ApplicationController
     @customer_event_product = CustomerEventProduct.new(customer_event_product_params)
     @customer_event_product.customer_event = @customer_event
 
-
     respond_to do |format|
       if @customer_event_product.save
-        format.html { redirect_to @customer_event, notice: 'Customer event product was successfully created.' }
-        format.json { render :show, status: :created, location: @customer_event }
+        format.html { redirect_to @customer_event_product, notice: 'Customer event product was successfully created.' }
+        format.json { render :show, status: :created, location: @customer_event_product }
       else
         format.html { render :new }
-        format.json { render json: @customer_event.errors, status: :unprocessable_entity }
+        format.json { render json: @customer_event_product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,17 +71,17 @@ class CustomerEventProductsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_customer_event_product
-      @customer_event_product = CustomerEventProduct.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_customer_event_product
+    @customer_event_product = CustomerEventProduct.find(params[:id])
+  end
 
-    def set_customer_event
-      @customer_event = CustomerEvent.find(params[:customer_event_id])
-    end
+  def set_customer_event
+    @customer_event = CustomerEvent.find(params[:customer_event_id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def customer_event_product_params
-      params.require(:customer_event_product).permit(:customer_event_id, :product_id, :quantity, :pickup_status_id, :archive)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def customer_event_product_params
+    params.require(:customer_event_product).permit(:customer_event_id, :product_id, :quantity, :pickup_status_id, :archive)
+  end
 end

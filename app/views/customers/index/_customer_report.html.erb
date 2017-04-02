@@ -19,7 +19,7 @@
 
         <tbody>
         <% @customers.each do |customer| %>
-            <tr data-link="<%= customer_path(customer) %>">
+            <tr data-link="<%= customer_path(customer) %>" class="clickable-row">
               <td><%= customer.first_name %></td>
               <td><%= customer.last_name %></td>
               <td><%= number_to_phone(customer.phone, area_code: true) %></td>
@@ -32,14 +32,12 @@
     </div>
 
     <div class="row text-center">
-      <div class="col-lg-3 col-lg-offset-4">
-        <%= will_paginate @customers %>
-        <% if @customers.length > 0 && @customers.total_pages > 1 %>
-            <div class="page_info">
-              <%= page_entries_info @customers %>
-            </div>
-        <% end %>
-      </div>
+      <% if @customers.length > 0 && @customers.total_pages > 1 %>
+          <%= will_paginate @customers, renderer: BootstrapPagination::Rails %>
+          <div class="page_info">
+            <%= page_entries_info @customers %>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>

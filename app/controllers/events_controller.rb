@@ -1,11 +1,14 @@
 class EventsController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.find_by_sql("SELECT * FROM events e WHERE e.event_type_id <> '7'").paginate(page: params[:event_page], per_page: 4)
     @event = Event.new
+    @customer_event = CustomerEvent.new
+    @walk_ins = CustomerEvent.find_by_sql("SELECT * FROM customer_events ce JOIN events e ON e.id = ce.event_id WHERE e.event_type_id = '7' ORDER BY e.start_time ASC").paginate(page: params[:walk_in_page], per_page: 10)
   end
 
   # GET /events/1
@@ -32,7 +35,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :index }
+        format.html { render :show }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -46,7 +49,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
-        format.html { render :edit }
+        format.html { render :show }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
