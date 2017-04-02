@@ -37,6 +37,14 @@ gem 'paranoia', '~>2.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Gem is used for displaying tables in rails console, in 'rails c',
+# type: require 'hirb' then Hirb.enable to make it work in console
+gem 'hirb'
+# Gem for grouping by date, ties to chartkick
+gem 'groupdate'
+# Chartpick gem for displaying charts
+gem 'chartkick'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
