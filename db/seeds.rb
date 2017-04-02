@@ -33,7 +33,7 @@ Position.destroy_all
 # ===================================================================================
 
 # Employee Type
-File.open("#{Rails.root}/db/datafiles/EmpType.csv") do |employee_types|
+File.open("#{Rails.root}/db/datafiles/EmployeeType.csv") do |employee_types|
   employee_types.read.each_line do |employee_type|
     employee_type_desc = employee_type
     EmployeeType.create!(:employee_type_desc=>employee_type_desc)
@@ -162,7 +162,7 @@ File.open("#{Rails.root}/db/datafiles/CustomerEvent.csv") do |customer_events|
 end
 
 # Customer Event Product
-File.open("#{Rails.root}/db/datafiles/CEP.csv") do |customer_event_products|
+File.open("#{Rails.root}/db/datafiles/CustomerEventProduct.csv") do |customer_event_products|
   customer_event_products.read.each_line do |customer_event_product|
     customer_event_id, product_id, quantity, pickup_status_id= customer_event_product.chomp.split(",")
     CustomerEventProduct.create!(:customer_event_id=>customer_event_id, :product_id=>product_id, :quantity=>quantity,

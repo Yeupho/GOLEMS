@@ -4,24 +4,28 @@
     <title>GOLEMS</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track'=> 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track'=> 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='app/spectrum.css' />
+    <script src='spectrum.js'></script>
     <meta name="viewport" content="width=device=width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
 
   <body>
   <div id="wrapper">
         <div id="sidebar-wrapper">
-          <span class="glyphicon glyphicon-home sidebar-logo"></span>
-          <ul class="sidebar-nav" data-spy="affix">
-            <li><%= link_to '<span class="glyphicon glyphicon-stats"> Dashboard</span>'.html_safe, dashboards_path%></li>
-            <li><%= link_to '<span class="glyphicon glyphicon-calendar"> Event</span>'.html_safe, events_path%></li>
-            <li><%= link_to '<span class="glyphicon glyphicon-shopping-cart"> Customer</span>'.html_safe, customers_path%></li>
-            <li><%= link_to '<span class="glyphicon glyphicon-briefcase"> Employee</span>'.html_safe, employees_path%></li>
-            <li><%= link_to '<span class="glyphicon glyphicon-gift"> Pickup</span>'.html_safe, new_release_path, data: {toggle: "modal", target: "#pickupModal"} %></li>
-            <li><%= link_to '<span class="glyphicon glyphicon-user"> Admin</span>'.html_safe, new_release_path, data: {toggle: "modal", target: "#adminModal"} %></li>
-            <li><%= link_to '<span class="glyphicon glyphicon-hdd"> Archive</span>'.html_safe, archive_path %></li>
-          </ul>
+          <div class="row sidebar">
+            <div class="col-lg-12">
+              <div class="row sidebar-logo text-center"><span class="glyphicon glyphicon-home sidebar-logo"></span><br>Logo</div>
+              <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-stats"> Dashboard</span>'.html_safe, dashboards_path%></div>
+              <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-calendar"> Event</span>'.html_safe, events_path%></div>
+              <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-shopping-cart"> Customer</span>'.html_safe, customers_path%></div>
+              <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-briefcase"> Employee</span>'.html_safe, employees_path%></div>
+              <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-gift"> Pickup</span>'.html_safe, new_release_path, data: {toggle: "modal", target: "#pickupModal"} %></div>
+              <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-user"> Admin</span>'.html_safe, new_release_path, data: {toggle: "modal", target: "#adminModal"} %></div>
+              <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-hdd"> Archive</span>'.html_safe, archive_path %></div>
+            </div>
+          </div>
         </div>
 
         <div id="page-content-wrapper">

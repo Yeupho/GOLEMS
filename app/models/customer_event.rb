@@ -9,4 +9,12 @@ class CustomerEvent < ApplicationRecord
   has_many :customer_event_products
   has_many :products, :through => :customer_event_product
 
+  def phone
+    customer.try(:phone)
+  end
+
+  def phone=(phone)
+    self.phone = Customer.find_or_create_by(phone: phone) if phone.present?
+  end
+
 end

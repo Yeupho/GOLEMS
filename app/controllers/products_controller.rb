@@ -54,7 +54,13 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product.destroy
+    @product = Product.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @product.destroy
+    elsif params[:type]=='restore'
+      @product.restore
+    end
+
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
@@ -64,7 +70,7 @@ class ProductsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
