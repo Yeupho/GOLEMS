@@ -25,7 +25,7 @@
 
   <tbody>
     <% @customer_events.each do |customer_event| %>
-      <tr>
+      <tr data-link="<%= customer_event_path(customer_event) %>">
         <td><%= customer_event.event.event_name %></td>
         <td><%= customer_event.event.event_date %></td>
         <td><%= customer_event.customer.first_name %></td>
