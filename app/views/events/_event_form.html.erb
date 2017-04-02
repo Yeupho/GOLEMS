@@ -110,7 +110,7 @@
                     url: "/events/create",
                     type: 'POST',
                     dataType: 'json',
-                    data: {"<%= params[color_id] %>": selectedOption}
+                    data: {color_id: selectedOption}
                 });
             });
         });
