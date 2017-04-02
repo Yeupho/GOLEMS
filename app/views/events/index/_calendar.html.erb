@@ -9,7 +9,11 @@
         $('#calendar').fullCalendar({
             height: 820,
             events: '/events.json',
-            selectable: true
+            header: {
+                center: 'title',
+                right: 'today prev,next',
+                left: ''
+            }
         });
     });
 

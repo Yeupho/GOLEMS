@@ -3,78 +3,63 @@
 <div class="page-header">
   <div class="row">
     <div class="col-lg-8">
-      <h1><%= @customer.first_name %> <%= @customer.last_name %>
-        <small>hi</small>
+      <h1>
+        <%= @customer.first_name %> <%= @customer.last_name %>
+        <input type="checkbox" checked data-toggle="toggle" data-on="Active" data-off="Inactive">
       </h1>
     </div>
 
-    <div class="col-lg-4">
+    <div class="col-lg-3">
       <%= render 'customers/show/buttons' %>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-lg-8">
+  <div class="col-lg-6 col-lg-offset-1">
     <div class="well">
+
       <div class="row">
-        <div class="col-lg-4">
-          <address>
-            <strong>Address</strong><br>
+        <div class="col-lg-6">
+          <p><strong>Address</strong></p>
+          <div class="inline-paragraph">
             <%= @customer.address %><br>
-            <%= @customer.city %>, <%= @customer.state_id %> <%= @customer.zipcode %><br>
-            <%= @customer.country_id %>
-          </address>
+            <%= @customer.city %>, <%= @customer.state.state_abbrev %> <%= @customer.zipcode %><br>
+            <%= @customer.country.country_abbrev %>
+          </div>
         </div>
 
-        <div class="col-lg-4 col-lg-offset-4 text-center">
-          <div class="row">
-            <p>
-              <strong>Phone</strong><br>
-              <%= number_to_phone(@customer.phone, area_code: true) %>
-            </p>
-          </div>
+        <div class="col-lg-6">
+          <p><strong>Phone</strong></p>
+          <div class="inline-paragraph"><%= number_to_phone(@customer.phone, area_code: true) %></div>
           <br>
-          <div class="row">
-            <p>
-              <strong>Email</strong><br>
-              <%= @customer.email%>
-            </p>
-          </div>
+          <p><strong>Email</strong></p>
+          <div class="inline-paragraph"><%= @customer.email%></div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-lg-12">
-          <p>
-            <strong>Comment</strong><br>
-          <blockquote>
-            <%= @customer.comment %>
-          </blockquote>
-          </p>
+          <p class="note-header"><strong>Notes</strong></p>
+          <% if @customer.comment.blank? %>
+              <div class="note-body">No Notes...</div>
+          <% else %>
+              <div class="note-body"><%= @customer.comment %></div>
+          <% end %>
         </div>
       </div>
+
     </div>
   </div>
 
   <div class="col-lg-4">
-
+    <%= render 'customers/show/transactions' %>
   </div>
-
-  <p>
-    <strong>Employee status:</strong>
-    <%= @customer.customer_status_id %>
-  </p>
-
 </div>
 
 <div class="row">
-  <div class="col-lg-8">
+  <div class="col-lg-10 col-lg-offset-1">
     <%= render 'customers/show/pieces' %>
-  </div>
-
-  <div class="col-lg-4">
-    <%= render 'customers/show/transactions' %>
   </div>
 </div>
 

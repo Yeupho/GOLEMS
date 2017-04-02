@@ -10,7 +10,7 @@
           <th>Event name</th>
           <th>Time</th>
           <th>Event type</th>
-          <th>Total</th>
+          <th>Sales</th>
           <th>Color</th>
           <th></th>
         </tr>
@@ -31,15 +31,13 @@
       </table>
     </div>
 
-    <div class="row text-center", id="event_report">
-      <div class="col-lg-3 col-lg-offset-4">
-        <% if @events.length > 0 && @events.total_pages > 1 %>
-            <%= will_paginate @events, renderer: BootstrapPagination::Rails %>
-            <div class="page_info">
-              <%= page_entries_info @events %>
-            </div>
-        <% end %>
-      </div>
+    <div class="row text-center">
+      <% if @events.length > 0 && @events.total_pages > 1 %>
+          <%= will_paginate @events, renderer: BootstrapPagination::Rails, :param_name => 'event_page' %>
+          <div class="page_info">
+            <%= page_entries_info @events %>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>

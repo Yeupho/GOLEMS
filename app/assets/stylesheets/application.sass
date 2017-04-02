@@ -5,6 +5,7 @@
 @import 'jquery.simplecolorpicker.css'
 @import "jquery.simplecolorpicker-glyphicons.css"
 @import 'jquery-ui'
+@import 'bootstrap-toggle'
 
 $white: #FFFFFF
 $white-smoke: #F7F5F5
@@ -172,15 +173,17 @@ body
 
 .panel > .panel-heading
   background-image: none
-  background: linear-gradient(to bottom right, $celestial)
+  background: #C33764
   color: $white-smoke
 
 .simplecolorpicker
   min-width: 200px
   border: 1px solid #E5E5E5
+  border-radius: 4px
 
 .color
   min-width: 25px
+  border-radius: 4px
 
 .color-picked
   min-width: 50px !important
@@ -249,3 +252,18 @@ ul.ui-autocomplete
   &:hover
     opacity: 1
     color: #B00100
+
+.inline-paragraph
+  font-size: 16px !important
+
+p
+  margin-top: 10px
+  margin-bottom: 5px
+
+.note-header
+  border-bottom: 1px solid #4281A4
+
+.note-body
+  font-size: 13px
+  padding-left: 15px
+  padding-right: 15px

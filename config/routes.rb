@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   match '/customer_events/create' => 'customer_events#create', via: [:get, :post], :as => :create_customer_event
   match '/customers/create' => 'customers#create', via: [:get, :post], :as => :create_customer
   get '/customers/search' => 'customers#search', :as => :search_customer
+  match '/events/create' => 'events#create', via: [:get, :post], :as => :get_color
 
   resources :archive
   resources :customer_event_products

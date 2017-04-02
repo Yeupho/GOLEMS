@@ -9,9 +9,7 @@
         <tr>
           <th>First name</th>
           <th>Last name</th>
-          <th>Time</th>
-          <th>Total</th>
-          <th>Color</th>
+          <th>Sales</th>
           <th></th>
         </tr>
         </thead>
@@ -21,9 +19,7 @@
             <tr data-link="<%= event_path(walk_in) %>" class="clickable-row">
               <td><%= walk_in.customer.first_name %></td>
               <td><%= walk_in.customer.last_name %></td>
-              <td><%= walk_in.event.start_time.strftime("%l:%M %p") %> - <%= walk_in.event.end_time.strftime("%l:%M %p") %></td>
               <td></td>
-              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= walk_in.event.color.color_code %>;"></span></td>
               <td><%= link_to 'Archive', walk_in, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
@@ -32,14 +28,12 @@
     </div>
 
     <div class="row text-center">
-      <div class="col-lg-3 col-lg-offset-4">
-        <% if @walk_in.length > 0 && @walk_in.total_pages > 1 %>
-            <%= will_paginate @walk_in, renderer: BootstrapPagination::Rails %>
-            <div class="page_info">
-              <%= page_entries_info @walk_in %>
-            </div>
-        <% end %>
-      </div>
+      <% if @walk_in.length > 0 && @walk_in.total_pages > 1 %>
+          <%= will_paginate @walk_in, renderer: BootstrapPagination::Rails, :param_name => 'walk_in_page' %>
+          <div class="page_info">
+            <%= page_entries_info @walk_in %>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>

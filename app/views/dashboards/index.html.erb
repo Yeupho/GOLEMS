@@ -1,16 +1,19 @@
-<div class="row">
-  <div class="col-lg-7 col-lg-offset-1">
-    <div class="row">
-      <%= render 'check_in' %>
+<div class="imaginary_container">
+  <div class="row">
+    <div class="col-lg-7 col-lg-offset-1">
+      <div class="row">
+        <%= render 'check_in' %>
+      </div>
+      <div class="row">
+        <%= render 'dues' %>
+      </div>
     </div>
-    <div class="row">
-      <%= render 'dues' %>
+
+    <div class="col-lg-3">
+      <%= render 'today_list' %>
     </div>
   </div>
 
-  <div class="col-lg-3">
-    <%= render 'today_list' %>
-  </div>
 </div>
 
 

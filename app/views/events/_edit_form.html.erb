@@ -1,15 +1,15 @@
 <%= form_for(event) do |f| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+    <% if event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
-      <ul>
-      <% event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+          <ul>
+            <% event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
     <div class="row"><h4 class="col-lg-10 col-lg-offset-1">Event</h4></div>
 
@@ -58,7 +58,7 @@
 
     <div class="row">
       <div class="col-lg-9 col-lg-offset-1">
-        <%= select_tag :color_id, options_for_select(Color.all.collect{ |c| [c.color_name, c.color_code, {'data-id' => c.id}]}) %>
+        <%= select_tag :color_id, options_for_select(Color.all.collect{ |c| [c.color_name, c.color_code, {'id' => c.id}]}, {selected: @event.color.color_code}) %>
         <div id="result"></div>
       </div>
       <div class="col-lg-1">
@@ -103,21 +103,14 @@
     $(document).ready(function() {
 
         $('#color_id').change(function() {
-            selectedOption = $(this).find('option:selected').data('id');
+            selectedOption = $(this).find('option:selected').attr('id');
             $('#result').html(selectedOption);
-            $('#submit').on('click', function() {
-                $.ajax({
-                    url: "/events/create",
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {color_id: selectedOption}
-                });
-            });
         });
 
         $('#color_id').on('click', function() {
             $('select[name="color_id"]').simplecolorpicker({picker: true, theme: 'glyphicons'});
         });
         $('#color_id').trigger('click');
+
     });
 </script>

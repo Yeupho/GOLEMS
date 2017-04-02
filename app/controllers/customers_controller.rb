@@ -12,6 +12,10 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @customer = Customer.find(params[:id])
+    @not_ready = CustomerEventProduct.where(pickup_status_id: '1')
+    @ready = CustomerEventProduct.where(pickup_status_id: '2')
+    @collected = CustomerEventProduct.where(pickup_status_id: '3')
   end
 
   # GET /customers/new
