@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees

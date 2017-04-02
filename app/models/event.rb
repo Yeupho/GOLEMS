@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   after_initialize :set_defaults
   acts_as_paranoid
-
+  validates :event_name, presence: true
   has_many :customer_events
   has_many :customers, :through => :customer_events
   has_many :employee_events
