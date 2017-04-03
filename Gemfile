@@ -21,7 +21,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
+#Using a mail gem for web form
+gem 'mail_form'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -35,6 +36,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'paranoia', '~>2.2'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Gem is used for displaying tables in rails console, in 'rails c',
+# type: require 'hirb' then Hirb.enable to make it work in console
+gem 'hirb'
+# Gem for grouping by date, ties to chartkick
+gem 'groupdate'
+# Chartpick gem for displaying charts
+gem 'chartkick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
