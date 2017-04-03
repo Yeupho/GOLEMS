@@ -42,8 +42,8 @@ gem 'paranoia', '~>2.2'
 gem 'hirb'
 # Gem for grouping by date, ties to chartkick
 gem 'groupdate'
-# Chartpick gem for displaying charts
-gem 'chartkick'
+# Gem for ChartJS
+gem 'chartjs-ror'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
