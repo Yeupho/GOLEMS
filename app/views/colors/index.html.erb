@@ -1,29 +1,58 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2 class="panel-title">Colors</h2>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-1">
+        <div class="input-group stylish-input-group">
+          <input type="text" class="form-control" placeholder="Search">
+          <span class="input-group-addon">
+                    <button type="submit">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+        </div>
+      </div>
 
-<h1>Colors</h1>
+      <div class="col-lg-1 col-lg-offset-1">
+        <button type="button" class="btn btn-primary btn-md show-btn">
+          <span class="glyphicon glyphicon-plus"></span>
+          <br>
+          New Color
+        </button>
+      </div>
+    </div>
 
-<table>
-  <thead>
-  <tr>
-    <th>Color code</th>
-    <th>Color name</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+    <div class="imaginary_container">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Color Code</th>
+          <th>Color Name</th>
+          <th></th>
+        </tr>
+        </thead>
 
-  <tbody>
-  <% @colors.each do |color| %>
-      <tr data-link="<%= color_path(color) %>">
-        <td><div style="background-color:<%= color.color_code %>;padding-left:5px;padding-right:5px;"><%= color.color_code %></div></td>
-        <td><div style="background-color:<%= color.color_code %>;padding-left:5px;padding-right:5px;"><%= color.color_name %></div></td>
-        <td><%= link_to 'Show', color %></td>
-        <td><%= link_to 'Edit', edit_color_path(color) %></td>
-        <td><%= link_to 'Destroy', color, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+        <tbody>
+        <% @colors.each do |color| %>
+            <tr data-link="<%= color_path(color) %>">
+              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= color.color_code %>;"><%= color.color_code %></span></td>
+              <td><%= color.color_name %></td>
+              <td><div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Detail', color %></li>
+                  <li><%= link_to 'Edit', edit_color_path(color) %></li>
+                  <li><%= link_to 'Archive', color_path(color, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
 
-<br>
 
-<%= link_to 'New Color', new_color_path %>
+  </div>
+</div>
