@@ -27,12 +27,11 @@
               <td><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <row><%= link_to 'Detail', event %></row>
-                  <row>Edit</row>
-                  <row><%= link_to 'Archive', event_path(event, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></row>
+                  <li><%= link_to 'Detail', event %></li>
+                  <li><%= link_to 'Edit', edit_event_path(event) %></li>
+                  <li><%= link_to 'Archive', event_path(event, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
-
             </tr>
         <% end %>
         </tbody>

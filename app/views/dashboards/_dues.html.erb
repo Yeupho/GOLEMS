@@ -18,14 +18,21 @@
         </thead>
 
         <tbody>
-        <% @check_in.each do |check_in| %>
+        <% @dues.each do |dues| %>
             <tr data-toggle="collapse" data-target="#accordion" class="clickable">
-              <td><%= check_in.customer.first_name %> <%= check_in.customer.last_name %></td>
-              <td><%= number_to_phone(check_in.customer.phone, area_code: true) %></td>
-              <td><%= check_in.event.event_date.strftime("%-m/%-d") %></td>
-              <td><%= check_in.event.event_name %></td>
+              <td><%= dues.customer.first_name %> <%= dues.customer.last_name %></td>
+              <td><%= number_to_phone(dues.customer.phone, area_code: true) %></td>
+              <td><%= dues.event.event_date.strftime("%-m/%-d") %></td>
+              <td><%= dues.event.event_name %></td>
               <td></td>
-              <td></td>
+              <td><div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li>Paid</li>
+                  <li>Cancel</li>
+                </ul>
+              </div></td>
+            </tr>
             </tr>
         <% end %>
         </tbody>

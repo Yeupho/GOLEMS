@@ -22,8 +22,8 @@
       <table class="table table-hover">
         <thead>
         <tr>
-          <th>First name</th>
-          <th>Last name</th>
+          <th>Name</th>
+          <th>Phone</th>
           <th>Sales</th>
           <th></th>
         </tr>
@@ -32,16 +32,15 @@
         <tbody>
         <% @walk_ins.each do |walk_in| %>
             <tr data-link="<%= event_path(walk_in) %>" class="clickable-row">
-              <td><%= walk_in.customer.first_name %></td>
-              <td><%= walk_in.customer.last_name %></td>
+              <td><%= walk_in.customer.first_name %> <%= walk_in.customer.last_name %></td>
+              <td><%= number_to_phone(walk_in.customer.phone, area_code: true) %></td>
               <td></td>
-              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= walk_in.event.color.color_code %>;"></span></td>
               <td><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <%= link_to 'Detail', walk_in %>
-                  <%= link_to 'Edit', edit_event_path(walk_in) %>
-                  <%= link_to 'Archive', walk_in, method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %>
+                  <li><%= link_to 'Detail', walk_in %></li>
+                  <li><%= link_to 'Edit', edit_event_path(walk_in) %></li>
+                  <li><%= link_to 'Archive', walk_in, method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>

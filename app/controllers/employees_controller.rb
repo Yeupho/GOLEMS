@@ -12,8 +12,8 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
-    @hosted = EmployeeEvent.joins(:event).joins(:employee).where("events.event_date < ?", Date.today).where("employees.id = ?", params[:id]).order("events.event_date DESC").order("events.start_time ASC")
-    @hosting = EmployeeEvent.joins(:event).joins(:employee).where("events.event_date >= ?", Date.today).where("employees.id = ?", params[:id]).order("events.event_date DESC").order("events.start_time ASC")
+    @hosted = Employee.host.where("employees.id = ?", params[:id]).where("events.event_date < ?", Date.today)
+    @hosting = Employee.host.where("events.event_date >= ?", Date.today).where("employees.id = ?", params[:id])
   end
 
   # GET /employees/new
@@ -60,7 +60,7 @@ class EmployeesController < ApplicationController
   def destroy
     @employee.destroy
     respond_to do |format|
-      format.html { redirect_to employees_url, notice: 'Employee was successfully destroyed.' }
+      format.html { redirect_to employees_url, notice: 'Employee was successfully Archived.' }
       format.json { head :no_content }
     end
   end
