@@ -91,4 +91,36 @@
   <%= @event.event_description %>
 </p>
 
+<h1>Customer Events</h1>
+
+<table>
+  <thead>
+  <tr>
+
+    <th>Customer First Name</th>
+    <th>Customer Last Name</th>
+    <th>Number in party</th>
+    <th>Adults painting</th>
+    <th>Kids painting</th>
+    <th>Deposit</th>
+    <th>Archive</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @customer_events.each do |customer_event| %>
+      <tr data-link="<%= customer_event_path(customer_event) %>">
+        <td><%= customer_event.customer.first_name %></td>
+        <td><%= customer_event.customer.last_name %></td>
+        <td><%= customer_event.number_in_party %></td>
+        <td><%= customer_event.adults_painting %></td>
+        <td><%= customer_event.kids_painting %></td>
+        <td><%= customer_event.deposit %></td>
+        <td><%= link_to 'Archive', customer_event, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
 <%= render 'events/show/edit_modal' %>

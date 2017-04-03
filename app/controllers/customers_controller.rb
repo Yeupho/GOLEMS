@@ -4,8 +4,8 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all.paginate(page: params[:page], per_page: 12)
     @customer = Customer.new
+    @customers = Customer.search(params[:search]).paginate(page: params[:page], per_page: 12)
   end
 
   # GET /customers/1

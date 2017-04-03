@@ -7,4 +7,19 @@ class Customer < ApplicationRecord
   belongs_to :country
 
   acts_as_paranoid
+
+
+  def self.search(search)
+    if search
+      where(['phone LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+
+
 end
+
+
+
+
