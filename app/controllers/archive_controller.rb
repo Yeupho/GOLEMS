@@ -9,4 +9,5 @@ class ArchiveController < ApplicationController
     @customer_event_products = CustomerEventProduct.all
 
   end
+
 end

@@ -3,26 +3,35 @@
     <h2 class="panel-title">Employee</h2>
   </div>
   <div class="panel-body">
-
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-1">
-          <div class="input-group stylish-input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <span class="input-group-addon">
+      <% if @employees.length > 0 && @employees.total_pages > 1 %>
+          <div class="col-lg-6 col-lg-offset-2">
+            <div class="input-group stylish-input-group">
+              <input type="text" class="form-control" placeholder="Search">
+              <span class="input-group-addon">
                     <button type="submit">
                       <span class="glyphicon glyphicon-search"></span>
                     </button>
                   </span>
+            </div>
           </div>
-        </div>
 
-        <div class="col-lg-1 col-lg-offset-1">
-          <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#newModal">
-            <span class="glyphicon glyphicon-plus"></span>
-            <br>
-            New Employee
-          </button>
-        </div>
+          <div class="col-lg-1 col-lg-offset-2">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#newModal">
+              <span class="glyphicon glyphicon-plus"></span>
+              <br>
+              New Employee
+            </button>
+          </div>
+      <% else %>
+          <div class="col-lg-1 col-lg-offset-10">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#newModal">
+              <span class="glyphicon glyphicon-plus"></span>
+              <br>
+              New Employee
+            </button>
+          </div>
+      <% end %>
     </div>
 
     <div class="imaginary_container">
@@ -38,13 +47,20 @@
         </thead>
 
         <tbody>
-        <% @employees.each do |employee| %>
-            <tr data-link="<%= employee_path(employee) %>">
+        <% @employees.with_deleted.each do |employee| %>
+            <tr data-link="<%= employee_path(employee) %>" class="clickable-row">
               <td><%= employee.first_name %></td>
               <td><%= employee.last_name %></td>
               <td><%= number_to_phone(employee.phone, area_code: true) %></td>
               <td><%= employee.email %></td>
-              <td><%= link_to 'Archive', employee, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
+              <td><div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Detail', employee %></li>
+                  <li><%= link_to 'Edit', edit_employee_path(employee) %></li>
+                  <li><%= link_to 'Archive', employee_path(employee, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div></td>
             </tr>
         <% end %>
         </tbody>
@@ -52,6 +68,14 @@
       </table>
     </div>
 
+    <div class="row text-center">
+      <% if @employees.length > 0 && @employees.total_pages > 1 %>
+          <%= will_paginate @employees, renderer: BootstrapPagination::Rails, :param_name => 'employee_page' %>
+          <div class="page_info">
+            <%= page_entries_info @employees %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
 

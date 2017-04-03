@@ -4,21 +4,19 @@
 
 <table>
   <thead>
-    <tr>
-      <th>Product type desc</th>
-      <th colspan="3"></th>
-    </tr>
+  <tr>
+    <th>Product type desc</th>
+    <th colspan="3"></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @product_types.each do |product_type| %>
-      <tr>
+  <% @product_types.each do |product_type| %>
+      <tr data-link="<%= product_type_path(product_type) %>">
         <td><%= product_type.product_type_desc %></td>
-        <td><%= link_to 'Show', product_type %></td>
-        <td><%= link_to 'Edit', edit_product_type_path(product_type) %></td>
         <td><%= link_to 'Destroy', product_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 

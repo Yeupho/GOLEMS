@@ -1,16 +1,19 @@
 class EmployeesController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
+    @employees = Employee.all.paginate(page: params[:employee_page], per_page: 13)
     @employee = Employee.new
   end
 
   # GET /employees/1
   # GET /employees/1.json
   def show
+    @hosted = Employee.host.where("employees.id = ?", params[:id]).where("events.event_date < ?", Date.today)
+    @hosting = Employee.host.where("events.event_date >= ?", Date.today).where("employees.id = ?", params[:id])
   end
 
   # GET /employees/new

@@ -1,16 +1,21 @@
-<script>
-    $(document).ready(function(){
-        $('#calendar').fullCalendar({
-            height: 820,
-            events: '/events.json',
-            selectable: true
-        });
-    });
-</script>
-
 <div class="panel panel-default">
   <div class="panel-body">
     <div id="calendar"></div>
   </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('#calendar').fullCalendar({
+            height: 820,
+            events: '/events.json',
+            header: {
+                center: 'title',
+                right: 'today prev,next',
+                left: ''
+            }
+        });
+    });
+
+</script>
 

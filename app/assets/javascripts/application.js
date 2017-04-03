@@ -11,26 +11,28 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require moment
 //= require bootstrap-datetimepicker
 //= require fullcalendar
+//= require Chart.bundle
+//= require chartkick
 //= require jquery.simplecolorpicker.js
+//= require customer_events.js
+//= require bootstrap-toggle
+//= require turbolinks
 //= require_tree .
 
 jQuery(function($) {
+<<<<<<< HEAD
     $(document).on('click', "tr", function() {
+=======
+    $(document).on('click', ".clickable-row", function() {
+>>>>>>> 547bb130a65ef3ab08ab92e1dcf97ec13dd822d0
         window.location = $(this).data("link");
     });
-
-    $(window).load(function(){
-        $('#calendar').fullCalendar({
-            height: 500
-        });
-    });
-
 });
 
 

@@ -34,14 +34,12 @@
         <div class="col-lg-6">
           <p>
             <strong>Category:</strong>
-            <%= @event.event_type_id %>
+            <%= @event.event_type.event_type_desc %>
           </p>
         </div>
-        <div class="col-lg-6">
-          <p>
-            <strong>Color</strong><br>
-            <%= @event.color_id %>
-          </p>
+        <div class="col-lg-2 text-center">
+          <div class="row"><strong>Color</strong></div>
+          <div class="row"><span class="simplecolorpicker icon color-circle" style="background-color: <%= @event.color.color_code %>;"></span></div>
         </div>
       </div>
 
@@ -51,7 +49,7 @@
             <div class="col-lg-12">
               <p>
                 <strong>Date:</strong>
-                <%= @event.event_date.strftime("%B %e, %Y") %>
+                <%= @event.event_date.strftime("%B %-d, %Y") %>
               </p>
             </div>
           </div>
@@ -83,12 +81,7 @@
 
 <p>
   <strong>Event status:</strong>
-  <%= @event.event_status_id %>
-</p>
-
-<p>
-  <strong>Event description:</strong>
-  <%= @event.event_description %>
+  <%= @event.event_status.event_status_desc %>
 </p>
 
 <h1>Customer Events</h1>
