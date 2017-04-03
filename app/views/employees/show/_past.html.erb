@@ -1,0 +1,27 @@
+<div class="imaginary_container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Children</th>
+      <th>Event Size</th>
+      <th>Co-Host</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @hosted.each do |h| %>
+        <tr>
+          <td><%= h.event_name %></td>
+          <td><%= h.event_date.strftime("%-m/%-d/%y") %></td>
+          <td><%= h.start_time.strftime("%l:%M %p") %> - <%= h.end_time.strftime("%l:%M %p") %></td>
+          <td><%= h.kids_painting %></td>
+          <td><%= h.number_in_party %></td>
+          <td></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

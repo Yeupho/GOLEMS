@@ -1,0 +1,116 @@
+<%= form_for(event) do |f| %>
+    <% if event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+          <ul>
+            <% event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="row"><h4 class="col-lg-10 col-lg-offset-1">Event</h4></div>
+
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-1"><%= f.text_field :event_name, placeholder: "Event", class: "form-control" %></div>
+      <div class="col-lg-4"><%= f.collection_select(:event_type_id, EventType.all, :id, :event_type_desc, {prompt: "Event Category"}, {class: "form-control"}) %></div>
+    </div>
+
+    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Date</h4></div>
+
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-1">
+        <div class='input-group' id='datepicker'>
+          <%= f.text_field :event_date, date: {behaviour: "datepicker"}, class: "form-control" %>
+          <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Time</h4></div>
+
+    <div class="row">
+      <div class='col-lg-5 col-lg-offset-1'>
+        <div class='input-group timepicker'>
+          <%= f.text_field :start_time, date: {behaviour: "datepicker"}, class: "form-control" %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-time"></span>
+
+            </span>
+        </div>
+      </div>
+
+      <div class='col-lg-5'>
+        <div class='input-group timepicker'>
+          <%= f.text_field :end_time, date: {behaviour: "datepicker"}, class: "form-control" %>
+          <span class="input-group-addon">
+              <span class="glyphicon glyphicon-time"></span>
+            </span>
+        </div>
+      </div>
+    </div>
+
+    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Color</h4></div>
+
+    <div class="row">
+      <div class="col-lg-9 col-lg-offset-1">
+        <%= select_tag :color_id, options_for_select(Color.all.collect{ |c| [c.color_name, c.color_code, {'id' => c.id}]}, {selected: @event.color.color_code}) %>
+        <div id="result"></div>
+      </div>
+      <div class="col-lg-1">
+        <%= f.collection_select(:color_id, Color.all, :id, :color_name, {class: "form-control"}) %>
+      </div>
+    </div>
+
+    <br><div class="row"><h4 class="row col-lg-10 col-lg-offset-1">Description</h4></div>
+
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1"><%= f.text_area :event_description, rows: "3", class: "form-control" %></div>
+    </div>
+
+    <br>
+
+    <div class="row footer">
+      <div class="col-lg-3 col-lg-offset-5 text-right">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+      <div class="col-lg-4 text-left">
+        <%= f.submit class: "btn btn-primary", id: "submit" %>
+      </div>
+    </div>
+<% end %>
+
+<script>
+    $(function() {
+        $('.timepicker').datetimepicker({
+            format: 'LT'
+        });
+    });
+
+    $(function() {
+        $('#datepicker').datetimepicker({
+            format: 'MMMM D, YYYY',
+            daysOfWeekDisabled: [2]
+        });
+    });
+
+    var selectedOption = "";
+
+    $(document).ready(function() {
+
+        $('#color_id').change(function() {
+            selectedOption = $(this).find('option:selected').attr('id');
+            $('#result').html(selectedOption);
+        });
+
+        $('#color_id').on('click', function() {
+            $('select[name="color_id"]').simplecolorpicker({picker: true, theme: 'glyphicons'});
+        });
+        $('#color_id').trigger('click');
+
+    });
+</script>
