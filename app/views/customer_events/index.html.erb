@@ -24,8 +24,13 @@
   </thead>
 
   <tbody>
+<<<<<<< HEAD
+    <% @customer_events.each do |customer_event| %>
+      <tr data-link="<%= customer_event_path(customer_event) %>">
+=======
   <% @customer_events.each do |customer_event| %>
       <tr>
+>>>>>>> 547bb130a65ef3ab08ab92e1dcf97ec13dd822d0
         <td><%= customer_event.event.event_name %></td>
         <td><%= customer_event.event.event_date %></td>
         <td><%= customer_event.customer.first_name %></td>
@@ -33,8 +38,6 @@
         <td><%= customer_event.adults_painting %></td>
         <td><%= customer_event.kids_painting %></td>
         <td><%= customer_event.deposit %></td>
-        <td><%= link_to 'Show', customer_event %></td>
-        <td><%= link_to 'Edit', edit_customer_event_path(customer_event) %></td>
         <td><%= link_to 'Archive', customer_event, method: :delete,class: 'btn btm-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
