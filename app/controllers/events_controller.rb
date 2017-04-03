@@ -15,6 +15,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @event = Event.find(params[:id])
+    @customer_events = @event.customer_events
   end
 
   # GET /events/new
@@ -64,6 +66,7 @@ class EventsController < ApplicationController
       @event.destroy
     elsif params[:type] == 'restore'
       @event.restore
+      @event.update(deleted_at: nil)
     end
 
     respond_to do |format|
