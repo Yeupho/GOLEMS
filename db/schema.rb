@@ -70,9 +70,9 @@ ActiveRecord::Schema.define(version: 20170323193958) do
     t.integer  "zipcode"
     t.integer  "country_id"
     t.string   "comment"
-    t.integer  "customer_status_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "customer_status_id", default: 1
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_customers_on_deleted_at", using: :btree
   end
@@ -109,9 +109,9 @@ ActiveRecord::Schema.define(version: 20170323193958) do
     t.integer  "zipcode"
     t.integer  "country_id"
     t.text     "comment"
-    t.integer  "employee_status_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "employee_status_id", default: 1
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_employees_on_deleted_at", using: :btree
   end
@@ -133,12 +133,12 @@ ActiveRecord::Schema.define(version: 20170323193958) do
     t.date     "event_date"
     t.time     "start_time"
     t.time     "end_time"
-    t.integer  "event_type_id"
-    t.integer  "color_id"
-    t.integer  "event_status_id"
+    t.integer  "event_type_id",     default: 1
+    t.integer  "color_id",          default: 1
+    t.integer  "event_status_id",   default: 1
     t.string   "event_description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_events_on_deleted_at", using: :btree
   end
