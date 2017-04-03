@@ -17,6 +17,13 @@ Rails.application.routes.draw do
 
   get 'archive' => 'archive#index'
 
+
+  get 'admin' => 'admin#index'
+
+  resources :admin
+  match '/colors/create' => 'colors#create', via: [:get, :post], :as => :create_color
+
+
   match '/customer_events/create' => 'customer_events#create', via: [:get, :post], :as => :create_customer_event
   match '/customers/create' => 'customers#create', via: [:get, :post], :as => :create_customer
   get '/customers/search' => 'customers#search', :as => :search_customer

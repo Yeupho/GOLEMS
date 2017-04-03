@@ -7,12 +7,12 @@
 
 <p>
   <strong>Product price:</strong>
-  <%= @product.product_price %>
+  <%= number_to_currency(@product.product_price) %>
 </p>
 
 <p>
   <strong>Product type:</strong>
-  <%= @product.product_type_id %>
+  <%= @product.product_type.product_type_desc %>
 </p>
 
 

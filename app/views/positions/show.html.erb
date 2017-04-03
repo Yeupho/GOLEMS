@@ -2,12 +2,12 @@
 
 <p>
   <strong>Employee:</strong>
-  <%= @position.employee_id %>
+  <%= @position.employee.first_name %>
 </p>
 
 <p>
   <strong>Employee type:</strong>
-  <%= @position.employee_type_id %>
+  <%= @position.employee_type.employee_type_desc %>
 </p>
 
 <%= link_to 'Edit', edit_position_path(@position) %> |
