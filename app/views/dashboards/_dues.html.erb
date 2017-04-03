@@ -25,7 +25,14 @@
               <td><%= dues.event.event_date.strftime("%-m/%-d") %></td>
               <td><%= dues.event.event_name %></td>
               <td></td>
-              <td></td>
+              <td><div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li>Paid</li>
+                  <li>Cancel</li>
+                </ul>
+              </div></td>
+            </tr>
             </tr>
         <% end %>
         </tbody>
