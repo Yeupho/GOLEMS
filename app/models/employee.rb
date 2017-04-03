@@ -9,8 +9,8 @@ class Employee < ApplicationRecord
   validates :city, presence: true
   validates :zipcode, presence: true
   has_many :employee_events
-  has_many :employee_types, :through => :positions
   has_many :positions
+  has_many :employee_types, :through => :positions
   has_many :events, :through => :employee_events
   belongs_to :employee_status
   belongs_to :state
