@@ -17,7 +17,15 @@
           <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= r.customer_event.event.color.color_code %>;"></span></td>
           <td><%= r.customer_event.event.event_name %></td>
           <td><%= r.customer_event.event.event_date.strftime("%-m/%-d/%y") %></td>
-          <td></td>
+          <td><div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li>In-Progress</li>
+              <li>Ready</li>
+              <li>Collected</li>
+            </ul>
+          </div></td>
+        </tr>
         </tr>
     <% end %>
     </tbody>

@@ -20,4 +20,16 @@ class Employee < ApplicationRecord
     self.employee_status_id ||= 1
   end
 
+  def self.host
+    EmployeeEvent.select("events.event_name, events.event_date, events.start_time, events.end_time, sum(kids_painting) AS kids_painting, sum(number_in_party) AS number_in_party")
+        .joins(:event)
+        .joins(:employee)
+        .joins(event: :customer_events)
+        .order("events.event_date DESC")
+        .order("events.start_time ASC")
+        .group("events.event_name")
+        .group("events.event_date")
+        .group("events.start_time")
+        .group("events.end_time")
+  end
 end
