@@ -17,8 +17,6 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require fullcalendar
-//= require Chart.bundle
-//= require chartkick
 //= require jquery.simplecolorpicker.js
 //= require customer_events.js
 //= require bootstrap-toggle

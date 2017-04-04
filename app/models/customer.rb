@@ -12,6 +12,14 @@ class Customer < ApplicationRecord
   belongs_to :state
   belongs_to :country
 
+  def self.search(search)
+    if search
+      where(['phone LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+
   def set_defaults
     self.customer_status_id ||= 1
   end
@@ -20,5 +28,12 @@ class Customer < ApplicationRecord
 
     self.first_name + ' ' + self.last_name
   end
+<<<<<<< HEAD
 
+=======
+>>>>>>> 647072af5a7e2419f250d1f2b2f1439263b327ff
 end
+
+
+
+

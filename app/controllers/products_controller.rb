@@ -59,6 +59,7 @@ class ProductsController < ApplicationController
       @product.destroy
     elsif params[:type]=='restore'
       @product.restore
+      @product.update(deleted_at: nil)
     end
 
     respond_to do |format|

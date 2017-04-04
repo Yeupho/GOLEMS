@@ -30,8 +30,9 @@ Rails.application.routes.draw do
   match '/events/create' => 'events#create', via: [:get, :post], :as => :get_color
 
   resources :archive
-  resources :customer_event_products
-  resources :customer_events
+  resources :customer_events do
+    resources :customer_event_products, except: [:index, :show]
+  end
   resources :employee_events
   resources :events
   resources :products
