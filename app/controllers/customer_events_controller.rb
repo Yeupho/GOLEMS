@@ -4,15 +4,9 @@ class CustomerEventsController < ApplicationController
   # GET /customer_events
   # GET /customer_events.json
   def index
-<<<<<<< HEAD
-   @search =CustomerEventSearch.new(params[:search])
-   @customer_events = @search.scope
-=======
     @search =CustomerEventSearch.new(params[:search])
     @customer_events = @search.scope
     @customer_event = CustomerEvent.new
-
->>>>>>> 547bb130a65ef3ab08ab92e1dcf97ec13dd822d0
   end
 
   # GET /customer_events/1
@@ -65,6 +59,14 @@ class CustomerEventsController < ApplicationController
   # DELETE /customer_events/1
   # DELETE /customer_events/1.json
   def destroy
+    @customer_events = CustomerEvent.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @customer_event.delete
+    elsif params[:type]=='restore'
+      @customer_event.restore
+      @customer_event.update(deleted_at: nil)
+    end
+
     @customer_event.destroy
     respond_to do |format|
       format.html { redirect_to customer_events_url, notice: 'Customer event was successfully destroyed.' }
