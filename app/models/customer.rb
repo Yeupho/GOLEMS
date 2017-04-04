@@ -12,10 +12,6 @@ class Customer < ApplicationRecord
   belongs_to :state
   belongs_to :country
 
-<<<<<<< HEAD
-  acts_as_paranoid
-
-
   def self.search(search)
     if search
       where(['phone LIKE ?', "%#{search}%"])
@@ -24,8 +20,6 @@ class Customer < ApplicationRecord
     end
   end
 
-
-=======
   def set_defaults
     self.customer_status_id ||= 1
   end
@@ -34,8 +28,6 @@ class Customer < ApplicationRecord
 
     self.first_name + ' ' + self.last_name
   end
-
->>>>>>> 547bb130a65ef3ab08ab92e1dcf97ec13dd822d0
 end
 
 
