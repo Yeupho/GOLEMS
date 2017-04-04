@@ -23,6 +23,7 @@
         <% @ready.each do |customer_event_product| %>
             <tr>
               <td><%= customer_event_product.customer_event.customer.full_name %></td>
+
               <td><%= number_to_phone(customer_event_product.customer_event.customer.phone, area_code: true) %></td>
               <td><%= customer_event_product.product.product_name %></td>
               <td><%= customer_event_product.quantity %></td>

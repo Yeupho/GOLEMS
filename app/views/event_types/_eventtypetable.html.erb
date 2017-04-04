@@ -1,7 +1,6 @@
 <div class="panel panel-default">
-
   <div class="panel-heading">
-    <h2 class="panel-title">Products</h2>
+    <h2 class="panel-title">Event Types</h2>
   </div>
   <div class="panel-body">
     <div class="row">
@@ -18,7 +17,7 @@
 
       <div class="col-lg-1 col-lg-offset-1">
         <div class="col-lg-4 text-center">
-          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Product'.html_safe, new_product_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
+          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Event Type'.html_safe, new_event_type_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
         </div>
       </div>
     </div>
@@ -27,25 +26,21 @@
       <table class="table table-hover">
         <thead>
         <tr>
-          <th>Product Name</th>
-          <th>Price</th>
-          <th>Type</th>
+          <th>Event Type</th>
           <th></th>
         </tr>
         </thead>
 
         <tbody>
-        <% @products.each do |product| %>
-            <tr data-link="<%= product_path(product) %>">
-              <td><%= product.product_name %></td>
-              <td><%= number_to_currency(product.product_price) %></td>
-              <td><%= product.product_type.product_type_desc %></td>
+        <% @event_types.each do |event_type| %>
+            <tr data-link="<%= event_type_path(event_type) %>">
+              <td><%= event_type.event_type_desc %></td>
               <td><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><%= link_to 'Detail', product %></li>
-                  <li><%= link_to 'Edit', edit_product_path(product) %></li>
-                  <li><%= link_to 'Archive', product_path(product, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Detail', event_type %></li>
+                  <li><%= link_to 'Edit', edit_event_type_path(event_type) %></li>
+                  <li><%= link_to 'Archive', event_type_path(event_type, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>
