@@ -16,4 +16,9 @@ class Customer < ApplicationRecord
     self.customer_status_id ||= 1
   end
 
+  def full_name
+
+    self.first_name + ' ' + self.last_name
+  end
+
 end
