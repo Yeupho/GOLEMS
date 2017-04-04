@@ -103,7 +103,7 @@
 
   <tbody>
   <% @customer_events.each do |customer_event| %>
-      <tr data-link="<%= customer_event_path(customer_event) %>">
+      <tr data-link="<%= customer_event_path(customer_event) %>" class="clickable-row">
         <td><%= customer_event.customer.first_name %></td>
         <td><%= customer_event.customer.last_name %></td>
         <td><%= customer_event.number_in_party %></td>

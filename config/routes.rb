@@ -28,10 +28,12 @@ Rails.application.routes.draw do
   match '/customers/create' => 'customers#create', via: [:get, :post], :as => :create_customer
   get '/customers/search' => 'customers#search', :as => :search_customer
   match '/events/create' => 'events#create', via: [:get, :post], :as => :get_color
+  put '/customer_event_products/update' => 'customer_event_products#update', :as => :update_pickup_status
 
   resources :archive
-  resources :customer_event_products
-  resources :customer_events
+  resources :customer_events do
+    resources :customer_event_products, except: [:index, :show]
+  end
   resources :employee_events
   resources :events
   resources :products

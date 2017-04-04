@@ -13,18 +13,15 @@
     <tbody>
     <% @collected.each do |c| %>
         <tr>
-          <td><%= c.product.product_name %></td>
-          <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= c.customer_event.event.color.color_code %>;"></span></td>
-          <td><%= c.customer_event.event.event_name %></td>
-          <td><%= c.customer_event.event.event_date.strftime("%-m/%-d/%y") %></td>
-          <td><div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li>In-Progress</li>
-              <li>Ready</li>
-              <li>Collected</li>
-            </ul>
-          </div></td>
+          <td><%= c.product_name %></td>
+          <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= c.color_code %>;"></span></td>
+          <td><%= c.event_name %></td>
+          <td><%= c.event_date.strftime("%-m/%-d/%y") %></td>
+          <td>
+            <%= form_for c, :url => 'update_pickup_status',:html=>{:id=>'pickup'} do |f| %>
+                <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {class: "form-control"}) %>
+            <% end %>
+          </td>
         </tr>
     <% end %>
     </tbody>

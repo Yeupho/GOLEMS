@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-lg-5 col-lg-offset-1">
         <div class='input-group' id='datepicker'>
-          <%= f.text_field :event_date, date: {behaviour: "datepicker"}, class: "form-control" %>
+          <%= f.text_field :event_date, class: "form-control", :value => (@event.event_date.blank? ? '' : @event.event_date.strftime('%B %d, %Y')) %>
           <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
             </span>
@@ -36,7 +36,7 @@
     <div class="row">
       <div class='col-lg-5 col-lg-offset-1'>
         <div class='input-group timepicker'>
-          <%= f.text_field :start_time, date: {behaviour: "datepicker"}, class: "form-control" %>
+          <%= f.text_field :start_time, value: @event.start_time, class: "form-control", :value => (@event.start_time.blank? ? '' : @event.start_time.strftime('%l:%M %p')) %>
           <span class="input-group-addon">
               <span class="glyphicon glyphicon-time"></span>
 
@@ -46,7 +46,7 @@
 
       <div class='col-lg-5'>
         <div class='input-group timepicker'>
-          <%= f.text_field :end_time, date: {behaviour: "datepicker"}, class: "form-control" %>
+          <%= f.text_field :end_time, class: "form-control", :value => (@event.end_time.blank? ? '' : @event.end_time.strftime('%l:%M %p')) %>
           <span class="input-group-addon">
               <span class="glyphicon glyphicon-time"></span>
             </span>
@@ -93,7 +93,7 @@
 
     $(function() {
         $('#datepicker').datetimepicker({
-            format: 'MMMM D, YYYY',
+            format: 'MMMM DD, YYYY',
             daysOfWeekDisabled: [2]
         });
     });

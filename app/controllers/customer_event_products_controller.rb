@@ -31,11 +31,11 @@ class CustomerEventProductsController < ApplicationController
 
     respond_to do |format|
       if @customer_event_product.save
-        format.html { redirect_to @customer_event_product, notice: 'Customer event product was successfully created.' }
-        format.json { render :show, status: :created, location: @customer_event_product }
+        format.html { redirect_to @customer_event, notice: 'Customer event product was successfully created.' }
+        format.json { render :show, status: :created, location: @customer_event }
       else
         format.html { render :new }
-        format.json { render json: @customer_event_product.errors, status: :unprocessable_entity }
+        format.json { render json: @customer_event.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,8 +43,6 @@ class CustomerEventProductsController < ApplicationController
   # PATCH/PUT /customer_event_products/1
   # PATCH/PUT /customer_event_products/1.json
   def update
-
-
     respond_to do |format|
       if @customer_event_product.update(customer_event_product_params)
         format.html { redirect_to @customer_event, notice: 'Customer event product was successfully updated.' }
