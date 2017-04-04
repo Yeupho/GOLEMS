@@ -30,6 +30,11 @@ class Customer < ApplicationRecord
     self.customer_status_id ||= 1
   end
 
+  def full_name
+
+    self.first_name + ' ' + self.last_name
+  end
+
 >>>>>>> 547bb130a65ef3ab08ab92e1dcf97ec13dd822d0
 end
 
