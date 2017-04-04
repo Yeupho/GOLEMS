@@ -18,7 +18,6 @@
 //= require bootstrap-datetimepicker
 //= require fullcalendar
 //= require jquery.simplecolorpicker.js
-//= require customer_events.js
 //= require bootstrap-toggle
 //= require turbolinks
 //= require_tree .

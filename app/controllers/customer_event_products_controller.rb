@@ -43,8 +43,6 @@ class CustomerEventProductsController < ApplicationController
   # PATCH/PUT /customer_event_products/1
   # PATCH/PUT /customer_event_products/1.json
   def update
-
-
     respond_to do |format|
       if @customer_event_product.update(customer_event_product_params)
         format.html { redirect_to @customer_event, notice: 'Customer event product was successfully updated.' }

@@ -13,10 +13,10 @@
     <tbody>
     <% @not_ready.each do |nr| %>
         <tr>
-          <td><%= nr.product.product_name %></td>
-          <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= nr.customer_event.event.color.color_code %>;"></span></td>
-          <td><%= nr.customer_event.event.event_name %></td>
-          <td><%= nr.customer_event.event.event_date.strftime("%-m/%-d/%y") %></td>
+          <td><%= nr.product_name %></td>
+          <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= nr.color_code %>;"></span></td>
+          <td><%= nr.event_name %></td>
+          <td><%= nr.event_date.strftime("%-m/%-d/%y") %></td>
           <td><div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
             <ul class="dropdown-menu">
