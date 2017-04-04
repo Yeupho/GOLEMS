@@ -4,15 +4,7 @@ class CustomerEventsController < ApplicationController
   # GET /customer_events
   # GET /customer_events.json
   def index
-<<<<<<< HEAD
-   @search =CustomerEventSearch.new(params[:search])
-   @customer_events = @search.scope
-=======
-    @search =CustomerEventSearch.new(params[:search])
-    @customer_events = @search.scope
     @customer_event = CustomerEvent.new
-
->>>>>>> 547bb130a65ef3ab08ab92e1dcf97ec13dd822d0
   end
 
   # GET /customer_events/1
