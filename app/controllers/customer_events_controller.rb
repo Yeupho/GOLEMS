@@ -5,6 +5,7 @@ class CustomerEventsController < ApplicationController
   # GET /customer_events.json
   def index
     @customer_event = CustomerEvent.new
+    @customer_events = CustomerEvent.all
   end
 
   # GET /customer_events/1
