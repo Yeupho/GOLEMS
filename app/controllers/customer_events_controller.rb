@@ -58,6 +58,14 @@ class CustomerEventsController < ApplicationController
   # DELETE /customer_events/1
   # DELETE /customer_events/1.json
   def destroy
+    @customer_events = CustomerEvent.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @customer_event.delete
+    elsif params[:type]=='restore'
+      @customer_event.restore
+      @customer_event.update(deleted_at: nil)
+    end
+
     @customer_event.destroy
     respond_to do |format|
       format.html { redirect_to customer_events_url, notice: 'Customer event was successfully destroyed.' }
@@ -73,6 +81,6 @@ class CustomerEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_event_params
-      params.require(:customer_event).permit(:event_id, :customer_id, :number_in_party, :adults_painting, :kids_painting, :deposit, :archive)
+      params.require(:customer_event).permit(:event_id, :customer_id, :number_in_party, :adults_painting, :kids_painting)
     end
 end

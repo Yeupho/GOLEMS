@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323193958) do
+ActiveRecord::Schema.define(version: 20170405045759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20170323193958) do
     t.string   "color_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_colors_on_deleted_at", using: :btree
   end
 
   create_table "countries", force: :cascade do |t|
@@ -46,7 +48,6 @@ ActiveRecord::Schema.define(version: 20170323193958) do
     t.integer  "number_in_party"
     t.integer  "adults_painting"
     t.integer  "kids_painting"
-    t.boolean  "deposit"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.datetime "deleted_at"
@@ -126,6 +127,8 @@ ActiveRecord::Schema.define(version: 20170323193958) do
     t.string   "event_type_desc"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_event_types_on_deleted_at", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -154,6 +157,8 @@ ActiveRecord::Schema.define(version: 20170323193958) do
     t.integer  "employee_type_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_positions_on_deleted_at", using: :btree
   end
 
   create_table "product_types", force: :cascade do |t|

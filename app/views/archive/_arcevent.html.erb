@@ -1,0 +1,25 @@
+<table id='ArcEvent' class="table table-hover">
+  <thead>
+  <tr>
+    <th>Event Name</th>
+    <th>Start Time/End Time</th>
+    <th>Event Type</th>
+    <th>  </th>
+    <th>Color</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @events.only_deleted.each do |event| %>
+      <tr data-link="<%= event_path(event) %>">
+        <td><%= event.event_name %></td>
+        <td><%= event.start_time.strftime("%l:%M %p") %> - <%= event.end_time.strftime("%l:%M %p") %></td>
+        <td><%= event.event_type.event_type_desc %></td>
+        <td></td>
+        <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= event.color.color_code %>;"></span></td>
+        <td><%= link_to 'Restore', event_path(event, type: :restore),method: :delete,class: 'btn btm-mini btn-warning', data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>

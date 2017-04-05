@@ -35,7 +35,7 @@
         </thead>
 
         <tbody>
-        <% @positions.each do |position| %>
+        <% @positions.without_deleted.each do |position| %>
             <tr data-link="<%= position_path(position) %>">
               <td><%= position.employee.first_name %></td>
               <td><%= position.employee_type.employee_type_desc %></td>

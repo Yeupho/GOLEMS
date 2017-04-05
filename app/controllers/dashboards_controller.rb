@@ -4,6 +4,7 @@ class DashboardsController < ApplicationController
     @event_list = Dashboard.event_list
     @dues = Dashboard.dues
   end
+
   def destroy
     @dues = CustomerEvent.with_deleted.find(params[:id])
     if params[:type]=='normal'

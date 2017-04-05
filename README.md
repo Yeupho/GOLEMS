@@ -53,3 +53,4 @@ OR
 # Shutdown Rails stuff
 - View sessions with lsof -wni tcp:3000
 
+-if Hirb is in stalled, do require 'hirb' then Hirb.enable

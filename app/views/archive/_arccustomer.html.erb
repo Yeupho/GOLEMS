@@ -1,0 +1,23 @@
+<table id='ArcCustomer' class="table table-hover">
+
+  <thead>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @customers.only_deleted.each do |customer| %>
+      <tr data-link="<%= customer_path(customer) %>">
+        <td><%= customer.first_name %></td>
+        <td><%= customer.last_name %></td>
+        <td><%= number_to_phone(customer.phone, area_code: true) %></td>
+        <td><%= customer.email %></td>
+        <td><%= link_to 'Restore', customer_path(customer, type: :restore),method: :delete,class: 'btn btm-mini btn-warning', data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
