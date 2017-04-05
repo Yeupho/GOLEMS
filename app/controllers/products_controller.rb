@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.all.paginate(page: params[:product_page], per_page: 15)
   end
 
   # GET /products/1

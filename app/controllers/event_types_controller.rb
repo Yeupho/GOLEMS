@@ -1,10 +1,11 @@
 class EventTypesController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_event_type, only: [:show, :edit, :update, :destroy]
 
   # GET /event_types
   # GET /event_types.json
   def index
-    @event_types = EventType.all
+    @event_types = EventType.all.paginate(page: params[:event_type_page], per_page: 15)
   end
 
   # GET /event_types/1

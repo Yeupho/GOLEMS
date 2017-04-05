@@ -1,37 +1,14 @@
-<div class="panel panel-default">
+<div class="panel panel-default shadow-pane">
   <div class="panel-heading">
-    <h2 class="panel-title">Employee</h2>
+    <h2 class="panel-title">Employee Information</h2>
   </div>
   <div class="panel-body">
     <div class="row">
-      <% if @employees.length > 0 && @employees.total_pages > 1 %>
-          <div class="col-lg-6 col-lg-offset-2">
-            <div class="input-group stylish-input-group">
-              <input type="text" class="form-control" placeholder="Search">
-              <span class="input-group-addon">
-                    <button type="submit">
-                      <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                  </span>
-            </div>
-          </div>
-
-          <div class="col-lg-1 col-lg-offset-2">
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#newModal">
-              <span class="glyphicon glyphicon-plus"></span>
-              <br>
-              New Employee
-            </button>
-          </div>
-      <% else %>
-          <div class="col-lg-1 col-lg-offset-10">
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#newModal">
-              <span class="glyphicon glyphicon-plus"></span>
-              <br>
-              New Employee
-            </button>
-          </div>
-      <% end %>
+      <div class="col-lg-6 col-lg-offset-3">
+        <% if @employees.length > 0 && @employees.total_pages > 1 %>
+            <%= render 'employees/index/search' %>
+        <% end %>
+      </div>
     </div>
 
     <div class="imaginary_container">
@@ -42,7 +19,7 @@
           <th>Last Name</th>
           <th>Phone</th>
           <th>Email</th>
-          <th></th>
+          <th>Actions</th>
         </tr>
         </thead>
 
@@ -78,5 +55,3 @@
     </div>
   </div>
 </div>
-
-<%= render 'employees/index/new_modal' %>

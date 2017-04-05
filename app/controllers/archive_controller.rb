@@ -12,11 +12,4 @@ class ArchiveController < ApplicationController
     @event_types = EventType.all
   end
 
-  def charts
-    @chartEmp = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title=({:text=>"Employee Pie Chart"})
-      f.options[:xAxis][:categories]=['Jan','Feb','Mar','Apr','May']
-
-    end
-  end
 end

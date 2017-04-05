@@ -9,6 +9,7 @@
         <thead>
         <tr>
           <th>Name</th>
+          <th>Date</th>
           <th>Time</th>
           <th>Event</th>
           <th>Party Size</th>
@@ -19,6 +20,7 @@
         <% @check_in.each do |check_in| %>
             <tr>
               <td><%= check_in.customer.first_name %> <%= check_in.customer.last_name %></td>
+              <td><%= check_in.event.event_date.strftime("%-m/%-d/%y") %></td>
               <td><%= check_in.event.start_time.strftime("%l:%M %p") %> - <%= check_in.event.end_time.strftime("%l:%M %p") %></td>
               <td><%= check_in.event.event_name %></td>
               <td><%= check_in.number_in_party %></td>

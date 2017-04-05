@@ -1,7 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-4 col-lg-offset-1">
+    <h1 style="color: #C33764">Employee</h1>
+  </div>
+
+  <div class="col-lg-2 col-lg-offset-4">
+    <%= render 'employees/index/buttons' %>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
     <%= render 'employees/index/employee_report' %>
   </div>
 </div>
