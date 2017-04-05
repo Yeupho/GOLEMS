@@ -1,10 +1,11 @@
 class ColorsController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_color, only: [:show, :edit, :update, :destroy]
 
   # GET /colors
   # GET /colors.json
   def index
-    @colors = Color.all
+    @colors = Color.all.paginate(page: params[:color_page], per_page: 15)
   end
 
   # GET /colors/1

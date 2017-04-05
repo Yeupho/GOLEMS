@@ -1,8 +1,15 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h2 class="panel-title">Picked-Up</h2>
+    <h2 class="panel-title">Picked-Up (Last 30 Days)</h2>
   </div>
   <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <% if @picked.length > 0 && @picked.total_pages > 1 %>
+            <%= render 'search' %>
+        <% end %>
+      </div>
+    </div>
 
     <div class="imaginary_container">
       <table class="table table-hover">
@@ -37,5 +44,13 @@
       </table>
     </div>
 
+    <div class="row text-center">
+      <% if @picked.length > 0 && @picked.total_pages > 1 %>
+          <%= will_paginate @picked, renderer: BootstrapPagination::Rails, :param_name => 'picked_up_page' %>
+          <div class="page_info">
+            <%= page_entries_info @picked %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>

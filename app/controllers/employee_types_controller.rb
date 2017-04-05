@@ -1,10 +1,11 @@
 class EmployeeTypesController < ApplicationController
+  require 'will_paginate/array'
   before_action :set_employee_type, only: [:show, :edit, :update, :destroy]
 
   # GET /employee_types
   # GET /employee_types.json
   def index
-    @employee_types = EmployeeType.all
+    @employee_types = EmployeeType.all.paginate(page: params[:position_page], per_page: 15)
   end
 
   # GET /employee_types/1

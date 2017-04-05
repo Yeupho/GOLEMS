@@ -1,27 +1,23 @@
+<p></p>
+
 <div class="row">
-  <div class="col-lg-6 col-lg-offset-3">
-    <%= render 'pickup_switch' %>
+  <div class="col-lg-12">
+    <%= render 'tabs' %>
   </div>
 </div>
 
-<div class="imaginary_container">
-  <div class="row">
-    <div class="col-lg-12">
-      <%= render 'progress' %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-12">
-      <%= render 'ready' %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-12">
-      <%= render 'picked_up' %>
-    </div>
-  </div>
-</div>
-
+<script>
+    $('#progress a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+    $('#ready a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+    $('#picked_up a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>
 

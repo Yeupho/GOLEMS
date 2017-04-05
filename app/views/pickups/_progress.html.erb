@@ -3,6 +3,13 @@
     <h2 class="panel-title">Not Ready for Pick-Up</h2>
   </div>
   <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <% if @n_ready.length > 0 && @n_ready.total_pages > 1 %>
+            <%= render 'search' %>
+        <% end %>
+      </div>
+    </div>
 
     <div class="imaginary_container">
       <table class="table table-hover">
@@ -37,6 +44,13 @@
       </table>
     </div>
 
-
+    <div class="row text-center">
+      <% if @n_ready.length > 0 && @n_ready.total_pages > 1 %>
+          <%= will_paginate @n_ready, renderer: BootstrapPagination::Rails, :param_name => 'progress_page' %>
+          <div class="page_info">
+            <%= page_entries_info @n_ready %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>
