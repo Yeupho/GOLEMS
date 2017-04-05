@@ -1,112 +1,30 @@
-<h1>Archive</h1>
-<p>This page displays all data that has been archived in the database. </p>
+<p></p>
 
-<table id='ArcCustomer' class="table table-hover">
+<div class="row">
+  <div class="col-lg-12">
+    <%= render 'tabs' %>
+  </div>
+</div>
 
-  <thead>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Phone Number</th>
-    <th>Email</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @customers.only_deleted.each do |customer| %>
-      <tr data-link="<%= customer_path(customer) %>">
-        <td><%= customer.first_name %></td>
-        <td><%= customer.last_name %></td>
-        <td><%= number_to_phone(customer.phone, area_code: true) %></td>
-        <td><%= customer.email %></td>
-        <td><%= link_to 'Restore', customer_path(customer, type: :restore),method: :delete,class: 'btn btm-mini btn-warning', data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-
-<table id='ArcEvent' class="table table-hover">
-  <thead>
-  <tr>
-    <th>Event Name</th>
-    <th>Start Time/End Time</th>
-    <th>Event Type</th>
-    <th>  </th>
-    <th>Color</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @events.only_deleted.each do |event| %>
-      <tr data-link="<%= event_path(event) %>">
-        <td><%= event.event_name %></td>
-        <td><%= event.start_time.strftime("%l:%M %p") %> - <%= event.end_time.strftime("%l:%M %p") %></td>
-        <td><%= event.event_type.event_type_desc %></td>
-        <td></td>
-        <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= event.color.color_code %>;"></span></td>
-        <td><%= link_to 'Restore', event_path(event, type: :restore),method: :delete,class: 'btn btm-mini btn-warning', data: { confirm: 'Are you sure?' } %></td>
-
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<table id='ArcEmployee' class="table table-hover">
-  <thead>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @employees.only_deleted.each do |employee| %>
-      <tr data-link="<%= employee_path(employee) %>">
-        <td><%= employee.first_name %></td>
-        <td><%= employee.last_name %></td>
-        <td><%= number_to_phone(employee.phone, area_code: true) %></td>
-        <td><%= employee.email %></td>
-        <td><div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Detail', employee %></li>
-            <li><%= link_to 'Edit', edit_employee_path(employee) %></li>
-            <li><%= link_to 'Restore', employee_path(employee, type: :restore),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
-          </ul>
-        </div></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<table id='ArcProduct' class="table table-hover">
-  <thead>
-  <tr>
-    <th>Product name</th>
-    <th>Product price</th>
-    <th>Product type</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @product.only_deleted.each do |product| %>
-      <tr data-link="<%= product_path(product) %>">
-        <td><%= product.product_name %></td>
-        <td><%= product.product_price %></td>
-        <td><%= product.product_type_id %></td>
-        <td><div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Detail', product %></li>
-            <li><%= link_to 'Edit', edit_product_path(product) %></li>
-            <li><%= link_to 'Restore', product_path(employee, type: :restore),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
-          </ul>
-        </div></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+<script>
+    $('#customers_tab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+    $('#events_tab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+    $('#products_tab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+    $('#employees_tab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+    $('#colors_tab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>

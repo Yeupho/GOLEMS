@@ -1,0 +1,23 @@
+<div class="imaginary_container"><table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Employee</th>
+    <th>Position</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @positions.each do |position| %>
+      <tr data-link="<%= position_path(position) %>">
+        <td><%= position.employee.first_name %></td>
+        <td><%= position.employee_type.employee_type_desc %></td>
+        <td><%= link_to 'Restore', position_path(position, type: :restore),method: :delete,
+                        class: 'btn btm-mini btn-warning',
+                        data: {
+                            confirm: 'Are you sure you want to restore?'
+                        } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table></div>

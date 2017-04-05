@@ -19,6 +19,8 @@
 //= require jquery.simplecolorpicker.js
 //= require bootstrap-toggle
 //= require turbolinks
+
+
 //= require_tree .
 
 jQuery(function($) {

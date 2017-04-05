@@ -50,8 +50,6 @@ GEM
       momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (9.0.6)
-    chartjs-ror (3.3.1)
-      rails (>= 3.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -196,7 +194,6 @@ DEPENDENCIES
   bootstrap-toggle-rails
   bootstrap3-datetimepicker-rails (~> 4.17.47)
   byebug
-  chartjs-ror
   coffee-rails (~> 4.2)
   fullcalendar-rails
   groupdate

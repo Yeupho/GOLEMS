@@ -54,6 +54,14 @@ class PositionsController < ApplicationController
   # DELETE /positions/1
   # DELETE /positions/1.json
   def destroy
+    @positions = Position.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @position.delete
+    elsif params[:type]=='restore'
+      @position.restore
+      @position.update(deleted_at: nil)
+    end
+
     @position.destroy
     respond_to do |format|
       format.html { redirect_to positions_url, notice: 'Position was successfully destroyed.' }
