@@ -5,17 +5,18 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.find_by_sql("SELECT * FROM customers c WHERE c.customer_status_id = '1'").paginate(page: params[:page], per_page: 13)
+    @customers2 = Customer.find_by_sql("SELECT * FROM customers c WHERE c.customer_status_id = '1'").paginate(page: params[:page], per_page: 13)
     @customer = Customer.new
+    @customers = Customer.search(params[:search]).paginate(page: params[:page], per_page: 12)
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
-    @events = Event.joins(:customers).where("customers.id = ?", params[:id]).order("event_date DESC")
-    @not_ready = CustomerEventProduct.joins(:customer_event).joins(customer_event: :customer).where(pickup_status_id: '1').where("customers.id = ?", params[:id])
-    @ready = CustomerEventProduct.joins(:customer_event).joins(customer_event: :customer).where(pickup_status_id: '2').where("customers.id = ?", params[:id])
-    @collected = CustomerEventProduct.joins(:customer_event).joins(customer_event: :customer).where(pickup_status_id: '3').where("customers.id = ?", params[:id])
+    @events = Customer.transactions.where("customers.id = ?", params[:id])
+    @not_ready = Customer.not_ready.where("customers.id = ?", params[:id])
+    @ready = Customer.ready.where("customers.id = ?", params[:id])
+    @collected = Customer.collected.where("customers.id = ?", params[:id])
   end
 
   # GET /customers/new
@@ -70,6 +71,7 @@ class CustomersController < ApplicationController
       @customer.delete
     elsif params[:type]=='restore'
       @customer.restore
+      @customer.update(deleted_at: nil)
     end
 
     @customer.destroy

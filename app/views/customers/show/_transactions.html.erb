@@ -16,11 +16,10 @@
         <% @events.each do |event| %>
             <tr>
               <td><%= event.event_date.strftime("%-m/%-d/%y") %></td>
-              <td></td>
+              <td><%= number_to_currency(event.sales) %></td>
             </tr>
         <% end %>
         </tbody>
-
       </table>
     </div>
   </div>

@@ -16,11 +16,9 @@
       </div>
 
       <div class="col-lg-1 col-lg-offset-1">
-        <button type="button" class="btn btn-primary btn-md show-btn">
-          <span class="glyphicon glyphicon-plus"></span>
-          <br>
-          New Color
-        </button>
+        <div class="col-lg-4 text-center">
+          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Color'.html_safe, new_color_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
+        </div>
       </div>
     </div>
 
@@ -37,7 +35,7 @@
         <tbody>
         <% @colors.each do |color| %>
             <tr data-link="<%= color_path(color) %>">
-              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= color.color_code %>;"><%= color.color_code %></span></td>
+              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= color.color_code %>;"></span></td>
               <td><%= color.color_name %></td>
               <td><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>

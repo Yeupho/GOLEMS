@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :product_type_id %>
-    <%= f.number_field :product_type_id %>
+    <%= f.collection_select :product_type_id, ProductType.all, :id, :product_type_desc %>
   </div>
 
 

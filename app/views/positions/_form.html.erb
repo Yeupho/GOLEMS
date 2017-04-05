@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= f.label :employee_id %>
-    <%= f.number_field :employee_id %>
+    <%= f.collection_select :employee_id,Employee.all, :id, :first_name %>
   </div>
 
   <div class="field">
     <%= f.label :employee_type_id %>
-    <%= f.number_field :employee_type_id %>
+    <%= f.collection_select :employee_type_id, EmployeeType.all, :id, :employee_type_desc %>
   </div>
 
   <div class="actions">
