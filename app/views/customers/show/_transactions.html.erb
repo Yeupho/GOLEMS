@@ -7,6 +7,8 @@
       <table class="table table-hover">
         <thead>
         <tr>
+          <th>Event</th>
+          <th>Event Color</th>
           <th>Date</th>
           <th>Total</th>
         </tr>
@@ -15,6 +17,8 @@
         <tbody>
         <% @events.each do |event| %>
             <tr>
+              <td><%= event.event_name %></td>
+              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= event.color_code %>;"></span></td>
               <td><%= event.event_date.strftime("%-m/%-d/%y") %></td>
               <td><%= number_to_currency(event.sales) %></td>
             </tr>

@@ -2,7 +2,7 @@
   <div class="col-lg-8 col-lg-offset-2">
     <div class="panel text-center shadow-pane event-list">
       <div class="panel-heading month">
-        <div class="row"><h3><%= Date.today.strftime("%b") %></h3></div>
+        <div class="row"><h3><%= Date.today.strftime("%b %Y") %></h3></div>
       </div>
       <div class="panel-body date">
         <div class="row"><%= Date.today.strftime("%e") %></div>
@@ -29,9 +29,18 @@
             <div class="row"><small><%= event_list.event_type_desc %></small></div>
             <br>
             <div class="row">
-              <div class="col-lg-3 text-center"><span class="glyphicon glyphicon-user"></span>  <%= event_list.kids_painting %></div>
-              <div class="col-lg-3 text-center"><span class="glyphicon glyphicon-user"></span>  <%= event_list.adults_painting %></div>
-              <div class="col-lg-3 text-center"><span class="glyphicon glyphicon-user"></span>  <%= event_list.number_in_party %></div>
+              <div class="col-lg-3 text-center" data-toggle="tooltip" data-placement="top" title="<%= event_list.kids_painting %> Kids Painting">
+                <span class="glyphicon glyphicon-user"></span>
+                <%= event_list.kids_painting %>
+              </div>
+              <div class="col-lg-3 text-center" data-toggle="tooltip" data-placement="top" title="<%= event_list.adults_painting %> Adults Painting">
+                <span class="glyphicon glyphicon-user"></span>
+                <%= event_list.adults_painting %>
+              </div>
+              <div class="col-lg-3 text-center" data-toggle="tooltip" data-placement="top" title="<%= event_list.number_in_party %> Total in Party">
+                <span class="glyphicon glyphicon-user"></span>
+                <%= event_list.number_in_party %>
+              </div>
             </div>
           </div>
         </div>
@@ -40,5 +49,11 @@
 
     </div>
 <% end %>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 
 

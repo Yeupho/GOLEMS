@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :change_columns
-  get 'pickups/index'
-
   root 'dashboards#index'
+
+  get 'walk_ins/index'
+
+  get 'pickups/index'
 
   get 'events/index'
 
@@ -21,7 +22,7 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin#index'
 
-  resources :admin
+
   match '/colors/create' => 'colors#create', via: [:get, :post], :as => :create_color
 
 
@@ -32,6 +33,7 @@ Rails.application.routes.draw do
   put '/customer_event_products/update' => 'customer_event_products#update', :as => :update_pickup_status
 
   resources :archive
+  resources :admin
   resources :customer_events do
     resources :customer_event_products, except: [:index, :show]
   end
@@ -54,6 +56,8 @@ Rails.application.routes.draw do
   resources :web_form
   resources :dashboards
   resources :pickups
+  resources :walk_ins
+  resources :change_columns
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

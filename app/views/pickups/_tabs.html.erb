@@ -1,0 +1,14 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs text-center" role="tablist">
+  <li class="tab-header"><h1  class="tab-spacing", style="color: #C33764">Pick-Up</h1></li>
+  <li role="presentation" class="active"><a href="#progress" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-fire"></span><br>In-Progress</a></li>
+  <li role="presentation"><a href="#ready" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-gift"></span><br>Ready</a></li>
+  <li role="presentation"><a href="#picked_up" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok-circle"></span><br>Picked-Up</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="progress"><%= render 'progress' %></div>
+  <div role="tabpanel" class="tab-pane" id="ready"><%= render 'ready' %></div>
+  <div role="tabpanel" class="tab-pane" id="picked_up"><%= render 'picked_up' %></div>
+</div>

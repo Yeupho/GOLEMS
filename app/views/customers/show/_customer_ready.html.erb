@@ -3,9 +3,10 @@
     <thead>
     <tr>
       <th>Product</th>
-      <th>Color</th>
+      <th>Quantity</th>
+      <th>Event Color</th>
       <th>Event</th>
-      <th>Date</th>
+      <th>Date Created</th>
       <th>Status</th>
     </tr>
     </thead>
@@ -14,6 +15,7 @@
     <% @ready.each do |r| %>
         <tr>
           <td><%= r.product_name %></td>
+          <td><%= r.quantity %></td>
           <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= r.color_code %>;"></span></td>
           <td><%= r.event_name %></td>
           <td><%= r.event_date.strftime("%-m/%-d/%y") %></td>

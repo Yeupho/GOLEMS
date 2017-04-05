@@ -26,9 +26,10 @@
       <table class="table table-hover">
         <thead>
         <tr>
+          <th>Color</th>
           <th>Color Code</th>
           <th>Color Name</th>
-          <th></th>
+          <th>Action</th>
         </tr>
         </thead>
 
@@ -36,6 +37,7 @@
         <% @colors.each do |color| %>
             <tr data-link="<%= color_path(color) %>">
               <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= color.color_code %>;"></span></td>
+              <td><%= color.color_code %></td>
               <td><%= color.color_name %></td>
               <td><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
