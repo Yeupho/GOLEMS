@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<div class="imaginary_container"><table class="table table-hover">
   <thead>
   <tr>
     <th>Employee</th>
@@ -8,7 +8,7 @@
   </thead>
 
   <tbody>
-  <% @positions.only_deleted.each do |position| %>
+  <% @positions.each do |position| %>
       <tr data-link="<%= position_path(position) %>">
         <td><%= position.employee.first_name %></td>
         <td><%= position.employee_type.employee_type_desc %></td>
@@ -20,4 +20,4 @@
       </tr>
   <% end %>
   </tbody>
-</table>
+</table></div>
