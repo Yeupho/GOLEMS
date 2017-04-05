@@ -15,14 +15,8 @@
           <td><%= product.product_name %></td>
           <td><%= number_to_currency(product.product_price) %></td>
           <td><%= product.product_type.product_type_desc %></td>
-          <td><div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Detail', product %></li>
-              <li><%= link_to 'Edit', edit_product_path(product) %></li>
-              <li><%= link_to 'Archive', product_path(product, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
-            </ul>
-          </div></td>
+          <td><%= link_to 'Restore', product_path(product, type: :restore),method: :delete,class: 'btn btm-mini btn-warning', data: { confirm: 'Are you sure?' } %></td>
+
         </tr>
     <% end %>
     </tbody>
