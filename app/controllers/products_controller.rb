@@ -54,7 +54,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    @product = Product.with_deleted.find(params[:id])
+    @products = Product.with_deleted.find(params[:id])
     if params[:type]=='normal'
       @product.destroy
     elsif params[:type]=='restore'

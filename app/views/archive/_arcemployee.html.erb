@@ -1,0 +1,33 @@
+<div class="imaginary_container">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @employees.only_deleted.each do |employee| %>
+        <tr data-link="<%= employee_path(employee) %>" class="clickable-row">
+          <td><%= employee.first_name %></td>
+          <td><%= employee.last_name %></td>
+          <td><%= number_to_phone(employee.phone, area_code: true) %></td>
+          <td><%= employee.email %></td>
+          <td><div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Detail', employee %></li>
+              <li><%= link_to 'Edit', edit_employee_path(employee) %></li>
+              <li><%= link_to 'Archive', employee_path(employee, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+            </ul>
+          </div></td>
+        </tr>
+    <% end %>
+    </tbody>
+
+  </table>
+</div>

@@ -150,14 +150,14 @@ File.open("#{Rails.root}/db/datafiles/EmployeeEvent.csv") do |employee_events|
     EmployeeEvent.create!(:employee_id=>employee_id, :event_id=>event_id)
   end
 end
-
-# Customer Event
+#
+# # Customer Event
 File.open("#{Rails.root}/db/datafiles/CustomerEvent.csv") do |customer_events|
   customer_events.read.each_line do |customer_event|
     event_id, customer_id, number_in_party, adults_painting,
-        kids_painting, deposit = customer_event.chomp.split(",")
+        kids_painting = customer_event.chomp.split(",")
     CustomerEvent.create!(:event_id=>event_id, :customer_id=>customer_id, :number_in_party=>number_in_party,
-    :adults_painting=>adults_painting, :kids_painting=>kids_painting, :deposit=>deposit)
+    :adults_painting=>adults_painting, :kids_painting=>kids_painting)
   end
 end
 

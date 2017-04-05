@@ -43,7 +43,6 @@ gem 'hirb'
 # Gem for grouping by date, ties to chartkick
 gem 'groupdate'
 # Gem for ChartJS
-gem 'chartjs-ror'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

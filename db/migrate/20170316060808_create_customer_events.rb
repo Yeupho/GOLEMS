@@ -6,7 +6,6 @@ class CreateCustomerEvents < ActiveRecord::Migration[5.0]
       t.integer :number_in_party
       t.integer :adults_painting
       t.integer :kids_painting
-      t.boolean :deposit
 
       t.timestamps
     end

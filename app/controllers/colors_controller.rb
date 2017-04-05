@@ -54,6 +54,14 @@ class ColorsController < ApplicationController
   # DELETE /colors/1
   # DELETE /colors/1.json
   def destroy
+    @colors = Color.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @color.delete
+    elsif params[:type]=='restore'
+      @color.restore
+      @color.update(deleted_at: nil)
+    end
+
     @color.destroy
     respond_to do |format|
       format.html { redirect_to colors_url, notice: 'Color was successfully destroyed.' }
