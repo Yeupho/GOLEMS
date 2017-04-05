@@ -3,6 +3,13 @@
     <h2 class="panel-title">Ready for Pick-Up (Hold For Only 6 Months)</h2>
   </div>
   <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <% if @ready.length > 0 && @ready.total_pages > 1 %>
+            <%= render 'search' %>
+        <% end %>
+      </div>
+    </div>
 
     <div class="imaginary_container">
       <table class="table table-hover">
@@ -37,6 +44,13 @@
       </table>
     </div>
 
-
+    <div class="row text-center">
+      <% if @ready.length > 0 && @ready.total_pages > 1 %>
+          <%= will_paginate @ready, renderer: BootstrapPagination::Rails, :param_name => 'ready_page' %>
+          <div class="page_info">
+            <%= page_entries_info @ready %>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>

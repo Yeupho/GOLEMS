@@ -204,7 +204,6 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   jquery-simplecolorpicker-rails
-  jquery-ui-rails
   listen (~> 3.0.5)
   mail_form
   momentjs-rails (>= 2.9.0)

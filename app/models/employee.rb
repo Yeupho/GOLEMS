@@ -21,7 +21,7 @@ class Employee < ApplicationRecord
   end
 
   def self.host
-    EmployeeEvent.select("events.event_name, events.event_date, events.start_time, events.end_time, sum(kids_painting) AS kids_painting, sum(number_in_party) AS number_in_party")
+    EmployeeEvent.select("events.event_name, events.event_date, events.start_time, events.end_time, sum(kids_painting) AS kids_painting, sum(adults_painting) AS adults_painting, sum(number_in_party) AS number_in_party")
         .joins(:event)
         .joins(:employee)
         .joins(event: :customer_events)

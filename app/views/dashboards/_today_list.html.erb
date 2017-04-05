@@ -12,6 +12,7 @@
 </div>
 
 <% @event_list.each do |event_list| %>
+    <% running_total =  event_list.number_in_party - (event_list.kids_painting + event_list.adults_painting) %>
     <div class="panel pane-default shadow-pane parent">
 
       <div class="child" style="background-color: <%= event_list.color_code %>"></div>
@@ -29,15 +30,19 @@
             <div class="row"><small><%= event_list.event_type_desc %></small></div>
             <br>
             <div class="row">
-              <div class="col-lg-3 text-center" data-toggle="tooltip" data-placement="top" title="<%= event_list.kids_painting %> Kids Painting">
+              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Kids Painting: <%= event_list.kids_painting %>">
                 <span class="glyphicon glyphicon-user"></span>
                 <%= event_list.kids_painting %>
               </div>
-              <div class="col-lg-3 text-center" data-toggle="tooltip" data-placement="top" title="<%= event_list.adults_painting %> Adults Painting">
+              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Adults Painting: <%= event_list.adults_painting %>">
                 <span class="glyphicon glyphicon-user"></span>
                 <%= event_list.adults_painting %>
               </div>
-              <div class="col-lg-3 text-center" data-toggle="tooltip" data-placement="top" title="<%= event_list.number_in_party %> Total in Party">
+              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Observer: <%= running_total %>">
+                <span class="glyphicon glyphicon-user"></span>
+                <%= running_total %>
+              </div>
+              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Total in Party: <%= event_list.number_in_party %>">
                 <span class="glyphicon glyphicon-user"></span>
                 <%= event_list.number_in_party %>
               </div>
