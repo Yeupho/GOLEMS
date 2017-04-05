@@ -8,7 +8,7 @@ class ArchiveController < ApplicationController
     @customer_events = CustomerEvent.all
     @customer_event_products = CustomerEventProduct.all
     @colors = Color.all
-    @EmpDayReport = Employee.all
+
   end
 
 end
