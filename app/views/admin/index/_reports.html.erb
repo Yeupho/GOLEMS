@@ -1,0 +1,24 @@
+<h1>Number of Products of a Given Type</h1>
+<%= pie_chart Product.joins(:product_type).group(:product_type_desc).count, colors:["purple","navy"] %>
+<h1>Number of Events Scheduled</h1>
+<%= line_chart Event.group_by_week(:event_date).count, colors:["green"],label:["Events"] %>
+
+
+<h1>Revenue</h1>
+<%= line_chart Event.group_by_week(:event_date)
+                   .joins(:customer_events)
+                   .joins(:customer_event_products)
+                   .joins(:products)
+                   .sum("products.product_price * customer_event_products.quantity"),
+               colors:["blue"], xtitle:["Group by Week"],
+               ytitle: ["Monetary Value"]%>
+
+
+
+
+<%= line_chart ({20.days.ago =>5, 10.days.ago =>2,2.days.ago=>10,'2017-02-10 00:00:00 UTC' =>1})%>
+<h1>Number of Purchases made each day</h1>
+<%= line_chart CustomerEventProduct.group_by_day(:created_at).sum(:quantity), discrete: true %>
+
+<%= bar_chart Product.joins(:customer_event_products,:product_type).select(:id,:product_name,:product_type_desc,:quantity).order("customer_event_products.quantity desc").count(:quantity) %>
+
