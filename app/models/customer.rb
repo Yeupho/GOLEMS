@@ -60,17 +60,12 @@ class Customer < ApplicationRecord
   end
 
   def self.transactions
-    CustomerEvent.select("events.event_name, colors.color_code, events.event_date, sum(products.product_price * customer_event_products.quantity) AS sales")
+    CustomerEvent.select("customer_events.id, events.event_name, colors.color_code, events.event_date, sum(products.product_price * customer_event_products.quantity) AS sales")
         .joins(:customer)
         .joins(event: :color)
         .joins(customer_event_products: :product)
-        .group("events.event_name, colors.color_code, events.event_date")
+        .group("customer_events.id, events.event_name, colors.color_code, events.event_date")
         .order("events.event_date DESC")
-  end
-
-  def self.t
-    Event.select("events.event_date, sum(products.product_price * customer_event_products.quantity) AS sales, events.event_status_id").joins(:customers).joins(:customer_events)
-        .joins(customer_events: {customer_event_products: :product}).group(:event_date, :event_status_id)
   end
 end
 

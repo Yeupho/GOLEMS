@@ -22,13 +22,15 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin#index'
 
-  match '/colors/create' => 'colors#create', via: [:get, :post], :as => :create_color
 
   match '/customer_events/create' => 'customer_events#create', via: [:get, :post], :as => :create_customer_event
-  match '/customers/create' => 'customers#create', via: [:get, :post], :as => :create_customer
+
   get '/customers/search' => 'customers#search', :as => :search_customer
-  match '/events/create' => 'events#create', via: [:get, :post], :as => :get_color
+
   put '/customer_event_products/update' => 'customer_event_products#update', :as => :update_pickup_status
+  post '/positions/create' => 'positions#create', :as => :create_position
+
+  post '/employee_events/create' => 'employee_events#create', :as => :create_host
 
   resources :archive
   resources :admin

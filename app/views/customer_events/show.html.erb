@@ -1,33 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Event:</strong>
-  <%= @customer_event.event.event_name %>
-</p>
+<div class="page-header">
+  <div class="row">
+    <div class="col-lg-3 col-lg-offset-8">
+      <%= render 'customer_events/show/buttons' %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Customer:</strong>
-  <%= @customer_event.customer.first_name %>
-</p>
+<div class="row">
+  <div class="col-lg-3 col-lg-offset-1 float-down">
+    <%= render 'customer_events/show/customer' %>
+  </div>
 
-<p>
-  <strong>Number in party:</strong>
-  <%= @customer_event.number_in_party %>
-</p>
+  <div class="col-lg-4">
+    <%= render 'customer_events/show/total' %>
+  </div>
 
-<p>
-  <strong>Adults painting:</strong>
-  <%= @customer_event.adults_painting %>
-</p>
+  <div class="col-lg-3 float-down">
+    <%= render 'customer_events/show/event' %>
+  </div>
+</div>
 
-<p>
-  <strong>Kids painting:</strong>
-  <%= @customer_event.kids_painting %>
-</p>
+<h2 class="product">Products</h2>
+<%= link_to 'Add New Product', new_customer_event_customer_event_product_path(@customer_event) %>
 
-<h1>Customer Event Products</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
   <tr>
     <th>Product</th>
@@ -35,9 +33,6 @@
     <th>Price</th>
     <th>Product total</th>
     <th>Pickup status</th>
-    <th></th>
-    <th></th>
-    <th colspan="3"></th>
   </tr>
   </thead>
 
@@ -49,20 +44,17 @@
         <td><%= customer_event_product.quantity %></td>
         <td><%= number_to_currency(customer_event_product.product.product_price)%></td>
         <td><%= number_to_currency(customer_event_product.quantity * customer_event_product.product.product_price) %></td>
-        <td><%= customer_event_product.pickup_status.pickup_status_desc %></td>
-        <td><%= link_to "Edit", edit_customer_event_customer_event_product_path(customer_event_id: @customer_event.id, id: customer_event_product.id) %></td>
-        <td><%= link_to "Remove Item", [@customer_event, customer_event_product], method: :delete, comfirm: "Are you sure remove this item?" %></td>
+        <td>
+          <%= form_for customer_event_product, :url => 'update_pickup_status',:html=>{:id=>'pickup'} do |f| %>
+              <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {class: "form-control"}) %>
+          <% end %>
+        </td>
         <% running_total =  running_total + (customer_event_product.quantity * customer_event_product.product.product_price)%>
       </tr>
   <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Add New Product', new_customer_event_customer_event_product_path(@customer_event) %>
-
 <br>
 
-<h4 class="pull-left">Custom Event Total <%= number_to_currency(running_total) %> </h4>
-
-<%= link_to 'Edit', edit_customer_event_path(@customer_event) %> |
-<%= link_to 'Back', customer_events_path %>
+<h4 class="pull-left">Customer Total <%= number_to_currency(running_total) %> </h4>

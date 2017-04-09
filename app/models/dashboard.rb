@@ -1,6 +1,6 @@
 class Dashboard < ActiveRecord::Base
   def self.check_in
-    CustomerEvent.joins(:customer).joins(:event).where("events.event_date = '2017-01-10'").order("events.start_time ASC")
+    CustomerEvent.joins(:customer).joins(:event).where("events.event_date = '2017-01-10'").order("events.start_time ASC, customers.first_name ASC, customers.last_name ASC")
   end
 
   def self.dues

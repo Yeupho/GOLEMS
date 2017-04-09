@@ -52,15 +52,23 @@
   </div>
 
   <div class="col-lg-6">
-    <% @employee.positions.each do |p| %>
-        <div class="row">
+    <h3 style="color: #C33764">Positions</h3>
+
+    <div class="row">
+      <div class="col-lg-3"><h4>Add New Positions:</h4></div>
+      <%= render 'employees/show/position_form' %>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <% @employee.positions.each do |p| %>
           <button type="button" class="btn btn-default btn-lg show-btn">
             <span class="glyphicon glyphicon-remove-sign"></span>
             <%= p.employee_type.employee_type_desc %>
           </button>
-        </div>
-        <br>
-    <% end %>
+      <% end %>
+      </div>
   </div>
 </div>
 

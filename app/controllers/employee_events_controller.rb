@@ -69,6 +69,6 @@ class EmployeeEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_event_params
-      params.require(:employee_event).permit(:employee_id, :event_id, :archive)
+      params.require(:employee_event).permit(:employee_id, :event_id)
     end
 end

@@ -1,0 +1,18 @@
+<div class="panel pane-default shadow-pane parent">
+  <br>
+  <h4 class="text-center", style="color: #C33764">Event Information</h4>
+
+  <div class="row"><div class="col-lg-10 col-lg-offset-1">
+    <h4><%= @customer_event.event.event_name %></h4>
+  </div></div>
+
+  <div class="row"><div class="col-lg-10 col-lg-offset-1">
+    <h5><%= @customer_event.event.event_type.event_type_desc %></h5>
+  </div></div>
+
+  <div class="row"><div class="col-lg-10 col-lg-offset-1">
+    <span class="simplecolorpicker icon color-picked" style= "background-color: <%= @customer_event.event.color.color_code %>;"></span>
+  </div></div>
+
+  <br>
+</div>

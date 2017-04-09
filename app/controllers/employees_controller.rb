@@ -14,6 +14,7 @@ class EmployeesController < ApplicationController
   def show
     @hosted = Employee.host.where("employees.id = ?", params[:id]).where("events.event_date < ?", Date.today)
     @hosting = Employee.host.where("events.event_date >= ?", Date.today).where("employees.id = ?", params[:id])
+    @position = Position.new
   end
 
   # GET /employees/new

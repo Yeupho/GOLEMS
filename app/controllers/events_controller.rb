@@ -16,6 +16,9 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @customer_events = CustomerEvent.where("events.id = ?", params[:id]).joins(:event)
+    @event_total = Event.event_total.where("events.id = ?", params[:id])
+    @hosts = Event.host.where("events.id = ?", params[:id])
+    @employee_event = EmployeeEvent.new
   end
 
   # GET /events/new

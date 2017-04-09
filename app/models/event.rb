@@ -14,4 +14,12 @@ class Event < ApplicationRecord
     self.event_status_id ||= 1
   end
 
+  def self.event_total
+    Event.select("events.event_status_id, sum(products.product_price * customer_event_products.quantity) AS sales")
+        .joins(customer_events: {customer_event_products: :product}).group("events.event_status_id")
+  end
+
+  def self.host
+    EmployeeEvent.select("employees.first_name, employees.last_name").joins(:employee).joins(:event)
+  end
 end
