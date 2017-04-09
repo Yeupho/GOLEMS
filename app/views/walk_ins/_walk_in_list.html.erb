@@ -1,20 +1,19 @@
 <div class="panel panel-default shadow-pane">
   <div class="panel-body">
-    <div id="calendar"></div>
+    <div id="list"></div>
   </div>
 </div>
 
 <script>
     $(document).ready(function(){
-        $('#calendar').fullCalendar({
+        $('#list').fullCalendar({
             height: 780,
-            events: '/events.json',
             header: {
                 center: 'title',
                 right: 'today prev,next',
                 left: ''
-            }
+            },
+            defaultView: 'listDay'
         });
     });
 </script>
-
