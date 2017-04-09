@@ -1,0 +1,56 @@
+<div class="panel panel-default" style="width:400px;float:left;margin-left:50px;">
+  <div class="panel-heading">
+    <h2 class="panel-title">Employee Types</h2>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-1">
+        <% if @positions.length > 0 && @positions.total_pages > 1 %>
+            <div class="input-group stylish-input-group">
+              <input type="text" class="form-control" placeholder="Search">
+              <span class="input-group-addon">
+                    <button type="submit">
+                      <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+            </div>
+        <% end %>
+      </div>
+
+      <div class="col-lg-1 col-lg-offset-1">
+        <div class="col-lg-4 text-center">
+          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Position'.html_safe, new_position_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
+        </div>
+      </div>
+    </div>
+
+    <div class="imaginary_container">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Employee type desc</th>
+          <th colspan="3"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @employee_types.each do |employee_type| %>
+            <tr data-link="<%= employee_type_path(employee_type) %>">
+              <td><%= employee_type.employee_type_desc %></td>
+              <td><%= link_to 'Destroy', employee_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="row text-center">
+      <% if @employee_types.length > 0 && @employee_types.total_pages > 1 %>
+          <%= will_paginate @employee_types, renderer: BootstrapPagination::Rails, :param_name => 'employee_type_page' %>
+          <div class="page_info">
+            <%= page_entries_info @employee_types %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

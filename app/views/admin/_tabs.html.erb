@@ -6,6 +6,9 @@
   <li role="presentation"><a href="#event_types_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-calendar"></span><br>Event Types</a>
   <li role="presentation"><a href="#positions_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-briefcase"></span><br>Positions</a></li>
   <li role="presentation"><a href="#products_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span><br>Products</a></li>
+  <li role="presentation"><a href="#locations_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-map-marker"></span><br>Locations</a></li>
+
+
 </ul>
 
 <!-- Tab panes -->
@@ -13,6 +16,8 @@
   <div role="tabpanel" class="tab-pane active" id="reports_tab"><%= render 'admin/index/reports' %></div>
   <div role="tabpanel" class="tab-pane" id="colors_tab"> <%= render 'colors/colortable' %></div>
   <div role="tabpanel" class="tab-pane" id="event_types_tab"><%= render 'event_types/eventtypetable' %></div>
-  <div role="tabpanel" class="tab-pane" id="positions_tab"> <%= render 'positions/positiontable' %></div>
+  <div role="tabpanel" class="tab-pane" id="positions_tab"> <%= render 'positions/positiontable' %><%= render 'employee_types/employeetypetable' %></div>
   <div role="tabpanel" class="tab-pane" id="products_tab"> <%= render 'products/producttable' %></div>
+  <div role="tabpanel" class="tab-pane" id="locations_tab"> <%= render 'states/statetable' %></div>
+
 </div>
