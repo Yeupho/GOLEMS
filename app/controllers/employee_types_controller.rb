@@ -55,6 +55,14 @@ class EmployeeTypesController < ApplicationController
   # DELETE /employee_types/1
   # DELETE /employee_types/1.json
   def destroy
+    @employee_type = EmployeeType.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @employee_type.delete
+    elsif params[:type]=='restore'
+      @employee_type.restore
+      @employee_type.update(deleted_at: nil)
+    end
+
     @employee_type.destroy
     respond_to do |format|
       format.html { redirect_to employee_types_url, notice: 'Employee type was successfully destroyed.' }

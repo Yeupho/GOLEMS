@@ -1,12 +1,12 @@
-<div class="panel panel-default" style="width:400px;float:left;margin-left:50px;">
+<div class="panel panel-default" style="width:500px;float:left;margin-left:50px;margin-top:25px;">
   <div class="panel-heading">
     <h2 class="panel-title">Employee Types</h2>
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-1">
-        <% if @positions.length > 0 && @positions.total_pages > 1 %>
-            <div class="input-group stylish-input-group">
+      <div class="col-lg-7 col-lg-offset-0">
+        <% if @employee_types.length > 0 && @employee_types.total_pages > 1 %>
+            <div class="input-group stylish-input-group" style="width:200px">
               <input type="text" class="form-control" placeholder="Search">
               <span class="input-group-addon">
                     <button type="submit">
@@ -17,9 +17,9 @@
         <% end %>
       </div>
 
-      <div class="col-lg-1 col-lg-offset-1">
-        <div class="col-lg-4 text-center">
-          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Position'.html_safe, new_position_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
+      <div class="col-lg-1 col-lg-offset-0">
+        <div class="col-lg-3 text-center">
+          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Employee Type'.html_safe, new_employee_type_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
         <thead>
         <tr>
           <th>Employee type desc</th>
-          <th colspan="3"></th>
+          <th colspan="1">Action</th>
         </tr>
         </thead>
 
