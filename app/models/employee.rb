@@ -20,6 +20,10 @@ class Employee < ApplicationRecord
     self.employee_status_id ||= 1
   end
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def self.host
     EmployeeEvent.select("employee_events.id, events.event_name, events.event_date, events.start_time, events.end_time, sum(kids_painting) AS kids_painting, sum(adults_painting) AS adults_painting, sum(number_in_party) AS number_in_party")
         .joins(:event)

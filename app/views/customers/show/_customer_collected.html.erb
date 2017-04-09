@@ -21,7 +21,7 @@
           <td><%= c.event_date.strftime("%-m/%-d/%y") %></td>
           <td>
             <%= form_for c, :url => 'update_pickup_status',:html=>{:id=>'pickup'} do |f| %>
-                <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {class: "form-control"}) %>
+                <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control"}) %>
             <% end %>
           </td>
         </tr>

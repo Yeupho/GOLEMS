@@ -1,0 +1,14 @@
+<%= form_for @customer_event_product ,url: create_product_path, :html => {:method => :post} do |f| %>
+    <%= f.hidden_field(:customer_event_id, value: @customer_event.id) %>
+    <div class="col-lg-3">
+      <%= f.collection_select(:product_id, Product.all, :id, :product_name, {prompt: "Select Product"}, {class: "form-control"}) %>
+    </div>
+
+    <div class="col-lg-1">
+      <%= f.number_field :quantity, class: "form-control", placeholder: "Quantity" %>
+    </div>
+
+    <div class="col-lg-1">
+      <%= button_tag(type: 'submit', class: "btn btn-md") do %>Add <span class="glyphicon glyphicon-plus"></span><% end %>
+    </div>
+<% end %>

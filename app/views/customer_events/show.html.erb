@@ -23,7 +23,12 @@
 </div>
 
 <h2 class="product">Products</h2>
-<%= link_to 'Add New Product', new_customer_event_customer_event_product_path(@customer_event) %>
+
+<div class="row">
+  <%= render 'customer_events/show/products_form' %>
+</div>
+
+<br>
 
 <table class="table table-hover">
   <thead>
@@ -33,6 +38,7 @@
     <th>Price</th>
     <th>Product total</th>
     <th>Pickup status</th>
+    <th>Actions</th>
   </tr>
   </thead>
 
@@ -46,9 +52,10 @@
         <td><%= number_to_currency(customer_event_product.quantity * customer_event_product.product.product_price) %></td>
         <td>
           <%= form_for customer_event_product, :url => 'update_pickup_status',:html=>{:id=>'pickup'} do |f| %>
-              <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {class: "form-control"}) %>
+              <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control"}) %>
           <% end %>
         </td>
+        <td></td>
         <% running_total =  running_total + (customer_event_product.quantity * customer_event_product.product.product_price)%>
       </tr>
   <% end %>

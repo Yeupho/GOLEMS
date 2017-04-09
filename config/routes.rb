@@ -28,9 +28,12 @@ Rails.application.routes.draw do
   get '/customers/search' => 'customers#search', :as => :search_customer
 
   put '/customer_event_products/update' => 'customer_event_products#update', :as => :update_pickup_status
+
   post '/positions/create' => 'positions#create', :as => :create_position
 
   post '/employee_events/create' => 'employee_events#create', :as => :create_host
+
+  post '/customer_event_products/create' => 'customer_event_products#create', :as => :create_product
 
   resources :archive
   resources :admin
