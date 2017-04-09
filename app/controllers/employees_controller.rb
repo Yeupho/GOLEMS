@@ -59,6 +59,14 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
+    @employee = Employee.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @employee.delete
+    elsif params[:type]=='restore'
+      @employee.restore
+      @employee.update(deleted_at: nil)
+    end
+
     @employee.destroy
     respond_to do |format|
       format.html { redirect_to employees_url, notice: 'Employee was successfully Archived.' }

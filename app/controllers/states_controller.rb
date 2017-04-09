@@ -54,6 +54,14 @@ class StatesController < ApplicationController
   # DELETE /states/1
   # DELETE /states/1.json
   def destroy
+    @states = State.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @state.destroy
+    elsif params[:type]=='restore'
+      @state.restore
+      @state.update(deleted_at: nil)
+    end
+
     @state.destroy
     respond_to do |format|
       format.html { redirect_to states_url, notice: 'State was successfully destroyed.' }
