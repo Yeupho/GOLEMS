@@ -5,17 +5,17 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.find_by_sql("SELECT * FROM events e WHERE e.event_type_id <> '7'").paginate(page: params[:event_page], per_page: 4)
+    @calendar = Event.calendar
     @event = Event.new
-    @customer_event = CustomerEvent.new
-    @walk_ins = CustomerEvent.find_by_sql("SELECT * FROM customer_events ce JOIN events e ON e.id = ce.event_id WHERE e.event_type_id = '7' ORDER BY e.start_time ASC").paginate(page: params[:walk_in_page], per_page: 10)
-    @calendar = Event.where("events.event_type_id <> '7'")
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-    @customer_events = CustomerEvent.where("events.id = ?", params[:id]).joins(:event)
+    @employee_event = EmployeeEvent.new
+    @customer_event = CustomerEvent.new
+    @customer_events = Event.customer.where("customer_events.event_id = ?", params[:id])
+    @hosts = Event.host.where("events.id = ?", params[:id])
   end
 
   # GET /events/new

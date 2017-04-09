@@ -14,4 +14,19 @@ class Event < ApplicationRecord
     self.event_status_id ||= 1
   end
 
+  def self.calendar
+    Event.select("events.id, events.event_name, events.event_date, events.start_time, events.event_status_id, colors.color_code").joins(:color).where("events.event_type_id <> '7'")
+  end
+
+  def self.customer
+    CustomerEvent.select("customer_events.id, event_id, customers.first_name, customers.last_name, kids_painting, adults_painting, number_in_party, sum(products.product_price * customer_event_products.quantity) AS sales")
+        .joins(:customer)
+        .joins(customer_event_products: :product)
+        .order("customers.first_name ASC")
+        .group("customer_events.id, event_id, customers.first_name, customers.last_name, kids_painting, adults_painting, number_in_party")
+  end
+
+  def self.host
+    EmployeeEvent.select("employee_events.id, employees.first_name, employees.last_name").joins(:employee).joins(:event)
+  end
 end

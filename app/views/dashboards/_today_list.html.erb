@@ -14,9 +14,7 @@
 <% @event_list.each do |event_list| %>
     <% running_total =  event_list.number_in_party - (event_list.kids_painting + event_list.adults_painting) %>
     <div class="panel pane-default shadow-pane parent">
-
       <div class="child" style="background-color: <%= event_list.color_code %>"></div>
-
       <div>
         <br>
         <div class="row">
@@ -27,38 +25,37 @@
 
           <div class="col-lg-8">
             <div class="row"><h3><%= event_list.event_name %></h3></div>
-            <div class="row"><small><%= event_list.event_type_desc %></small></div>
-            <br>
+            <div class="row"><h5><%= event_list.event_type_desc %></h5></div>
+
             <div class="row">
               <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Kids Painting: <%= event_list.kids_painting %>">
-                <span class="glyphicon glyphicon-user"></span>
+                <strong>K</strong>
                 <%= event_list.kids_painting %>
               </div>
               <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Adults Painting: <%= event_list.adults_painting %>">
-                <span class="glyphicon glyphicon-user"></span>
+                <strong>A</strong>
                 <%= event_list.adults_painting %>
               </div>
               <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Visitors: <%= running_total %>">
-                <span class="glyphicon glyphicon-user"></span>
+                <strong>V</strong>
                 <%= running_total %>
               </div>
               <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Total in Party: <%= event_list.number_in_party %>">
-                <span class="glyphicon glyphicon-user"></span>
+                <strong>T</strong>
                 <%= event_list.number_in_party %>
               </div>
             </div>
           </div>
         </div>
+
         <br>
       </div>
-
     </div>
 <% end %>
 
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
-
+<div class="row text-center">
+  <% if @event_list.length > 0 && @event_list.total_pages > 1 %>
+      <%= will_paginate @event_list, renderer: BootstrapPagination::Rails, :param_name => 'event_list_page', :page_links => false %>
+  <% end %>
+</div>
 
