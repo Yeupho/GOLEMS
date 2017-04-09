@@ -1,0 +1,11 @@
+<%= form_for @position ,url: create_position_path, :html => {:method => :post} do |f| %>
+    <div class="col-lg-3">
+      <%= f.collection_select(:employee_type_id, EmployeeType.all, :id, :employee_type_desc, {prompt: "Select Position"}, {class: "form-control"}) %>
+    </div>
+
+    <%= f.hidden_field(:employee_id, value: @employee.id) %>
+
+    <div class="col-lg-2">
+      <%= button_tag(type: 'submit', class: "btn btn-md") do %>Add <span class="glyphicon glyphicon-plus"></span><% end %>
+    </div>
+<% end %>

@@ -48,22 +48,6 @@
       <div class="col-lg-6"><%= f.text_field :email, placeholder: "Email", class: "form-control" %></div>
     </div>
 
-    <br><div class="row"><h4 class="row col-lg-10 col-lg-offset-1">Position (Optional)</h4></div>
-
-    <div class="row">
-      <div class="col-lg-10 col-lg-offset-1">
-        <div class="row">
-          <%= hidden_field_tag "employee[employee_type_id][]", nil %>
-          <% EmployeeType.all.each do |employee_type| %>
-              <div class="col-lg-4">
-                <%= check_box_tag "employee[employee_type_id][]", employee_type.id, @employee.employee_type_ids.include?(employee_type.id), id: dom_id(employee_type) %>
-                <%= label_tag dom_id(employee_type), employee_type.employee_type_desc %>
-              </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
     <br><div class="row"><h4 class="row col-lg-10 col-lg-offset-1">Notes</h4></div>
 
     <div class="row">

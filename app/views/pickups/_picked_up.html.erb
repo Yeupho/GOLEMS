@@ -36,7 +36,7 @@
               <td><%= customer_event_product.quantity %></td>
               <td><span class="simplecolorpicker icon color-picked" style= "background-color: <%= customer_event_product.customer_event.event.color.color_code %>;"></span></td>
               <td><%= customer_event_product.customer_event.event.event_name %></td>
-              <td><%= customer_event_product.customer_event.event.event_date.strftime("%m-%d-%Y") %> at <%= customer_event_product.customer_event.event.start_time.strftime("%l:%M %p")%></td>
+              <td><%= customer_event_product.customer_event.event.event_date.strftime("%m/%d/%Y") %> <%= customer_event_product.customer_event.event.start_time.strftime("%l:%M %p")%></td>
             </tr>
         <% end %>
         </tbody>

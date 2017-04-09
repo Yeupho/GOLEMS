@@ -11,40 +11,30 @@
     </div>
   <% end %>
 
-    <div class="row"><h4 class="col-lg-10 col-lg-offset-1">Phone</h4></div>
-
     <div class="row">
+      <div class="col-lg-4 text-center">
+        <h4>Kids</h4>
+        <%= f.number_field :kids_painting, class: "form-control" %>
+      </div>
+      <div class="col-lg-4 text-center">
+        <h4>Adults</h4>
+        <%= f.number_field :adults_painting, class: "form-control" %>
+      </div>
       <div class="col-lg-4">
-        <%= f.text_field :phone, data: {autocomplete_source: search_customer_path} %>
+        <% visitor = @customer_event.number_in_party - (@customer_event.kids_painting + @customer_event.adults_painting) %>
+        <h4 class="text-center">Visitors</h4>
+        <div class="form-control"><%= visitor %></div>
       </div>
     </div>
 
-    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Event</h4></div>
+    <br>
 
     <div class="row">
-      <div class="col-lg-4"><%= f.collection_select(:event_id, Event.all, :id, :event_name, {prompt: "Event"}, {class: "form-control"}) %></div>
+      <div class="col-lg-4 text-center">
+        <h4>Party Size</h4>
+        <%= f.number_field :number_in_party, class: "form-control" %>
+      </div>
     </div>
-
-    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Kids</h4></div>
-
-    <div class="row">
-      <div class="col-lg-4"><%= f.text_field :kids_painting %></div>
-    </div>
-
-    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Adults</h4></div>
-
-    <div class="row">
-      <div class="col-lg-4"><%= f.text_field :adults_painting %></div>
-    </div>
-
-    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Party Size</h4></div>
-
-    <div class="row">
-      <div class="col-lg-4"><%= f.text_field :number_in_party %></div>
-    </div>
-
-    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Deposit</h4></div>
-
 
     <br>
 

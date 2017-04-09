@@ -16,4 +16,11 @@ class CustomerEvent < ApplicationRecord
     self.phone = Customer.find_or_create_by(phone: phone) if phone.present?
   end
 
+  def self.product
+    CustomerEventProduct.select("customer_event_id, products.product_name, quantity, products.product_price, pickup_status_id, pickup_statuses.pickup_status_desc, sum(quantity * products.product_price) AS sales")
+        .joins(:product)
+        .joins(:pickup_status)
+        .group("customer_event_id, products.product_name, quantity, products.product_price, pickup_status_id, pickup_statuses.pickup_status_desc")
+        .order("pickup_status_id ASC")
+  end
 end
