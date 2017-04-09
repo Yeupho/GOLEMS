@@ -51,7 +51,7 @@
 
     <div class="row">
       <div class="col-lg-2"><h4>Add Hosts:</h4></div>
-      <%= render 'events/show/employees_form' %>
+      <%= render 'events/show/hosts_form' %>
     </div>
 
     <br>
@@ -89,15 +89,18 @@
   </thead>
 
   <tbody>
+  <% event_total = 0 %>
   <% @customer_events.each do |customer_event| %>
+      <% taxes = (customer_event.sales * 825)/10000 %>
+      <% event_total = event_total + customer_event.sales + taxes %>
       <% visitor =  customer_event.number_in_party - (customer_event.kids_painting + customer_event.adults_painting) %>
       <tr data-link="<%= customer_event_path(customer_event) %>" class="clickable-row">
-        <td><%= customer_event.customer.first_name %> <%= customer_event.customer.last_name %></td>
+        <td><%= customer_event.first_name %> <%= customer_event.last_name %></td>
         <td><%= customer_event.kids_painting %></td>
         <td><%= customer_event.adults_painting %></td>
         <td><%= visitor %></td>
         <td><%= customer_event.number_in_party %></td>
-        <td></td>
+        <td><%=  number_to_currency(customer_event.sales + taxes) %></td>
         <td></td>
       </tr>
 
@@ -106,5 +109,7 @@
 </table>
 
 <br>
+
+<h4 class="text-right">Event Total: <%= number_to_currency(event_total) %> </h4>
 
 

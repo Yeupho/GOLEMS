@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<% customer_total = 0 %>
+<% taxes = (customer_total * 825)/10000 %>
+
 <div class="page-header">
   <div class="row">
     <div class="col-lg-3 col-lg-offset-8">
@@ -43,20 +46,19 @@
   </thead>
 
   <tbody>
-  <% running_total = 0 %>
   <% @customer_event_products.each do |customer_event_product| %>
+      <% customer_total = customer_total + customer_event_product.sales %>
       <tr>
-        <td><%= customer_event_product.product.product_name %></td>
+        <td><%= customer_event_product.product_name %></td>
         <td><%= customer_event_product.quantity %></td>
-        <td><%= number_to_currency(customer_event_product.product.product_price)%></td>
-        <td><%= number_to_currency(customer_event_product.quantity * customer_event_product.product.product_price) %></td>
+        <td><%= number_to_currency(customer_event_product.product_price)%></td>
+        <td><%= number_to_currency(customer_event_product.quantity * customer_event_product.product_price) %></td>
         <td>
           <%= form_for customer_event_product, :url => 'update_pickup_status',:html=>{:id=>'pickup'} do |f| %>
               <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control"}) %>
           <% end %>
         </td>
         <td></td>
-        <% running_total =  running_total + (customer_event_product.quantity * customer_event_product.product.product_price)%>
       </tr>
   <% end %>
   </tbody>
@@ -64,4 +66,6 @@
 
 <br>
 
-<h4 class="pull-left">Customer Total <%= number_to_currency(running_total) %> </h4>
+<h4 class="text-right">Overall Product Total: <%= number_to_currency(customer_total) %></h4>
+<h4 class="text-right">Taxes: <%= number_to_currency(taxes) %></h4>
+<h4 class="text-right">Customer Total: <%= number_to_currency(customer_total + taxes) %></h4>

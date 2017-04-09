@@ -1,6 +1,6 @@
 <%= form_for @customer_event ,url: create_customer_event_path, :html => {:method => :post} do |f| %>
     <%= f.hidden_field(:event_id, value: @event.id) %>
-    <div class="col-lg-3">
+    <div class="col-lg-2">
       <%= f.collection_select(:customer_id, Customer.all, :id, :full_name, {prompt: "Select Customer"}, {class: "form-control"}) %>
     </div>
 

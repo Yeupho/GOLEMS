@@ -1,18 +1,10 @@
 class CustomerEventsController < ApplicationController
   before_action :set_customer_event, only: [:show, :edit, :update, :destroy]
 
-  # GET /customer_events
-  # GET /customer_events.json
-  def index
-    @customer_event = CustomerEvent.new
-    @customer_events = CustomerEvent.all
-  end
-
   # GET /customer_events/1
   # GET /customer_events/1.json
   def show
-    @customer_event = CustomerEvent.find(params[:id])
-    @customer_event_products = @customer_event.customer_event_products
+    @customer_event_products = CustomerEvent.product.where("customer_event_id = ?", params[:id])
     @customer_event_product = CustomerEventProduct.new
   end
 
