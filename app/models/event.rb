@@ -27,6 +27,6 @@ class Event < ApplicationRecord
   end
 
   def self.host
-    EmployeeEvent.select("employees.first_name, employees.last_name").joins(:employee).joins(:event)
+    EmployeeEvent.select("employee_events.id, employees.first_name, employees.last_name").joins(:employee).joins(:event)
   end
 end

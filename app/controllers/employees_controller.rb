@@ -12,8 +12,8 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
-    @hosted = Employee.host.where("employees.id = ?", params[:id]).where("events.event_date < ?", Date.today)
-    @hosting = Employee.host.where("events.event_date >= ?", Date.today).where("employees.id = ?", params[:id])
+    @hosted = Employee.hosted.where("employees.id = ?", params[:id]).where("events.event_date < ?", Date.today)
+    @hosting = Employee.hosting.where("events.event_date >= ?", Date.today).where("employees.id = ?", params[:id])
     @position = Position.new
   end
 

@@ -28,6 +28,12 @@ class Customer < ApplicationRecord
     self.first_name + ' ' + self.last_name
   end
 
+  def self.customer
+    Customer.select("customers.id, first_name, last_name, phone, email, customer_status_id")
+        .where("customer_status_id = '1'")
+        .order("updated_at DESC, created_at DESC")
+  end
+
   def self.not_ready
     CustomerEventProduct.select("products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
         .joins(:product)
@@ -44,7 +50,7 @@ class Customer < ApplicationRecord
         .joins(:customer_event)
         .joins(customer_event: {event: :color})
         .joins(customer_event: :customer)
-        .order("events.event_date ASC")
+        .order("products.product_name ASC")
         .where(pickup_status_id: '2')
   end
 

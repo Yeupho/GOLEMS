@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   resources :customer_events do
     resources :customer_event_products, except: [:index, :show]
   end
+  resources :customer_event_products
   resources :employee_events
   resources :events
   resources :products

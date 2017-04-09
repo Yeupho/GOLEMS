@@ -24,17 +24,23 @@ class Employee < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def self.host
+  def self.hosting
+    EmployeeEvent.select("employee_events.id, events.event_name, events.event_date, events.start_time, events.end_time, sum(kids_painting) AS kids_painting, sum(adults_painting) AS adults_painting, sum(number_in_party) AS number_in_party")
+        .joins(:event)
+        .joins(:employee)
+        .joins(event: :customer_events)
+        .order("events.event_date ASC")
+        .order("events.start_time ASC")
+        .group("employee_events.id, events.event_name, events.event_date, events.start_time, events.end_time")
+  end
+
+  def self.hosted
     EmployeeEvent.select("employee_events.id, events.event_name, events.event_date, events.start_time, events.end_time, sum(kids_painting) AS kids_painting, sum(adults_painting) AS adults_painting, sum(number_in_party) AS number_in_party")
         .joins(:event)
         .joins(:employee)
         .joins(event: :customer_events)
         .order("events.event_date DESC")
         .order("events.start_time ASC")
-        .group("employee_events.id")
-        .group("events.event_name")
-        .group("events.event_date")
-        .group("events.start_time")
-        .group("events.end_time")
+        .group("employee_events.id, events.event_name, events.event_date, events.start_time, events.end_time")
   end
 end
