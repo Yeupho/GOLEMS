@@ -18,9 +18,10 @@
       </div>
 
       <div class="col-lg-1 col-lg-offset-1">
-        <div class="col-lg-4 text-center">
-          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Color'.html_safe, new_color_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
-        </div>
+        <%= render 'colors/index/buttons'%>
+        <!--<div class="col-lg-4 text-center">-->
+          <!--<= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Color'.html_safe, new_color_path, class: "btn btn-primary btn-md show-btn", :method => :get %>-->
+        <!--</div>-->
       </div>
     </div>
 
