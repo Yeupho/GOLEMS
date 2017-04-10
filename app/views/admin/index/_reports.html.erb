@@ -1,0 +1,50 @@
+<!--<h1 style="color: #C33764">Number of Products of a Given Type</h1>-->
+<!--<= pie_chart Product.joins(:product_type).group(:product_type_desc).count, colors:["purple","navy"] %>-->
+
+
+<!--<h1 style="color: #C33764">Most popular items in the last week</h1>-->
+<!--<= pie_chart Product.joins(:customer_event_products).group(:product_name).sum('customer_event_products.quantity').first(5)%>-->
+<div style="margin:40px;">
+
+  <div style="float:left;">
+    <h1 style="color: #C33764">Most popular products in the past month</h1>
+    <%= pie_chart Event.where(:event_date => 1.months.ago .. Time.now)
+                      .joins(:customer_events).joins(:customer_event_products).joins(:products).group(:product_name)
+                      .sum('customer_event_products.quantity').first(5),
+                  library: {legend: {position: "right"}}, width:"600px" %>
+  </div>
+  <div style="float:left;margin-left:50px">
+    <h1 style="color: #C33764">Number of Purchases made each day</h1>
+    <%= line_chart CustomerEventProduct.group_by_day(:created_at).sum(:quantity), discrete: true,width:"550px",curve:false %>
+  </div>
+
+  <h1 style="color: #C33764">Number of Events Scheduled</h1>
+  <%= line_chart Event.where(:event_date => 1.days.ago .. 1.months.from_now).group_by_day(:event_date).where('event_type_id <> 7').count, colors:["green"],label:["Events"],width:"600px",curve:false %>
+
+
+  <h1 style="color: #C33764">Revenue</h1>
+  <% yes = 1.months.ago %>
+  <select>
+    <option>1 Month<% yes = 1.months.ago %></option>
+    <option>3 Months</option>
+    <option>6 Months</option>
+    <option>1 Year</option>
+    <option>All-Time</option>
+  </select>
+  <%= line_chart Event.group_by_day(:event_date).where(:event_date => yes .. Time.now)
+                     .joins(:customer_events)
+                     .joins(:customer_event_products)
+                     .joins(:products)
+                     .sum("products.product_price * customer_event_products.quantity"),
+                 colors:["#DA70D6"], xtitle:["Group by Week"],
+                 ytitle: ["Monetary Value"], curve: false, width:"700px"%>
+
+
+
+
+  <%= line_chart ({20.days.ago =>5, 10.days.ago =>2,2.days.ago=>10,'2017-02-10 00:00:00 UTC' =>1}),width:"600px"%>
+
+  <%= bar_chart Product.joins(:customer_event_products,:product_type).select(:id,:product_name,:product_type_desc,:quantity).order("customer_event_products.quantity desc").count(:quantity),width:"600px" %>
+
+
+</div>

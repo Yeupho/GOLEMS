@@ -54,6 +54,13 @@ class CountriesController < ApplicationController
   # DELETE /countries/1
   # DELETE /countries/1.json
   def destroy
+    @countries = Country.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @country.delete
+    elsif params[:type]=='restore'
+      @country.restore
+      @country.update(deleted_at: nil)
+    end
     @country.destroy
     respond_to do |format|
       format.html { redirect_to countries_url, notice: 'Country was successfully destroyed.' }

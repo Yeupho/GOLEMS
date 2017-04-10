@@ -54,6 +54,13 @@ class ProductTypesController < ApplicationController
   # DELETE /product_types/1
   # DELETE /product_types/1.json
   def destroy
+    @product_type = ProductType.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @product_type.delete
+    elsif params[:type]=='restore'
+      @product_type.restore
+      @product_type.update(deleted_at: nil)
+    end
     @product_type.destroy
     respond_to do |format|
       format.html { redirect_to product_types_url, notice: 'Product type was successfully destroyed.' }

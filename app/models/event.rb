@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   acts_as_paranoid
   validates :event_name, presence: true
   has_many :customer_events
+  has_many :customer_event_products, :through => :customer_events
+  has_many :products, :through => :customer_event_products
   has_many :customers, :through => :customer_events
   has_many :employee_events
   has_many :employees, :through => :employee_events
