@@ -22,6 +22,7 @@
           <th>Color</th>
           <th>Event</th>
           <th>Date</th>
+          <th>Status</th>
           <th></th>
         </tr>
         </thead>
@@ -37,6 +38,12 @@
               <td><span class="simplecolorpicker icon color-picked" style= "background-color: <%= customer_event_product.customer_event.event.color.color_code %>;"></span></td>
               <td><%= customer_event_product.customer_event.event.event_name %></td>
               <td><%= customer_event_product.customer_event.event.event_date.strftime("%m/%d/%Y") %> <%= customer_event_product.customer_event.event.start_time.strftime("%l:%M %p")%></td>
+              <td>
+                <%= form_for customer_event_product do |f| %>
+                    <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc,{}) %>
+                   <%= f.submit 'Save' %>
+                <% end %>
+              </td>
             </tr>
         <% end %>
         </tbody>
