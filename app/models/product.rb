@@ -7,4 +7,13 @@ class Product < ApplicationRecord
   has_many :customer_event_products
   has_many :customer_events, :through => :customer_event_products
 
+
+  def self.search(search)
+    if search
+      where(['product_name LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+
 end

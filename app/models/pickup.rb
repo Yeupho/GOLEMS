@@ -13,4 +13,5 @@ class Pickup
   def self.ready
     CustomerEventProduct.joins(:customer_event).joins(customer_event: :customer).joins(customer_event: {event: :color}).where(pickup_status_id: 2)
   end
+
 end
