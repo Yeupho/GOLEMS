@@ -1,37 +1,32 @@
 <div class="imaginary_container">
-  <table class="table table-hover">
+  <table class="table table-hover text-center">
     <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Event Color</th>
-      <th>Event</th>
-      <th>Date Created</th>
-      <th>Status</th>
+    <tr class="wrap-text">
+      <th class="col-lg-3 text-center">Product</th>
+      <th class="col-lg-1 text-center">Quantity</th>
+      <th class="col-lg-1 text-center">Event Color</th>
+      <th class="col-lg-3 text-center">Event</th>
+      <th class="col-lg-2 text-center">Date Created</th>
+      <th class="col-lg-2 text-center">Status</th>
     </tr>
     </thead>
 
     <tbody>
     <% @not_ready.each do |nr| %>
-        <tr>
+        <tr class="no-pointer">
           <td><%= nr.product_name %></td>
           <td><%= nr.quantity %></td>
           <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= nr.color_code %>;"></span></td>
           <td><%= nr.event_name %></td>
           <td><%= nr.event_date.strftime("%-m/%-d/%y") %></td>
-          <td><div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li>In-Progress</li>
-              <li>Ready</li>
-              <li>Collected</li>
-            </ul>
-          </div></td>
+          <td>
+            <%= form_for nr, :url => 'update_pickup_status',:html=>{:id=>'pickup'} do |f| %>
+                <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control"}) %>
+            <% end %>
+          </td>
         </tr>
     <% end %>
     </tbody>
   </table>
 </div>
-
-
 

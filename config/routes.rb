@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   get 'employees/index'
 
-  get 'layouts/new_release' => 'layout#new_release', :as => :new_release
   get 'pickups/index'
 
   get 'archive' => 'archive#index'

@@ -1,0 +1,57 @@
+<%= form_for @customer_event, :url => create_customer_event_path do |f| %>
+    <% if @customer_event.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@customer_event.errors.count, "error") %> prohibited this customer_event from being saved:</h2>
+
+          <ul>
+            <% @customer_event.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <%= f.hidden_field(:event_id, value: @find_walk_in.map{|m| m.id}) %>
+
+    <div class="row"><h4 class="col-lg-10 col-lg-offset-2">Customer</h4></div>
+
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-2">
+        <%= f.collection_select(:customer_id, Customer.all.order(:first_name), :id, :full_name, {prompt: "Select Customer"}, {class: "form-control"}) %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-2">
+        <h4>Party Size</h4>
+        <%= f.number_field :number_in_party, class: "form-control" %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-2">
+        <h4>Kids</h4>
+        <%= f.number_field :kids_painting, class: "form-control" %>
+      </div>
+      <div class="col-lg-4">
+        <h4>Adults</h4>
+        <%= f.number_field :adults_painting, class: "form-control" %>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row footer">
+      <div class="col-lg-3 col-lg-offset-5 text-right">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+      <div class="col-lg-4 text-left">
+        <%= f.submit "Create Walk-In", class: "btn btn-primary" %>
+      </div>
+    </div>
+
+<% end %>

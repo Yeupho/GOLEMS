@@ -24,23 +24,13 @@ class Employee < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-  def self.hosting
-    EmployeeEvent.select("employee_events.id, events.event_name, events.event_date, events.start_time, events.end_time, sum(kids_painting) AS kids_painting, sum(adults_painting) AS adults_painting, sum(number_in_party) AS number_in_party")
-        .joins(:event)
-        .joins(:employee)
-        .joins(event: :customer_events)
-        .order("events.event_date ASC")
-        .order("events.start_time ASC")
-        .group("employee_events.id, events.event_name, events.event_date, events.start_time, events.end_time")
+  def self.employees
+    Employee.select("employees.id, first_name, last_name, phone, email, employee_status_id")
+        .where("employee_status_id = '1'")
+        .order("first_name ASC, last_name ASC")
   end
 
-  def self.hosted
-    EmployeeEvent.select("employee_events.id, events.event_name, events.event_date, events.start_time, events.end_time, sum(kids_painting) AS kids_painting, sum(adults_painting) AS adults_painting, sum(number_in_party) AS number_in_party")
-        .joins(:event)
-        .joins(:employee)
-        .joins(event: :customer_events)
-        .order("events.event_date DESC")
-        .order("events.start_time ASC")
-        .group("employee_events.id, events.event_name, events.event_date, events.start_time, events.end_time")
+  def self.co_host
+    Employee.select("employees.id, first_name, last_name, employee_status_id").joins(employee_events: :event).order("first_name")
   end
 end

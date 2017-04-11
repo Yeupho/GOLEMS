@@ -28,8 +28,7 @@ class EmployeeEventsController < ApplicationController
 
     respond_to do |format|
       if @employee_event.save
-        format.html { redirect_to @employee_event, notice: 'Employee event was successfully created.' }
-        format.json { render :show, status: :created, location: @employee_event }
+        format.html { redirect_to :back, notice: 'Employee was successfully added.' }
       else
         format.html { render :new }
         format.json { render json: @employee_event.errors, status: :unprocessable_entity }

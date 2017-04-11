@@ -59,8 +59,8 @@
     <div class="row">
       <% @hosts.each do |h| %>
           <div class="col-lg-3 text-left">
-            <%= button_to employee_event_path(h, type: :normal),method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-lg show-btn' do %>
-                <span class="glyphicon glyphicon-remove-sign"></span>
+            <%= button_to employee_event_path(h, type: :normal),method: :delete, data: { confirm: 'Remove host?' }, class: 'btn btn-default btn-lg show-btn' do %>
+                <span class="glyphicon glyphicon-remove-sign" style="color: red"></span>
                 <%= h.first_name %> <%= h.last_name %>
             <% end %>
           </div>
@@ -77,42 +77,43 @@
 
 <br>
 
-<table class="table table-hover">
+<table class="table table-hover text-center">
   <thead>
-  <tr>
-    <th>Name</th>
-    <th>Kids painting</th>
-    <th>Adults painting</th>
-    <th>Visitors</th>
-    <th>Number in party</th>
-    <th>Customer Total</th>
-    <th>Actions</th>
+  <tr class="text-wrap">
+    <th class="col-lg-3 text-center">Name</th>
+    <th class="col-lg-1 text-center">Kids painting</th>
+    <th class="col-lg-1 text-center">Adults painting</th>
+    <th class="col-lg-1 text-center">Visitors</th>
+    <th class="col-lg-1 text-center">Number in party</th>
+    <th class="col-lg-2 text-center">Customer Total</th>
+    <th class="col-lg-1 text-center">Actions</th>
   </tr>
   </thead>
-
-  <tbody>
+  <tbody id="customer_events">
   <% event_total = 0 %>
+  <% taxes = 0 %>
+  <% customer_total = 0 %>
   <% @customer_events.each do |customer_event| %>
-      <% taxes = (customer_event.sales * 825)/10000 %>
-      <% event_total = event_total + customer_event.sales + taxes %>
+      <% @customer_total.where("customer_events.id = ?", customer_event).each do |t| %>
+          <% customer_total = t.sales.to_f %>
+          <% taxes = (customer_total * 825)/10000 %>
+          <% event_total = event_total + customer_total + taxes %>
+      <% end %>
       <% visitor =  customer_event.number_in_party - (customer_event.kids_painting + customer_event.adults_painting) %>
-      <tr data-link="<%= customer_event_path(customer_event) %>" class="clickable-row">
+      <tr data-link="<%= customer_event_path(customer_event) %>" class="clickable-row" id="customer_event_<%= customer_event.id %>">
         <td><%= customer_event.first_name %> <%= customer_event.last_name %></td>
         <td><%= customer_event.kids_painting %></td>
         <td><%= customer_event.adults_painting %></td>
         <td><%= visitor %></td>
         <td><%= customer_event.number_in_party %></td>
-        <td><%=  number_to_currency(customer_event.sales + taxes) %></td>
+        <td><%=  number_to_currency(customer_total + taxes) %></td>
         <td><div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Detail' %></li>
-            <li><%= link_to 'Edit' %></li>
             <li><%= link_to 'Archive' %></li>
           </ul>
         </div></td>
       </tr>
-
   <% end %>
   </tbody>
 </table>
@@ -121,7 +122,7 @@
 
 <div class="row">
   <div class="col-lg-9 text-right"><h4>Event Total:</h4></div>
-  <div class="col-lg-1 text-left"><h4><%= number_to_currency(event_total) %></h4></div>
+  <div class="col-lg-1 text-center"><h4><%= number_to_currency(event_total) %></h4></div>
 </div>
 
 

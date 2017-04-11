@@ -7,7 +7,7 @@
     </button>
   </div>
   <div class="col-lg-6">
-    <%= link_to '<span class="glyphicon glyphicon-remove-sign"></span><br>Back'.html_safe, event_path(@customer_event.event_id), class: "btn btn-primary btn-md show-btn", :method => :get %>
+    <%= link_to '<span class="glyphicon glyphicon-remove-sign"></span><br>Back'.html_safe, :back, class: "btn btn-primary btn-md show-btn", method: :get %>
   </div>
 </div>
 
