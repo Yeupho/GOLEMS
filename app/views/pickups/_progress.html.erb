@@ -12,10 +12,50 @@
     </div>
 
     <div class="imaginary_container">
-<%= form_tag progress_pickups_path, method: :put do %>
+    <%= form_tag progress_pickups_path, method: :put do %>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+          <th></th>
+          <th>id</th>
+          <th>Customer</th>
+          <th>Phone</th>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Color</th>
+          <th>Event</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+        </thead>
 
+        <tbody>
+        <% @n_ready.each do |customer_event_product| %>
+            <tr>
+              <td><%= check_box_tag 'pickup_status_ids[]', customer_event_product.id, :value => customer_event_product.pickup_status_id %></td>
+              <td><%= customer_event_product.id %></td>
+              <td><%= customer_event_product.customer_event.customer.full_name %></td>
 
-<% end %>
+              <td><%= number_to_phone(customer_event_product.customer_event.customer.phone, area_code: true) %></td>
+              <td><%= customer_event_product.product.product_name %></td>
+              <td><%= customer_event_product.quantity %></td>
+              <td><span class="simplecolorpicker icon color-picked" style= "background-color: <%= customer_event_product.customer_event.event.color.color_code %>;"></span></td>
+              <td><%= customer_event_product.customer_event.event.event_name %></td>
+              <td><%= customer_event_product.customer_event.event.event_date.strftime("%m/%d/%Y") %> <%= customer_event_product.customer_event.event.start_time.strftime("%l:%M %p")%></td>
+              <td>
+                <%= form_for customer_event_product do |f| %>
+                    <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc,{}) %>
+                    <%= f.submit 'Save' %>
+                <% end %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+
+      </table>
+    <%= submit_tag 'Ready' %>
+    <% end %>
     </div>
 
     <div class="row text-center">

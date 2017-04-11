@@ -7,24 +7,19 @@
 <div style=" ">
 
   <div style="position:absolute;">
-    <h1 style="color: #C33764">Most popular products in the past month</h1>
+    <h2 style="color: #C33764">Most popular products in the past month</h2>
     <%= pie_chart Event.where(:event_date => 1.months.ago .. Time.now)
                       .joins(:customer_events).joins(:customer_event_products).joins(:products).group(:product_name)
                       .sum('customer_event_products.quantity').first(5),
-                  library: {legend: {position: "right"}}, width:"600px",donut:true,download:true %>
+                  library: {legend: {position: "right"}}, width:"500px",donut:true,download:true %>
   </div>
-  <div style="position:absolute; left: 700px;top: 840px;">
-    <h1 style="color: #C33764">Number of Events Scheduled</h1>
-    <%= line_chart Event.where(:event_date => 1.days.ago .. 1.months.from_now).group_by_day(:event_date)
-                       .where('event_type_id <> 7')
-                       .count,
-                   colors:["green"],label:["Events"],width:"600px",curve:false,download:true,
-                   xtitle:["Group by Week"]%>
+  <div style="position:absolute; left: 600px;">
+    <h2 style="color: #C33764">Number of People Attending</h2>
+    <%= line_chart Event.group_by_week(:event_date)
+                       .joins(:customer_events).sum("customer_events.number_in_party"), width:"600px",download:true %>
   </div>
-
-
   <div style="position:absolute; top: 420px;">
-    <h1 style="color: #C33764">Revenue</h1>
+    <h2 style="color: #C33764">Revenue</h2>
     <% yes = 1.months.ago %>
     <select>
       <option>1 Month<% yes = 1.months.ago %></option>
@@ -37,12 +32,12 @@
                        .joins(:customer_events)
                        .joins(:customer_event_products)
                        .joins(:products)
-                       .sum("products.product_price * customer_event_products.quantity"),
+                       .sum("(products.product_price * customer_event_products.quantity)+ (customer_events.adults_painting + 10)"),
                    colors:["#DA70D6"], xtitle:["Group by Week"],
-                   ytitle: ["Monetary Value"], curve: false, width:"700px",download:true %>
+                   ytitle: ["Monetary Value"], curve: false, width:"600px",download:true %>
   </div>
-  <div style="position:absolute; left: 700px;top: 420px;">
-    <h1 style="color: #C33764">Number of Purchases made each day</h1>
+  <div style="position:absolute; left:600px;top: 420px;">
+    <h2 style="color: #C33764">Number of Purchases made each day</h2>
     <select>
       <option>1 Month<% yes = 1.months.ago %></option>
       <option>3 Months</option>
@@ -55,14 +50,20 @@
                        .joins(:customer_event_products)
                        .joins(:products)
                        .sum("customer_event_products.quantity"),
-                   width:"700px",curve:false,download:true,xtitle:["Group by Week"] %>
+                   width:"600px",curve:false,download:true,xtitle:["Group by Week"] %>
   </div>
+  <!--<div style="position:absolute; left: 700px;top: 840px;">-->
+    <!--<h1 style="color: #C33764">Number of Events Scheduled</h1>-->
+    <!--<= line_chart Event.where(:event_date => 1.days.ago .. 1.months.from_now).group_by_day(:event_date)-->
+<!--#                        .where('event_type_id <> 7')-->
+<!--#                        .count,-->
+<!--#                    colors:["green"],label:["Events"],width:"600px",curve:false,download:true,-->
+                   <!--xtitle:["Group by Week"]%>-->
+  <!--</div>-->
 
-  <div style="position:absolute; left: 700px;">
-    <h1 style="color: #C33764">Number of People Attending</h1>
-    <%= line_chart Event.group_by_week(:event_date)
-                       .joins(:customer_events).sum("customer_events.number_in_party"), width:"700px",download:true %>
 
-  </div>
+
+
+
 
 </div>

@@ -1,16 +1,17 @@
-<div class="panel panel-default shadow-pane" style="float:left;width:700px;margin-top:25px;margin-left:50px">
+<div class="panel panel-default shadow-pane" style="float:left;width:600px;margin-top:25px;margin-left:50px">
   <div class="panel-heading">
     <h2 class="panel-title">Countries</h2>
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
+      <div class="col-lg-6 col-lg-offset-0">
         <%= render 'customers/index/search' %>
       </div>
+      <div class="col-lg-1 col-lg-offset-3">
+        <%= render 'countries/index/buttons' %>
+      </div>
     </div>
-    <div>
-      <%= render 'countries/index/buttons' %>
-    </div>
+
     <div class="imaginary_container">
       <table class="table table-hover">
         <thead>
