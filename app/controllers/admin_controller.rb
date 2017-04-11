@@ -9,6 +9,8 @@ class AdminController < ApplicationController
     @employee_types = EmployeeType.all.paginate(page: params[:employee_type_page],per_page: 10)
     @states = State.all.paginate(page: params[:state_page], per_page:10)
     @countries = Country.all.paginate(page: params[:country_page], per_page:10)
+    @customer_statuses = CustomerStatus.all.paginate(page: params[:customer_status_page],per_page:10)
+    @employee_statuses = EmployeeStatus.all.paginate(page: params[:employee_status_page],per_page:10)
 
 
     @color = Color.new
@@ -22,6 +24,11 @@ class AdminController < ApplicationController
     @state = State.new
     @country = Country.new
     @customer_status = CustomerStatus.new
+
+    @weeklysales = Admin.weeklysales
+    @totalvisitors
+    @productsold
+    @productready
   end
 
   def new
