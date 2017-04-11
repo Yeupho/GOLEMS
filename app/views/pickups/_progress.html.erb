@@ -22,7 +22,6 @@
         <% @n_ready.each do |customer_event_product| %>
             <tr class="no-pointer">
               <td><%= customer_event_product.first_name %> <%= customer_event_product.last_name %></td>
-
               <td><%= number_to_phone(customer_event_product.phone, area_code: true) %></td>
               <td><%= customer_event_product.product_name %></td>
               <td><%= customer_event_product.quantity %></td>
