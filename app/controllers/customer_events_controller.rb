@@ -4,7 +4,7 @@ class CustomerEventsController < ApplicationController
   # GET /customer_events/1
   # GET /customer_events/1.json
   def show
-    @customer_event_products = CustomerEvent.product.where("customer_event_id = ?", params[:id])
+    @customer_event_products = CustomerEventProduct.customer_event_products.where("customer_event_id = ?", params[:id])
     @customer_event_product = CustomerEventProduct.new
   end
 
@@ -24,8 +24,8 @@ class CustomerEventsController < ApplicationController
 
     respond_to do |format|
       if @customer_event.save
-        format.html { redirect_to @customer_event, notice: 'Customer was successfully added to event.' }
-        format.json { render :show, status: :created, location: @customer_event }
+        format.html { redirect_to :back, notice: 'Customer was successfully created.', method: :get}
+        format.js
       else
         format.html { render :new }
         format.json { render json: @customer_event.errors, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class CustomerEventsController < ApplicationController
   def update
     respond_to do |format|
       if @customer_event.update(customer_event_params)
-        format.html { redirect_to @customer_event, notice: 'Customer event was successfully updated.' }
+        format.html { redirect_to @customer_event, notice: 'Customer was successfully updated.', method: :get }
         format.json { render :show, status: :ok, location: @customer_event }
       else
         format.html { render :edit }

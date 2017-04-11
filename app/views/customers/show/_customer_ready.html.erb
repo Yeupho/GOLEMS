@@ -1,33 +1,29 @@
 <div class="imaginary_container">
-  <table class="table table-hover">
+  <table class="table table-hover text-center">
     <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Event Color</th>
-      <th>Event</th>
-      <th>Date Created</th>
-      <th>Status</th>
+    <tr class="wrap-text">
+      <th class="col-lg-3 text-center">Product</th>
+      <th class="col-lg-1 text-center">Quantity</th>
+      <th class="col-lg-1 text-center">Event Color</th>
+      <th class="col-lg-3 text-center">Event</th>
+      <th class="col-lg-2 text-center">Date Created</th>
+      <th class="col-lg-2 text-center">Status</th>
     </tr>
     </thead>
 
     <tbody>
     <% @ready.each do |r| %>
-        <tr>
+        <tr class="no-pointer">
           <td><%= r.product_name %></td>
           <td><%= r.quantity %></td>
           <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= r.color_code %>;"></span></td>
           <td><%= r.event_name %></td>
           <td><%= r.event_date.strftime("%-m/%-d/%y") %></td>
-          <td><div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li>In-Progress</li>
-              <li>Ready</li>
-              <li>Collected</li>
-            </ul>
-          </div></td>
-        </tr>
+          <td>
+            <%= form_for r, :url => url_for(:controller => 'customer_event_products', :action => 'update', :id => r.id), :method => "patch" do |f| %>
+                <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control", onchange: "this.form.submit();"}) %>
+            <% end %>
+          </td>
         </tr>
     <% end %>
     </tbody>

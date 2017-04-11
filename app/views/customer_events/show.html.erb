@@ -12,6 +12,20 @@
 
 <div class="row">
   <div class="col-lg-3 col-lg-offset-1 float-down">
+    <h4 class="text-center", style="color: #C33764">Customer Information</h4>
+  </div>
+
+  <div class="col-lg-4">
+    <h4 class="text-center", style="color: #C33764">Customer Total</h4>
+  </div>
+
+  <div class="col-lg-3 float-down">
+    <h4 class="text-center", style="color: #C33764">Event Information</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-3 col-lg-offset-1 float-down">
     <%= render 'customer_events/show/customer' %>
   </div>
 
@@ -32,35 +46,34 @@
 
 <br>
 
-<table class="table table-hover">
+<table class="table table-hover text-center">
   <thead>
-  <tr>
-    <th>Product</th>
-    <th>Quantity</th>
-    <th>Price</th>
-    <th>Product total</th>
-    <th>Pickup status</th>
-    <th>Actions</th>
+  <tr class="wrap-text">
+    <th class="col-lg-4 text-center">Product</th>
+    <th class="col-lg-1 text-center">Quantity</th>
+    <th class="col-lg-1 text-center">Price</th>
+    <th class="col-lg-2 text-center">Product total</th>
+    <th class="col-lg-2 text-center">Pickup status</th>
+    <th class="col-lg-1 text-center">Actions</th>
   </tr>
   </thead>
 
   <tbody>
   <% @customer_event_products.each do |customer_event_product| %>
       <% customer_total = customer_total + customer_event_product.sales %>
-      <tr>
+      <tr class="no-pointer">
         <td><%= customer_event_product.product_name %></td>
         <td><%= customer_event_product.quantity %></td>
         <td><%= number_to_currency(customer_event_product.product_price)%></td>
         <td><%= number_to_currency(customer_event_product.quantity * customer_event_product.product_price) %></td>
         <td>
-          <%= form_for customer_event_product, :url => 'update_pickup_status',:html=>{:id=>'pickup'} do |f| %>
-              <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control"}) %>
+          <%= form_for customer_event_product, :url => url_for(:controller => 'customer_event_products', :action => 'update', :id => customer_event_product.id), :method => "patch" do |f| %>
+              <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control", onchange: "this.form.submit();"}) %>
           <% end %>
         </td>
         <td><div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Edit' %></li>
             <li><%= link_to 'Archive' %></li>
           </ul>
         </div></td>
@@ -74,14 +87,14 @@
 <% taxes = (customer_total * 825)/10000 %>
 
 <div class="row">
-  <div class="col-lg-6 text-right"><h4 class="text-right">Overall Product Total:</h4></div>
-  <div class="col-lg-1 text-left"><h4><%= number_to_currency(customer_total) %></h4></div>
+  <div class="col-lg-7 text-right"><h4 class="text-right">Overall Product Total:</h4></div>
+  <div class="col-lg-2 text-center pleft"><h4><%= number_to_currency(customer_total) %></h4></div>
 </div>
 <div class="row">
-  <div class="col-lg-6 text-right"><h4>Taxes:</h4></div>
-  <div class="col-lg-6 text-left"><h4><%= number_to_currency(taxes) %></h4></div>
+  <div class="col-lg-7 text-right"><h4>Taxes:</h4></div>
+  <div class="col-lg-2 text-center pleft"><h4><%= number_to_currency(taxes) %></h4></div>
 </div>
 <div class="row">
-  <div class="col-lg-6 text-right"><h4>Customer Total:</h4></div>
-  <div class="col-lg-6 text-left"><h4><%= number_to_currency(customer_total + taxes) %></h4></div>
+  <div class="col-lg-7 text-right"><h4>Customer Total:</h4></div>
+  <div class="col-lg-2 text-center pleft"><h4><%= number_to_currency(customer_total + taxes) %></h4></div>
 </div>

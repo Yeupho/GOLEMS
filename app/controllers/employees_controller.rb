@@ -5,16 +5,19 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all.paginate(page: params[:employee_page], per_page: 13)
+    @employees = Employee.employees.paginate(page: params[:employee_page], per_page: 13)
     @employee = Employee.new
+    @positions = EmployeeType.positions
   end
 
   # GET /employees/1
   # GET /employees/1.json
   def show
-    @hosted = Employee.hosted.where("employees.id = ?", params[:id]).where("events.event_date < ?", Date.today)
-    @hosting = Employee.hosting.where("events.event_date >= ?", Date.today).where("employees.id = ?", params[:id])
+    @past_assignments = EmployeeEvent.past_assignments.where("employees.id = ?", params[:id])
+    @upcoming_assignments = Event.upcoming_assignments.where("employees.id = ?", params[:id])
+    @co_host = Employee.co_host.where("employees.id <> ?", params[:id])
     @position = Position.new
+    @party_size = CustomerEvent.party_size
   end
 
   # GET /employees/new

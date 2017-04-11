@@ -12,13 +12,15 @@
     </div>
 
     <div class="imaginary_container">
-      <table class="table table-hover">
+      <table class="table table-hover text-center">
         <thead>
-        <tr>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Email</th>
-          <th>Actions</th>
+        <tr class="text-wrap">
+          <th class="col-lg-3 text-center">Name</th>
+          <th class="col-lg-2 text-center">Phone</th>
+          <th class="col-lg-3 text-center">Email</th>
+          <th class="col-lg-1 text-center">Upcoming Assignments</th>
+          <th class="col-lg-2 text-center">Positions</th>
+          <th class="col-lg-1 text-center">Actions</th>
         </tr>
         </thead>
 
@@ -28,13 +30,15 @@
               <td><%= employee.first_name %> <%= employee.last_name %></td>
               <td><%= number_to_phone(employee.phone, area_code: true) %></td>
               <td><%= employee.email %></td>
+              <td><span class="badge" style="background-color: #C33764">0</span></td>
+              <td>
+                <% @positions.where("employees.id =?", employee).each do |p| %>
+                    <div class="row"><%= p.employee_type_desc %></div>
+                <% end %>
+              </td>
               <td><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><%= link_to 'Detail', employee %></li>
-                  <li><%= link_to 'Edit', edit_employee_path(employee) %></li>
-                  <li><%= link_to 'Archive', employee_path(employee, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
-                </ul>
+                <ul class="dropdown-menu"><li><%= link_to 'Archive', employee_path(employee, type: :normal),method: :delete,class: ' ', data: { confirm: 'Remove this employee?' } %></li></ul>
               </div></td>
             </tr>
         <% end %>
