@@ -47,7 +47,7 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', color %></li>
                   <li><%= link_to 'Edit', edit_color_path(color) %></li>
-                  <li><%= link_to 'Archive', color_path(color, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Delete', color_path(color, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>

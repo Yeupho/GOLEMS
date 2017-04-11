@@ -13,21 +13,13 @@
                       .sum('customer_event_products.quantity').first(5),
                   library: {legend: {position: "right"}}, width:"600px",donut:true,download:true %>
   </div>
-  <div style="position:absolute; left: 700px;top: 420px;">
-    <h1 style="color: #C33764">Number of Purchases made each day</h1>
-    <%= line_chart Event.group_by_day(:event_date).where(:event_date => 1.months.ago .. Time.now)
-                       .joins(:customer_events)
-                       .joins(:customer_event_products)
-                       .joins(:products)
-                       .sum("customer_event_products.quantity"),
-                   discrete: true,width:"700px",curve:false %>
-  </div>
-
   <div style="position:absolute; left: 700px;top: 840px;">
     <h1 style="color: #C33764">Number of Events Scheduled</h1>
     <%= line_chart Event.where(:event_date => 1.days.ago .. 1.months.from_now).group_by_day(:event_date)
                        .where('event_type_id <> 7')
-                       .count, colors:["green"],label:["Events"],width:"600px",curve:false %>
+                       .count,
+                   colors:["green"],label:["Events"],width:"600px",curve:false,download:true,
+                   xtitle:["Group by Week"]%>
   </div>
 
 
@@ -47,13 +39,29 @@
                        .joins(:products)
                        .sum("products.product_price * customer_event_products.quantity"),
                    colors:["#DA70D6"], xtitle:["Group by Week"],
-                   ytitle: ["Monetary Value"], curve: false, width:"700px" %>
+                   ytitle: ["Monetary Value"], curve: false, width:"700px",download:true %>
+  </div>
+  <div style="position:absolute; left: 700px;top: 420px;">
+    <h1 style="color: #C33764">Number of Purchases made each day</h1>
+    <select>
+      <option>1 Month<% yes = 1.months.ago %></option>
+      <option>3 Months</option>
+      <option>6 Months</option>
+      <option>1 Year</option>
+      <option>All-Time</option>
+    </select>
+    <%= line_chart Event.group_by_day(:event_date).where(:event_date => yes .. Time.now)
+                       .joins(:customer_events)
+                       .joins(:customer_event_products)
+                       .joins(:products)
+                       .sum("customer_event_products.quantity"),
+                   width:"700px",curve:false,download:true,xtitle:["Group by Week"] %>
   </div>
 
   <div style="position:absolute; left: 700px;">
     <h1 style="color: #C33764">Number of People Attending</h1>
     <%= line_chart Event.group_by_week(:event_date)
-                       .joins(:customer_events).sum("customer_events.number_in_party"), width:"700px" %>
+                       .joins(:customer_events).sum("customer_events.number_in_party"), width:"700px",download:true %>
 
   </div>
 

@@ -31,14 +31,13 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', country %></li>
                   <li><%= link_to 'Edit', edit_country_path(country) %></li>
-                  <li><%= link_to 'Archive', country_path(country, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Delete', country_path(country, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>
         <% end %>
         </tbody>
       </table>
-      <%= link_to 'New Country', new_country_path %>
     </div>
 
     <div class="row text-center">

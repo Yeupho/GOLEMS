@@ -59,7 +59,12 @@ Rails.application.routes.draw do
   resources :states
   resources :web_form
   resources :dashboards
-  resources :pickups
+  resources :pickups do
+    collection do
+      put :progress
+    end
+  end
+
   resources :walk_ins
   resources :change_columns
 

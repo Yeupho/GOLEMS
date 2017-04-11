@@ -12,36 +12,10 @@
     </div>
 
     <div class="imaginary_container">
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th>Customer</th>
-          <th>Phone</th>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Color</th>
-          <th>Event</th>
-          <th>Date</th>
-          <th></th>
-        </tr>
-        </thead>
+<%= form_tag progress_pickups_path, method: :put do %>
 
-        <tbody>
-        <% @n_ready.each do |customer_event_product| %>
-            <tr>
-              <td><%= customer_event_product.customer_event.customer.full_name %></td>
 
-              <td><%= number_to_phone(customer_event_product.customer_event.customer.phone, area_code: true) %></td>
-              <td><%= customer_event_product.product.product_name %></td>
-              <td><%= customer_event_product.quantity %></td>
-              <td><span class="simplecolorpicker icon color-picked" style= "background-color: <%= customer_event_product.customer_event.event.color.color_code %>;"></span></td>
-              <td><%= customer_event_product.customer_event.event.event_name %></td>
-              <td><%= customer_event_product.customer_event.event.event_date.strftime("%m/%d/%Y") %> <%= customer_event_product.customer_event.event.start_time.strftime("%l:%M %p")%></td>
-            </tr>
-        <% end %>
-        </tbody>
-
-      </table>
+<% end %>
     </div>
 
     <div class="row text-center">
