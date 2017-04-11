@@ -11,15 +11,15 @@ class CustomerEventProduct < ApplicationRecord
   end
 
   def self.customer_event_products
-    CustomerEventProduct.select("customer_event_id, products.product_name, quantity, products.product_price, pickup_status_id, pickup_statuses.pickup_status_desc, sum(quantity * products.product_price) AS sales")
+    CustomerEventProduct.select("customer_event_products.id, products.product_name, quantity, products.product_price, pickup_status_id, pickup_statuses.pickup_status_desc, sum(quantity * products.product_price) AS sales")
         .joins(:product)
         .joins(:pickup_status)
-        .group("customer_event_id, products.product_name, quantity, products.product_price, pickup_status_id, pickup_statuses.pickup_status_desc")
+        .group("customer_event_products.id, products.product_name, quantity, products.product_price, pickup_status_id, pickup_statuses.pickup_status_desc")
         .order("pickup_status_id ASC")
   end
 
-  def self.not_ready
-    CustomerEventProduct.select("customer_event_products.id, customer_event_id, product_id, products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
+  def self.customer_not_ready
+    CustomerEventProduct.select("customer_event_products.id, products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
         .joins(:product)
         .joins(:customer_event)
         .joins(customer_event: {event: :color})
@@ -28,8 +28,8 @@ class CustomerEventProduct < ApplicationRecord
         .where(pickup_status_id: '1')
   end
 
-  def self.ready
-    CustomerEventProduct.select("customer_event_id, products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
+  def self.customer_ready
+    CustomerEventProduct.select("customer_event_products.id, products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
         .joins(:product)
         .joins(:customer_event)
         .joins(customer_event: {event: :color})
@@ -38,8 +38,8 @@ class CustomerEventProduct < ApplicationRecord
         .where(pickup_status_id: '2')
   end
 
-  def self.collected
-    CustomerEventProduct.select("customer_event_id, products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
+  def self.customer_collected
+    CustomerEventProduct.select("customer_event_products.id, products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
         .joins(:product)
         .joins(:customer_event)
         .joins(customer_event: {event: :color})
@@ -55,6 +55,33 @@ class CustomerEventProduct < ApplicationRecord
         .joins(event: :color)
         .joins(customer_event_products: :product)
         .group("customer_events.id, events.event_name, colors.color_code, events.event_date")
+        .order("events.event_date DESC")
+  end
+
+  def self.pickup_progress
+    CustomerEventProduct.select("customer_event_products.id, customers.first_name, customers.last_name, customers.phone, products.product_name, quantity, colors.color_code, events.event_name, events.event_date, events.start_time, pickup_status_id")
+        .joins(:product)
+        .joins(customer_event: :customer)
+        .joins(customer_event: {event: :color})
+        .where(pickup_status_id: 1)
+        .order("events.event_date ASC")
+  end
+  def self.pickup_ready
+    CustomerEventProduct.select("customer_event_products.id, customers.first_name, customers.last_name, customers.phone, products.product_name, quantity, colors.color_code, events.event_name, events.event_date, events.start_time, pickup_status_id")
+        .joins(:product)
+        .joins(customer_event: :customer)
+        .joins(customer_event: {event: :color})
+        .where(pickup_status_id: 2)
+        .where("events.event_date > ?", (Date.today - 6.month))
+        .order("customers.first_name ASC, customers.last_name ASC")
+  end
+  def self.pickup_picked
+    CustomerEventProduct.select("customer_event_products.id, customers.first_name, customers.last_name, customers.phone, products.product_name, quantity, colors.color_code, events.event_name, events.event_date, events.start_time, pickup_status_id")
+        .joins(:product)
+        .joins(customer_event: :customer)
+        .joins(customer_event: {event: :color})
+        .where(pickup_status_id: 3)
+        .where("events.event_date > ?", (Date.today - 1.month))
         .order("events.event_date DESC")
   end
 end

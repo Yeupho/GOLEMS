@@ -67,8 +67,8 @@
         <td><%= number_to_currency(customer_event_product.product_price)%></td>
         <td><%= number_to_currency(customer_event_product.quantity * customer_event_product.product_price) %></td>
         <td>
-          <%= form_for customer_event_product, :url => 'update_pickup_status',:html=>{:id=>'pickup'} do |f| %>
-              <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control text-center"}) %>
+          <%= form_for customer_event_product, :url => url_for(:controller => 'customer_event_products', :action => 'update', :id => customer_event_product.id), :method => "patch" do |f| %>
+              <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control", onchange: "this.form.submit();"}) %>
           <% end %>
         </td>
         <td><div class="dropdown">

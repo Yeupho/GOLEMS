@@ -14,9 +14,9 @@ class CustomersController < ApplicationController
   def show
     @customer_event_product = CustomerEventProduct.new
     @transactions = CustomerEventProduct.transactions.where("customers.id = ?", params[:id])
-    @not_ready = CustomerEventProduct.not_ready.where("customers.id = ?", params[:id])
-    @ready = CustomerEventProduct.ready.where("customers.id = ?", params[:id])
-    @collected = CustomerEventProduct.collected.where("customers.id = ?", params[:id])
+    @not_ready = CustomerEventProduct.customer_not_ready.where("customers.id = ?", params[:id])
+    @ready = CustomerEventProduct.customer_ready.where("customers.id = ?", params[:id])
+    @collected = CustomerEventProduct.customer_collected.where("customers.id = ?", params[:id])
   end
 
   def search
