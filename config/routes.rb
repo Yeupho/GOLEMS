@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   get '/customers/search' => 'customers#search', :as => :search_customer
 
-  put '/customer_event_products/update' => 'customer_event_products#update', :as => :update_pickup_status
+  patch '/customer_event_products/update' => 'customer_event_products#update'
 
   post '/positions/create' => 'positions#create', :as => :create_position
 

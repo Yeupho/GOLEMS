@@ -43,7 +43,7 @@ class CustomerEventProductsController < ApplicationController
   def update
     respond_to do |format|
       if @customer_event_product.update(customer_event_product_params)
-        format.html { redirect_to @customer_event, notice: 'Customer event product was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Product was successfully updated.' }
         format.json { head :no_content}
       else
         format.html { render :edit }

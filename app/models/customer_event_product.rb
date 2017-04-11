@@ -19,7 +19,7 @@ class CustomerEventProduct < ApplicationRecord
   end
 
   def self.not_ready
-    CustomerEventProduct.select("customer_event_id, products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
+    CustomerEventProduct.select("customer_event_products.id, customer_event_id, product_id, products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
         .joins(:product)
         .joins(:customer_event)
         .joins(customer_event: {event: :color})

@@ -12,6 +12,7 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @customer_event_product = CustomerEventProduct.new
     @transactions = CustomerEventProduct.transactions.where("customers.id = ?", params[:id])
     @not_ready = CustomerEventProduct.not_ready.where("customers.id = ?", params[:id])
     @ready = CustomerEventProduct.ready.where("customers.id = ?", params[:id])
