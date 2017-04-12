@@ -4,6 +4,11 @@
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           In-Progress Pieces
+          <% if @progress_count.any? %>
+              <span class="badge"><%= @progress_count.count %></span>
+          <% else %>
+              <span class="badge">0</span>
+          <% end %>
         </a>
       </h4>
     </div>
@@ -16,6 +21,11 @@
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           Ready for Pick-Up
+          <% if @ready_count.any? %>
+              <span class="badge"><%= @ready_count.count %></span>
+          <% else %>
+              <span class="badge">0</span>
+          <% end %>
         </a>
       </h4>
     </div>
@@ -28,6 +38,11 @@
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
           Collected Past 30 Days
+          <% if @picked_up_count.any? %>
+              <span class="badge"><%= @picked_up_count.count %></span>
+          <% else %>
+              <span class="badge">0</span>
+          <% end %>
         </a>
       </h4>
     </div>

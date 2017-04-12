@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'dashboards#index'
+  root 'homes#index'
+
+  get 'dashboards/index'
 
   get 'walk_ins/index'
 
@@ -33,6 +35,8 @@ Rails.application.routes.draw do
   post '/employee_events/create' => 'employee_events#create', :as => :create_host
 
   post '/customer_event_products/create' => 'customer_event_products#create', :as => :create_product
+
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   resources :archive
   resources :admin

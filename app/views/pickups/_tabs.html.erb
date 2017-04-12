@@ -1,9 +1,36 @@
 <!-- Nav index -->
 <ul class="nav nav-tabs text-center" role="tablist">
   <li class="tab-header"><h1  class="tab-spacing", style="color: #C33764">Pick-Up</h1></li>
-  <li role="presentation" class="active"><a href="#progress" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-fire"></span><br>In-Progress</a></li>
-  <li role="presentation"><a href="#ready" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-gift" class="tab2"></span><br>Ready</a></li>
-  <li role="presentation"><a href="#picked_up" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-ok-circle"></span><br>Picked-Up</a></li>
+  <li role="presentation" class="active"><a href="#progress" role="tab" data-toggle="tab">
+    <span class="glyphicon glyphicon-fire"></span>
+    <br>
+    In-Progress
+    <% if @progress_count.any? %>
+        <span class="badge"><%= @progress_count.count %></span>
+    <% else %>
+        <span class="badge">0</span>
+    <% end %>
+  </a></li>
+  <li role="presentation"><a href="#ready" role="tab" data-toggle="tab">
+    <span class="glyphicon glyphicon-gift" class="tab2"></span>
+    <br>
+    Ready
+    <% if @ready_count.any? %>
+        <span class="badge"><%= @ready_count.count %></span>
+    <% else %>
+        <span class="badge">0</span>
+    <% end %>
+  </a></li>
+  <li role="presentation"><a href="#picked_up" role="tab" data-toggle="tab">
+    <span class="glyphicon glyphicon-ok-circle"></span>
+    <br>
+    Picked-Up
+    <% if @picked_up_count.any? %>
+        <span class="badge"><%= @picked_up_count.count %></span>
+    <% else %>
+        <span class="badge">0</span>
+    <% end %>
+  </a></li>
 </ul>
 
 <!-- Tab panes -->

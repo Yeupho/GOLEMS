@@ -58,11 +58,11 @@
 
     <div class="row">
       <div class="col-lg-9 col-lg-offset-1">
-        <%= select_tag :color_id, options_for_select(Color.all.collect{ |c| [c.color_name, c.color_code, {'data-id' => c.id}]}) %>
+        <%= select_tag :color_id, options_for_select(Color.all.where("colors.id <> '26'").collect{ |c| [c.color_name, c.color_code, {'data-id' => c.id}]}) %>
         <div id="result"></div>
       </div>
       <div class="col-lg-1">
-        <%= f.collection_select(:color_id, Color.all, :id, :color_name, {class: "form-control"}) %>
+        <%= f.collection_select(:color_id, Color.all.where("colors.id <> '26'"), :id, :color_name, {class: "form-control"}) %>
       </div>
     </div>
 
@@ -98,10 +98,8 @@
         });
     });
 
-    var selectedOption = "";
-
     $(document).ready(function() {
-
+        var selectedOption =
         $('#color_id').change(function() {
             selectedOption = $(this).find('option:selected').data('id');
             $('#result').html(selectedOption);
@@ -109,9 +107,16 @@
                 $.ajax({
                     url: "/events/create",
                     type: 'POST',
-                    dataType: 'json',
                     data: {color_id: selectedOption}
                 });
+            });
+        });
+
+        $('#submit').on('click', function() {
+            $.ajax({
+                url: "/events/create",
+                type: 'POST',
+                data: {color_id: selectedOption}
             });
         });
 

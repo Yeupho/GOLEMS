@@ -30,7 +30,13 @@
               <td><%= employee.first_name %> <%= employee.last_name %></td>
               <td><%= number_to_phone(employee.phone, area_code: true) %></td>
               <td><%= employee.email %></td>
-              <td><span class="badge" style="background-color: #C33764">0</span></td>
+              <td>
+                <% if @upcoming_count.where("employees.id = ?", employee).any? %>
+                    <%= @upcoming_count.where("employees.id = ?", employee).count %>
+                <% else %>
+                    0
+                <% end %>
+              </td>
               <td>
                 <% @positions.where("employees.id =?", employee).each do |p| %>
                     <div class="row"><%= p.employee_type_desc %></div>
