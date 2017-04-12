@@ -12,7 +12,7 @@ class AdminController < ApplicationController
     @customer_statuses = CustomerStatus.all.paginate(page: params[:customer_status_page],per_page:10)
     @employee_statuses = EmployeeStatus.all.paginate(page: params[:employee_status_page],per_page:10)
 
-
+# calls the various new elements for the variables
     @color = Color.new
     @product = Product.new
     @product_type = ProductType.new
@@ -25,10 +25,18 @@ class AdminController < ApplicationController
     @country = Country.new
     @customer_status = CustomerStatus.new
 
+# Used to call the various percentage data
     @weeklysales = Admin.weeklysales
-    @totalvisitors
-    @productsold
-    @productready
+    @twoweeksprior = Admin.twoweeksprior
+
+    @totalvisitors = Admin.totalvisitors
+    @twototalvisitors = Admin.twototalvisitors
+
+    @productsold = Admin.productsold
+    @twoproductsold = Admin.twoproductsold
+
+    @productsready = Admin.productsready
+    @twoproductsready = Admin.twoproductsready
   end
 
   def new

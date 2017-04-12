@@ -11,14 +11,16 @@
 
 <div style=" ">
 
-  <div style="position:absolute;top:160px;">
-    <h2 style="color: #C33764">Most popular products in the past month</h2>
-    <%= pie_chart Event.where(:event_date => 1.months.ago .. Time.now)
-                      .joins(:customer_events).joins(:customer_event_products).joins(:products).group(:product_name)
-                      .sum('customer_event_products.quantity').first(5),
-                  library: {legend: {position: "right"}}, width:"500px",donut:true,download:true %>
+  <div class="panel panel-default" style="position:absolute;top:200px;background-color:#FFFFFF  ">
+    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px;">Most popular products in the past month</h2></div>
+    <div class="panel panel-body" style="padding:0px;">
+      <%= pie_chart Event.where(:event_date => 1.months.ago .. Time.now)
+                        .joins(:customer_events).joins(:customer_event_products).joins(:products).group(:product_name)
+                        .sum('customer_event_products.quantity').first(5),
+                    library: {legend: {position: "right"}}, height:"200px",width:"490px",donut:true,download:true %>
+    </div>
   </div>
-  <div style="position:absolute;top:160px;left: 600px;">
+  <div style="position:absolute;top:200px;left: 600px;">
     <h2 style="color: #C33764">Number of People Attending</h2>
     <%= line_chart Event.group_by_week(:event_date)
                        .joins(:customer_events).sum("customer_events.number_in_party"), width:"600px",download:true %>
