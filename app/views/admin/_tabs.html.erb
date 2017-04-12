@@ -25,6 +25,7 @@
 
 </div>
 
+<!--adds tab href to url + opens tab based on hash on page load:-->
 <script>
     $(document).ready(function() {
         if (location.hash) {
@@ -38,4 +39,5 @@
         var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
         $("a[href='" + anchor + "']").tab("show");
     });
+
 </script>

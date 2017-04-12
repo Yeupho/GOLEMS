@@ -1,11 +1,11 @@
   <div class="container vertical-divider">
     <div class="column one-third">
-      <h1 style="margin-top:10px;color: #999999 ;">Past 7-Day Analytics</h1>
+      <h1 style="margin-top:10px;color: #999999 ;text-shadow: 2px 2px 4px #999999 ;">Past 7-Day Analytics</h1>
       <!--<p><%  1.week.ago %><%  Time.now %></p>-->
     </div>
     <div class="column one-third">
       <h4 style="color: #999999">Weekly Sales</h4>
-      <h1 style="margin-top:-10px;"><%= number_to_currency(@weeklysales) %></h1>
+      <h1 style="margin-top:-10px;text-shadow: 2px 2px 4px #999999"><%= number_to_currency(@weeklysales) %></h1>
       <%  a=Admin.weeklysales.to_f
           b=Admin.twoweeksprior.to_f %>
       <% if @weeklysales > @twoweeksprior %>
@@ -21,7 +21,7 @@
       <h4 style="color: #999999">Weekly Total Attendees</h4>
       <%  a=Admin.totalvisitors.to_f
           b=Admin.twototalvisitors.to_f %>
-      <h1 style="margin-top:-10px;"><%= @totalvisitors%></h1>
+      <h1 style="margin-top:-10px;text-shadow: 2px 2px 4px #999999"><%= @totalvisitors%></h1>
       <% if @totalvisitors > @twototalvisitors %>
           <% percent2= (((a-b)/b)*100)%>
           <h4><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent2.round %>%</span> from prior week</h4>
@@ -33,7 +33,7 @@
 
     <div class="column one-third">
       <h4 style="color: #999999">Products Sold</h4>
-      <h1 style="margin-top:-10px;"><%= @productsold %></h1>
+      <h1 style="margin-top:-10px;text-shadow: 2px 2px 4px #999999"><%= @productsold %></h1>
       <%  a=Admin.productsold.to_f
           b=Admin.twoproductsold %>
       <% if @productsold > @twoproductsold %>
@@ -47,7 +47,7 @@
 
     <div class="column one-third">
       <h4 style="color: #999999">Products Kilned</h4>
-      <h1 style="margin-top:-10px;"><%= @productsready %></h1>
+      <h1 style="margin-top:-10px;text-shadow: 2px 2px 4px #999999"><%= @productsready %></h1>
       <%  a=Admin.productsready.to_f
           b=Admin.twoproductsready.to_f %>
       <% if @productsready > @twoproductsready %>
