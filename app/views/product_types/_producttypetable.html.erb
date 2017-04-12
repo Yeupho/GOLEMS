@@ -1,10 +1,12 @@
-<div style="float:left;"><h3 style="color: #C33764">Most popular products in the past month</h3>
-  <%= pie_chart Event.where(:event_date => 1.months.ago .. Time.now)
-                    .joins(:customer_events).joins(:customer_event_products).joins(:products).group(:product_name)
-                    .sum('customer_event_products.quantity').first(5),
-                library: {legend: {position: "right"}}, width:"450px" %></div>
+<div class="panel panel-default" style="float:left;margin-top:25px;background-color:#FFFFFF  ">
+  <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px;">Most popular products in the past month</h2></div>
+  <div class="panel panel-body" style="padding:0px;padding-left:10px;">
+    <%= pie_chart Admin.MostPopProd5, library: {legend: {position: "right"}},colors:["#4d9de0","#e15554","#e1bc29","#3bb273","#7768ae"],
+                  height:"300px",width:"500px",donut:true,download:true %>
+  </div>
+</div>
 
-<div class="panel panel-default" style="position: absolute;top:400px;width:400px;">
+<div class="panel panel-default" style="position:absolute;top:485px;left:615px;width:520px;">
 
   <div class="panel-heading">
     <h2 class="panel-title">Product Type</h2>

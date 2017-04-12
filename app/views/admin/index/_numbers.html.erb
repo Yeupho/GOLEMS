@@ -1,49 +1,61 @@
   <div class="container vertical-divider">
     <div class="column one-third">
-      <h1 class="panel" style="margin-top:10px;">Past 7-Day Analytics</h1>
+      <h1 style="margin-top:10px;color: #999999 ;">Past 7-Day Analytics</h1>
       <!--<p><%  1.week.ago %><%  Time.now %></p>-->
     </div>
     <div class="column one-third">
-      <h4>Weekly Sales</h4>
+      <h4 style="color: #999999">Weekly Sales</h4>
       <h1 style="margin-top:-10px;"><%= number_to_currency(@weeklysales) %></h1>
-      <%  percent1=(@twoweeksprior/@weeklysales)*100 %>
+      <%  a=Admin.weeklysales.to_f
+          b=Admin.twoweeksprior.to_f %>
       <% if @weeklysales > @twoweeksprior %>
-          <h6><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent1.round %>%</span> from prior week</h6>
+          <% percent1= (((a-b)/b)*100) %>
+          <h4><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent1.round %>%</span> from prior week</h4>
       <% else %>
-          <h6><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent1.round %>%</span> from prior week</h6>
+          <% percent1= (((b-a)/b)*100)%>
+          <h4><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span>-<%= percent1.round %>%</span> from prior week</h4>
       <% end %>
     </div>
 
     <div class="column one-third">
-      <h4>Weekly Total Visitors</h4>
-      <%  percent2= ((Admin.twototalvisitors / Admin.totalvisitors)* 100) %>
-      <h1 style="margin-top:-10px;"><%= @totalvisitors%>' ' <%= @twototalvisitors%> <%= percent2 %></h1>
+      <h4 style="color: #999999">Weekly Total Attendees</h4>
+      <%  a=Admin.totalvisitors.to_f
+          b=Admin.twototalvisitors.to_f %>
+      <h1 style="margin-top:-10px;"><%= @totalvisitors%></h1>
       <% if @totalvisitors > @twototalvisitors %>
-          <h6><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent2 %>%</span> from prior week</h6>
+          <% percent2= (((a-b)/b)*100)%>
+          <h4><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent2.round %>%</span> from prior week</h4>
       <% else %>
-          <h6><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent2 %>%</span> from prior week</h6>
+          <% percent2= (((b-a)/b)*100)%>
+          <h4><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span>-<%= percent2.round %>%</span> from prior week</h4>
       <% end %>
     </div>
 
     <div class="column one-third">
-      <h4>Products Sold</h4>
-      <h1 style="margin-top:-10px;"><%= @productsold %>' '<%= @twoproductsold %></h1>
-      <%  percent3=(@twoproductsold/@productsold)*100 %>
+      <h4 style="color: #999999">Products Sold</h4>
+      <h1 style="margin-top:-10px;"><%= @productsold %> <%=@twoproductsold %></h1>
+      <%  a=Admin.productsold.to_f
+          b=Admin.twoproductsold %>
       <% if @productsold > @twoproductsold %>
-          <h6><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent3 %>%</span> from prior week</h6>
+          <% percent3=(((a-b)/b)*100) %>
+          <h4><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent3.round %>%</span> from prior week</h4>
       <% else %>
-          <h6><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent3.round %>%</span> from prior week</h6>
+          <% percent3=(((b-a)/b)*100) %>
+          <h4><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span>-<%= percent3.round %>%</span> from prior week</h4>
       <% end %>
     </div>
 
     <div class="column one-third">
-      <h4>Products Kilned</h4>
-      <h1 style="margin-top:-10px;"><%= @productsready %> <%= @twoproductsready %></h1>
-      <%  percent4=(@twoproductsready/@productsready)*100 %>
+      <h4 style="color: #999999">Products Kilned</h4>
+      <h1 style="margin-top:-10px;"><%= @productsready %></h1>
+      <%  a=Admin.productsready.to_f
+          b=Admin.twoproductsready.to_f %>
       <% if @productsready > @twoproductsready %>
-          <h6><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent4.round %>%</span> from prior week</h6>
+          <% test= (((a-b)/b)*100) %>
+          <h4><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= test.round %>%</span> from prior week</h4>
       <% else %>
-          <h6><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent4.round %>%</span> from prior week</h6>
+          <% test= (((b-a)/b)*100) %>
+          <h4><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span><%= test.round %>%</span> from prior week</h4>
       <% end %>
     </div>
 

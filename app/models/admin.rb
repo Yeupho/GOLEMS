@@ -1,5 +1,46 @@
 class Admin < ApplicationRecord
 
+# =============================
+
+  def self.MostPopProd5
+    Event.where(:event_date => 1.months.ago .. Time.now)
+        .joins(:customer_events).joins(:customer_event_products).joins(:products).group(:product_name)
+        .sum('customer_event_products.quantity').first(5)
+  end
+  def self.NumAttending
+    Event.group_by_week(:event_date).joins(:customer_events).sum("customer_events.number_in_party")
+  end
+
+  def self.EarningsRevenue
+    Event.group_by_day(:event_date).where(:event_date => 1.months.ago .. Time.now)
+        .joins(:customer_events)
+        .joins(:customer_event_products)
+        .joins(:products)
+        .sum("(products.product_price * customer_event_products.quantity)+ (customer_events.adults_painting + 10)")
+  end
+
+  def self.DailyPurchase
+    Event.group_by_day(:event_date).where(:event_date => 1.month.ago .. Time.now)
+        .joins(:customer_events)
+        .joins(:customer_event_products)
+        .joins(:products)
+        .sum("customer_event_products.quantity")
+  end
+  def self.RecognizeEmployee
+    EmployeeEvent.group(:first_name).group_by_month(:event_date).joins(:event).joins(:employee).count
+  end
+  def self.mostprofit
+    # Event.group(:event_name).where(:event_date => 1.months.ago .. Time.now)
+    #     .joins(:customer_events)
+    #     .joins(:customer_event_products)
+    #     .joins(:products)
+    #     .sum("(products.product_price * customer_event_products.quantity)+ (customer_events.adults_painting + 10)")
+    # Event.find_by_sql('SELECT e.event_name, (prod.product_price * cep.quantity) as revenue FROM events e JOIN customer_events ce on e.id = ce.event_id JOIN customer_event_products cep ON ce.id=cep.customer_event_id JOIN products prod on prod.id = cep.product_id ')
+  end
+# ==========================================================================
+# First row values
+# ===========================
+
 # Query to view the number of sales during the past week
   def self.weeklysales
     Event.where(:event_date => 1.week.ago .. Time.now)

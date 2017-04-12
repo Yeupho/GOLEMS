@@ -37,6 +37,8 @@ class AdminController < ApplicationController
 
     @productsready = Admin.productsready
     @twoproductsready = Admin.twoproductsready
+
+    # @mostprofit = Admin.mostprofit
   end
 
   def new

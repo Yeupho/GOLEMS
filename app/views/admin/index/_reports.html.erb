@@ -4,60 +4,93 @@
 
 <!--<h1 style="color: #C33764">Most popular items in the last week</h1>-->
 <!--<= pie_chart Product.joins(:customer_event_products).group(:product_name).sum('customer_event_products.quantity').first(5)%>-->
-<div style="position:absolute;">
+<div style="position:absolute;top:50px;">
   <%= render 'admin/index/numbers' %>
 </div>
 
 
-<div style=" ">
+<div>
 
   <div class="panel panel-default" style="position:absolute;top:200px;background-color:#FFFFFF  ">
     <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px;">Most popular products in the past month</h2></div>
-    <div class="panel panel-body" style="padding:0px;">
-      <%= pie_chart Event.where(:event_date => 1.months.ago .. Time.now)
-                        .joins(:customer_events).joins(:customer_event_products).joins(:products).group(:product_name)
-                        .sum('customer_event_products.quantity').first(5),
-                    library: {legend: {position: "right"}}, height:"200px",width:"490px",donut:true,download:true %>
+    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
+      <%= pie_chart Admin.MostPopProd5, library: {legend: {position: "right"}},colors:["#4d9de0","#e15554","#e1bc29","#3bb273","#7768ae"],
+                    height:"300px",width:"540px",donut:true,download:true %>
     </div>
   </div>
-  <div style="position:absolute;top:200px;left: 600px;">
-    <h2 style="color: #C33764">Number of People Attending</h2>
-    <%= line_chart Event.group_by_week(:event_date)
-                       .joins(:customer_events).sum("customer_events.number_in_party"), width:"600px",download:true %>
+
+  <div class="panel panel-default" style="position:absolute;top:200px;left: 600px;">
+    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Number of People Attending Each Week</h2></div>
+    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
+      <%= column_chart Admin.NumAttending,
+                     ytitle:["Number of People"],
+                     height:"300px",width:"540px",download:true %>
+    </div>
   </div>
-  <div style="position:absolute;top:550px;">
-    <h2 style="color: #C33764">Revenue</h2>
-    <% yes = 1.months.ago %>
-    <select>
-      <option>1 Month<% yes = 1.months.ago %></option>
-      <option>3 Months</option>
-      <option>6 Months</option>
-      <option>1 Year</option>
-      <option>All-Time</option>
-    </select>
-    <%= line_chart Event.group_by_day(:event_date).where(:event_date => yes .. Time.now)
-                       .joins(:customer_events)
-                       .joins(:customer_event_products)
-                       .joins(:products)
-                       .sum("(products.product_price * customer_event_products.quantity)+ (customer_events.adults_painting + 10)"),
+
+  <div class="panel panel-default" style="position:absolute;top:610px;">
+    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Revenue</h2></div>
+    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
+    <%= area_chart Admin.EarningsRevenue ,
                    colors:["#DA70D6"], xtitle:["Group by Week"],
-                   ytitle: ["Monetary Value"], curve: false, width:"600px",download:true %>
+                   ytitle: ["Monetary Value"],
+                   height:"300px",width:"750px",download:true %></div>
   </div>
-  <div style="position:absolute;left:600px;top:550px;">
-    <h2 style="color: #C33764">Number of Purchases made each day</h2>
-    <select>
-      <option>1 Month<% yes = 1.months.ago %></option>
-      <option>3 Months</option>
-      <option>6 Months</option>
-      <option>1 Year</option>
-      <option>All-Time</option>
-    </select>
-    <%= line_chart Event.group_by_day(:event_date).where(:event_date => yes .. Time.now)
-                       .joins(:customer_events)
-                       .joins(:customer_event_products)
-                       .joins(:products)
-                       .sum("customer_event_products.quantity"),
-                   width:"600px",curve:false,download:true,xtitle:["Group by Week"] %>
+  <div class="panel panel-default" style="position:absolute;top:1030px;left:600px;">
+    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Number of Products Purchased Daily</h2></div>
+    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
+      <%= area_chart Admin.DailyPurchase ,
+                     colors:["#4C9C51"], xtitle:["Group by Week"],
+                     ytitle: ["Number of Products"],
+                     height:"300px",width:"540px",download:true %></div>
+  </div>
+  <div class="panel panel-default" style="position:absolute;top:610px;left:800px;height:390px;width:355px;">
+    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Most Profitable Events</h2></div>
+    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Event</th>
+          <th>Profit</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td>Oh OH It's Magic</td>
+              <td class="pull-right">$1,500.00</td>
+            </tr>
+            <tr>
+              <td>Ladies Night Out</td>
+              <td class="pull-right">$593.35</td>
+            </tr>
+            <tr>
+              <td>Farrah's Party</td>
+              <td class="pull-right">$330.10</td>
+            </tr>
+            <tr>
+              <td>Get Over The Hump</td>
+              <td class="pull-right">$143.76</td>
+            </tr>
+            <tr>
+              <td>Ladies Night Out</td>
+              <td class="pull-right">$95.67</td>
+            </tr>
+            <tr>
+              <td>Oh OH It's Magic</td>
+              <td class="pull-right">$20.95</td>
+            </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <div class="panel panel-default" style="position:absolute;top:1030px">
+    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Count of Event Hosts</h2></div>
+    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
+      <%= area_chart Admin.RecognizeEmployee ,
+                     xtitle:["Group by Month"],
+                     ytitle: ["Events Hosted"],
+                     height:"300px",width:"540px",download:true %></div>
   </div>
   <!--<div style="position:absolute; left: 700px;top: 840px;">-->
     <!--<h1 style="color: #C33764">Number of Events Scheduled</h1>-->
