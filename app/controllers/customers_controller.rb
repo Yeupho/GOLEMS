@@ -1,30 +1,22 @@
 class CustomersController < ApplicationController
   require 'will_paginate/array'
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :update, :destroy]
 
   # GET /customers
   # GET /customers.json
   def index
     @customer = Customer.new
-    @customers = Customer.customer.search(params[:search]).paginate(page: params[:page], per_page: 9)
+    @customers = Customer.customers.search(params[:search]).paginate(page: params[:page], per_page: 9)
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
-    @events = Customer.transactions.where("customers.id = ?", params[:id])
-    @not_ready = Customer.not_ready.where("customers.id = ?", params[:id])
-    @ready = Customer.ready.where("customers.id = ?", params[:id])
-    @collected = Customer.collected.where("customers.id = ?", params[:id])
-  end
-
-  # GET /customers/new
-  def new
-    @customer = Customer.new
-  end
-
-  # GET /customers/1/edit
-  def edit
+    @customer_event_product = CustomerEventProduct.new
+    @transactions = CustomerEventProduct.transactions.where("customers.id = ?", params[:id])
+    @not_ready = CustomerEventProduct.customer_not_ready.where("customers.id = ?", params[:id])
+    @ready = CustomerEventProduct.customer_ready.where("customers.id = ?", params[:id])
+    @collected = CustomerEventProduct.customer_collected.where("customers.id = ?", params[:id])
   end
 
   def search
@@ -42,7 +34,7 @@ class CustomersController < ApplicationController
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
-        format.html { render :new }
+        format.html { render :index }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +48,7 @@ class CustomersController < ApplicationController
         format.html { redirect_to @customer, notice: 'Customer was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer }
       else
-        format.html { render :edit }
+        format.html { render :show }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end

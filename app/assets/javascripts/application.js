@@ -29,6 +29,9 @@ jQuery(function($) {
     $(document).on('click', ".clickable-row", function() {
         window.location = $(this).data("link");
     });
+    $(document).on('click', ".clickable-row a", function() {
+        $(this).stopPropagation();
+    });
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })

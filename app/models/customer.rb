@@ -28,50 +28,10 @@ class Customer < ApplicationRecord
     self.first_name + ' ' + self.last_name
   end
 
-  def self.customer
+  def self.customers
     Customer.select("customers.id, first_name, last_name, phone, email, customer_status_id")
         .where("customer_status_id = '1'")
         .order("updated_at DESC, created_at DESC")
-  end
-
-  def self.not_ready
-    CustomerEventProduct.select("products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
-        .joins(:product)
-        .joins(:customer_event)
-        .joins(customer_event: {event: :color})
-        .joins(customer_event: :customer)
-        .order("events.event_date ASC")
-        .where(pickup_status_id: '1')
-  end
-
-  def self.ready
-    CustomerEventProduct.select("products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
-        .joins(:product)
-        .joins(:customer_event)
-        .joins(customer_event: {event: :color})
-        .joins(customer_event: :customer)
-        .order("products.product_name ASC")
-        .where(pickup_status_id: '2')
-  end
-
-  def self.collected
-    CustomerEventProduct.select("products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity")
-        .joins(:product)
-        .joins(:customer_event)
-        .joins(customer_event: {event: :color})
-        .joins(customer_event: :customer)
-        .joins(:pickup_status)
-        .order("events.event_date DESC")
-        .where(pickup_status_id: '3')
-  end
-
-  def self.transactions
-    CustomerEvent.select("customer_events.id, events.event_name, colors.color_code, events.event_date, sum(products.product_price * customer_event_products.quantity) AS sales")
-        .joins(:customer)
-        .joins(event: :color)
-        .joins(customer_event_products: :product)
-        .group("customer_events.id, events.event_name, colors.color_code, events.event_date")
-        .order("events.event_date DESC")
   end
 end
 

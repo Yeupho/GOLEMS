@@ -3,32 +3,34 @@
     <h2 class="panel-title">Check-In</h2>
   </div>
   <div class="panel-body">
-
     <div class="imaginary_container">
-      <table class="table table-hover">
+      <table class="table table-hover text-center">
         <thead>
-        <tr>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Event</th>
-          <th>Party Size</th>
+        <tr class="text-wrap">
+          <th class="col-lg-3 text-center">Name</th>
+          <th class="col-lg-2 text-center">Date</th>
+          <th class="col-lg-2 text-center">Time</th>
+          <th class="col-lg-4 text-center">Event</th>
+          <th class="col-lg-1 text-center">Party Size</th>
         </tr>
         </thead>
 
-        <tbody>
-        <% @check_in.each do |check_in| %>
-            <tr>
-              <td><%= check_in.first_name %> <%= check_in.last_name %></td>
-              <td><%= check_in.event_date.strftime("%m/%d/%y") %></td>
-              <td><%= check_in.start_time.strftime("%l:%M %p") %> - <%= check_in.end_time.strftime("%l:%M %p") %></td>
-              <td><%= check_in.event_name %></td>
-              <td><%= check_in.number_in_party %></td>
-            </tr>
+        <% unless @check_in.blank? %>
+            <tbody>
+            <% @check_in.each do |check_in| %>
+                <tr>
+                  <td><%= check_in.first_name %> <%= check_in.last_name %></td>
+                  <td><%= check_in.event_date.strftime("%m/%d/%y") %></td>
+                  <td><%= check_in.start_time.strftime("%l:%M %p") %> - <%= check_in.end_time.strftime("%l:%M %p") %></td>
+                  <td><%= check_in.event_name %></td>
+                  <td><%= check_in.number_in_party %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        <% else %>
+            <tr><td colspan="5">No Check-In for Today: <%= Date.today.strftime("%B %-d, %Y") %></td></tr>
         <% end %>
-        </tbody>
       </table>
     </div>
-
   </div>
 </div>

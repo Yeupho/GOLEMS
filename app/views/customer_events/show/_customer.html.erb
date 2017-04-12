@@ -1,17 +1,15 @@
 <% visitor =  @customer_event.number_in_party - (@customer_event.kids_painting + @customer_event.adults_painting) %>
 
 <div class="panel pane-default shadow-pane parent">
-  <br>
-  <h4 class="text-center", style="color: #C33764">Customer Information</h4>
 
-  <div class="row"><div class="col-lg-10 col-lg-offset-1">
+  <div class="row text-center"><div class="col-lg-10 col-lg-offset-1">
     <h4><%= @customer_event.customer.first_name %> <%= @customer_event.customer.last_name %></h4>
   </div></div>
 
   <br>
 
-  <div class="row">
-    <div class="col-lg-2 col-lg-offset-2 text-center" data-toggle="tooltip" data-placement="top" title="Kids Painting: <%= @customer_event.kids_painting %>">
+  <div class="row text-center">
+    <div class="col-lg-2 col-lg-offset-2" data-toggle="tooltip" data-placement="top" title="Kids Painting: <%= @customer_event.kids_painting %>">
       <strong>K</strong>
       <%= @customer_event.kids_painting %>
     </div>
@@ -28,4 +26,5 @@
       <%= @customer_event.number_in_party %>
     </div>
   </div>
+
 </div>

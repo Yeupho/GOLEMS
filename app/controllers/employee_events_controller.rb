@@ -28,8 +28,7 @@ class EmployeeEventsController < ApplicationController
 
     respond_to do |format|
       if @employee_event.save
-        format.html { redirect_to @employee_event, notice: 'Employee event was successfully created.' }
-        format.json { render :show, status: :created, location: @employee_event }
+        format.html { redirect_to :back, notice: 'Employee was successfully added.' }
       else
         format.html { render :new }
         format.json { render json: @employee_event.errors, status: :unprocessable_entity }
@@ -54,9 +53,17 @@ class EmployeeEventsController < ApplicationController
   # DELETE /employee_events/1
   # DELETE /employee_events/1.json
   def destroy
+    @employee_events = EmployeeEvent.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @employee_event.delete
+    elsif params[:type]=='restore'
+      @employee_event.restore
+      @employee_event.update(deleted_at: nil)
+    end
+
     @employee_event.destroy
     respond_to do |format|
-      format.html { redirect_to employee_events_url, notice: 'Employee event was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Host was successfully removed.' }
       format.json { head :no_content }
     end
   end

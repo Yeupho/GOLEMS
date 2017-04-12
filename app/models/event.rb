@@ -17,18 +17,27 @@ class Event < ApplicationRecord
   end
 
   def self.calendar
-    Event.select("events.id, events.event_name, events.event_date, events.start_time, events.event_status_id, colors.color_code").joins(:color).where("events.event_type_id <> '7'")
+    Event.select("events.id, event_name, event_date || ' ' || start_time AS date, event_status_id, colors.color_code").joins(:color).where("events.event_type_id <> '7'")
   end
 
-  def self.customer
-    CustomerEvent.select("customer_events.id, event_id, customers.first_name, customers.last_name, kids_painting, adults_painting, number_in_party, sum(products.product_price * customer_event_products.quantity) AS sales")
-        .joins(:customer)
-        .joins(customer_event_products: :product)
-        .order("customers.first_name ASC")
-        .group("customer_events.id, event_id, customers.first_name, customers.last_name, kids_painting, adults_painting, number_in_party")
+  def self.upcoming_assignments
+    Event.select("employee_events.event_id, event_name, event_date, start_time, end_time, employees.employee_status_id, event_status_id")
+        .joins(employee_events: :employee)
+        .where("events.event_date >= ?", Date.today)
+        .order("events.event_date ASC")
+        .order("events.start_time ASC")
   end
 
-  def self.host
-    EmployeeEvent.select("employee_events.id, employees.first_name, employees.last_name").joins(:employee).joins(:event)
+  def self.event_list
+    Event.select("events.id, start_time, event_name, event_types.event_type_desc, colors.color_code, event_status_id")
+        .joins(:color)
+        .joins(:event_type)
+        .where("event_type_id <> '7'")
+        .where("event_date = ?", Date.today)
+        .order("start_time ASC")
+  end
+
+  def self.find_walk_in
+    Event.select("events.id, event_status_id").where("events.event_date = ?", Date.today).where("events.event_type_id = '7'")
   end
 end

@@ -8,12 +8,14 @@
     $(document).ready(function(){
         $('#list').fullCalendar({
             height: 780,
+            events: '/walk_ins.json',
             header: {
                 center: 'title',
                 right: 'today prev,next',
                 left: ''
             },
-            defaultView: 'listDay'
+            defaultView: 'listDay',
+            displayEventTime: false
         });
     });
 </script>

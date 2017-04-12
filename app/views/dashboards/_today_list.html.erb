@@ -1,3 +1,8 @@
+<% visitors = 0 %>
+<% kids = 0 %>
+<% adults = 0 %>
+<% party = 0 %>
+
 <div class="row">
   <div class="col-lg-8 col-lg-offset-2">
     <div class="panel text-center shadow-pane event-list">
@@ -11,8 +16,8 @@
   </div>
 </div>
 
+<% unless @event_list.blank? %>
 <% @event_list.each do |event_list| %>
-    <% running_total =  event_list.number_in_party - (event_list.kids_painting + event_list.adults_painting) %>
     <div class="panel pane-default shadow-pane parent">
       <div class="child" style="background-color: <%= event_list.color_code %>"></div>
       <div>
@@ -25,33 +30,47 @@
 
           <div class="col-lg-8">
             <div class="row"><h3><%= event_list.event_name %></h3></div>
+
             <div class="row"><h5><%= event_list.event_type_desc %></h5></div>
 
+            <% @party_size.where("events.id = ?", event_list.id).each do |p| %>
+                <% visitors = p.number_in_party.to_i - (p.kids_painting.to_i + p.adults_painting.to_i) %>
+                <% kids = p.kids_painting.to_i %>
+                <% adults = p.adults_painting.to_i %>
+                <% party = p.number_in_party.to_i %>
+            <% end %>
+
             <div class="row">
-              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Kids Painting: <%= event_list.kids_painting %>">
+              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Kids Painting: <%= kids %>">
                 <strong>K</strong>
-                <%= event_list.kids_painting %>
+                <%= kids %>
               </div>
-              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Adults Painting: <%= event_list.adults_painting %>">
+
+              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Adults Painting: <%= adults %>">
                 <strong>A</strong>
-                <%= event_list.adults_painting %>
+                <%= adults %>
               </div>
-              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Visitors: <%= running_total %>">
+
+              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Visitors: <%= visitors %>">
                 <strong>V</strong>
-                <%= running_total %>
+                <%= visitors %>
               </div>
-              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Total in Party: <%= event_list.number_in_party %>">
+              <div class="col-lg-2 text-center" data-toggle="tooltip" data-placement="top" title="Total in Party: <%= party %>">
                 <strong>T</strong>
-                <%= event_list.number_in_party %>
+                <%= party %>
               </div>
             </div>
           </div>
         </div>
-
         <br>
       </div>
     </div>
 <% end %>
+    <% else %>
+    <div class="panel pane-default shadow-pane parent">
+      <br><br><div class="row text-center"><div class="col-lg-12"><h4>No Events for Today: <%= Date.today.strftime("%B %-d, %Y") %></h4></div></div><br><br>
+    </div>
+    <% end %>
 
 <div class="row text-center">
   <% if @event_list.length > 0 && @event_list.total_pages > 1 %>

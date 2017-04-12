@@ -29,8 +29,8 @@ class CustomerEventProductsController < ApplicationController
 
     respond_to do |format|
       if @customer_event_product.save
-        format.html { redirect_to @event, notice: 'Customer event product was successfully created.' }
-        format.json { render :show, status: :created, location: @customer_event }
+        format.html { redirect_to :back, notice: 'Products were successfully added.', method: :get }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @customer_event.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class CustomerEventProductsController < ApplicationController
   def update
     respond_to do |format|
       if @customer_event_product.update(customer_event_product_params)
-        format.html { redirect_to @customer_event, notice: 'Customer event product was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Product was successfully updated.' }
         format.json { head :no_content}
       else
         format.html { render :edit }
@@ -59,9 +59,9 @@ class CustomerEventProductsController < ApplicationController
 
     if @customer_event_product.destroy
       flash[:notice] = "#{title} was removed successfully."
-      redirect_to @customer_event
+      redirect_to :back
     else
-      flash[:error] = "There was an error removing the itme"
+      flash[:error] = "There was an error removing the item"
       render :show
     end
   end

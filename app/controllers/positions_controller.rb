@@ -28,8 +28,8 @@ class PositionsController < ApplicationController
 
     respond_to do |format|
       if @position.save
-        format.html { redirect_to @position, notice: 'Position was successfully created.' }
-        format.json { render :show, status: :created, location: @position }
+        format.html { redirect_to :back, notice: 'Position was successfully added.' }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @position.errors, status: :unprocessable_entity }
@@ -64,7 +64,7 @@ class PositionsController < ApplicationController
 
     @position.destroy
     respond_to do |format|
-      format.html { redirect_to positions_url, notice: 'Position was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Position was successfully removed.' }
       format.json { head :no_content }
     end
   end

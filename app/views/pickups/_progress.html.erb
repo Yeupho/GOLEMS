@@ -3,30 +3,18 @@
     <h2 class="panel-title">Not Ready for Pick-Up</h2>
   </div>
   <div class="panel-body">
-    <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
-        <% if @n_ready.length > 0 && @n_ready.total_pages > 1 %>
-            <%= render 'search' %>
-        <% end %>
-      </div>
-    </div>
-
     <div class="imaginary_container">
-    <%= form_tag progress_pickups_path, method: :put do %>
-    <table class="table table-hover">
+      <table class="table table-hover text-center">
         <thead>
-        <tr>
-          <th></th>
-          <th>id</th>
-          <th>Customer</th>
-          <th>Phone</th>
-          <th>Product</th>
-          <th>Quantity</th>
-          <th>Color</th>
-          <th>Event</th>
-          <th>Date</th>
-          <th>Status</th>
-          <th></th>
+        <tr class="wrap-text">
+          <th class="text-center">Customer</th>
+          <th class="text-center">Phone</th>
+          <th class="text-center">Product</th>
+          <th class="text-center">Quantity</th>
+          <th class="text-center">Event Color</th>
+          <th class="text-center">Event</th>
+          <th class="text-center">Date</th>
+          <th class="text-center">Status</th>
         </tr>
         </thead>
 
@@ -47,6 +35,19 @@
                 <%= form_for customer_event_product do |f| %>
                     <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc,{}) %>
                     <%= f.submit 'Save' %>
+=======
+            <tr class="no-pointer">
+              <td><%= customer_event_product.first_name %> <%= customer_event_product.last_name %></td>
+              <td><%= number_to_phone(customer_event_product.phone, area_code: true) %></td>
+              <td><%= customer_event_product.product_name %></td>
+              <td><%= customer_event_product.quantity %></td>
+              <td><span class="simplecolorpicker icon color-picked" style= "background-color: <%= customer_event_product.color_code %>;"></span></td>
+              <td><%= customer_event_product.event_name %></td>
+              <td><%= customer_event_product.event_date.strftime("%m/%d/%Y") %> <%= customer_event_product.start_time.strftime("%l:%M %p")%></td>
+              <td>
+                <%= form_for customer_event_product, :url => url_for(:controller => 'customer_event_products', :action => 'update', :id => customer_event_product.id), :method => "patch" do |f| %>
+                    <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control", onchange: "this.form.submit();"}) %>
+>>>>>>> master
                 <% end %>
               </td>
             </tr>
@@ -56,15 +57,6 @@
       </table>
     <%= submit_tag 'Ready' %>
     <% end %>
-    </div>
-
-    <div class="row text-center">
-      <% if @n_ready.length > 0 && @n_ready.total_pages > 1 %>
-          <%= will_paginate @n_ready, renderer: BootstrapPagination::Rails, :param_name => 'progress_page' %>
-          <div class="page_info">
-            <%= page_entries_info @n_ready %>
-          </div>
-      <% end %>
     </div>
   </div>
 </div>

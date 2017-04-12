@@ -14,8 +14,9 @@ class EventsController < ApplicationController
   def show
     @employee_event = EmployeeEvent.new
     @customer_event = CustomerEvent.new
-    @customer_events = Event.customer.where("customer_events.event_id = ?", params[:id])
-    @hosts = Event.host.where("events.id = ?", params[:id])
+    @customer_events = CustomerEvent.customer_events.where("customer_events.event_id = ?", params[:id])
+    @customer_total = CustomerEvent.customer_total
+    @hosts = EmployeeEvent.host.where("events.id = ?", params[:id])
   end
 
   # GET /events/new
