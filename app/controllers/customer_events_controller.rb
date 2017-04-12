@@ -60,7 +60,7 @@ class CustomerEventsController < ApplicationController
 
     @customer_event.destroy
     respond_to do |format|
-      format.html { redirect_to customer_events_url, notice: 'Customer event was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Custome event was successfully removed.' }
       format.json { head :no_content }
     end
   end

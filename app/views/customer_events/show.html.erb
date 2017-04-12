@@ -74,7 +74,7 @@
         <td><div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Archive' %></li>
+            <li><%= link_to 'Archive', customer_event_product_path(customer_event_product, type: :normal),method: :delete,class: ' ', data: { confirm: 'Remove this product?' } %></li>
           </ul>
         </div></td>
       </tr>

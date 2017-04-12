@@ -59,9 +59,9 @@ class CustomerEventProductsController < ApplicationController
 
     if @customer_event_product.destroy
       flash[:notice] = "#{title} was removed successfully."
-      redirect_to @customer_event
+      redirect_to :back
     else
-      flash[:error] = "There was an error removing the itme"
+      flash[:error] = "There was an error removing the item"
       render :show
     end
   end
