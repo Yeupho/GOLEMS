@@ -1,4 +1,4 @@
-<div class="panel panel-default shadow-pane" style="float:left;width:600px;margin-top:25px;margin-left:50px">
+<div class="panel panel-default shadow-pane" style="float:left;width:650px;margin-top:25px;margin-left:25px">
   <div class="panel-heading">
     <h2 class="panel-title">Countries</h2>
   </div>
@@ -43,7 +43,7 @@
 
     <div class="row text-center">
       <% if @countries.length > 0 && @countries.total_pages > 1 %>
-          <%= will_paginate @countries, renderer: BootstrapPagination::Rails, :param_name => 'country_page' %>
+          <%= will_paginate @countries, inner_window:1,outer_window:1,renderer: BootstrapPagination::Rails, :param_name => 'country_page' %>
           <div class="page_info">
             <%= page_entries_info @countries %>
           </div>

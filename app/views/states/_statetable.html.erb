@@ -1,4 +1,4 @@
-<div class="panel panel-default shadow-pane" style="float:left;width:500px;margin-top:25px">
+<div class="panel panel-default shadow-pane" style="float:left;width:450px;margin-top:25px">
   <div class="panel-heading">
     <h2 class="panel-title">States</h2>
   </div>
@@ -43,7 +43,7 @@
 
     <div class="row text-center">
       <% if @states.length > 0 && @states.total_pages > 1 %>
-          <%= will_paginate @states, renderer: BootstrapPagination::Rails, :param_name => 'state_page' %>
+          <%= will_paginate @states, inner_window: 1, outer_window:1,renderer: BootstrapPagination::Rails, :param_name => 'state_page' %>
           <div class="page_info">
             <%= page_entries_info @states %>
           </div>
