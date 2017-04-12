@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>_today_list.html.erb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(232,191,106); }
+.s1 { color: rgb(186,186,186); }
+.s2 { color: rgb(165,194,97); }
+.s3 { color: rgb(169,183,198); }
+.s4 { color: rgb(169,183,198); }
+.s5 { color: rgb(169,183,198); }
+.s6 { color: rgb(218,73,57); }
+.s7 { color: rgb(169,183,198); }
+.s8 { color: rgb(82,161,46); font-weight: bold; }
+.s9 { color: rgb(169,183,198); font-weight: bold; }
+.s10 { color: rgb(208,208,255); }
+.s11 { color: rgb(204,120,50); font-weight: bold; }
+.s12 { color: rgb(204,120,51); }
+.s13 { color: rgb(165,194,97); }
+.s14 { color: rgb(204,120,50); }
+.s15 { color: rgb(110,156,190); }
+.s16 { color: rgb(255,198,109); font-style: italic; }
+.s17 { color: rgb(106,135,89); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+_today_list.html.erb</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;col-lg-8 col-lg-offset-2&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel text-center shadow-pane event-list&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel-heading month&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row&quot;</span><span class="s0">&gt;&lt;h3&gt;</span><span class="s4">&lt;%= </span><span class="s6">Date</span><span class="s5">.</span><span class="s7">today</span><span class="s5">.</span><span class="s7">strftime</span><span class="s5">(</span><span class="s8">&quot;%b %Y&quot;</span><span class="s5">) </span><span class="s4">%&gt;</span><span class="s0">&lt;/h3&gt;&lt;/div&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel-body date&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row&quot;</span><span class="s0">&gt;</span><span class="s4">&lt;%= </span><span class="s6">Date</span><span class="s5">.</span><span class="s7">today</span><span class="s5">.</span><span class="s7">strftime</span><span class="s5">(</span><span class="s8">&quot;%e&quot;</span><span class="s5">) </span><span class="s4">%&gt;</span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+</span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+</span><span class="s9">&lt;% </span><span class="s10">@event_list</span><span class="s5">.</span><span class="s7">each </span><span class="s11">do </span><span class="s12">|</span><span class="s7">event_list</span><span class="s12">| </span><span class="s4">%&gt;</span><span class="s3"> 
+    </span><span class="s9">&lt;% </span><span class="s7">running_total </span><span class="s12">=  </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">number_in_party </span><span class="s12">- </span><span class="s5">(</span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">kids_painting </span><span class="s12">+ </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">adults_painting</span><span class="s5">) </span><span class="s4">%&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel pane-default shadow-pane parent&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;child&quot; </span><span class="s1">style=</span><span class="s2">&quot;</span><span class="s1">background-color</span><span class="s3">: </span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">color_code </span><span class="s4">%&gt;</span><span class="s2">&quot;</span><span class="s0">&gt;&lt;/div&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;div&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;br&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;col-lg-4 text-center&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;h3&gt;</span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">start_time</span><span class="s5">.</span><span class="s7">strftime</span><span class="s5">(</span><span class="s8">&quot;%l:%M&quot;</span><span class="s5">) </span><span class="s4">%&gt;</span><span class="s0">&lt;/h3&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;h3&gt;</span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">start_time</span><span class="s5">.</span><span class="s7">strftime</span><span class="s5">(</span><span class="s8">&quot;%p&quot;</span><span class="s5">) </span><span class="s4">%&gt;</span><span class="s0">&lt;/h3&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+          </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;col-lg-8&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row&quot;</span><span class="s0">&gt;&lt;h3&gt;</span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">event_name </span><span class="s4">%&gt;</span><span class="s0">&lt;/h3&gt;&lt;/div&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row&quot;</span><span class="s0">&gt;&lt;h5&gt;</span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">event_type_desc </span><span class="s4">%&gt;</span><span class="s0">&lt;/h5&gt;&lt;/div&gt;</span><span class="s3"> 
+ 
+            </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;col-lg-2 text-center&quot; </span><span class="s1">data-toggle=</span><span class="s2">&quot;tooltip&quot; </span><span class="s1">data-placement=</span><span class="s2">&quot;top&quot; </span><span class="s1">title=</span><span class="s2">&quot;Kids Painting: </span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">kids_painting </span><span class="s4">%&gt;</span><span class="s2">&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+                </span><span class="s0">&lt;strong&gt;</span><span class="s3">K</span><span class="s0">&lt;/strong&gt;</span><span class="s3"> 
+                </span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">kids_painting </span><span class="s4">%&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;col-lg-2 text-center&quot; </span><span class="s1">data-toggle=</span><span class="s2">&quot;tooltip&quot; </span><span class="s1">data-placement=</span><span class="s2">&quot;top&quot; </span><span class="s1">title=</span><span class="s2">&quot;Adults Painting: </span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">adults_painting </span><span class="s4">%&gt;</span><span class="s2">&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+                </span><span class="s0">&lt;strong&gt;</span><span class="s3">A</span><span class="s0">&lt;/strong&gt;</span><span class="s3"> 
+                </span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">adults_painting </span><span class="s4">%&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;col-lg-2 text-center&quot; </span><span class="s1">data-toggle=</span><span class="s2">&quot;tooltip&quot; </span><span class="s1">data-placement=</span><span class="s2">&quot;top&quot; </span><span class="s1">title=</span><span class="s2">&quot;Visitors: </span><span class="s4">&lt;%= </span><span class="s7">running_total </span><span class="s4">%&gt;</span><span class="s2">&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+                </span><span class="s0">&lt;strong&gt;</span><span class="s3">V</span><span class="s0">&lt;/strong&gt;</span><span class="s3"> 
+                </span><span class="s4">&lt;%= </span><span class="s7">running_total </span><span class="s4">%&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;col-lg-2 text-center&quot; </span><span class="s1">data-toggle=</span><span class="s2">&quot;tooltip&quot; </span><span class="s1">data-placement=</span><span class="s2">&quot;top&quot; </span><span class="s1">title=</span><span class="s2">&quot;Total in Party: </span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">number_in_party </span><span class="s4">%&gt;</span><span class="s2">&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+                </span><span class="s0">&lt;strong&gt;</span><span class="s3">T</span><span class="s0">&lt;/strong&gt;</span><span class="s3"> 
+                </span><span class="s4">&lt;%= </span><span class="s7">event_list</span><span class="s5">.</span><span class="s7">number_in_party </span><span class="s4">%&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+        </span><span class="s0">&lt;br&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+</span><span class="s9">&lt;% </span><span class="s11">end </span><span class="s4">%&gt;</span><span class="s3"> 
+ 
+</span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row text-center&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+  </span><span class="s9">&lt;% </span><span class="s11">if </span><span class="s10">@event_list</span><span class="s5">.</span><span class="s7">length </span><span class="s12">&gt; </span><span class="s13">0 </span><span class="s12">&amp;&amp; </span><span class="s10">@event_list</span><span class="s5">.</span><span class="s7">total_pages </span><span class="s12">&gt; </span><span class="s13">1 </span><span class="s4">%&gt;</span><span class="s3"> 
+      </span><span class="s4">&lt;%= </span><span class="s7">will_paginate </span><span class="s10">@event_list</span><span class="s14">, </span><span class="s7">renderer</span><span class="s5">: </span><span class="s6">BootstrapPagination</span><span class="s5">::</span><span class="s6">Rails</span><span class="s14">, </span><span class="s15">:param_name </span><span class="s16">=&gt; </span><span class="s17">'event_list_page'</span><span class="s14">, </span><span class="s15">:page_links </span><span class="s16">=&gt; </span><span class="s11">false </span><span class="s4">%&gt;</span><span class="s3"> 
+  </span><span class="s9">&lt;% </span><span class="s11">end </span><span class="s4">%&gt;</span><span class="s3"> 
+</span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+</span></pre>
+</body>
+</html>

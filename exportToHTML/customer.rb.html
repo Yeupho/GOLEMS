@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>customer.rb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); font-weight: bold; }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(218,73,57); }
+.s3 { color: rgb(204,120,51); }
+.s4 { color: rgb(169,183,198); }
+.s5 { color: rgb(110,156,190); }
+.s6 { color: rgb(204,120,50); }
+.s7 { color: rgb(255,198,109); font-style: italic; }
+.s8 { color: rgb(106,135,89); }
+.s9 { color: rgb(82,161,46); font-weight: bold; }
+.s10 { color: rgb(165,194,97); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+customer.rb</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">class </span><span class="s2">Customer </span><span class="s3">&lt; </span><span class="s2">ApplicationRecord</span><span class="s1"> 
+  </span><span class="s4">after_initialize </span><span class="s5">:set_defaults</span><span class="s1"> 
+  </span><span class="s4">acts_as_paranoid</span><span class="s1"> 
+  </span><span class="s4">validates </span><span class="s5">:first_name</span><span class="s6">, </span><span class="s4">presence</span><span class="s1">: </span><span class="s0">true</span><span class="s1"> 
+  </span><span class="s4">validates </span><span class="s5">:last_name</span><span class="s6">, </span><span class="s4">presence</span><span class="s1">: </span><span class="s0">true</span><span class="s1"> 
+  </span><span class="s4">validates </span><span class="s5">:email</span><span class="s6">, </span><span class="s4">presence</span><span class="s1">: </span><span class="s0">true</span><span class="s1"> 
+  </span><span class="s4">validates </span><span class="s5">:phone</span><span class="s6">, </span><span class="s4">presence</span><span class="s1">: </span><span class="s0">true</span><span class="s1"> 
+  </span><span class="s4">validates </span><span class="s5">:zipcode</span><span class="s6">, </span><span class="s4">presence</span><span class="s1">: </span><span class="s0">true</span><span class="s1"> 
+  </span><span class="s4">has_many </span><span class="s5">:customer_events</span><span class="s1"> 
+  </span><span class="s4">has_many </span><span class="s5">:events</span><span class="s6">, </span><span class="s5">:through </span><span class="s7">=&gt; </span><span class="s5">:customer_events</span><span class="s1"> 
+  </span><span class="s4">belongs_to </span><span class="s5">:customer_status</span><span class="s1"> 
+  </span><span class="s4">belongs_to </span><span class="s5">:state</span><span class="s1"> 
+  </span><span class="s4">belongs_to </span><span class="s5">:country</span><span class="s1"> 
+ 
+  </span><span class="s0">def self</span><span class="s1">.</span><span class="s4">search</span><span class="s1">(</span><span class="s4">search</span><span class="s1">) 
+    </span><span class="s0">if </span><span class="s4">search</span><span class="s1"> 
+      </span><span class="s4">where</span><span class="s1">([</span><span class="s8">'phone LIKE ?'</span><span class="s6">, </span><span class="s9">&quot;%</span><span class="s1">#{</span><span class="s4">search</span><span class="s1">}</span><span class="s9">%&quot;</span><span class="s1">]) 
+    </span><span class="s0">else</span><span class="s1"> 
+      </span><span class="s4">all</span><span class="s1"> 
+    </span><span class="s0">end</span><span class="s1"> 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s0">def </span><span class="s4">set_defaults</span><span class="s1"> 
+    </span><span class="s0">self</span><span class="s1">.</span><span class="s4">customer_status_id </span><span class="s3">||= </span><span class="s10">1</span><span class="s1"> 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s0">def </span><span class="s4">full_name</span><span class="s1"> 
+    </span><span class="s0">self</span><span class="s1">.</span><span class="s4">first_name </span><span class="s3">+ </span><span class="s8">' ' </span><span class="s3">+ </span><span class="s0">self</span><span class="s1">.</span><span class="s4">last_name</span><span class="s1"> 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s0">def self</span><span class="s1">.</span><span class="s4">customer</span><span class="s1"> 
+    </span><span class="s2">Customer</span><span class="s1">.</span><span class="s4">select</span><span class="s1">(</span><span class="s9">&quot;customers.id, first_name, last_name, phone, email, customer_status_id&quot;</span><span class="s1">) 
+        .</span><span class="s4">where</span><span class="s1">(</span><span class="s9">&quot;customer_status_id = '1'&quot;</span><span class="s1">) 
+        .</span><span class="s4">order</span><span class="s1">(</span><span class="s9">&quot;updated_at DESC, created_at DESC&quot;</span><span class="s1">) 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s0">def self</span><span class="s1">.</span><span class="s4">not_ready</span><span class="s1"> 
+    </span><span class="s2">CustomerEventProduct</span><span class="s1">.</span><span class="s4">select</span><span class="s1">(</span><span class="s9">&quot;products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity&quot;</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s5">:product</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s5">:customer_event</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s4">customer_event</span><span class="s1">: {</span><span class="s4">event</span><span class="s1">: </span><span class="s5">:color</span><span class="s1">}) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s4">customer_event</span><span class="s1">: </span><span class="s5">:customer</span><span class="s1">) 
+        .</span><span class="s4">order</span><span class="s1">(</span><span class="s9">&quot;events.event_date ASC&quot;</span><span class="s1">) 
+        .</span><span class="s4">where</span><span class="s1">(</span><span class="s4">pickup_status_id</span><span class="s1">: </span><span class="s8">'1'</span><span class="s1">) 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s0">def self</span><span class="s1">.</span><span class="s4">ready</span><span class="s1"> 
+    </span><span class="s2">CustomerEventProduct</span><span class="s1">.</span><span class="s4">select</span><span class="s1">(</span><span class="s9">&quot;products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity&quot;</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s5">:product</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s5">:customer_event</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s4">customer_event</span><span class="s1">: {</span><span class="s4">event</span><span class="s1">: </span><span class="s5">:color</span><span class="s1">}) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s4">customer_event</span><span class="s1">: </span><span class="s5">:customer</span><span class="s1">) 
+        .</span><span class="s4">order</span><span class="s1">(</span><span class="s9">&quot;products.product_name ASC&quot;</span><span class="s1">) 
+        .</span><span class="s4">where</span><span class="s1">(</span><span class="s4">pickup_status_id</span><span class="s1">: </span><span class="s8">'2'</span><span class="s1">) 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s0">def self</span><span class="s1">.</span><span class="s4">collected</span><span class="s1"> 
+    </span><span class="s2">CustomerEventProduct</span><span class="s1">.</span><span class="s4">select</span><span class="s1">(</span><span class="s9">&quot;products.product_name, colors.color_code, events.event_name, events.event_date, pickup_status_id, quantity&quot;</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s5">:product</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s5">:customer_event</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s4">customer_event</span><span class="s1">: {</span><span class="s4">event</span><span class="s1">: </span><span class="s5">:color</span><span class="s1">}) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s4">customer_event</span><span class="s1">: </span><span class="s5">:customer</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s5">:pickup_status</span><span class="s1">) 
+        .</span><span class="s4">order</span><span class="s1">(</span><span class="s9">&quot;events.event_date DESC&quot;</span><span class="s1">) 
+        .</span><span class="s4">where</span><span class="s1">(</span><span class="s4">pickup_status_id</span><span class="s1">: </span><span class="s8">'3'</span><span class="s1">) 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s0">def self</span><span class="s1">.</span><span class="s4">transactions</span><span class="s1"> 
+    </span><span class="s2">CustomerEvent</span><span class="s1">.</span><span class="s4">select</span><span class="s1">(</span><span class="s9">&quot;customer_events.id, events.event_name, colors.color_code, events.event_date, sum(products.product_price * customer_event_products.quantity) AS sales&quot;</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s5">:customer</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s4">event</span><span class="s1">: </span><span class="s5">:color</span><span class="s1">) 
+        .</span><span class="s4">joins</span><span class="s1">(</span><span class="s4">customer_event_products</span><span class="s1">: </span><span class="s5">:product</span><span class="s1">) 
+        .</span><span class="s4">group</span><span class="s1">(</span><span class="s9">&quot;customer_events.id, events.event_name, colors.color_code, events.event_date&quot;</span><span class="s1">) 
+        .</span><span class="s4">order</span><span class="s1">(</span><span class="s9">&quot;events.event_date DESC&quot;</span><span class="s1">) 
+  </span><span class="s0">end</span><span class="s1"> 
+</span><span class="s0">end</span><span class="s1"> 
+ 
+ 
+ 
+ 
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>positions_controller.rb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); font-weight: bold; }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(218,73,57); }
+.s3 { color: rgb(204,120,51); }
+.s4 { color: rgb(169,183,198); }
+.s5 { color: rgb(110,156,190); }
+.s6 { color: rgb(204,120,50); }
+.s7 { color: rgb(188,148,88); font-style: italic; }
+.s8 { color: rgb(208,208,255); }
+.s9 { color: rgb(106,135,89); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+positions_controller.rb</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">class </span><span class="s2">PositionsController </span><span class="s3">&lt; </span><span class="s2">ApplicationController</span><span class="s1"> 
+  </span><span class="s4">before_action </span><span class="s5">:set_position</span><span class="s6">, </span><span class="s4">only</span><span class="s1">: [</span><span class="s5">:show</span><span class="s6">, </span><span class="s5">:edit</span><span class="s6">, </span><span class="s5">:update</span><span class="s6">, </span><span class="s5">:destroy</span><span class="s1">] 
+ 
+  </span><span class="s7"># GET /positions</span><span class="s1"> 
+  </span><span class="s7"># GET /positions.json</span><span class="s1"> 
+  </span><span class="s0">def </span><span class="s4">index</span><span class="s1"> 
+    </span><span class="s8">@positions </span><span class="s3">= </span><span class="s2">Position</span><span class="s1">.</span><span class="s4">all</span><span class="s1"> 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s7"># GET /positions/1</span><span class="s1"> 
+  </span><span class="s7"># GET /positions/1.json</span><span class="s1"> 
+  </span><span class="s0">def </span><span class="s4">show</span><span class="s1"> 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s7"># GET /positions/new</span><span class="s1"> 
+  </span><span class="s0">def </span><span class="s4">new</span><span class="s1"> 
+    </span><span class="s8">@position </span><span class="s3">= </span><span class="s2">Position</span><span class="s1">.</span><span class="s4">new</span><span class="s1"> 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s7"># GET /positions/1/edit</span><span class="s1"> 
+  </span><span class="s0">def </span><span class="s4">edit</span><span class="s1"> 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s7"># POST /positions</span><span class="s1"> 
+  </span><span class="s7"># POST /positions.json</span><span class="s1"> 
+  </span><span class="s0">def </span><span class="s4">create</span><span class="s1"> 
+    </span><span class="s8">@position </span><span class="s3">= </span><span class="s2">Position</span><span class="s1">.</span><span class="s4">new</span><span class="s1">(</span><span class="s4">position_params</span><span class="s1">) 
+ 
+    </span><span class="s4">respond_to </span><span class="s0">do </span><span class="s3">|</span><span class="s4">format</span><span class="s3">|</span><span class="s1"> 
+      </span><span class="s0">if </span><span class="s8">@position</span><span class="s1">.</span><span class="s4">save</span><span class="s1"> 
+        </span><span class="s4">format</span><span class="s1">.</span><span class="s4">html </span><span class="s1">{ </span><span class="s4">redirect_to </span><span class="s8">@position</span><span class="s6">, </span><span class="s4">notice</span><span class="s1">: </span><span class="s9">'Position was successfully created.' </span><span class="s1">} 
+        </span><span class="s4">format</span><span class="s1">.</span><span class="s4">json </span><span class="s1">{ </span><span class="s4">render </span><span class="s5">:show</span><span class="s6">, </span><span class="s4">status</span><span class="s1">: </span><span class="s5">:created</span><span class="s6">, </span><span class="s4">location</span><span class="s1">: </span><span class="s8">@position </span><span class="s1">} 
+      </span><span class="s0">else</span><span class="s1"> 
+        </span><span class="s4">format</span><span class="s1">.</span><span class="s4">html </span><span class="s1">{ </span><span class="s4">render </span><span class="s5">:new </span><span class="s1">} 
+        </span><span class="s4">format</span><span class="s1">.</span><span class="s4">json </span><span class="s1">{ </span><span class="s4">render json</span><span class="s1">: </span><span class="s8">@position</span><span class="s1">.</span><span class="s4">errors</span><span class="s6">, </span><span class="s4">status</span><span class="s1">: </span><span class="s5">:unprocessable_entity </span><span class="s1">} 
+      </span><span class="s0">end</span><span class="s1"> 
+    </span><span class="s0">end</span><span class="s1"> 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s7"># PATCH/PUT /positions/1</span><span class="s1"> 
+  </span><span class="s7"># PATCH/PUT /positions/1.json</span><span class="s1"> 
+  </span><span class="s0">def </span><span class="s4">update</span><span class="s1"> 
+    </span><span class="s4">respond_to </span><span class="s0">do </span><span class="s3">|</span><span class="s4">format</span><span class="s3">|</span><span class="s1"> 
+      </span><span class="s0">if </span><span class="s8">@position</span><span class="s1">.</span><span class="s4">update</span><span class="s1">(</span><span class="s4">position_params</span><span class="s1">) 
+        </span><span class="s4">format</span><span class="s1">.</span><span class="s4">html </span><span class="s1">{ </span><span class="s4">redirect_to </span><span class="s8">@position</span><span class="s6">, </span><span class="s4">notice</span><span class="s1">: </span><span class="s9">'Position was successfully updated.' </span><span class="s1">} 
+        </span><span class="s4">format</span><span class="s1">.</span><span class="s4">json </span><span class="s1">{ </span><span class="s4">render </span><span class="s5">:show</span><span class="s6">, </span><span class="s4">status</span><span class="s1">: </span><span class="s5">:ok</span><span class="s6">, </span><span class="s4">location</span><span class="s1">: </span><span class="s8">@position </span><span class="s1">} 
+      </span><span class="s0">else</span><span class="s1"> 
+        </span><span class="s4">format</span><span class="s1">.</span><span class="s4">html </span><span class="s1">{ </span><span class="s4">render </span><span class="s5">:edit </span><span class="s1">} 
+        </span><span class="s4">format</span><span class="s1">.</span><span class="s4">json </span><span class="s1">{ </span><span class="s4">render json</span><span class="s1">: </span><span class="s8">@position</span><span class="s1">.</span><span class="s4">errors</span><span class="s6">, </span><span class="s4">status</span><span class="s1">: </span><span class="s5">:unprocessable_entity </span><span class="s1">} 
+      </span><span class="s0">end</span><span class="s1"> 
+    </span><span class="s0">end</span><span class="s1"> 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s7"># DELETE /positions/1</span><span class="s1"> 
+  </span><span class="s7"># DELETE /positions/1.json</span><span class="s1"> 
+  </span><span class="s0">def </span><span class="s4">destroy</span><span class="s1"> 
+    </span><span class="s8">@positions </span><span class="s3">= </span><span class="s2">Position</span><span class="s1">.</span><span class="s4">with_deleted</span><span class="s1">.</span><span class="s4">find</span><span class="s1">(</span><span class="s4">params</span><span class="s1">[</span><span class="s5">:id</span><span class="s1">]) 
+    </span><span class="s0">if </span><span class="s4">params</span><span class="s1">[</span><span class="s5">:type</span><span class="s1">]</span><span class="s3">==</span><span class="s9">'normal'</span><span class="s1"> 
+      </span><span class="s8">@position</span><span class="s1">.</span><span class="s4">delete</span><span class="s1"> 
+    </span><span class="s0">elsif </span><span class="s4">params</span><span class="s1">[</span><span class="s5">:type</span><span class="s1">]</span><span class="s3">==</span><span class="s9">'restore'</span><span class="s1"> 
+      </span><span class="s8">@position</span><span class="s1">.</span><span class="s4">restore</span><span class="s1"> 
+      </span><span class="s8">@position</span><span class="s1">.</span><span class="s4">update</span><span class="s1">(</span><span class="s4">deleted_at</span><span class="s1">: </span><span class="s0">nil</span><span class="s1">) 
+    </span><span class="s0">end</span><span class="s1"> 
+ 
+    </span><span class="s8">@position</span><span class="s1">.</span><span class="s4">destroy</span><span class="s1"> 
+    </span><span class="s4">respond_to </span><span class="s0">do </span><span class="s3">|</span><span class="s4">format</span><span class="s3">|</span><span class="s1"> 
+      </span><span class="s4">format</span><span class="s1">.</span><span class="s4">html </span><span class="s1">{ </span><span class="s4">redirect_to positions_url</span><span class="s6">, </span><span class="s4">notice</span><span class="s1">: </span><span class="s9">'Position was successfully destroyed.' </span><span class="s1">} 
+      </span><span class="s4">format</span><span class="s1">.</span><span class="s4">json </span><span class="s1">{ </span><span class="s4">head </span><span class="s5">:no_content </span><span class="s1">} 
+    </span><span class="s0">end</span><span class="s1"> 
+  </span><span class="s0">end</span><span class="s1"> 
+ 
+  </span><span class="s4">private</span><span class="s1"> 
+    </span><span class="s7"># Use callbacks to share common setup or constraints between actions.</span><span class="s1"> 
+    </span><span class="s0">def </span><span class="s4">set_position</span><span class="s1"> 
+      </span><span class="s8">@position </span><span class="s3">= </span><span class="s2">Position</span><span class="s1">.</span><span class="s4">find</span><span class="s1">(</span><span class="s4">params</span><span class="s1">[</span><span class="s5">:id</span><span class="s1">]) 
+    </span><span class="s0">end</span><span class="s1"> 
+ 
+    </span><span class="s7"># Never trust parameters from the scary internet, only allow the white list through.</span><span class="s1"> 
+    </span><span class="s0">def </span><span class="s4">position_params</span><span class="s1"> 
+      </span><span class="s4">params</span><span class="s1">.</span><span class="s4">require</span><span class="s1">(</span><span class="s5">:position</span><span class="s1">).</span><span class="s4">permit</span><span class="s1">(</span><span class="s5">:employee_id</span><span class="s6">, </span><span class="s5">:employee_type_id</span><span class="s1">) 
+    </span><span class="s0">end</span><span class="s1"> 
+</span><span class="s0">end</span><span class="s1"> 
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>_numbers.html.erb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(169,183,198); }
+.s1 { color: rgb(232,191,106); }
+.s2 { color: rgb(186,186,186); }
+.s3 { color: rgb(165,194,97); }
+.s4 { color: rgb(104,151,187); }
+.s5 { color: rgb(204,120,50); }
+.s6 { color: rgb(169,183,198); }
+.s7 { color: rgb(169,183,198); }
+.s8 { color: rgb(208,208,255); }
+.s9 { color: rgb(218,73,57); }
+.s10 { color: rgb(169,183,198); }
+.s11 { color: rgb(110,156,190); }
+.s12 { color: rgb(255,198,109); font-style: italic; }
+.s13 { color: rgb(165,194,97); }
+.s14 { color: rgb(204,120,51); }
+.s15 { color: rgb(82,161,46); font-weight: bold; }
+.s16 { color: rgb(106,135,89); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+_numbers.html.erb</FONT>
+</center></TD></TR></TABLE>
+<pre>
+  <span class="s1">&lt;div </span><span class="s2">class=</span><span class="s3">&quot;container vertical-divider&quot;</span><span class="s1">&gt;</span><span class="s0"> 
+    </span><span class="s1">&lt;div </span><span class="s2">class=</span><span class="s3">&quot;column one-third&quot;</span><span class="s1">&gt;</span><span class="s0"> 
+      </span><span class="s1">&lt;h1&gt;</span><span class="s0">7 Day Report</span><span class="s1">&lt;/h1&gt;</span><span class="s0"> 
+    </span><span class="s1">&lt;/div&gt;</span><span class="s0"> 
+    </span><span class="s1">&lt;div </span><span class="s2">class=</span><span class="s3">&quot;column one-third&quot;</span><span class="s1">&gt;</span><span class="s0"> 
+      </span><span class="s1">&lt;h4&gt;</span><span class="s0">Weekly Sales</span><span class="s1">&lt;/h4&gt;</span><span class="s0"> 
+      </span><span class="s1">&lt;h1 </span><span class="s2">style=</span><span class="s3">&quot;</span><span class="s2">margin-top</span><span class="s0">:-</span><span class="s4">10</span><span class="s3">px</span><span class="s5">;</span><span class="s3">&quot;</span><span class="s1">&gt;</span><span class="s0">$</span><span class="s6">&lt;%= </span><span class="s8">@weeklysales </span><span class="s6">%&gt;</span><span class="s1">&lt;/h1&gt;</span><span class="s0"> 
+    </span><span class="s1">&lt;/div&gt;</span><span class="s0"> 
+    </span><span class="s1">&lt;div </span><span class="s2">class=</span><span class="s3">&quot;column one-third&quot;</span><span class="s1">&gt;</span><span class="s0"> 
+      </span><span class="s1">&lt;h4&gt;</span><span class="s0">Weekly Total Visitors</span><span class="s1">&lt;/h4&gt;</span><span class="s0"> 
+      </span><span class="s1">&lt;h1 </span><span class="s2">style=</span><span class="s3">&quot;</span><span class="s2">margin-top</span><span class="s0">:-</span><span class="s4">10</span><span class="s3">px</span><span class="s5">;</span><span class="s3">&quot;</span><span class="s1">&gt;</span><span class="s6">&lt;%= </span><span class="s9">Event</span><span class="s7">.</span><span class="s10">where</span><span class="s7">(</span><span class="s11">:event_date </span><span class="s12">=&gt; </span><span class="s13">1</span><span class="s7">.</span><span class="s10">week</span><span class="s7">.</span><span class="s10">ago </span><span class="s14">.. </span><span class="s9">Time</span><span class="s7">.</span><span class="s10">now</span><span class="s7">) 
+              .</span><span class="s10">joins</span><span class="s7">(</span><span class="s11">:customer_events</span><span class="s7">) 
+              .</span><span class="s10">joins</span><span class="s7">(</span><span class="s11">:customer_event_products</span><span class="s7">) 
+              .</span><span class="s10">sum</span><span class="s7">(</span><span class="s15">&quot;customer_events.number_in_party&quot;</span><span class="s7">)</span><span class="s6">%&gt;</span><span class="s1">&lt;/h1&gt;</span><span class="s0"> 
+    </span><span class="s1">&lt;/div&gt;</span><span class="s0"> 
+    </span><span class="s1">&lt;div </span><span class="s2">class=</span><span class="s3">&quot;column one-third&quot;</span><span class="s1">&gt;</span><span class="s0"> 
+      </span><span class="s1">&lt;h4&gt;</span><span class="s0">Products Sold</span><span class="s1">&lt;/h4&gt;</span><span class="s0"> 
+      </span><span class="s1">&lt;h1 </span><span class="s2">style=</span><span class="s3">&quot;</span><span class="s2">margin-top</span><span class="s0">:-</span><span class="s4">10</span><span class="s3">px</span><span class="s5">;</span><span class="s3">&quot;</span><span class="s1">&gt;</span><span class="s6">&lt;%= </span><span class="s9">Event</span><span class="s7">.</span><span class="s10">where</span><span class="s7">(</span><span class="s11">:event_date </span><span class="s12">=&gt; </span><span class="s13">1</span><span class="s7">.</span><span class="s10">week</span><span class="s7">.</span><span class="s10">ago </span><span class="s14">.. </span><span class="s9">Time</span><span class="s7">.</span><span class="s10">now</span><span class="s7">) 
+                                        .</span><span class="s10">joins</span><span class="s7">(</span><span class="s11">:customer_events</span><span class="s7">) 
+                                        .</span><span class="s10">joins</span><span class="s7">(</span><span class="s11">:customer_event_products</span><span class="s7">) 
+                                        .</span><span class="s10">sum</span><span class="s7">(</span><span class="s15">&quot;customer_event_products.quantity&quot;</span><span class="s7">)</span><span class="s6">%&gt;</span><span class="s1">&lt;/h1&gt;</span><span class="s0"> 
+    </span><span class="s1">&lt;/div&gt;</span><span class="s0"> 
+    </span><span class="s1">&lt;div </span><span class="s2">class=</span><span class="s3">&quot;column one-third&quot;</span><span class="s1">&gt;</span><span class="s0"> 
+      </span><span class="s1">&lt;h4&gt;</span><span class="s0">Products Kilned</span><span class="s1">&lt;/h4&gt;</span><span class="s0"> 
+      </span><span class="s1">&lt;h1 </span><span class="s2">style=</span><span class="s3">&quot;</span><span class="s2">margin-top</span><span class="s0">:-</span><span class="s4">10</span><span class="s3">px</span><span class="s5">;</span><span class="s3">&quot;</span><span class="s1">&gt;</span><span class="s6">&lt;%= </span><span class="s9">Event</span><span class="s7">.</span><span class="s10">where</span><span class="s7">(</span><span class="s11">:event_date </span><span class="s12">=&gt; </span><span class="s13">1</span><span class="s7">.</span><span class="s10">week</span><span class="s7">.</span><span class="s10">ago </span><span class="s14">.. </span><span class="s9">Time</span><span class="s7">.</span><span class="s10">now</span><span class="s7">) 
+                                        .</span><span class="s10">where</span><span class="s7">(</span><span class="s16">'customer_event_products.pickup_status_id = 2'</span><span class="s7">) 
+                                        .</span><span class="s10">joins</span><span class="s7">(</span><span class="s11">:customer_events</span><span class="s7">) 
+                                        .</span><span class="s10">joins</span><span class="s7">(</span><span class="s11">:customer_event_products</span><span class="s7">) 
+                                        .</span><span class="s10">count</span><span class="s7">(</span><span class="s15">&quot;customer_event_products.id&quot;</span><span class="s7">)</span><span class="s6">%&gt;</span><span class="s1">&lt;/h1&gt;</span><span class="s0"> 
+    </span><span class="s1">&lt;/div&gt;</span><span class="s0"> 
+ 
+  </span><span class="s1">&lt;/div&gt;</span><span class="s0"> 
+ 
+ 
+</span></pre>
+</body>
+</html>

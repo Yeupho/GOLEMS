@@ -1,0 +1,160 @@
+<html>
+<head>
+<title>_event_form.html.erb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(169,183,198); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(169,183,198); }
+.s3 { color: rgb(204,120,50); font-weight: bold; }
+.s4 { color: rgb(204,120,51); }
+.s5 { color: rgb(169,183,198); }
+.s6 { color: rgb(169,183,198); font-weight: bold; }
+.s7 { color: rgb(232,191,106); }
+.s8 { color: rgb(186,186,186); }
+.s9 { color: rgb(165,194,97); }
+.s10 { color: rgb(204,120,50); }
+.s11 { color: rgb(82,161,46); font-weight: bold; }
+.s12 { color: rgb(110,156,190); }
+.s13 { color: rgb(218,73,57); }
+.s14 { color: rgb(106,135,89); }
+.s15 { color: rgb(255,198,109); font-style: italic; }
+.s16 { color: rgb(204,120,50); font-weight: bold; }
+.s17 { color: rgb(106,135,89); }
+.s18 { color: rgb(204,120,50); }
+.s19 { color: rgb(104,151,187); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+_event_form.html.erb</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;%= </span><span class="s2">form_for</span><span class="s1">(</span><span class="s2">event</span><span class="s1">) </span><span class="s3">do </span><span class="s4">|</span><span class="s2">f</span><span class="s4">| </span><span class="s0">%&gt;</span><span class="s5"> 
+  </span><span class="s6">&lt;% </span><span class="s3">if </span><span class="s2">event</span><span class="s1">.</span><span class="s2">errors</span><span class="s1">.any? </span><span class="s0">%&gt;</span><span class="s5"> 
+    </span><span class="s7">&lt;div </span><span class="s8">id=</span><span class="s9">&quot;error_explanation&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;h2&gt;</span><span class="s0">&lt;%= </span><span class="s2">pluralize</span><span class="s1">(</span><span class="s2">event</span><span class="s1">.</span><span class="s2">errors</span><span class="s1">.</span><span class="s2">count</span><span class="s10">, </span><span class="s11">&quot;error&quot;</span><span class="s1">) </span><span class="s0">%&gt; </span><span class="s5">prohibited this event from being saved:</span><span class="s7">&lt;/h2&gt;</span><span class="s5"> 
+ 
+      </span><span class="s7">&lt;ul&gt;</span><span class="s5"> 
+      </span><span class="s6">&lt;% </span><span class="s2">event</span><span class="s1">.</span><span class="s2">errors</span><span class="s1">.</span><span class="s2">full_messages</span><span class="s1">.</span><span class="s2">each </span><span class="s3">do </span><span class="s4">|</span><span class="s2">message</span><span class="s4">| </span><span class="s0">%&gt;</span><span class="s5"> 
+        </span><span class="s7">&lt;li&gt;</span><span class="s0">&lt;%= </span><span class="s2">message </span><span class="s0">%&gt;</span><span class="s7">&lt;/li&gt;</span><span class="s5"> 
+      </span><span class="s6">&lt;% </span><span class="s3">end </span><span class="s0">%&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;/ul&gt;</span><span class="s5"> 
+    </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+  </span><span class="s6">&lt;% </span><span class="s3">end </span><span class="s0">%&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row&quot;</span><span class="s7">&gt;&lt;h4 </span><span class="s8">class=</span><span class="s9">&quot;col-lg-10 col-lg-offset-1&quot;</span><span class="s7">&gt;</span><span class="s5">Event</span><span class="s7">&lt;/h4&gt;&lt;/div&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;col-lg-6 col-lg-offset-1&quot;</span><span class="s7">&gt;</span><span class="s0">&lt;%= </span><span class="s2">f</span><span class="s1">.</span><span class="s2">text_field </span><span class="s12">:event_name</span><span class="s10">, </span><span class="s2">placeholder</span><span class="s1">: </span><span class="s11">&quot;Event&quot;</span><span class="s10">, </span><span class="s2">class</span><span class="s1">: </span><span class="s11">&quot;form-control&quot; </span><span class="s0">%&gt;</span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;col-lg-4&quot;</span><span class="s7">&gt;</span><span class="s0">&lt;%= </span><span class="s2">f</span><span class="s1">.</span><span class="s2">collection_select</span><span class="s1">(</span><span class="s12">:event_type_id</span><span class="s10">, </span><span class="s13">EventType</span><span class="s1">.</span><span class="s2">all</span><span class="s10">, </span><span class="s12">:id</span><span class="s10">, </span><span class="s12">:event_type_desc</span><span class="s10">, </span><span class="s1">{</span><span class="s2">prompt</span><span class="s1">: </span><span class="s11">&quot;Event Category&quot;</span><span class="s1">}</span><span class="s10">, </span><span class="s1">{</span><span class="s2">class</span><span class="s1">: </span><span class="s11">&quot;form-control&quot;</span><span class="s1">}) </span><span class="s0">%&gt;</span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+    </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;br&gt;&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row&quot;</span><span class="s7">&gt;&lt;h4 </span><span class="s8">class=</span><span class="s9">&quot;col-lg-10 col-lg-offset-1&quot;</span><span class="s7">&gt;</span><span class="s5">Date</span><span class="s7">&lt;/h4&gt;&lt;/div&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;col-lg-5 col-lg-offset-1&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+        </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">'input-group' </span><span class="s8">id=</span><span class="s9">'datepicker'</span><span class="s7">&gt;</span><span class="s5"> 
+          </span><span class="s0">&lt;%= </span><span class="s2">f</span><span class="s1">.</span><span class="s2">text_field </span><span class="s12">:event_date</span><span class="s10">, </span><span class="s1">{</span><span class="s2">placeholder</span><span class="s1">: </span><span class="s14">'Event Date'</span><span class="s10">, </span><span class="s2">class</span><span class="s1">: </span><span class="s14">'form-control'</span><span class="s1">} </span><span class="s0">%&gt;</span><span class="s5"> 
+          </span><span class="s7">&lt;span </span><span class="s8">class=</span><span class="s9">&quot;input-group-addon&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+                    </span><span class="s7">&lt;span </span><span class="s8">class=</span><span class="s9">&quot;glyphicon glyphicon-calendar&quot;</span><span class="s7">&gt;&lt;/span&gt;</span><span class="s5"> 
+            </span><span class="s7">&lt;/span&gt;</span><span class="s5"> 
+        </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+    </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;br&gt;&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row&quot;</span><span class="s7">&gt;&lt;h4 </span><span class="s8">class=</span><span class="s9">&quot;col-lg-10 col-lg-offset-1&quot;</span><span class="s7">&gt;</span><span class="s5">Time</span><span class="s7">&lt;/h4&gt;&lt;/div&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">'col-lg-5 col-lg-offset-1'</span><span class="s7">&gt;</span><span class="s5"> 
+        </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">'input-group timepicker'</span><span class="s7">&gt;</span><span class="s5"> 
+          </span><span class="s0">&lt;%= </span><span class="s2">f</span><span class="s1">.</span><span class="s2">text_field </span><span class="s12">:start_time</span><span class="s10">, </span><span class="s2">class</span><span class="s1">: </span><span class="s11">&quot;form-control&quot;</span><span class="s10">, </span><span class="s2">placeholder</span><span class="s1">: </span><span class="s11">&quot;Start Time&quot; </span><span class="s0">%&gt;</span><span class="s5"> 
+          </span><span class="s7">&lt;span </span><span class="s8">class=</span><span class="s9">&quot;input-group-addon&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+              </span><span class="s7">&lt;span </span><span class="s8">class=</span><span class="s9">&quot;glyphicon glyphicon-time&quot;</span><span class="s7">&gt;&lt;/span&gt;</span><span class="s5"> 
+ 
+            </span><span class="s7">&lt;/span&gt;</span><span class="s5"> 
+        </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+ 
+      </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">'col-lg-5'</span><span class="s7">&gt;</span><span class="s5"> 
+        </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">'input-group timepicker'</span><span class="s7">&gt;</span><span class="s5"> 
+          </span><span class="s0">&lt;%= </span><span class="s2">f</span><span class="s1">.</span><span class="s2">text_field </span><span class="s12">:end_time</span><span class="s10">, </span><span class="s2">class</span><span class="s1">: </span><span class="s11">&quot;form-control&quot;</span><span class="s10">, </span><span class="s2">placeholder</span><span class="s1">: </span><span class="s11">&quot;End Time&quot; </span><span class="s0">%&gt;</span><span class="s5"> 
+          </span><span class="s7">&lt;span </span><span class="s8">class=</span><span class="s9">&quot;input-group-addon&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+              </span><span class="s7">&lt;span </span><span class="s8">class=</span><span class="s9">&quot;glyphicon glyphicon-time&quot;</span><span class="s7">&gt;&lt;/span&gt;</span><span class="s5"> 
+            </span><span class="s7">&lt;/span&gt;</span><span class="s5"> 
+        </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+    </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;br&gt;&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row&quot;</span><span class="s7">&gt;&lt;h4 </span><span class="s8">class=</span><span class="s9">&quot;col-lg-10 col-lg-offset-1&quot;</span><span class="s7">&gt;</span><span class="s5">Color</span><span class="s7">&lt;/h4&gt;&lt;/div&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;col-lg-9 col-lg-offset-1&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+        </span><span class="s0">&lt;%= </span><span class="s2">select_tag </span><span class="s12">:color_id</span><span class="s10">, </span><span class="s2">options_for_select</span><span class="s1">(</span><span class="s13">Color</span><span class="s1">.</span><span class="s2">all</span><span class="s1">.</span><span class="s2">collect</span><span class="s1">{ </span><span class="s4">|</span><span class="s2">c</span><span class="s4">| </span><span class="s1">[</span><span class="s2">c</span><span class="s1">.</span><span class="s2">color_name</span><span class="s10">, </span><span class="s2">c</span><span class="s1">.</span><span class="s2">color_code</span><span class="s10">, </span><span class="s1">{</span><span class="s14">'data-id' </span><span class="s15">=&gt; </span><span class="s2">c</span><span class="s1">.</span><span class="s2">id</span><span class="s1">}]}) </span><span class="s0">%&gt;</span><span class="s5"> 
+        </span><span class="s7">&lt;div </span><span class="s8">id=</span><span class="s9">&quot;result&quot;</span><span class="s7">&gt;&lt;/div&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;col-lg-1&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+        </span><span class="s0">&lt;%= </span><span class="s2">f</span><span class="s1">.</span><span class="s2">collection_select</span><span class="s1">(</span><span class="s12">:color_id</span><span class="s10">, </span><span class="s13">Color</span><span class="s1">.</span><span class="s2">all</span><span class="s10">, </span><span class="s12">:id</span><span class="s10">, </span><span class="s12">:color_name</span><span class="s10">, </span><span class="s1">{</span><span class="s2">class</span><span class="s1">: </span><span class="s11">&quot;form-control&quot;</span><span class="s1">}) </span><span class="s0">%&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+    </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;br&gt;&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row&quot;</span><span class="s7">&gt;&lt;h4 </span><span class="s8">class=</span><span class="s9">&quot;row col-lg-10 col-lg-offset-1&quot;</span><span class="s7">&gt;</span><span class="s5">Description</span><span class="s7">&lt;/h4&gt;&lt;/div&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;col-lg-10 col-lg-offset-1&quot;</span><span class="s7">&gt;</span><span class="s0">&lt;%= </span><span class="s2">f</span><span class="s1">.</span><span class="s2">text_area </span><span class="s12">:event_description</span><span class="s10">, </span><span class="s2">rows</span><span class="s1">: </span><span class="s11">&quot;3&quot;</span><span class="s10">, </span><span class="s2">class</span><span class="s1">: </span><span class="s11">&quot;form-control&quot; </span><span class="s0">%&gt;</span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+    </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;br&gt;</span><span class="s5"> 
+ 
+    </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;row footer&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;col-lg-3 col-lg-offset-5 text-right&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+        </span><span class="s7">&lt;button </span><span class="s8">type=</span><span class="s9">&quot;button&quot; </span><span class="s8">class=</span><span class="s9">&quot;btn btn-default&quot; </span><span class="s8">data-dismiss=</span><span class="s9">&quot;modal&quot;</span><span class="s7">&gt;</span><span class="s5">Cancel</span><span class="s7">&lt;/button&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;div </span><span class="s8">class=</span><span class="s9">&quot;col-lg-4 text-left&quot;</span><span class="s7">&gt;</span><span class="s5"> 
+        </span><span class="s0">&lt;%= </span><span class="s2">f</span><span class="s1">.</span><span class="s2">submit class</span><span class="s1">: </span><span class="s11">&quot;btn btn-primary&quot;</span><span class="s10">, </span><span class="s2">id</span><span class="s1">: </span><span class="s11">&quot;submit&quot; </span><span class="s0">%&gt;</span><span class="s5"> 
+      </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+    </span><span class="s7">&lt;/div&gt;</span><span class="s5"> 
+</span><span class="s6">&lt;% </span><span class="s3">end </span><span class="s0">%&gt;</span><span class="s5"> 
+ 
+</span><span class="s7">&lt;script&gt;</span><span class="s5"> 
+    $(</span><span class="s16">function</span><span class="s5">() { 
+        $(</span><span class="s17">'.timepicker'</span><span class="s5">).datetimepicker({ 
+            format: </span><span class="s17">'LT'</span><span class="s5"> 
+        })</span><span class="s18">;</span><span class="s5"> 
+    })</span><span class="s18">;</span><span class="s5"> 
+ 
+    $(</span><span class="s16">function</span><span class="s5">() { 
+        $(</span><span class="s17">'#datepicker'</span><span class="s5">).datetimepicker({ 
+            format: </span><span class="s17">'MMMM D, YYYY'</span><span class="s18">,</span><span class="s5"> 
+            daysOfWeekDisabled: [</span><span class="s19">2</span><span class="s5">] 
+        })</span><span class="s18">;</span><span class="s5"> 
+    })</span><span class="s18">;</span><span class="s5"> 
+ 
+    </span><span class="s16">var </span><span class="s5">selectedOption = </span><span class="s17">&quot;&quot;</span><span class="s18">;</span><span class="s5"> 
+ 
+    $(document).ready(</span><span class="s16">function</span><span class="s5">() { 
+ 
+        $(</span><span class="s17">'#color_id'</span><span class="s5">).change(</span><span class="s16">function</span><span class="s5">() { 
+            selectedOption = $(</span><span class="s16">this</span><span class="s5">).find(</span><span class="s17">'option:selected'</span><span class="s5">).data(</span><span class="s17">'id'</span><span class="s5">)</span><span class="s18">;</span><span class="s5"> 
+            $(</span><span class="s17">'#result'</span><span class="s5">).html(selectedOption)</span><span class="s18">;</span><span class="s5"> 
+            $(</span><span class="s17">'#submit'</span><span class="s5">).on(</span><span class="s17">'click'</span><span class="s18">, </span><span class="s16">function</span><span class="s5">() { 
+                $.ajax({ 
+                    url: </span><span class="s17">&quot;/events/create&quot;</span><span class="s18">,</span><span class="s5"> 
+                    type: </span><span class="s17">'POST'</span><span class="s18">,</span><span class="s5"> 
+                    dataType: </span><span class="s17">'json'</span><span class="s18">,</span><span class="s5"> 
+                    data: {color_id: selectedOption} 
+                })</span><span class="s18">;</span><span class="s5"> 
+            })</span><span class="s18">;</span><span class="s5"> 
+        })</span><span class="s18">;</span><span class="s5"> 
+ 
+        $(</span><span class="s17">'#color_id'</span><span class="s5">).on(</span><span class="s17">'click'</span><span class="s18">, </span><span class="s16">function</span><span class="s5">() { 
+            $(</span><span class="s17">'select[name=&quot;color_id&quot;]'</span><span class="s5">).simplecolorpicker({picker: </span><span class="s16">true</span><span class="s18">, </span><span class="s5">theme: </span><span class="s17">'glyphicons'</span><span class="s5">})</span><span class="s18">;</span><span class="s5"> 
+        })</span><span class="s18">;</span><span class="s5"> 
+        $(</span><span class="s17">'#color_id'</span><span class="s5">).trigger(</span><span class="s17">'click'</span><span class="s5">)</span><span class="s18">;</span><span class="s5"> 
+    })</span><span class="s18">;</span><span class="s5"> 
+</span><span class="s7">&lt;/script&gt;</span></pre>
+</body>
+</html>

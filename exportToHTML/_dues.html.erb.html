@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>_dues.html.erb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(232,191,106); }
+.s1 { color: rgb(186,186,186); }
+.s2 { color: rgb(165,194,97); }
+.s3 { color: rgb(169,183,198); }
+.s4 { color: rgb(169,183,198); font-weight: bold; }
+.s5 { color: rgb(169,183,198); }
+.s6 { color: rgb(208,208,255); }
+.s7 { color: rgb(169,183,198); }
+.s8 { color: rgb(204,120,50); font-weight: bold; }
+.s9 { color: rgb(204,120,51); }
+.s10 { color: rgb(169,183,198); }
+.s11 { color: rgb(204,120,50); }
+.s12 { color: rgb(82,161,46); font-weight: bold; }
+.s13 { color: rgb(106,135,89); }
+.s14 { color: rgb(110,156,190); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+_dues.html.erb</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel panel-default shadow-pane&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel-heading&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;h2 </span><span class="s1">class=</span><span class="s2">&quot;panel-title&quot;</span><span class="s0">&gt;</span><span class="s3">Unpaid Dues</span><span class="s0">&lt;/h2&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel-body&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+ 
+    </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;imaginary_container&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;table </span><span class="s1">class=</span><span class="s2">&quot;table table-hover&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;thead&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;tr&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Name</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Phone</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Due Date</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Event</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Dues</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Action</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/tr&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/thead&gt;</span><span class="s3"> 
+ 
+        </span><span class="s0">&lt;tbody&gt;</span><span class="s3"> 
+        </span><span class="s4">&lt;% </span><span class="s6">@dues</span><span class="s5">.</span><span class="s7">each </span><span class="s8">do </span><span class="s9">|</span><span class="s7">dues</span><span class="s9">| </span><span class="s10">%&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;tr </span><span class="s1">data-toggle=</span><span class="s2">&quot;collapse&quot; </span><span class="s1">data-target=</span><span class="s2">&quot;#accordion&quot; </span><span class="s1">class=</span><span class="s2">&quot;clickable&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;</span><span class="s10">&lt;%= </span><span class="s7">dues</span><span class="s5">.</span><span class="s7">customer</span><span class="s5">.</span><span class="s7">first_name </span><span class="s10">%&gt; &lt;%= </span><span class="s7">dues</span><span class="s5">.</span><span class="s7">customer</span><span class="s5">.</span><span class="s7">last_name </span><span class="s10">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;</span><span class="s10">&lt;%= </span><span class="s7">number_to_phone</span><span class="s5">(</span><span class="s7">dues</span><span class="s5">.</span><span class="s7">customer</span><span class="s5">.</span><span class="s7">phone</span><span class="s11">, </span><span class="s7">area_code</span><span class="s5">: </span><span class="s8">true</span><span class="s5">) </span><span class="s10">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;</span><span class="s10">&lt;%= </span><span class="s7">dues</span><span class="s5">.</span><span class="s7">event</span><span class="s5">.</span><span class="s7">event_date</span><span class="s5">.</span><span class="s7">strftime</span><span class="s5">(</span><span class="s12">&quot;%-m/%-d&quot;</span><span class="s5">) </span><span class="s10">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;</span><span class="s10">&lt;%= </span><span class="s7">dues</span><span class="s5">.</span><span class="s7">event</span><span class="s5">.</span><span class="s7">event_name </span><span class="s10">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;&lt;div </span><span class="s1">class=</span><span class="s2">&quot;dropdown&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+                </span><span class="s0">&lt;button </span><span class="s1">class=</span><span class="s2">&quot;btn btn-default dropdown-toggle&quot; </span><span class="s1">type=</span><span class="s2">&quot;button&quot; </span><span class="s1">data-toggle=</span><span class="s2">&quot;dropdown&quot;</span><span class="s0">&gt;&lt;span </span><span class="s1">class=</span><span class="s2">&quot;caret&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/button&gt;</span><span class="s3"> 
+                </span><span class="s0">&lt;ul </span><span class="s1">class=</span><span class="s2">&quot;dropdown-menu&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+                  </span><span class="s0">&lt;li&gt;</span><span class="s3">Paid</span><span class="s0">&lt;/li&gt;</span><span class="s3"> 
+                  </span><span class="s0">&lt;li&gt;</span><span class="s10">&lt;%= </span><span class="s7">link_to </span><span class="s13">'Cancel'</span><span class="s11">, </span><span class="s7">dashboard_path</span><span class="s5">(</span><span class="s7">dues</span><span class="s11">, </span><span class="s7">type</span><span class="s5">: </span><span class="s14">:normal</span><span class="s5">)</span><span class="s11">,</span><span class="s7">method</span><span class="s5">: </span><span class="s14">:delete</span><span class="s11">,</span><span class="s7">class</span><span class="s5">: </span><span class="s13">' '</span><span class="s11">, </span><span class="s7">data</span><span class="s5">: { </span><span class="s7">confirm</span><span class="s5">: </span><span class="s13">'Are you sure?' </span><span class="s5">} </span><span class="s10">%&gt;</span><span class="s0">&lt;/li&gt;</span><span class="s3"> 
+                </span><span class="s0">&lt;/ul&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;/div&gt;&lt;/td&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;/tr&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;/tr&gt;</span><span class="s3"> 
+        </span><span class="s4">&lt;% </span><span class="s8">end </span><span class="s10">%&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/tbody&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;/table&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+  </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+</span><span class="s0">&lt;/div&gt;</span></pre>
+</body>
+</html>

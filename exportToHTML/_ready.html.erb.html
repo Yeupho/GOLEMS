@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>_ready.html.erb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(232,191,106); }
+.s1 { color: rgb(186,186,186); }
+.s2 { color: rgb(165,194,97); }
+.s3 { color: rgb(169,183,198); }
+.s4 { color: rgb(169,183,198); font-weight: bold; }
+.s5 { color: rgb(169,183,198); }
+.s6 { color: rgb(204,120,50); font-weight: bold; }
+.s7 { color: rgb(208,208,255); }
+.s8 { color: rgb(169,183,198); }
+.s9 { color: rgb(204,120,51); }
+.s10 { color: rgb(165,194,97); }
+.s11 { color: rgb(169,183,198); }
+.s12 { color: rgb(106,135,89); }
+.s13 { color: rgb(204,120,50); }
+.s14 { color: rgb(204,120,50); }
+.s15 { color: rgb(82,161,46); font-weight: bold; }
+.s16 { color: rgb(218,73,57); }
+.s17 { color: rgb(110,156,190); }
+.s18 { color: rgb(255,198,109); font-style: italic; }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+_ready.html.erb</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel panel-default&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel-heading&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;h2 </span><span class="s1">class=</span><span class="s2">&quot;panel-title&quot;</span><span class="s0">&gt;</span><span class="s3">Ready for Pick-Up (Hold For Only 6 Months)</span><span class="s0">&lt;/h2&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel-body&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;col-lg-6 col-lg-offset-3&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+        </span><span class="s4">&lt;% </span><span class="s6">if </span><span class="s7">@ready</span><span class="s5">.</span><span class="s8">length </span><span class="s9">&gt; </span><span class="s10">0 </span><span class="s9">&amp;&amp; </span><span class="s7">@ready</span><span class="s5">.</span><span class="s8">total_pages </span><span class="s9">&gt; </span><span class="s10">1 </span><span class="s11">%&gt;</span><span class="s3"> 
+            </span><span class="s11">&lt;%= </span><span class="s8">render </span><span class="s12">'search' </span><span class="s11">%&gt;</span><span class="s3"> 
+        </span><span class="s4">&lt;% </span><span class="s6">end </span><span class="s11">%&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+    </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;imaginary_container&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;table </span><span class="s1">class=</span><span class="s2">&quot;table table-hover&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;thead&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;tr&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Customer</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Phone</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Product</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Quantity</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Color</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Event</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Date</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;&lt;/th&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/tr&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/thead&gt;</span><span class="s3"> 
+ 
+        </span><span class="s0">&lt;tbody&gt;</span><span class="s3"> 
+        </span><span class="s4">&lt;% </span><span class="s7">@ready</span><span class="s5">.</span><span class="s8">each </span><span class="s6">do </span><span class="s9">|</span><span class="s8">customer_event_product</span><span class="s9">| </span><span class="s11">%&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;tr&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;</span><span class="s11">&lt;%= </span><span class="s8">customer_event_product</span><span class="s5">.</span><span class="s8">customer_event</span><span class="s5">.</span><span class="s8">customer</span><span class="s5">.</span><span class="s8">full_name </span><span class="s11">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+ 
+              </span><span class="s0">&lt;td&gt;</span><span class="s11">&lt;%= </span><span class="s8">number_to_phone</span><span class="s5">(</span><span class="s8">customer_event_product</span><span class="s5">.</span><span class="s8">customer_event</span><span class="s5">.</span><span class="s8">customer</span><span class="s5">.</span><span class="s8">phone</span><span class="s13">, </span><span class="s8">area_code</span><span class="s5">: </span><span class="s6">true</span><span class="s5">) </span><span class="s11">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;</span><span class="s11">&lt;%= </span><span class="s8">customer_event_product</span><span class="s5">.</span><span class="s8">product</span><span class="s5">.</span><span class="s8">product_name </span><span class="s11">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;</span><span class="s11">&lt;%= </span><span class="s8">customer_event_product</span><span class="s5">.</span><span class="s8">quantity </span><span class="s11">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;&lt;span </span><span class="s1">class=</span><span class="s2">&quot;simplecolorpicker icon color-picked&quot; </span><span class="s1">style= </span><span class="s2">&quot;</span><span class="s1">background-color</span><span class="s3">: </span><span class="s11">&lt;%= </span><span class="s8">customer_event_product</span><span class="s5">.</span><span class="s8">customer_event</span><span class="s5">.</span><span class="s8">event</span><span class="s5">.</span><span class="s8">color</span><span class="s5">.</span><span class="s8">color_code </span><span class="s11">%&gt;</span><span class="s14">;</span><span class="s2">&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;</span><span class="s11">&lt;%= </span><span class="s8">customer_event_product</span><span class="s5">.</span><span class="s8">customer_event</span><span class="s5">.</span><span class="s8">event</span><span class="s5">.</span><span class="s8">event_name </span><span class="s11">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;</span><span class="s11">&lt;%= </span><span class="s8">customer_event_product</span><span class="s5">.</span><span class="s8">customer_event</span><span class="s5">.</span><span class="s8">event</span><span class="s5">.</span><span class="s8">event_date</span><span class="s5">.</span><span class="s8">strftime</span><span class="s5">(</span><span class="s15">&quot;%m/%d/%Y&quot;</span><span class="s5">) </span><span class="s11">%&gt; &lt;%= </span><span class="s8">customer_event_product</span><span class="s5">.</span><span class="s8">customer_event</span><span class="s5">.</span><span class="s8">event</span><span class="s5">.</span><span class="s8">start_time</span><span class="s5">.</span><span class="s8">strftime</span><span class="s5">(</span><span class="s15">&quot;%l:%M %p&quot;</span><span class="s5">)</span><span class="s11">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;/tr&gt;</span><span class="s3"> 
+        </span><span class="s4">&lt;% </span><span class="s6">end </span><span class="s11">%&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/tbody&gt;</span><span class="s3"> 
+ 
+      </span><span class="s0">&lt;/table&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+    </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row text-center&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+      </span><span class="s4">&lt;% </span><span class="s6">if </span><span class="s7">@ready</span><span class="s5">.</span><span class="s8">length </span><span class="s9">&gt; </span><span class="s10">0 </span><span class="s9">&amp;&amp; </span><span class="s7">@ready</span><span class="s5">.</span><span class="s8">total_pages </span><span class="s9">&gt; </span><span class="s10">1 </span><span class="s11">%&gt;</span><span class="s3"> 
+          </span><span class="s11">&lt;%= </span><span class="s8">will_paginate </span><span class="s7">@ready</span><span class="s13">, </span><span class="s8">renderer</span><span class="s5">: </span><span class="s16">BootstrapPagination</span><span class="s5">::</span><span class="s16">Rails</span><span class="s13">, </span><span class="s17">:param_name </span><span class="s18">=&gt; </span><span class="s12">'ready_page' </span><span class="s11">%&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;page_info&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+            </span><span class="s11">&lt;%= </span><span class="s8">page_entries_info </span><span class="s7">@ready </span><span class="s11">%&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+      </span><span class="s4">&lt;% </span><span class="s6">end </span><span class="s11">%&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+</span><span class="s0">&lt;/div&gt;</span></pre>
+</body>
+</html>

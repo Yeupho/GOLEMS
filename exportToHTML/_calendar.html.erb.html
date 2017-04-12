@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>_calendar.html.erb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(232,191,106); }
+.s1 { color: rgb(186,186,186); }
+.s2 { color: rgb(165,194,97); }
+.s3 { color: rgb(169,183,198); }
+.s4 { color: rgb(204,120,50); font-weight: bold; }
+.s5 { color: rgb(106,135,89); }
+.s6 { color: rgb(104,151,187); }
+.s7 { color: rgb(204,120,50); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+_calendar.html.erb</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel panel-default shadow-pane&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel-body&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;div </span><span class="s1">id=</span><span class="s2">&quot;calendar&quot;</span><span class="s0">&gt;&lt;/div&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+</span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+</span><span class="s0">&lt;script&gt;</span><span class="s3"> 
+    $(document).ready(</span><span class="s4">function</span><span class="s3">(){ 
+        $(</span><span class="s5">'#calendar'</span><span class="s3">).fullCalendar({ 
+            height: </span><span class="s6">780</span><span class="s7">,</span><span class="s3"> 
+            events: </span><span class="s5">'/events.json'</span><span class="s7">,</span><span class="s3"> 
+            header: { 
+                center: </span><span class="s5">'title'</span><span class="s7">,</span><span class="s3"> 
+                right: </span><span class="s5">'today prev,next'</span><span class="s7">,</span><span class="s3"> 
+                left: </span><span class="s5">''</span><span class="s3"> 
+            } 
+        })</span><span class="s7">;</span><span class="s3"> 
+    })</span><span class="s7">;</span><span class="s3"> 
+</span><span class="s0">&lt;/script&gt;</span><span class="s3"> 
+ 
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>_producttypetable.html.erb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(232,191,106); }
+.s1 { color: rgb(186,186,186); }
+.s2 { color: rgb(165,194,97); }
+.s3 { color: rgb(169,183,198); }
+.s4 { color: rgb(204,120,50); }
+.s5 { color: rgb(104,151,187); }
+.s6 { color: rgb(169,183,198); }
+.s7 { color: rgb(169,183,198); }
+.s8 { color: rgb(169,183,198); }
+.s9 { color: rgb(218,73,57); }
+.s10 { color: rgb(110,156,190); }
+.s11 { color: rgb(255,198,109); font-style: italic; }
+.s12 { color: rgb(165,194,97); }
+.s13 { color: rgb(204,120,51); }
+.s14 { color: rgb(106,135,89); }
+.s15 { color: rgb(204,120,50); }
+.s16 { color: rgb(82,161,46); font-weight: bold; }
+.s17 { color: rgb(169,183,198); font-weight: bold; }
+.s18 { color: rgb(204,120,50); font-weight: bold; }
+.s19 { color: rgb(208,208,255); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+_producttypetable.html.erb</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;div </span><span class="s1">style=</span><span class="s2">&quot;</span><span class="s1">float</span><span class="s3">:</span><span class="s2">left</span><span class="s4">;</span><span class="s2">&quot;</span><span class="s0">&gt;&lt;h3 </span><span class="s1">style=</span><span class="s2">&quot;</span><span class="s1">color</span><span class="s3">: </span><span class="s5">#C33764</span><span class="s2">&quot;</span><span class="s0">&gt;</span><span class="s3">Most popular products in the past month</span><span class="s0">&lt;/h3&gt;</span><span class="s3"> 
+  </span><span class="s6">&lt;%= </span><span class="s8">pie_chart </span><span class="s9">Event</span><span class="s7">.</span><span class="s8">where</span><span class="s7">(</span><span class="s10">:event_date </span><span class="s11">=&gt; </span><span class="s12">1</span><span class="s7">.</span><span class="s8">months</span><span class="s7">.</span><span class="s8">ago </span><span class="s13">.. </span><span class="s9">Time</span><span class="s7">.</span><span class="s8">now</span><span class="s7">) 
+                    .</span><span class="s8">joins</span><span class="s7">(</span><span class="s10">:customer_events</span><span class="s7">).</span><span class="s8">joins</span><span class="s7">(</span><span class="s10">:customer_event_products</span><span class="s7">).</span><span class="s8">joins</span><span class="s7">(</span><span class="s10">:products</span><span class="s7">).</span><span class="s8">group</span><span class="s7">(</span><span class="s10">:product_name</span><span class="s7">) 
+                    .</span><span class="s8">sum</span><span class="s7">(</span><span class="s14">'customer_event_products.quantity'</span><span class="s7">).</span><span class="s8">first</span><span class="s7">(</span><span class="s12">5</span><span class="s7">)</span><span class="s15">,</span><span class="s7"> 
+                </span><span class="s8">library</span><span class="s7">: {</span><span class="s8">legend</span><span class="s7">: {</span><span class="s8">position</span><span class="s7">: </span><span class="s16">&quot;right&quot;</span><span class="s7">}}</span><span class="s15">, </span><span class="s8">width</span><span class="s7">:</span><span class="s16">&quot;450px&quot; </span><span class="s6">%&gt;</span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+</span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel panel-default&quot; </span><span class="s1">style=</span><span class="s2">&quot;</span><span class="s1">position</span><span class="s3">: </span><span class="s2">absolute</span><span class="s4">;</span><span class="s1">top</span><span class="s3">:</span><span class="s5">400</span><span class="s2">px</span><span class="s4">;</span><span class="s1">width</span><span class="s3">:</span><span class="s5">400</span><span class="s2">px</span><span class="s4">;</span><span class="s2">&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+ 
+  </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel-heading&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;h2 </span><span class="s1">class=</span><span class="s2">&quot;panel-title&quot;</span><span class="s0">&gt;</span><span class="s3">Product Type</span><span class="s0">&lt;/h2&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;panel-body&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;col-lg-5 col-lg-offset-0&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+        </span><span class="s17">&lt;% </span><span class="s18">if </span><span class="s19">@products</span><span class="s7">.</span><span class="s8">length </span><span class="s13">&gt; </span><span class="s12">0 </span><span class="s13">&amp;&amp; </span><span class="s19">@products</span><span class="s7">.</span><span class="s8">total_pages </span><span class="s13">&gt; </span><span class="s12">1 </span><span class="s6">%&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;input-group stylish-input-group&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;input </span><span class="s1">type=</span><span class="s2">&quot;text&quot; </span><span class="s1">class=</span><span class="s2">&quot;form-control&quot; </span><span class="s1">placeholder=</span><span class="s2">&quot;Search&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;span </span><span class="s1">class=</span><span class="s2">&quot;input-group-addon&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+                    </span><span class="s0">&lt;button </span><span class="s1">type=</span><span class="s2">&quot;submit&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+                      </span><span class="s0">&lt;span </span><span class="s1">class=</span><span class="s2">&quot;glyphicon glyphicon-search&quot;</span><span class="s0">&gt;&lt;/span&gt;</span><span class="s3"> 
+                    </span><span class="s0">&lt;/button&gt;</span><span class="s3"> 
+                  </span><span class="s0">&lt;/span&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+        </span><span class="s17">&lt;% </span><span class="s18">end </span><span class="s6">%&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+      </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;col-lg-1 col-lg-offset-1&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+        </span><span class="s6">&lt;%= </span><span class="s8">render </span><span class="s14">'product_types/index/buttons' </span><span class="s6">%&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+    </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;imaginary_container&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;table </span><span class="s1">class=</span><span class="s2">&quot;table table-hover&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;thead&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;tr&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th&gt;</span><span class="s3">Product type desc</span><span class="s0">&lt;/th&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;th </span><span class="s1">colspan=</span><span class="s2">&quot;3&quot;</span><span class="s0">&gt;&lt;/th&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/tr&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/thead&gt;</span><span class="s3"> 
+ 
+        </span><span class="s0">&lt;tbody&gt;</span><span class="s3"> 
+        </span><span class="s17">&lt;% </span><span class="s19">@product_types</span><span class="s7">.</span><span class="s8">each </span><span class="s18">do </span><span class="s13">|</span><span class="s8">product_type</span><span class="s13">| </span><span class="s6">%&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;tr </span><span class="s1">data-link=</span><span class="s2">&quot;</span><span class="s6">&lt;%= </span><span class="s8">product_type_path</span><span class="s7">(</span><span class="s8">product_type</span><span class="s7">) </span><span class="s6">%&gt;</span><span class="s2">&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;</span><span class="s6">&lt;%= </span><span class="s8">product_type</span><span class="s7">.</span><span class="s8">product_type_desc </span><span class="s6">%&gt;</span><span class="s0">&lt;/td&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;td&gt;&lt;div </span><span class="s1">class=</span><span class="s2">&quot;dropdown&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+                </span><span class="s0">&lt;button </span><span class="s1">class=</span><span class="s2">&quot;btn btn-default dropdown-toggle&quot; </span><span class="s1">type=</span><span class="s2">&quot;button&quot; </span><span class="s1">data-toggle=</span><span class="s2">&quot;dropdown&quot;</span><span class="s0">&gt;&lt;span </span><span class="s1">class=</span><span class="s2">&quot;caret&quot;</span><span class="s0">&gt;&lt;/span&gt;&lt;/button&gt;</span><span class="s3"> 
+                </span><span class="s0">&lt;ul </span><span class="s1">class=</span><span class="s2">&quot;dropdown-menu&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+                  </span><span class="s0">&lt;li&gt;</span><span class="s6">&lt;%= </span><span class="s8">link_to </span><span class="s14">'Detail'</span><span class="s15">, </span><span class="s8">product_type </span><span class="s6">%&gt;</span><span class="s0">&lt;/li&gt;</span><span class="s3"> 
+                  </span><span class="s0">&lt;li&gt;</span><span class="s6">&lt;%= </span><span class="s8">link_to </span><span class="s14">'Edit'</span><span class="s15">, </span><span class="s8">edit_product_type_path</span><span class="s7">(</span><span class="s8">product_type</span><span class="s7">) </span><span class="s6">%&gt;</span><span class="s0">&lt;/li&gt;</span><span class="s3"> 
+                  </span><span class="s0">&lt;li&gt;</span><span class="s6">&lt;%= </span><span class="s8">link_to </span><span class="s14">'Delete'</span><span class="s15">, </span><span class="s8">product_type_path</span><span class="s7">(</span><span class="s8">product_type</span><span class="s15">, </span><span class="s8">type</span><span class="s7">: </span><span class="s10">:normal</span><span class="s7">)</span><span class="s15">,</span><span class="s8">method</span><span class="s7">: </span><span class="s10">:delete</span><span class="s15">,</span><span class="s8">class</span><span class="s7">: </span><span class="s14">' '</span><span class="s15">, </span><span class="s8">data</span><span class="s7">: { </span><span class="s8">confirm</span><span class="s7">: </span><span class="s14">'Are you sure?' </span><span class="s7">} </span><span class="s6">%&gt;</span><span class="s0">&lt;/li&gt;</span><span class="s3"> 
+                </span><span class="s0">&lt;/ul&gt;</span><span class="s3"> 
+              </span><span class="s0">&lt;/div&gt;&lt;/td&gt;</span><span class="s3"> 
+            </span><span class="s0">&lt;/tr&gt;</span><span class="s3"> 
+        </span><span class="s17">&lt;% </span><span class="s18">end </span><span class="s6">%&gt;</span><span class="s3"> 
+        </span><span class="s0">&lt;/tbody&gt;</span><span class="s3"> 
+      </span><span class="s0">&lt;/table&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+ 
+    </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;row text-center&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+      </span><span class="s17">&lt;% </span><span class="s18">if </span><span class="s19">@product_types</span><span class="s7">.</span><span class="s8">length </span><span class="s13">&gt; </span><span class="s12">0 </span><span class="s13">&amp;&amp; </span><span class="s19">@product_types</span><span class="s7">.</span><span class="s8">total_pages </span><span class="s13">&gt; </span><span class="s12">1 </span><span class="s6">%&gt;</span><span class="s3"> 
+          </span><span class="s6">&lt;%= </span><span class="s8">will_paginate </span><span class="s19">@product_types</span><span class="s15">, </span><span class="s8">renderer</span><span class="s7">: </span><span class="s9">BootstrapPagination</span><span class="s7">::</span><span class="s9">Rails</span><span class="s15">, </span><span class="s10">:param_name </span><span class="s11">=&gt; </span><span class="s14">'product_type_page' </span><span class="s6">%&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;div </span><span class="s1">class=</span><span class="s2">&quot;page_info&quot;</span><span class="s0">&gt;</span><span class="s3"> 
+            </span><span class="s6">&lt;%= </span><span class="s8">page_entries_info </span><span class="s19">@product_types </span><span class="s6">%&gt;</span><span class="s3"> 
+          </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+      </span><span class="s17">&lt;% </span><span class="s18">end </span><span class="s6">%&gt;</span><span class="s3"> 
+    </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+  </span><span class="s0">&lt;/div&gt;</span><span class="s3"> 
+</span><span class="s0">&lt;/div&gt;</span></pre>
+</body>
+</html>

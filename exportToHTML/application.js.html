@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>application.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(204,120,50); font-weight: bold; }
+.s3 { color: rgb(106,135,89); }
+.s4 { color: rgb(204,120,50); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+application.js</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">// This is a manifest file that'll be compiled into application.js, which will include all the files</span><span class="s1"> 
+</span><span class="s0">// listed below.</span><span class="s1"> 
+</span><span class="s0">//</span><span class="s1"> 
+</span><span class="s0">// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,</span><span class="s1"> 
+</span><span class="s0">// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.</span><span class="s1"> 
+</span><span class="s0">//</span><span class="s1"> 
+</span><span class="s0">// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the</span><span class="s1"> 
+</span><span class="s0">// compiled file. JavaScript code in this file should be added after the last require_* statement.</span><span class="s1"> 
+</span><span class="s0">//</span><span class="s1"> 
+</span><span class="s0">// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details</span><span class="s1"> 
+</span><span class="s0">// about supported directives.</span><span class="s1"> 
+</span><span class="s0">//</span><span class="s1"> 
+</span><span class="s0">//= require jquery</span><span class="s1"> 
+</span><span class="s0">//= require jquery_ujs</span><span class="s1"> 
+</span><span class="s0">//= require bootstrap-sprockets</span><span class="s1"> 
+</span><span class="s0">//= require moment</span><span class="s1"> 
+</span><span class="s0">//= require bootstrap-datetimepicker</span><span class="s1"> 
+</span><span class="s0">//= require fullcalendar</span><span class="s1"> 
+</span><span class="s0">//= require jquery.simplecolorpicker.js</span><span class="s1"> 
+</span><span class="s0">//= require bootstrap-toggle</span><span class="s1"> 
+</span><span class="s0">//= require turbolinks</span><span class="s1"> 
+</span><span class="s0">//= require Chart.bundle</span><span class="s1"> 
+</span><span class="s0">//= require chartkick</span><span class="s1"> 
+ 
+ 
+</span><span class="s0">//= require_tree .</span><span class="s1"> 
+ 
+jQuery(</span><span class="s2">function</span><span class="s1">($) { 
+    $(document).on(</span><span class="s3">'click'</span><span class="s4">, </span><span class="s3">&quot;.clickable-row&quot;</span><span class="s4">, </span><span class="s2">function</span><span class="s1">() { 
+        window.location = $(</span><span class="s2">this</span><span class="s1">).data(</span><span class="s3">&quot;link&quot;</span><span class="s1">)</span><span class="s4">;</span><span class="s1"> 
+    })</span><span class="s4">;</span><span class="s1"> 
+    $(</span><span class="s2">function </span><span class="s1">() { 
+        $(</span><span class="s3">'[data-toggle=&quot;tooltip&quot;]'</span><span class="s1">).tooltip() 
+    }) 
+})</span><span class="s4">;</span><span class="s1"> 
+ 
+ 
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>_reports.html.erb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(128,128,128); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(232,191,106); }
+.s3 { color: rgb(186,186,186); }
+.s4 { color: rgb(165,194,97); }
+.s5 { color: rgb(204,120,50); }
+.s6 { color: rgb(169,183,198); }
+.s7 { color: rgb(169,183,198); }
+.s8 { color: rgb(169,183,198); }
+.s9 { color: rgb(106,135,89); }
+.s10 { color: rgb(104,151,187); }
+.s11 { color: rgb(218,73,57); }
+.s12 { color: rgb(110,156,190); }
+.s13 { color: rgb(255,198,109); font-style: italic; }
+.s14 { color: rgb(165,194,97); }
+.s15 { color: rgb(204,120,51); }
+.s16 { color: rgb(204,120,50); }
+.s17 { color: rgb(82,161,46); font-weight: bold; }
+.s18 { color: rgb(204,120,50); font-weight: bold; }
+.s19 { color: rgb(169,183,198); font-weight: bold; }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+_reports.html.erb</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">&lt;!--&lt;h1 style=&quot;color: #C33764&quot;&gt;Number of Products of a Given Type&lt;/h1&gt;--&gt;</span><span class="s1"> 
+</span><span class="s0">&lt;!--&lt;= pie_chart Product.joins(:product_type).group(:product_type_desc).count, colors:[&quot;purple&quot;,&quot;navy&quot;] %&gt;--&gt;</span><span class="s1"> 
+ 
+ 
+</span><span class="s0">&lt;!--&lt;h1 style=&quot;color: #C33764&quot;&gt;Most popular items in the last week&lt;/h1&gt;--&gt;</span><span class="s1"> 
+</span><span class="s0">&lt;!--&lt;= pie_chart Product.joins(:customer_event_products).group(:product_name).sum('customer_event_products.quantity').first(5)%&gt;--&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;div </span><span class="s3">style=</span><span class="s4">&quot;</span><span class="s3">position</span><span class="s1">:</span><span class="s4">absolute</span><span class="s5">;</span><span class="s4">&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+  </span><span class="s6">&lt;%= </span><span class="s8">render </span><span class="s9">'admin/index/numbers' </span><span class="s6">%&gt;</span><span class="s1"> 
+</span><span class="s2">&lt;/div&gt;</span><span class="s1"> 
+ 
+ 
+</span><span class="s2">&lt;div </span><span class="s3">style=</span><span class="s4">&quot; &quot;</span><span class="s2">&gt;</span><span class="s1"> 
+ 
+  </span><span class="s2">&lt;div </span><span class="s3">style=</span><span class="s4">&quot;</span><span class="s3">position</span><span class="s1">:</span><span class="s4">absolute</span><span class="s5">;</span><span class="s3">top</span><span class="s1">:</span><span class="s10">160</span><span class="s4">px</span><span class="s5">;</span><span class="s4">&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;h2 </span><span class="s3">style=</span><span class="s4">&quot;</span><span class="s3">color</span><span class="s1">: </span><span class="s10">#C33764</span><span class="s4">&quot;</span><span class="s2">&gt;</span><span class="s1">Most popular products in the past month</span><span class="s2">&lt;/h2&gt;</span><span class="s1"> 
+    </span><span class="s6">&lt;%= </span><span class="s8">pie_chart </span><span class="s11">Event</span><span class="s7">.</span><span class="s8">where</span><span class="s7">(</span><span class="s12">:event_date </span><span class="s13">=&gt; </span><span class="s14">1</span><span class="s7">.</span><span class="s8">months</span><span class="s7">.</span><span class="s8">ago </span><span class="s15">.. </span><span class="s11">Time</span><span class="s7">.</span><span class="s8">now</span><span class="s7">) 
+                      .</span><span class="s8">joins</span><span class="s7">(</span><span class="s12">:customer_events</span><span class="s7">).</span><span class="s8">joins</span><span class="s7">(</span><span class="s12">:customer_event_products</span><span class="s7">).</span><span class="s8">joins</span><span class="s7">(</span><span class="s12">:products</span><span class="s7">).</span><span class="s8">group</span><span class="s7">(</span><span class="s12">:product_name</span><span class="s7">) 
+                      .</span><span class="s8">sum</span><span class="s7">(</span><span class="s9">'customer_event_products.quantity'</span><span class="s7">).</span><span class="s8">first</span><span class="s7">(</span><span class="s14">5</span><span class="s7">)</span><span class="s16">,</span><span class="s7"> 
+                  </span><span class="s8">library</span><span class="s7">: {</span><span class="s8">legend</span><span class="s7">: {</span><span class="s8">position</span><span class="s7">: </span><span class="s17">&quot;right&quot;</span><span class="s7">}}</span><span class="s16">, </span><span class="s8">width</span><span class="s7">:</span><span class="s17">&quot;500px&quot;</span><span class="s16">,</span><span class="s8">donut</span><span class="s7">:</span><span class="s18">true</span><span class="s16">,</span><span class="s8">download</span><span class="s7">:</span><span class="s18">true </span><span class="s6">%&gt;</span><span class="s1"> 
+  </span><span class="s2">&lt;/div&gt;</span><span class="s1"> 
+  </span><span class="s2">&lt;div </span><span class="s3">style=</span><span class="s4">&quot;</span><span class="s3">position</span><span class="s1">:</span><span class="s4">absolute</span><span class="s5">;</span><span class="s3">top</span><span class="s1">:</span><span class="s10">160</span><span class="s4">px</span><span class="s5">;</span><span class="s3">left</span><span class="s1">: </span><span class="s10">600</span><span class="s4">px</span><span class="s5">;</span><span class="s4">&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;h2 </span><span class="s3">style=</span><span class="s4">&quot;</span><span class="s3">color</span><span class="s1">: </span><span class="s10">#C33764</span><span class="s4">&quot;</span><span class="s2">&gt;</span><span class="s1">Number of People Attending</span><span class="s2">&lt;/h2&gt;</span><span class="s1"> 
+    </span><span class="s6">&lt;%= </span><span class="s8">line_chart </span><span class="s11">Event</span><span class="s7">.</span><span class="s8">group_by_week</span><span class="s7">(</span><span class="s12">:event_date</span><span class="s7">) 
+                       .</span><span class="s8">joins</span><span class="s7">(</span><span class="s12">:customer_events</span><span class="s7">).</span><span class="s8">sum</span><span class="s7">(</span><span class="s17">&quot;customer_events.number_in_party&quot;</span><span class="s7">)</span><span class="s16">, </span><span class="s8">width</span><span class="s7">:</span><span class="s17">&quot;600px&quot;</span><span class="s16">,</span><span class="s8">download</span><span class="s7">:</span><span class="s18">true </span><span class="s6">%&gt;</span><span class="s1"> 
+  </span><span class="s2">&lt;/div&gt;</span><span class="s1"> 
+  </span><span class="s2">&lt;div </span><span class="s3">style=</span><span class="s4">&quot;</span><span class="s3">position</span><span class="s1">:</span><span class="s4">absolute</span><span class="s5">;</span><span class="s3">top</span><span class="s1">:</span><span class="s10">550</span><span class="s4">px</span><span class="s5">;</span><span class="s4">&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;h2 </span><span class="s3">style=</span><span class="s4">&quot;</span><span class="s3">color</span><span class="s1">: </span><span class="s10">#C33764</span><span class="s4">&quot;</span><span class="s2">&gt;</span><span class="s1">Revenue</span><span class="s2">&lt;/h2&gt;</span><span class="s1"> 
+    </span><span class="s19">&lt;% </span><span class="s8">yes </span><span class="s15">= </span><span class="s14">1</span><span class="s7">.</span><span class="s8">months</span><span class="s7">.</span><span class="s8">ago </span><span class="s6">%&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;select&gt;</span><span class="s1"> 
+      </span><span class="s2">&lt;option&gt;</span><span class="s1">1 Month</span><span class="s19">&lt;% </span><span class="s8">yes </span><span class="s15">= </span><span class="s14">1</span><span class="s7">.</span><span class="s8">months</span><span class="s7">.</span><span class="s8">ago </span><span class="s6">%&gt;</span><span class="s2">&lt;/option&gt;</span><span class="s1"> 
+      </span><span class="s2">&lt;option&gt;</span><span class="s1">3 Months</span><span class="s2">&lt;/option&gt;</span><span class="s1"> 
+      </span><span class="s2">&lt;option&gt;</span><span class="s1">6 Months</span><span class="s2">&lt;/option&gt;</span><span class="s1"> 
+      </span><span class="s2">&lt;option&gt;</span><span class="s1">1 Year</span><span class="s2">&lt;/option&gt;</span><span class="s1"> 
+      </span><span class="s2">&lt;option&gt;</span><span class="s1">All-Time</span><span class="s2">&lt;/option&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;/select&gt;</span><span class="s1"> 
+    </span><span class="s6">&lt;%= </span><span class="s8">line_chart </span><span class="s11">Event</span><span class="s7">.</span><span class="s8">group_by_day</span><span class="s7">(</span><span class="s12">:event_date</span><span class="s7">).</span><span class="s8">where</span><span class="s7">(</span><span class="s12">:event_date </span><span class="s13">=&gt; </span><span class="s8">yes </span><span class="s15">.. </span><span class="s11">Time</span><span class="s7">.</span><span class="s8">now</span><span class="s7">) 
+                       .</span><span class="s8">joins</span><span class="s7">(</span><span class="s12">:customer_events</span><span class="s7">) 
+                       .</span><span class="s8">joins</span><span class="s7">(</span><span class="s12">:customer_event_products</span><span class="s7">) 
+                       .</span><span class="s8">joins</span><span class="s7">(</span><span class="s12">:products</span><span class="s7">) 
+                       .</span><span class="s8">sum</span><span class="s7">(</span><span class="s17">&quot;(products.product_price * customer_event_products.quantity)+ (customer_events.adults_painting + 10)&quot;</span><span class="s7">)</span><span class="s16">,</span><span class="s7"> 
+                   </span><span class="s8">colors</span><span class="s7">:[</span><span class="s17">&quot;#DA70D6&quot;</span><span class="s7">]</span><span class="s16">, </span><span class="s8">xtitle</span><span class="s7">:[</span><span class="s17">&quot;Group by Week&quot;</span><span class="s7">]</span><span class="s16">,</span><span class="s7"> 
+                   </span><span class="s8">ytitle</span><span class="s7">: [</span><span class="s17">&quot;Monetary Value&quot;</span><span class="s7">]</span><span class="s16">, </span><span class="s8">curve</span><span class="s7">: </span><span class="s18">false</span><span class="s16">, </span><span class="s8">width</span><span class="s7">:</span><span class="s17">&quot;600px&quot;</span><span class="s16">,</span><span class="s8">download</span><span class="s7">:</span><span class="s18">true </span><span class="s6">%&gt;</span><span class="s1"> 
+  </span><span class="s2">&lt;/div&gt;</span><span class="s1"> 
+  </span><span class="s2">&lt;div </span><span class="s3">style=</span><span class="s4">&quot;</span><span class="s3">position</span><span class="s1">:</span><span class="s4">absolute</span><span class="s5">;</span><span class="s3">left</span><span class="s1">:</span><span class="s10">600</span><span class="s4">px</span><span class="s5">;</span><span class="s3">top</span><span class="s1">:</span><span class="s10">550</span><span class="s4">px</span><span class="s5">;</span><span class="s4">&quot;</span><span class="s2">&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;h2 </span><span class="s3">style=</span><span class="s4">&quot;</span><span class="s3">color</span><span class="s1">: </span><span class="s10">#C33764</span><span class="s4">&quot;</span><span class="s2">&gt;</span><span class="s1">Number of Purchases made each day</span><span class="s2">&lt;/h2&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;select&gt;</span><span class="s1"> 
+      </span><span class="s2">&lt;option&gt;</span><span class="s1">1 Month</span><span class="s19">&lt;% </span><span class="s8">yes </span><span class="s15">= </span><span class="s14">1</span><span class="s7">.</span><span class="s8">months</span><span class="s7">.</span><span class="s8">ago </span><span class="s6">%&gt;</span><span class="s2">&lt;/option&gt;</span><span class="s1"> 
+      </span><span class="s2">&lt;option&gt;</span><span class="s1">3 Months</span><span class="s2">&lt;/option&gt;</span><span class="s1"> 
+      </span><span class="s2">&lt;option&gt;</span><span class="s1">6 Months</span><span class="s2">&lt;/option&gt;</span><span class="s1"> 
+      </span><span class="s2">&lt;option&gt;</span><span class="s1">1 Year</span><span class="s2">&lt;/option&gt;</span><span class="s1"> 
+      </span><span class="s2">&lt;option&gt;</span><span class="s1">All-Time</span><span class="s2">&lt;/option&gt;</span><span class="s1"> 
+    </span><span class="s2">&lt;/select&gt;</span><span class="s1"> 
+    </span><span class="s6">&lt;%= </span><span class="s8">line_chart </span><span class="s11">Event</span><span class="s7">.</span><span class="s8">group_by_day</span><span class="s7">(</span><span class="s12">:event_date</span><span class="s7">).</span><span class="s8">where</span><span class="s7">(</span><span class="s12">:event_date </span><span class="s13">=&gt; </span><span class="s8">yes </span><span class="s15">.. </span><span class="s11">Time</span><span class="s7">.</span><span class="s8">now</span><span class="s7">) 
+                       .</span><span class="s8">joins</span><span class="s7">(</span><span class="s12">:customer_events</span><span class="s7">) 
+                       .</span><span class="s8">joins</span><span class="s7">(</span><span class="s12">:customer_event_products</span><span class="s7">) 
+                       .</span><span class="s8">joins</span><span class="s7">(</span><span class="s12">:products</span><span class="s7">) 
+                       .</span><span class="s8">sum</span><span class="s7">(</span><span class="s17">&quot;customer_event_products.quantity&quot;</span><span class="s7">)</span><span class="s16">,</span><span class="s7"> 
+                   </span><span class="s8">width</span><span class="s7">:</span><span class="s17">&quot;600px&quot;</span><span class="s16">,</span><span class="s8">curve</span><span class="s7">:</span><span class="s18">false</span><span class="s16">,</span><span class="s8">download</span><span class="s7">:</span><span class="s18">true</span><span class="s16">,</span><span class="s8">xtitle</span><span class="s7">:[</span><span class="s17">&quot;Group by Week&quot;</span><span class="s7">] </span><span class="s6">%&gt;</span><span class="s1"> 
+  </span><span class="s2">&lt;/div&gt;</span><span class="s1"> 
+  </span><span class="s0">&lt;!--&lt;div style=&quot;position:absolute; left: 700px;top: 840px;&quot;&gt;--&gt;</span><span class="s1"> 
+    </span><span class="s0">&lt;!--&lt;h1 style=&quot;color: #C33764&quot;&gt;Number of Events Scheduled&lt;/h1&gt;--&gt;</span><span class="s1"> 
+    </span><span class="s0">&lt;!--&lt;= line_chart Event.where(:event_date =&gt; 1.days.ago .. 1.months.from_now).group_by_day(:event_date)--&gt;</span><span class="s1"> 
+</span><span class="s0">&lt;!--#                        .where('event_type_id &lt;&gt; 7')--&gt;</span><span class="s1"> 
+</span><span class="s0">&lt;!--#                        .count,--&gt;</span><span class="s1"> 
+</span><span class="s0">&lt;!--#                    colors:[&quot;green&quot;],label:[&quot;Events&quot;],width:&quot;600px&quot;,curve:false,download:true,--&gt;</span><span class="s1"> 
+                   </span><span class="s0">&lt;!--xtitle:[&quot;Group by Week&quot;]%&gt;--&gt;</span><span class="s1"> 
+  </span><span class="s0">&lt;!--&lt;/div&gt;--&gt;</span><span class="s1"> 
+ 
+ 
+ 
+ 
+ 
+ 
+</span><span class="s2">&lt;/div&gt;</span></pre>
+</body>
+</html>
