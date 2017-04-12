@@ -8,13 +8,13 @@
   <%= render 'admin/index/numbers' %>
 </div>
 
-
 <div>
 
   <div class="panel panel-default" style="position:absolute;top:200px;background-color:#FFFFFF  ">
     <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px;">Most popular products in the past month</h2></div>
     <div class="panel panel-body" style="padding:0px;padding-left:10px;">
-      <%= pie_chart Admin.MostPopProd5, library: {legend: {position: "right"}},colors:["#4d9de0","#e15554","#e1bc29","#3bb273","#7768ae"],
+      <%= pie_chart Admin.MostPopProd5, library: {legend: {position: "right"}},
+                    colors:["#4d9de0","#e15554","#e1bc29","#3bb273","#7768ae"],
                     height:"300px",width:"540px",donut:true,download:true %>
     </div>
   </div>
@@ -23,7 +23,7 @@
     <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Number of People Attending Each Week</h2></div>
     <div class="panel panel-body" style="padding:0px;padding-left:10px;">
       <%= column_chart Admin.NumAttending,
-                     ytitle:["Number of People"],
+                     ytitle:["Number of People"],xtitle:["Date"],
                      height:"300px",width:"540px",download:true %>
     </div>
   </div>
@@ -32,7 +32,7 @@
     <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Revenue</h2></div>
     <div class="panel panel-body" style="padding:0px;padding-left:10px;">
     <%= area_chart Admin.EarningsRevenue ,
-                   colors:["#DA70D6"], xtitle:["Group by Week"],
+                   colors:["#DA70D6"], xtitle:["Date"],
                    ytitle: ["Monetary Value"],
                    height:"300px",width:"750px",download:true %></div>
   </div>
@@ -40,7 +40,7 @@
     <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Number of Products Purchased Daily</h2></div>
     <div class="panel panel-body" style="padding:0px;padding-left:10px;">
       <%= area_chart Admin.DailyPurchase ,
-                     colors:["#4C9C51"], xtitle:["Group by Week"],
+                     colors:["#4C9C51"], xtitle:["Date"],
                      ytitle: ["Number of Products"],
                      height:"300px",width:"540px",download:true %></div>
   </div>
@@ -51,7 +51,7 @@
         <thead>
         <tr>
           <th>Event</th>
-          <th>Profit</th>
+          <th class="pull-right">Profit</th>
         </tr>
         </thead>
         <tbody>
@@ -88,7 +88,7 @@
     <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Count of Event Hosts</h2></div>
     <div class="panel panel-body" style="padding:0px;padding-left:10px;">
       <%= area_chart Admin.RecognizeEmployee ,
-                     xtitle:["Group by Month"],
+                     xtitle:["Date"],
                      ytitle: ["Events Hosted"],
                      height:"300px",width:"540px",download:true %></div>
   </div>
