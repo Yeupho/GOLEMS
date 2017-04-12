@@ -10,44 +10,59 @@
     <img src="http://www.glazedoverceramics.com/uploads/3/4/8/8/34887163/1427308090.png">
 
 </div>
-<div class="sidebar">
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#home">About Us</a></li>
-        <li><a href="#home">Hours and Location</a></li>
-        <li><a href="#home">Intro to Glass Classes</a></li>
-        <li><a href="#home">Events</a></li>
-        <li><a href="#home">Galleries</a></li>
-        <li><a href="#home">Videos</a></li>
-        <li><a href="#home">Specials</a></li>
-        <li><a href="#home">Monthly Events</a></li>
-        <li><a href="#home">Schedule an Event</a></li>
-    </ul>
-</div>
+<!--<div class="sidebar">-->
+    <!--<ul>-->
+        <!--<li><a href="#home">Home</a></li>-->
+        <!--<li><a href="#home">About Us</a></li>-->
+        <!--<li><a href="#home">Hours and Location</a></li>-->
+        <!--<li><a href="#home">Intro to Glass Classes</a></li>-->
+        <!--<li><a href="#home">Events</a></li>-->
+        <!--<li><a href="#home">Galleries</a></li>-->
+        <!--<li><a href="#home">Videos</a></li>-->
+        <!--<li><a href="#home">Specials</a></li>-->
+        <!--<li><a href="#home">Monthly Events</a></li>-->
+        <!--<li><a href="#home">Schedule an Event</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
 <div class="main">
-    <p>Web Form</p>
-    <p>Want to schedule an event with us? Send us some dank shit and we'll do that for you!</p>
-    <form action="mailto:hotaznbuns@gmail.com" method="post">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="user_name">
-        </div>
-        <div>
-            <label for="mail">E-mail:</label>
-            <input type="email" id="mail" name="user_mail">
-        </div>
-        <div>
-            <input type="radio" name="birthday" value="Birthday"> Birthday<br>
-            <input type="radio" name="Party" value="party"> Party<br>
-            <input type="radio" name="Special Event" value="special"> Special Event<br>
-        </div>
-        <div>
-            <label for="msg">Message:</label>
-            <textarea id="msg" name="user_message"></textarea>
-            <input type="submit" value="Submit">
-            <input type="reset" value="Reset">
-        </div>
-    </form>
+    <!--<p>Web Form</p>-->
+    <!--<p>Want to schedule an event with us? Send us some dank shit and we'll do that for you!</p>-->
+    <!--<form action="mailto:hotaznbuns@gmail.com" method="post">-->
+        <!--<div>-->
+            <!--<label for="name">Name:</label>-->
+            <!--<input type="text" id="name" name="user_name">-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<label for="mail">E-mail:</label>-->
+            <!--<input type="email" id="mail" name="user_mail">-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<input type="radio" name="birthday" value="Birthday"> Birthday<br>-->
+            <!--<input type="radio" name="Party" value="party"> Party<br>-->
+            <!--<input type="radio" name="Special Event" value="special"> Special Event<br>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<label for="msg">Message:</label>-->
+            <!--<textarea id="msg" name="user_message"></textarea>-->
+            <!--<input type="submit" value="Submit">-->
+            <!--<input type="reset" value="Reset">-->
+        <!--</div>-->
+    <!--</form>-->
+  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+  <div style="margin-top:100px;">
+    <%= timeline [["Capstone Project",Time.now, "2017-04-19"],
+                  ["Read Intro to Algorithms","2017-04-12",1.year.from_now],
+                  ["Apply for Entry-level Positions",Time.now,6.months.from_now],
+                  ["Work at Entry-level Position",2.months.from_now,2.years.from_now],
+                  ["Mobile Game Application",2.months.from_now, 5.years.from_now],
+                  ["AWS Certification",6.months.from_now,2.years.from_now],
+                  ["Fullstack/Software Developer",2.years.from_now,5.years.from_now],
+                  ["PMP Certification",4.years.from_now,5.years.from_now],
+                  ["Self-improve Programming",Time.now,5.years.from_now ]
+                   ], height:"600px",width:"1000px"%>
+  </div>
+
 </div>
 </body>
 </html>
