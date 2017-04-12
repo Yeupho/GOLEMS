@@ -10,18 +10,18 @@
       <% if @weeklysales > @twoweeksprior %>
           <h6><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent1.round %>%</span> from prior week</h6>
       <% else %>
-          <h6><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent1.round %>% from prior week</h6>
+          <h6><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent1.round %>%</span> from prior week</h6>
       <% end %>
     </div>
 
     <div class="column one-third">
       <h4>Weekly Total Visitors</h4>
-      <h1 style="margin-top:-10px;"><%= @totalvisitors%>' ' <%= @twototalvisitors%></h1>
-      <%  percent2=((@twototalvisitors/@totalvisitors)*100) %>
+      <%  percent2= ((Admin.twototalvisitors / Admin.totalvisitors)* 100) %>
+      <h1 style="margin-top:-10px;"><%= @totalvisitors%>' ' <%= @twototalvisitors%> <%= percent2 %></h1>
       <% if @totalvisitors > @twototalvisitors %>
-          <h6><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent2.round %>%</span> from prior week</h6>
+          <h6><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent2 %>%</span> from prior week</h6>
       <% else %>
-          <h6><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent2.round %>% from prior week</h6>
+          <h6><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent2 %>%</span> from prior week</h6>
       <% end %>
     </div>
 
@@ -32,7 +32,7 @@
       <% if @productsold > @twoproductsold %>
           <h6><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent3 %>%</span> from prior week</h6>
       <% else %>
-          <h6><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent3.round %>% from prior week</h6>
+          <h6><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent3.round %>%</span> from prior week</h6>
       <% end %>
     </div>
 
@@ -43,7 +43,7 @@
       <% if @productsready > @twoproductsready %>
           <h6><span style="color:forestgreen "><span class="glyphicon glyphicon-triangle-top"></span><%= percent4.round %>%</span> from prior week</h6>
       <% else %>
-          <h6><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent4.round %>% from prior week</h6>
+          <h6><span style="color:red"><span class="glyphicon glyphicon-triangle-bottom"></span><%= percent4.round %>%</span> from prior week</h6>
       <% end %>
     </div>
 
