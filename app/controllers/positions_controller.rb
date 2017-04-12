@@ -64,7 +64,7 @@ class PositionsController < ApplicationController
 
     @position.destroy
     respond_to do |format|
-      format.html { redirect_to positions_url, notice: 'Position was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Position was successfully removed.' }
       format.json { head :no_content }
     end
   end
