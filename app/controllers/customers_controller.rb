@@ -18,7 +18,7 @@ class CustomersController < ApplicationController
   def show
     @customer_event_product = CustomerEventProduct.new
 
-    @transactions = CustomerEventProduct.transactions.where("customers.id = ?", params[:id])
+    @transactions = CustomerEventProduct.transactions.where("customers.id = ?", params[:id]).limit(3)
     @not_ready = CustomerEventProduct.customer_not_ready.where("customers.id = ?", params[:id])
     @ready = CustomerEventProduct.customer_ready.where("customers.id = ?", params[:id])
     @collected = CustomerEventProduct.customer_collected.where("customers.id = ?", params[:id])
