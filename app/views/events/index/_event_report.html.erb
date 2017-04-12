@@ -29,7 +29,7 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', event %></li>
                   <li><%= link_to 'Edit', edit_event_path(event) %></li>
-                  <li><%= link_to 'Archive', event_path(event, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Delete', event_path(event, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>

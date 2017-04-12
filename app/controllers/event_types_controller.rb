@@ -29,8 +29,12 @@ class EventTypesController < ApplicationController
 
     respond_to do |format|
       if @event_type.save
-        format.html { redirect_to @event_type, notice: 'Event type was successfully created.' }
-        format.json { render :show, status: :created, location: @event_type }
+        #BEFORE
+        # format.html { redirect_to @event_type, notice: 'Event type was successfully created.' }
+        # format.json { render :show, status: :created, location: @event_type }
+
+        #AFTER
+        format.html { redirect_to '/admin#event_types_tab', notice: 'Event type was successfully created.' }
       else
         format.html { render :new }
         format.json { render json: @event_type.errors, status: :unprocessable_entity }

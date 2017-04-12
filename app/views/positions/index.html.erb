@@ -25,7 +25,7 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', position %></li>
                   <li><%= link_to 'Edit', edit_position_path(position) %></li>
-                  <li><%= link_to 'Archive', position_path(position, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Delete', position_path(position, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>

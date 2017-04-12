@@ -4,8 +4,11 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
+      <div class="col-lg-6 col-lg-offset-0">
         <%= render 'customers/index/search' %>
+      </div>
+      <div class="col-lg-1 col-lg-offset-1">
+        <%= render 'states/index/buttons' %>
       </div>
     </div>
 
@@ -29,14 +32,13 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', state %></li>
                   <li><%= link_to 'Edit', edit_state_path(state) %></li>
-                  <li><%= link_to 'Archive', state_path(state, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Delete', state_path(state, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>
         <% end %>
         </tbody>
       </table>
-      <%= link_to 'New State', new_state_path %>
     </div>
 
     <div class="row text-center">

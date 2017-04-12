@@ -1,4 +1,4 @@
-<div class="panel panel-default" style="width:700px;float:left;margin-top:25px">
+<div class="panel panel-default" style="position:absolute;left:500px;width:650px;float:left;margin-top:25px">
 
   <div class="panel-heading">
     <h2 class="panel-title">Products</h2>
@@ -19,9 +19,7 @@
       </div>
 
       <div class="col-lg-1 col-lg-offset-1">
-        <div class="col-lg-4 text-center">
-          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Product'.html_safe, new_product_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
-        </div>
+        <%= render 'products/index/buttons' %>
       </div>
     </div>
 
@@ -32,7 +30,7 @@
           <th>Product Name</th>
           <th>Price</th>
           <th>Type</th>
-          <th></th>
+          <th>Action</th>
         </tr>
         </thead>
 
@@ -47,7 +45,7 @@
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', product %></li>
                   <li><%= link_to 'Edit', edit_product_path(product) %></li>
-                  <li><%= link_to 'Archive', product_path(product, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Delete', product_path(product, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>

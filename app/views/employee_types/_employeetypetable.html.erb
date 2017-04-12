@@ -18,9 +18,10 @@
       </div>
 
       <div class="col-lg-1 col-lg-offset-0">
-        <div class="col-lg-3 text-center">
-          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Employee Type'.html_safe, new_employee_type_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
-        </div>
+        <%= render 'employee_types/index/buttons' %>
+        <!--<div class="col-lg-3 text-center">-->
+          <!--<= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Employee Type'.html_safe, new_employee_type_path, class: "btn btn-primary btn-md show-btn", :method => :get %>-->
+        <!--</div>-->
       </div>
     </div>
 
@@ -37,7 +38,14 @@
         <% @employee_types.each do |employee_type| %>
             <tr data-link="<%= employee_type_path(employee_type) %>">
               <td><%= employee_type.employee_type_desc %></td>
-              <td><%= link_to 'Destroy', employee_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Detail', employee_type %></li>
+                  <li><%= link_to 'Edit', edit_employee_type_path(employee_type) %></li>
+                  <li><%= link_to 'Delete', employee_type_path(employee_type, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div></td>
             </tr>
         <% end %>
         </tbody>

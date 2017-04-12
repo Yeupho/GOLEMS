@@ -38,7 +38,7 @@
               </td>
               <td><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-                <ul class="dropdown-menu"><li><%= link_to 'Archive', employee_path(employee, type: :normal),method: :delete,class: ' ', data: { confirm: 'Remove this employee?' } %></li></ul>
+                <ul class="dropdown-menu"><li><%= link_to 'Delete', employee_path(employee, type: :normal),method: :delete,class: ' ', data: { confirm: 'Remove this employee?' } %></li></ul>
               </div></td>
             </tr>
         <% end %>
