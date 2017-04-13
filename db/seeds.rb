@@ -23,7 +23,6 @@ EmployeeStatus.destroy_all
 EmployeeType.destroy_all
 Event.destroy_all
 EventType.destroy_all
-EventStatus.destroy_all
 Color.destroy_all
 Country.destroy_all
 Position.destroy_all
@@ -59,7 +58,6 @@ StatusList = ['Active', 'Inactive']
 StatusList.each do |name|
   CustomerStatus.create!(customer_status_description:name)
   EmployeeStatus.create!(employee_status_desc:name)
-  EventStatus.create!(event_status_desc:name)
 end
 
 # State

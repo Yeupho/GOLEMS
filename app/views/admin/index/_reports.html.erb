@@ -87,9 +87,9 @@
   <div class="panel panel-default" style="position:absolute;top:1030px">
     <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Count of Event Hosts</h2></div>
     <div class="panel panel-body" style="padding:0px;padding-left:10px;">
-      <%= area_chart Admin.RecognizeEmployee ,
+      <%= line_chart Admin.RecognizeEmployee ,
                      xtitle:["Date"],
-                     ytitle: ["Events Hosted"],
+                     ytitle: ["Events Hosted"], curved:true,
                      height:"300px",width:"540px",download:true %></div>
   </div>
   <!--<div style="position:absolute; left: 700px;top: 840px;">-->

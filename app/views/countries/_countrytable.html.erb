@@ -43,7 +43,8 @@
 
     <div class="row text-center">
       <% if @countries.length > 0 && @countries.total_pages > 1 %>
-          <%= will_paginate @countries, inner_window:1,outer_window:1,renderer: BootstrapPagination::Rails, :param_name => 'country_page' %>
+          <%= will_paginate @countries, inner_window:1,outer_window:1,renderer: BootstrapPagination::Rails,
+                            :param_name => 'country_page',params: {active_tab: 'admin/#locations_tab' } %>
           <div class="page_info">
             <%= page_entries_info @countries %>
           </div>

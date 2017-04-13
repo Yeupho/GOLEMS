@@ -12,6 +12,9 @@ class AdminController < ApplicationController
     @customer_statuses = CustomerStatus.all.paginate(page: params[:customer_status_page],per_page:10)
     @employee_statuses = EmployeeStatus.all.paginate(page: params[:employee_status_page],per_page:10)
 
+    @customers = Customer.all
+    @events = Event.all
+    @employees = Employee.all
 # calls the various new elements for the variables
     @color = Color.new
     @product = Product.new
@@ -50,5 +53,18 @@ class AdminController < ApplicationController
   def show
     @CEP = CustomerEventProduct.all
     @CEP1 = CustomerEventProduct.group(:created_at).sum(:quantity)
+  end
+
+  def colortab
+    render 'colors/colortab'
+    def new
+      @colors = Color.new
+    end
+    def index
+      @colors = Color.all.paginate(page: params[:color_page], per_page: 10)
+    end
+    def show
+
+    end
   end
 end

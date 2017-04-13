@@ -1,13 +1,14 @@
 <!-- Nav index -->
-<ul class="nav nav-tabs text-center" role="tablist">
+<ul class="nav nav-tabs text-center" role="tablist" onClick="reload">
   <li class="tab-header"><h1  class="tab-spacing", style="color: #C33764">Admin</h1></li>
   <li role="presentation" class="active"><a href="#reports_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span><br>Analytics</a></li>
-  <li role="presentation"><a href="#colors_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tint"></span><br>Colors</a></li>
-  <li role="presentation"><a href="#event_types_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-calendar"></span><br>Event Types</a>
-  <li role="presentation"><a href="#positions_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-briefcase"></span><br>Employees</a></li>
-  <li role="presentation"><a href="#products_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span><br>Products</a></li>
-  <li role="presentation"><a href="#locations_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-globe"></span><br>Locations</a></li>
-  <li role="presentation"><a href="#status_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-adjust"></span><br>Statuses</a></li>
+  <li role="presentation"><a href="#colors_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-tint"></span><br>Colors</a></li>
+  <li role="presentation"><a href="#event_types_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-calendar"></span><br>Event Types</a>
+  <li role="presentation"><a href="#positions_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-briefcase"></span><br>Employees</a></li>
+  <li role="presentation"><a href="#products_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-tags"></span><br>Products</a></li>
+  <li role="presentation"><a href="#locations_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-globe"></span><br>Locations</a></li>
+  <li role="presentation"><a href="#status_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-adjust"></span><br>Statuses</a></li>
+  <li role="presentation"><a href="#activity_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-trash"></span><br>Inactive</a></li>
 
 
 </ul>
@@ -21,23 +22,13 @@
   <div role="tabpanel" class="tab-pane" id="products_tab"> <%= render 'products/producttable' %><%= render 'product_types/producttypetable'%></div>
   <div role="tabpanel" class="tab-pane" id="locations_tab"> <%= render 'states/statetable' %><%= render 'countries/countrytable'%></div>
   <div role="tabpanel" class="tab-pane" id="status_tab"> <%= render 'admin/index/statuses' %></div>
-
-
+  <div role="tabpanel" class="tab-pane" id="activity_tab"> <%= render 'archive/tabs' %></div>
 </div>
 
 <!--adds tab href to url + opens tab based on hash on page load:-->
 <script>
-    $(document).ready(function() {
-        if (location.hash) {
-            $("a[href='" + location.hash + "']").tab("show");
-        }
-        $(document.body).on("click", "a[data-toggle]", function(event) {
-            location.hash = this.getAttribute("href");
-        });
+    $('.nav.navbar-nav > li').on('click', function(e) {
+        $('.nav.navbar-nav > li').removeClass('active');
+        $(this).addClass('active');
     });
-    $(window).on("popstate", function() {
-        var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
-        $("a[href='" + anchor + "']").tab("show");
-    });
-
 </script>
