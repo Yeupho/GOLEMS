@@ -1,7 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  event_status_desc: MyString
-
-two:
-  event_status_desc: MyString
