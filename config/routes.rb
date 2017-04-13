@@ -48,7 +48,6 @@ Rails.application.routes.draw do
   resources :employees
   resources :positions
   resources :colors
-  resources :event_statuses
   resources :employee_statuses
   resources :employee_types
   resources :event_types
