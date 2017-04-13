@@ -140,7 +140,7 @@ ActiveRecord::Schema.define(version: 20170412015024) do
     t.date     "event_date"
     t.time     "start_time"
     t.time     "end_time"
-    t.integer  "event_type_id",     default: 1
+    t.integer  "event_type_id",     default: nil
     t.integer  "color_id",          default: 1
     t.integer  "event_status_id",   default: 1
     t.string   "event_description"

@@ -2,8 +2,10 @@
   <div id="bg-gradient">
     <div class="home">
 
-      <div class="row">
         <div class="item">
+
+<%= render "devise/shared/links" %>
+
           <div class="content">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <div class="logo"></div>
@@ -21,6 +23,7 @@
                 <div class="form-group in">
                   <%= f.submit "Log in", :class => "btn btn-block btn-info" %>
                 </div>
+
                 <% if devise_mapping.rememberable? -%>
                     <label class="checkbox">
                       <%= f.check_box :remember_me, :class => "checkbox-label" %>
@@ -29,11 +32,9 @@
                 <% end -%>
             <% end %>
           </div>
+
+
         </div>
-      </div>
-
-      <div class="row"><%= render "devise/shared/links" %></div>
-
     </div>
   </div>
 </div>

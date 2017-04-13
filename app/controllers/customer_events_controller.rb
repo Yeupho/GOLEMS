@@ -24,7 +24,7 @@ class CustomerEventsController < ApplicationController
 
     respond_to do |format|
       if @customer_event.save
-        format.html { redirect_to :back, notice: 'Customer was successfully created.', method: :get}
+        format.html { redirect_to :back, notice: 'Customer was successfully added.', method: :get}
         format.js
       else
         format.html { render :new }

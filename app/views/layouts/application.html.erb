@@ -13,20 +13,16 @@
 <div id="wrapper">
   <% if user_signed_in? %>
       <div id="sidebar-wrapper">
-        <div class="row sidebar">
-          <div class="col-lg-12 text-center">
-            <div class="row sidebar-logo"><span class="glyphicon glyphicon-home sidebar-logo"></span><br>Logo</div>
-            <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-stats"><br>Dashboard</span>'.html_safe, dashboards_path%></div>
-            <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-calendar"><br>Event</span>'.html_safe, events_path, method: :get %></div>
-            <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-list-alt"><br>Walk-In</span>'.html_safe, walk_ins_path, method: :get %></div>
-            <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-shopping-cart"><br>Customer</span>'.html_safe, customers_path%></div>
-            <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-briefcase"><br>Employee</span>'.html_safe, employees_path%></div>
-            <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-gift"><br>Pickup</span>'.html_safe, pickups_path %></div>
-            <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-user"><br>Admin</span>'.html_safe, admin_path%></div>
-            <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-hdd"><br>Archive</span>'.html_safe, archive_path %></div>
-            <div class="row sidebar-item"><%= link_to '<span class="glyphicon glyphicon-off"><br>Logout</span>'.html_safe, destroy_user_session_path, :method => 'delete' %></div>
-          </div>
-        </div>
+        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-home"><br>Logo</span>'.html_safe %></div>
+        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-stats"><br>Dashboard</span>'.html_safe, dashboards_path%></div>
+        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-calendar"><br>Event</span>'.html_safe, events_path, method: :get %></div>
+        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-list-alt"><br>Walk-In</span>'.html_safe, walk_ins_path, method: :get %></div>
+        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-shopping-cart"><br>Customer</span>'.html_safe, customers_path%></div>
+        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-briefcase"><br>Employee</span>'.html_safe, employees_path%></div>
+        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-gift"><br>Pick-Up</span>'.html_safe, pickups_path %></div>
+        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-user"><br>Admin</span>'.html_safe, admin_path%></div>
+        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-hdd"><br>Archive</span>'.html_safe, archive_path %></div>
+        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-off"><br>Logout</span>'.html_safe, destroy_user_session_path, :method => 'delete' %></div>
       </div>
 
       <div id="page-content-wrapper">

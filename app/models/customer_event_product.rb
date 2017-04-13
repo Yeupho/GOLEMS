@@ -77,13 +77,13 @@ class CustomerEventProduct < ApplicationRecord
         .order("customers.first_name ASC, customers.last_name ASC")
   end
   def self.pickup_picked
-    CustomerEventProduct.select("customer_event_products.id, customers.first_name, customers.last_name, customers.phone, products.product_name, quantity, colors.color_code, events.event_name, events.event_date, events.start_time, pickup_status_id")
+    CustomerEventProduct.select("customer_event_products.id, customers.first_name, customers.last_name, customers.phone, products.product_name, quantity, colors.color_code, events.event_name, events.event_date, events.start_time, pickup_status_id, customer_event_products.updated_at")
         .joins(:product)
         .joins(customer_event: :customer)
         .joins(customer_event: {event: :color})
         .where(pickup_status_id: 3)
         .where("events.event_date > ?", (Date.today - 1.month))
-        .order("events.event_date DESC")
+        .order("customer_event_products.updated_at DESC")
   end
 
   def self.progress_count

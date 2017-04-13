@@ -16,7 +16,7 @@ $change: #4281A4
 body
   background: $white-smoke
   font-family: 'Roboto', Sans-Serif
-  font-size: 16px !important
+  font-size: 18px !important
 
 .imaginary_container
   margin-top: .8%
@@ -26,7 +26,7 @@ body
   position: absolute
   height: 100%
   padding-right: 15px
-  padding-left: 170px
+  padding-left: 8%
   overflow: auto
 
 .container-fluid
@@ -124,25 +124,24 @@ body
 #sidebar-wrapper
   z-index: 1
   position: absolute
-  min-width: 170px
+  min-width: 8%
   height: 100%
   overflow-y: hidden
   background: linear-gradient(to bottom, #1D2671, #C33764)
-
-.sidebar
-  line-height: 3
-  font-size: 18px
+  font-size: 20px
   margin: 0
 
 .sidebar-item
-  padding: 10%
-  padding-left: 20%
+  height: 10%
+  display: flex
+  justify-content: center
+  align-items: center
+  &:hover
+    opacity: .6
   a
     display: block
     text-decoration: none
     color: $white-smoke
-    &:hover
-      opacity: .6
 
 .sidebar-logo
   padding-top: 30px
@@ -305,6 +304,7 @@ p
   top: 50px
   .panel
     min-height: 182px
+    max-height: 182px
 
 .product
   padding-top: 50px
@@ -323,6 +323,22 @@ tbody > tr
 
 .fc-content
   font-size: 16px !important
+  padding: 2px
 
 .fc-title
   font-weight: bold !important
+
+.line-up
+  margin-left: 15px
+  margin-bottom: 18px
+
+h3
+  margin-top: 10px
+
+.event-box
+  height: 22%
+  width: 100%
+  position: absolute
+
+.no-margin-bottom
+  margin-bottom: 0px

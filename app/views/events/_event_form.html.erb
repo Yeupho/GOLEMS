@@ -93,8 +93,7 @@
 
     $(function() {
         $('#datepicker').datetimepicker({
-            format: 'MMMM D, YYYY',
-            daysOfWeekDisabled: [2]
+            format: 'MMMM D, YYYY'
         });
     });
 
@@ -109,14 +108,6 @@
                     type: 'POST',
                     data: {color_id: selectedOption}
                 });
-            });
-        });
-
-        $('#submit').on('click', function() {
-            $.ajax({
-                url: "/events/create",
-                type: 'POST',
-                data: {color_id: selectedOption}
             });
         });
 
