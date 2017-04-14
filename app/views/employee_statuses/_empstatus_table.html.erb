@@ -13,7 +13,7 @@
         <td class="col-lg-2"><div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Show', employee_status %></li>
+            <li><%= link_to 'Edit', edit_employee_status_path(employee_status) %></li>
             <li><%= link_to 'Delete', employee_status_path(employee_status, type: :normal),
                             method: :delete,class: ' ',
                             data: { confirm: 'WARNING, DELETING THIS WILL DELETE ALL CUSTOMER DATA' } %></li>

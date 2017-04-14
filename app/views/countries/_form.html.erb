@@ -11,24 +11,15 @@
     </div>
   <% end %>
 
-    <div style="width:300px;">
-      <div class="field">
-        <%= f.label :country_name %>
-        <%= f.text_field :country_name, class: 'form-control' %>
-      </div>
+    <div>
+      <%= f.label :country_name %>
+      <div style="width:200px;"><%= f.text_field :country_name, class: 'form-control' %></div>
 
-      <div class="field">
-        <%= f.label :country_abbrev %>
-        <%= f.text_field :country_abbrev, class: 'form-control' %>
-      </div>
-      <br>
+      <%= f.label 'Country Abbreviation' %>
+      <div style="width:200px;"><%= f.text_field :country_abbrev, class: 'form-control' %></div>
     </div>
-
-
+    <br>
     <div class="row footer">
-
-      <div class="col-lg-4 text-left">
-        <%= f.submit class: "btn btn-primary", redirect_to: '/admin' %>
-      </div>
+      <%= f.submit class: "btn btn-primary", redirect_to: '/admin#locations_tab' %>
     </div>
 <% end %>
