@@ -21,5 +21,8 @@ module GOLEMS
         :authentication => 'login',
         :enable_starttls_auto => true
     }
+
+    config.serve_static_assets = false
+
   end
 end

@@ -1,4 +1,4 @@
-<div class="panel panel-default" style="width:700px;float:left;margin-top:25px">
+<div class="panel panel-default" style="position:relative;width:600px;float:left;margin-top:25px">
 
   <div class="panel-heading">
     <h2 class="panel-title">Products</h2>
@@ -6,7 +6,6 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-lg-7 col-lg-offset-0">
-        <% if @products.length > 0 && @products.total_pages > 1 %>
         <div class="input-group stylish-input-group">
           <input type="text" class="form-control" placeholder="Search">
           <span class="input-group-addon">
@@ -15,39 +14,37 @@
                     </button>
                   </span>
         </div>
-            <% end %>
       </div>
 
       <div class="col-lg-1 col-lg-offset-1">
-        <div class="col-lg-4 text-center">
-          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Product'.html_safe, new_product_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
-        </div>
+        <%= render 'products/index/buttons' %>
       </div>
     </div>
 
     <div class="imaginary_container">
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th>Product Name</th>
-          <th>Price</th>
-          <th>Type</th>
-          <th></th>
+      <table class="sctable">
+        <thead class="sctable">
+        <tr class="sctable">
+          <th class="sctable col-xs-3">Product Name</th>
+          <th class="sctable col-xs-2">Price</th>
+          <th class="sctable col-xs-2" style="margin-left:-10px">Type</th>
+          <th class="sctable col-xs-2" style="margin-left:-15px">Action</th>
         </tr>
         </thead>
 
-        <tbody>
+        <tbody class="sctable">
+        <% @products = Product.all.order(product_name: :asc) %>
         <% @products.each do |product| %>
-            <tr data-link="<%= product_path(product) %>">
-              <td><%= product.product_name %></td>
-              <td><%= number_to_currency(product.product_price) %></td>
-              <td><%= product.product_type.product_type_desc %></td>
-              <td><div class="dropdown">
+            <tr class="sctable" data-link="<%= product_path(product) %>" >
+              <td class="sctable col-xs-3"><%= product.product_name %></td>
+              <td class="sctable col-xs-2"><%= number_to_currency(product.product_price) %></td>
+              <td class="sctable col-xs-2"><%= product.product_type.product_type_desc %></td>
+              <td class="sctable col-xs-2"><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', product %></li>
                   <li><%= link_to 'Edit', edit_product_path(product) %></li>
-                  <li><%= link_to 'Archive', product_path(product, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Delete', product_path(product, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>
@@ -56,13 +53,14 @@
       </table>
     </div>
 
-    <div class="row text-center">
-      <% if @products.length > 0 && @products.total_pages > 1 %>
-          <%= will_paginate @products, renderer: BootstrapPagination::Rails, :param_name => 'product_page' %>
-          <div class="page_info">
-            <%= page_entries_info @products %>
-          </div>
-      <% end %>
-    </div>
+    <!--<div class="row text-center">-->
+      <!--< if @products.length > 0 && @products.total_pages > 1 %>-->
+          <!--<= will_paginate @products, inner_window:1,outer_window:1,renderer: BootstrapPagination::Rails,-->
+                            <!--:param_name => "product_page", params: {active_tab: 'admin/#products_tab' } %>-->
+          <!--<div class="page_info">-->
+            <!--<= page_entries_info @products %>-->
+          <!--</div>-->
+      <!--< end %>-->
+    <!--</div>-->
   </div>
 </div>

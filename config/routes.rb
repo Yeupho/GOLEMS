@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin#index'
 
+  get 'admin/tabs/colors' => 'admin#colortab'
+
 
   match '/customer_events/create' => 'customer_events#create', via: [:get, :post], :as => :create_customer_event
 
@@ -52,7 +54,6 @@ Rails.application.routes.draw do
   resources :employees
   resources :positions
   resources :colors
-  resources :event_statuses
   resources :employee_statuses
   resources :employee_types
   resources :event_types
@@ -65,6 +66,8 @@ Rails.application.routes.draw do
   resources :pickups
   resources :walk_ins
   resources :change_columns
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

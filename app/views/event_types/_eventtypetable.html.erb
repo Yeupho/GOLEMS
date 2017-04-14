@@ -1,10 +1,13 @@
-<div class="panel panel-default" style="margin-top:25px;width:90%">
+<div>
+  <%= render 'event_types/eventtype_graph' %>
+</div>
+<div class="panel panel-default" style="float:left;margin-top:25px;margin-left:25px;width:40%">
   <div class="panel-heading">
     <h2 class="panel-title">Event Types</h2>
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-0">
+      <div class="col-lg-7 col-lg-offset-0">
         <% if @event_types.length > 0 && @event_types.total_pages > 1 %>
         <div class="input-group stylish-input-group">
           <input type="text" class="form-control" placeholder="Search">
@@ -17,32 +20,33 @@
             <% end %>
       </div>
 
-      <div class="col-lg-1 col-lg-offset-1">
-        <div class="col-lg-4 text-center">
-          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Event Type'.html_safe, new_event_type_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
-        </div>
+      <div class="col-lg-4 col-lg-offset-0">
+        <%= render 'event_types/index/buttons' %>
+        <!--<div class="col-lg-4 text-center">-->
+          <!--<= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Event Type'.html_safe, new_event_type_path, class: "btn btn-primary btn-md show-btn", :method => :get %>-->
+        <!--</div>-->
       </div>
     </div>
 
-    <div class="imaginary_container">
-      <table class="table table-hover">
+    <div class="imaginary_container" style="height:400px !important; ">
+      <table class="sctable">
         <thead>
         <tr>
-          <th>Event Type</th>
-          <th></th>
+          <th class="col-lg-5">Event Type</th>
+          <th class="col-lg-5">Action</th>
         </tr>
         </thead>
 
         <tbody>
         <% @event_types.each do |event_type| %>
             <tr data-link="<%= event_type_path(event_type) %>">
-              <td><%= event_type.event_type_desc %></td>
-              <td><div class="dropdown">
+              <td class="col-lg-5"><%= event_type.event_type_desc %></td>
+              <td class="col-lg-5"><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', event_type %></li>
                   <li><%= link_to 'Edit', edit_event_type_path(event_type) %></li>
-                  <li><%= link_to 'Archive', event_type_path(event_type, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Delete', event_type_path(event_type, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>
@@ -51,13 +55,13 @@
       </table>
     </div>
 
-    <div class="row text-center">
-      <% if @event_types.length > 0 && @event_types.total_pages > 1 %>
-          <%= will_paginate @event_types, renderer: BootstrapPagination::Rails, :param_name => 'event_type_page' %>
-          <div class="page_info">
-            <%= page_entries_info @event_types %>
-          </div>
-      <% end %>
-    </div>
+    <!--<div class="row text-center">-->
+      <!--<if @event_types.length > 0 && @event_types.total_pages > 1 %>-->
+          <!--<= will_paginate @event_types, renderer: BootstrapPagination::Rails, :param_name => 'event_type_page' %>-->
+          <!--<div class="page_info">-->
+            <!--<= page_entries_info @event_types %>-->
+          <!--</div>-->
+      <!--< end %>-->
+    <!--</div>-->
   </div>
 </div>

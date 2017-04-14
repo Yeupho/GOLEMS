@@ -29,7 +29,7 @@ class EmployeeTypesController < ApplicationController
 
     respond_to do |format|
       if @employee_type.save
-        format.html { redirect_to @employee_type, notice: 'Employee type was successfully created.' }
+        format.html { redirect_to '/admin#positions_tab', notice: 'Employee type was successfully created.' }
         format.json { render :show, status: :created, location: @employee_type }
       else
         format.html { render :new }

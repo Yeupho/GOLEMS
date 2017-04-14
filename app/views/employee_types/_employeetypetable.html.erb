@@ -5,52 +5,51 @@
   <div class="panel-body">
     <div class="row">
       <div class="col-lg-7 col-lg-offset-0">
-        <% if @employee_types.length > 0 && @employee_types.total_pages > 1 %>
-            <div class="input-group stylish-input-group" style="width:200px">
-              <input type="text" class="form-control" placeholder="Search">
-              <span class="input-group-addon">
-                    <button type="submit">
-                      <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                  </span>
-            </div>
-        <% end %>
+        <!--< if @employee_types.length > 0 && @employee_types.total_pages > 1 %>-->
+            <!--<div class="input-group stylish-input-group" style="width:200px">-->
+              <!--<input type="text" class="form-control" placeholder="Search">-->
+              <!--<span class="input-group-addon">-->
+                    <!--<button type="submit">-->
+                      <!--<span class="glyphicon glyphicon-search"></span>-->
+                    <!--</button>-->
+                  <!--</span>-->
+            <!--</div>-->
+        <!--< end %>-->
       </div>
 
       <div class="col-lg-1 col-lg-offset-0">
-        <div class="col-lg-3 text-center">
-          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Employee Type'.html_safe, new_employee_type_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
-        </div>
+        <%= render 'employee_types/index/buttons' %>
+        <!--<div class="col-lg-3 text-center">-->
+          <!--<= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Employee Type'.html_safe, new_employee_type_path, class: "btn btn-primary btn-md show-btn", :method => :get %>-->
+        <!--</div>-->
       </div>
     </div>
 
     <div class="imaginary_container">
-      <table class="table table-hover">
+      <table class="sctable">
         <thead>
         <tr>
-          <th>Employee type desc</th>
-          <th colspan="1">Action</th>
+          <th class="col-lg-5">Employee type desc</th>
+          <th class="col-lg-5">Action</th>
         </tr>
         </thead>
 
         <tbody>
         <% @employee_types.each do |employee_type| %>
             <tr data-link="<%= employee_type_path(employee_type) %>">
-              <td><%= employee_type.employee_type_desc %></td>
-              <td><%= link_to 'Destroy', employee_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td class="col-lg-5"><%= employee_type.employee_type_desc %></td>
+              <td class="col-lg-5"><div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Detail', employee_type %></li>
+                  <li><%= link_to 'Edit', edit_employee_type_path(employee_type) %></li>
+                  <li><%= link_to 'Delete', employee_type_path(employee_type, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div></td>
             </tr>
         <% end %>
         </tbody>
       </table>
-    </div>
-
-    <div class="row text-center">
-      <% if @employee_types.length > 0 && @employee_types.total_pages > 1 %>
-          <%= will_paginate @employee_types, renderer: BootstrapPagination::Rails, :param_name => 'employee_type_page' %>
-          <div class="page_info">
-            <%= page_entries_info @employee_types %>
-          </div>
-      <% end %>
     </div>
   </div>
 </div>

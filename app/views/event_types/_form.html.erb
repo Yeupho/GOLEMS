@@ -12,11 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :event_type_desc %>
-    <%= f.text_field :event_type_desc %>
+    <%= 'Event Type Name:' %>
+    <%= f.text_field :event_type_desc,class: "form-control" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <br>
+    <div class="row footer">
+      <div class="col-lg-3 col-lg-offset-5 text-right">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+      <div class="col-lg-4 text-left">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    </div>
 <% end %>

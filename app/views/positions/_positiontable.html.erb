@@ -1,50 +1,51 @@
-<div class="panel panel-default" style="width:800px;float:left;margin-top:25px">
+<div class="panel panel-default" style="width:500px;float:left;margin-top:25px">
   <div class="panel-heading">
     <h2 class="panel-title">Positions</h2>
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-1">
-        <% if @positions.length > 0 && @positions.total_pages > 1 %>
-        <div class="input-group stylish-input-group" style="width: 400px">
-          <input type="text" class="form-control" placeholder="Search">
-          <span class="input-group-addon">
-                    <button type="submit">
-                      <span class="glyphicon glyphicon-search"></span>
-                    </button>
-                  </span>
-        </div>
-            <% end %>
+      <div class="col-lg-8 col-lg-offset-0">
+        <!--< if @positions.length > 0 && @positions.total_pages > 1 %>-->
+        <!--<div class="input-group stylish-input-group" style="width: 400px">-->
+          <!--<input type="text" class="form-control" placeholder="Search">-->
+          <!--<span class="input-group-addon">-->
+                    <!--<button type="submit">-->
+                      <!--<span class="glyphicon glyphicon-search"></span>-->
+                    <!--</button>-->
+                  <!--</span>-->
+        <!--</div>-->
+            <!--< end %>-->
       </div>
 
       <div class="col-lg-1 col-lg-offset-0">
-        <div class="col-lg-4 text-center">
-          <%= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Position'.html_safe, new_position_path, class: "btn btn-primary btn-md show-btn", :method => :get %>
-        </div>
+        <%= render 'positions/index/buttons' %>
+        <!--<div class="col-lg-4 text-center">-->
+          <!--<= link_to '<span class="glyphicon glyphicon-plus"></span><br>New Position'.html_safe, new_position_path, class: "btn btn-primary btn-md show-btn", :method => :get %>-->
+        <!--</div>-->
       </div>
     </div>
 
     <div class="imaginary_container">
-      <table class="table table-hover">
+      <table class="sctable">
         <thead>
         <tr>
-          <th>Employee</th>
-          <th>Position</th>
-          <th>Action</th>
+          <th class="col-lg-5">Employee</th>
+          <th class="col-lg-5">Position</th>
+          <th class="col-lg-5">Action</th>
         </tr>
         </thead>
 
         <tbody>
         <% @positions.without_deleted.each do |position| %>
             <tr data-link="<%= position_path(position) %>">
-              <td><%= position.employee.first_name %></td>
-              <td><%= position.employee_type.employee_type_desc %></td>
-              <td><div class="dropdown">
+              <td class="col-lg-5"><%= position.employee.first_name %></td>
+              <td class="col-lg-5"><%= position.employee_type.employee_type_desc %></td>
+              <td class="col-lg-5"><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', position %></li>
                   <li><%= link_to 'Edit', edit_position_path(position) %></li>
-                  <li><%= link_to 'Archive', position_path(position, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Delete', position_path(position, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>
@@ -54,12 +55,12 @@
     </div>
 
     <div class="row text-center">
-      <% if @positions.length > 0 && @positions.total_pages > 1 %>
-          <%= will_paginate @positions, renderer: BootstrapPagination::Rails, :param_name => 'position_page' %>
-          <div class="page_info">
-            <%= page_entries_info @positions %>
-          </div>
-      <% end %>
+      <!--< if @positions.length > 0 && @positions.total_pages > 1 %>-->
+          <!--<= will_paginate @positions, renderer: BootstrapPagination::Rails, :param_name => 'position_page' %>-->
+          <!--<div class="page_info">-->
+            <!--<= page_entries_info @positions %>-->
+          <!--</div>-->
+      <!--< end %>-->
     </div>
   </div>
 </div>
