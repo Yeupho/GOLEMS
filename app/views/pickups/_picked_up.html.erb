@@ -13,7 +13,7 @@
           <th class="text-center">Quantity</th>
           <th class="text-center">Event Color</th>
           <th class="text-center">Event</th>
-          <th class="text-center">Date</th>
+          <th class="text-center">Picked-Up At</th>
           <th class="text-center">Status</th>
         </tr>
         </thead>
@@ -27,7 +27,7 @@
               <td><%= customer_event_product.quantity %></td>
               <td><span class="simplecolorpicker icon color-picked" style= "background-color: <%= customer_event_product.color_code %>;"></span></td>
               <td><%= customer_event_product.event_name %></td>
-              <td><%= customer_event_product.event_date.strftime("%m/%d/%Y") %> <%= customer_event_product.start_time.strftime("%l:%M %p")%></td>
+              <td><%= customer_event_product.updated_at.strftime("%m/%d/%Y %l:%M %p")%></td>
               <td>
                 <%= form_for customer_event_product, :url => url_for(:controller => 'customer_event_products', :action => 'update', :id => customer_event_product.id), :method => "patch" do |f| %>
                     <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control", onchange: "this.form.submit();"}) %>

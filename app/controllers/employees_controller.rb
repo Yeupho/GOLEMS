@@ -8,6 +8,8 @@ class EmployeesController < ApplicationController
     @employees = Employee.employees.paginate(page: params[:employee_page], per_page: 13)
     @employee = Employee.new
     @positions = EmployeeType.positions
+
+    @upcoming_count = Event.upcoming_count
   end
 
   # GET /employees/1
@@ -18,6 +20,8 @@ class EmployeesController < ApplicationController
     @co_host = Employee.co_host.where("employees.id <> ?", params[:id])
     @position = Position.new
     @party_size = CustomerEvent.party_size
+
+    @upcoming_count = Event.upcoming_count.where("employees.id = ?", params[:id])
   end
 
   # GET /employees/new

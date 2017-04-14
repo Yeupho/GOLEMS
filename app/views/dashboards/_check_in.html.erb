@@ -18,7 +18,7 @@
         <% unless @check_in.blank? %>
             <tbody>
             <% @check_in.each do |check_in| %>
-                <tr>
+                <tr class="no-pointer">
                   <td><%= check_in.first_name %> <%= check_in.last_name %></td>
                   <td><%= check_in.event_date.strftime("%m/%d/%y") %></td>
                   <td><%= check_in.start_time.strftime("%l:%M %p") %> - <%= check_in.end_time.strftime("%l:%M %p") %></td>
@@ -28,7 +28,7 @@
             <% end %>
             </tbody>
         <% else %>
-            <tr><td colspan="5">No Check-In for Today: <%= Date.today.strftime("%B %-d, %Y") %></td></tr>
+            <tr class="no-pointer"><td colspan="5">No Check-In for Today: <%= Date.today.strftime("%B %-d, %Y") %></td></tr>
         <% end %>
       </table>
     </div>

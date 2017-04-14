@@ -14,7 +14,8 @@
                 right: 'today prev,next',
                 left: ''
             },
-            timeFormat: 'h:mmA'
+            timeFormat: 'h:mmA',
+            eventRender: function (event, element) {$(element).css("margin-top", "8px");}
         });
     });
 </script>

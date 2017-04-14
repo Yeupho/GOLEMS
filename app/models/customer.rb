@@ -31,7 +31,7 @@ class Customer < ApplicationRecord
   def self.customers
     Customer.select("customers.id, first_name, last_name, phone, email, customer_status_id")
         .where("customer_status_id = '1'")
-        .order("updated_at DESC, created_at DESC")
+        .order("first_name ASC")
   end
 
 end

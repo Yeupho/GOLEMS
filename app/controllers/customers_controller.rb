@@ -7,16 +7,25 @@ class CustomersController < ApplicationController
   def index
     @customer = Customer.new
     @customers = Customer.customers.search(params[:search]).paginate(page: params[:page], per_page: 9)
+
+    @progress_count = CustomerEventProduct.progress_count
+    @ready_count = CustomerEventProduct.ready_count
+    @picked_up_count = CustomerEventProduct.picked_up_count
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
     @customer_event_product = CustomerEventProduct.new
-    @transactions = CustomerEventProduct.transactions.where("customers.id = ?", params[:id])
+
+    @transactions = CustomerEventProduct.transactions.where("customers.id = ?", params[:id]).limit(3)
     @not_ready = CustomerEventProduct.customer_not_ready.where("customers.id = ?", params[:id])
     @ready = CustomerEventProduct.customer_ready.where("customers.id = ?", params[:id])
     @collected = CustomerEventProduct.customer_collected.where("customers.id = ?", params[:id])
+
+    @progress_count = CustomerEventProduct.progress_count.where("customers.id = ?", params[:id])
+    @ready_count = CustomerEventProduct.ready_count.where("customers.id = ?", params[:id])
+    @picked_up_count = CustomerEventProduct.picked_up_count.where("customers.id = ?", params[:id])
   end
 
   def search
