@@ -1,0 +1,25 @@
+<table class="scsttable">
+  <thead>
+  <tr>
+    <th class="col-lg-5">Customer Status</th>
+    <th class="col-lg-5">Action</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @customer_statuses.each do |customer_status| %>
+      <tr data-link="<%= customer_status_path(customer_status) %>">
+        <td class="col-lg-5"><%= customer_status.customer_status_description %></td>
+        <td class="col-lg-5"><div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Show', customer_status %></li>
+            <li><%= link_to 'Delete', customer_status_path(customer_status, type: :normal),
+                            method: :delete,class: ' ',
+                            data: { confirm: 'WARNING, DELETING THIS WILL DELETE ALL CUSTOMER DATA' } %></li>
+          </ul>
+        </div></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

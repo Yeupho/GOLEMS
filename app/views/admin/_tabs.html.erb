@@ -1,7 +1,7 @@
 <!-- Nav index -->
 <ul class="nav nav-tabs text-center" role="tablist" onClick="reload">
   <li class="tab-header"><h1  class="tab-spacing", style="color: #C33764">Admin</h1></li>
-  <li role="presentation" class="active"><a href="#reports_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span><br>Analytics</a></li>
+  <li role="presentation"><a href="#reports_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span><br>Analytics</a></li>
   <li role="presentation"><a href="#colors_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-tint"></span><br>Colors</a></li>
   <li role="presentation"><a href="#event_types_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-calendar"></span><br>Event Types</a>
   <li role="presentation"><a href="#positions_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-briefcase"></span><br>Employees</a></li>
@@ -15,20 +15,46 @@
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div role="tabpanel" class="tab-pane active" id="reports_tab"><%= render 'admin/index/reports' %></div>
-  <div role="tabpanel" class="tab-pane" id="colors_tab"> <%= render 'colors/colortable' %></div>
-  <div role="tabpanel" class="tab-pane" id="event_types_tab"><%= render 'event_types/eventtypetable' %></div>
-  <div role="tabpanel" class="tab-pane" id="positions_tab"> <%= render 'positions/positiontable' %><%= render 'employee_types/employeetypetable' %></div>
-  <div role="tabpanel" class="tab-pane" id="products_tab"> <%= render 'products/producttable' %><%= render 'product_types/producttypetable'%></div>
-  <div role="tabpanel" class="tab-pane" id="locations_tab"> <%= render 'states/statetable' %><%= render 'countries/countrytable'%></div>
-  <div role="tabpanel" class="tab-pane" id="status_tab"> <%= render 'admin/index/statuses' %></div>
-  <div role="tabpanel" class="tab-pane" id="activity_tab"> <%= render 'archive/tabs' %></div>
+  <div role="tabpanel" class="tab-pane active" id="reports_tab">
+    <%= render 'admin/index/reports' %></div>
+  <div role="tabpanel" class="tab-pane" id="colors_tab">
+    <%= render 'colors/colortable' %></div>
+  <div role="tabpanel" class="tab-pane" id="event_types_tab"
+  ><%= render 'event_types/eventtypetable' %></div>
+  <div role="tabpanel" class="tab-pane" id="positions_tab">
+    <%= render 'positions/positiontable' %><%= render 'employee_types/employeetypetable' %></div>
+  <div role="tabpanel" class="tab-pane" id="products_tab">
+    <%= render 'products/producttable' %><%= render 'product_types/producttypetable'%></div>
+  <div role="tabpanel" class="tab-pane" id="locations_tab">
+    <%= render 'admin/index/locationcharts' %>
+    <%= render 'states/statetable' %>
+    <%= render 'countries/countrytable'%>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="status_tab">
+    <%= render 'admin/index/statuses' %></div>
+  <div role="tabpanel" class="tab-pane" id="activity_tab">
+    <%= render 'archive/tabs' %></div>
 </div>
 
 <!--adds tab href to url + opens tab based on hash on page load:-->
 <script>
-    $('.nav.navbar-nav > li').on('click', function(e) {
-        $('.nav.navbar-nav > li').removeClass('active');
-        $(this).addClass('active');
+    $(document).ready(function() {
+        if (location.hash) {
+            $("a[href='" + location.hash + "']").tab("show");
+        }
+        $(document.body).on("click", "a[data-toggle]", function(event) {
+            location.hash = this.getAttribute("href");
+        });
     });
+    $(window).on("popstate", function() {
+        var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
+        $("a[href='" + anchor + "']").tab("show");
+    });
+    window.onload = function() {
+        if(!window.location.hash) {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+        }
+    }
+
 </script>

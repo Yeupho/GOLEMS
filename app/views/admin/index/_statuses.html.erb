@@ -3,27 +3,11 @@
     <h2 class="panel-title">Status Settings</h2>
   </div>
   <div class="panel-body">
-    <div id="EmpStatus">
-
+    <div id="EmpStatus" style="width:300px;">
+      <%= render 'employee_statuses/empstatus_table' %>
     </div>
     <div id="CustStatus" style="width:300px">
-      <table class="table">
-        <thead>
-        <tr>
-          <th>Customer Statuses</th>
-          <th colspan="1"></th>
-        </tr>
-        </thead>
-
-        <tbody>
-        <% @customer_statuses.each do |customer_status| %>
-            <tr data-link="<%= customer_status_path(customer_status) %>">
-              <td><%= customer_status.customer_status_description %></td>
-              <td><%= link_to 'Destroy', customer_status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-        <% end %>
-        </tbody>
-      </table>
+      <%= render 'customer_statuses/custstatus_table' %>
     </div>
 
 

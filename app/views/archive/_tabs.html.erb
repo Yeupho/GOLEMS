@@ -13,7 +13,7 @@
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div role="tabpanel" class="tab-pane" id="customers_tab1"> <%= render 'archive/arccustomer' %></div>
+  <div role="tabpanel" class="tab-pane active" id="customers_tab1"> <%= render 'archive/arccustomer' %></div>
   <div role="tabpanel" class="tab-pane" id="events_tab1"><%= render 'archive/arcevent' %></div>
   <div role="tabpanel" class="tab-pane" id="products_tab1"> <%= render 'archive/arcproduct' %></div>
   <div role="tabpanel" class="tab-pane" id="employees_tab1"> <%= render 'archive/arcemployee' %></div>
@@ -22,3 +22,23 @@
   <div role="tabpanel" class="tab-pane" id="positions_tab1"> <%= render 'archive/arcposition' %></div>
 
 </div>
+<script>
+
+
+    $('#events_tab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+    $('#products_tab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+    $('#employees_tab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+    $('#colors_tab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>
