@@ -13,10 +13,14 @@
 
   <div class="field">
     <%= f.label :customer_status_description %>
-    <%= f.text_field :customer_status_description %>
+    <div style="width:200px;"><%= f.text_field :customer_status_description,class:'form-control' %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <br>
+    <div class="row footer">
+      <div>
+        <%= f.submit class: "btn btn-primary", redirect_to: '/admin#status_tab' %>
+      </div>
+    </div>
+    <br>
 <% end %>

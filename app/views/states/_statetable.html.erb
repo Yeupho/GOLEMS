@@ -14,7 +14,7 @@
 
     <div class="imaginary_container">
       <table class="sctable">
-        <thead>
+        <thead class="sctable">
         <tr>
           <th class="col-lg-5">State Name</th>
           <th class="col-lg-5">State Abbrev.</th>
@@ -22,16 +22,15 @@
         </tr>
         </thead>
 
-        <tbody>
+        <tbody class="sctable">
         <% @states.each do |state| %>
             <div class="row">
-              <tr data-link="<%= state_path(state) %>">
+              <tr class="sctable" data-link="<%= state_path(state) %>">
                 <td class="col-lg-5"><%= state.state_name %></td>
                 <td class="col-lg-5"><%= state.state_abbrev %></td>
                 <td class="col-lg-5 col-lg-offset-1"><div class="dropdown">
                   <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                   <ul class="dropdown-menu">
-                    <li><%= link_to 'Detail', state %></li>
                     <li><%= link_to 'Edit', edit_state_path(state) %></li>
                     <li><%= link_to 'Delete', state_path(state, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                   </ul>

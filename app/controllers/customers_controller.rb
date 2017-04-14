@@ -74,9 +74,8 @@ class CustomersController < ApplicationController
       @customer.update(deleted_at: nil)
     end
 
-    @customer.destroy
     respond_to do |format|
-      format.html { redirect_to 'admin#activity_tab', notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to '/admin#activity_tab'}
       format.json { head :no_content }
     end
   end

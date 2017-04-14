@@ -3,8 +3,8 @@ class CustomerEvent < ApplicationRecord
   validates :event_id, presence: true
   validates :customer_id, presence: true
   validates :number_in_party, presence: true
-  belongs_to :customer
-  belongs_to :event
+  belongs_to :customer,-> { with_deleted }
+  belongs_to :event,-> { with_deleted }
   has_many :customer_event_products
   has_many :products, :through => :customer_event_products
 
@@ -46,4 +46,5 @@ class CustomerEvent < ApplicationRecord
     CustomerEvent.select("sum(number_in_party) AS number_in_party, sum(adults_painting) AS adults_painting, sum(kids_painting) AS kids_painting")
         .joins(:event)
   end
+
 end
