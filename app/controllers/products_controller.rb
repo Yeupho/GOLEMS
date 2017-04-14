@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to redirect_to '/admin#products_tab' }
+        format.html { redirect_to '/admin#products_tab' }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
