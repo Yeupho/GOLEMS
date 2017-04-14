@@ -1,37 +1,43 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h2 class="panel-title">Event Types</h2>
-  </div>
-  <div class="panel-body">
-    <%= render 'customers/index/search' %>
 
-    <div class="imaginary_container">
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th>Event Type</th>
-          <th></th>
-        </tr>
-        </thead>
+<div style="margin-top:50px;margin-right:50px;"><h3>Redirecting to page...</h3></div>
+<script type="text/javascript">
+    window.location="/admin#event_types_tab";
+</script>
+<!--<div class="panel panel-default">-->
+  <!--<div class="panel-heading">-->
+    <!--<h2 class="panel-title">Event Types</h2>-->
+  <!--</div>-->
+  <!--<div class="panel-body">-->
+    <!--</%= render 'customers/index/search' %>-->
 
-        <tbody>
-        <% @event_types.each do |event_type| %>
-            <tr data-link="<%= event_type_path(event_type) %>">
-              <td><%= event_type.event_type_desc %></td>
-              <td><div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><%= link_to 'Detail', event_type %></li>
-                  <li><%= link_to 'Edit', edit_event_type_path(event_type) %></li>
-                  <li><%= link_to 'Delete', event_type_path(event_type, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
-                </ul>
-              </div></td>
-            </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
+    <!--<div class="imaginary_container">-->
+      <!--<table class="table table-hover">-->
+        <!--<thead>-->
+        <!--<tr>-->
+          <!--<th>Event Type</th>-->
+          <!--<th></th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+
+        <!--<tbody>-->
+        <!--</% @event_types.each do |event_type| %>-->
+            <!--<tr data-link="</%= event_type_path(event_type) %>">-->
+              <!--<td></%= event_type.event_type_desc %></td>-->
+              <!--<td><div class="dropdown">-->
+                <!--<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>-->
+                <!--<ul class="dropdown-menu">-->
+                  <!--<li></%= link_to 'Detail', event_type %></li>-->
+                  <!--<li></%= link_to 'Edit', edit_event_type_path(event_type) %></li>-->
+                  <!--<li></%= link_to 'Delete', event_type_path(event_type, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>-->
+                <!--</ul>-->
+              <!--</div></td>-->
+            <!--</tr>-->
+        <!--</% end %>-->
+        <!--</tbody>-->
+      <!--</table>-->
+    <!--</div>-->
 
 
-  </div>
-</div>
+  <!--</div>-->
+<!--</div>-->
+

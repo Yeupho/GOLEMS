@@ -1,24 +1,30 @@
 class Admin < ApplicationRecord
 
 # =============================
-
+# Graph for top 5 products during the span of 1 month
   def self.MostPopProd5
     Event.where(:event_date => 1.months.ago .. Time.now)
         .joins(:customer_events).joins(:customer_event_products).joins(:products).group(:product_name)
         .sum('customer_event_products.quantity').first(5)
   end
+  # Graph for Numbers attenidng for 1 month
   def self.NumAttending
     Event.group_by_week(:event_date).joins(:customer_events).sum("customer_events.number_in_party")
   end
-
+  # Graph for earned revenue
   def self.EarningsRevenue
     Event.group_by_day(:event_date).where(:event_date => 1.months.ago .. Time.now)
         .joins(:customer_events)
         .joins(:customer_event_products)
         .joins(:products)
-        .sum("(products.product_price * customer_event_products.quantity)+ (customer_events.adults_painting + 10)")
+        .sum("(products.product_price * customer_event_products.quantity)
+            +(customer_events.adults_painting*6)
+            +(customer_events.kids_painting*5)")
   end
-
+  def self.MostEvent
+    EventType.group_by_day(:event_date).where(:event_date => 1.months.ago .. Time.now)
+        .joins(:events).group(:event_type_desc).sum(:event_type_desc)
+  end
   def self.DailyPurchase
     Event.group_by_day(:event_date).where(:event_date => 1.month.ago .. Time.now)
         .joins(:customer_events)

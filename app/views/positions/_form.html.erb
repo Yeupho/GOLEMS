@@ -13,14 +13,14 @@
 
   <div>
     <div class="field">
-      <%= 'Employee Name' %>
+      <%= 'Employee Name: ' %>
       <%= f.collection_select :employee_id,Employee.all, :id, :first_name,class: "form-control" %>
     </div>
   </div>
 
   <div>
     <div class="field">
-      <%= 'Employee Type' %>
+      <%= 'Employee Type: ' %>
       <%= f.collection_select :employee_type_id, EmployeeType.all, :id, :employee_type_desc,class: "form-control" %>
     </div>
   </div>
@@ -30,7 +30,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
       </div>
       <div class="col-lg-4 text-left">
-        <%= f.submit class: "btn btn-primary" %>
+        <%= f.submit class: "btn btn-primary", redirect_to: 'admin#positions_tab' %>
       </div>
     </div>
 <% end %>

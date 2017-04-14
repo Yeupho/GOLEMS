@@ -28,23 +28,25 @@
       <table class="table table-hover">
         <thead>
         <tr>
+          <th>Color</th>
           <th>Color Code</th>
           <th>Color Name</th>
-          <th></th>
+          <th>Action</th>
         </tr>
         </thead>
 
         <tbody>
         <% @colors.each do |color| %>
             <tr data-link="<%= color_path(color) %>">
-              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= color.color_code %>;"><%= color.color_code %></span></td>
+              <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= color.color_code %>;"></span></td>
+              <td><%= color.color_code %></td>
               <td><%= color.color_name %></td>
               <td><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', color %></li>
-                  <li><%= link_to 'Edit', edit_color_path(color) %></li>
-                  <li><%= link_to 'Delete', color_path(color, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
+                  <li><%= link_to 'Edit', edit_color_path(color), 'data-toggle'=>'modal', 'data-target' => '#editModal' %></li>
+                  <li><%= link_to 'Delete', admin_path(color, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' }, redirect_to: '/admin#colors_tab' %></li>
                 </ul>
               </div></td>
             </tr>
@@ -56,3 +58,8 @@
 
   </div>
 </div>
+<script type="text/javascript">
+
+        window.location="/admin#colors_tab";
+
+</script>

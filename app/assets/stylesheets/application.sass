@@ -267,6 +267,81 @@ p
   font-size: 16px
   padding-left: 15px
   padding-right: 15px
+
+/***************************************************/
+/*                  Table Scroll                   */
+/***************************************************/
+.table-fixed thead
+  width: 100%
+
+.table-fixed tbody
+  height: 600px
+  overflow-y: auto
+  width: 100%
+
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th
+  display: block
+
+.table-fixed tbody td, .table-fixed thead > tr> th
+  float: left
+  border-bottom-width: 0
+// Large tables
+
+thead.sctable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+tbody.sctable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+  display: block
+  height: 550px
+  overflow: auto
+tr.sctable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+thead.sctable
+  width: calc( 100% - 1em )
+
+// Status tables
+tbody.scsttable
+  display: block
+  height: 100%
+  overflow: auto
+thead.scsttable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+tbody.scsttable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+tr.scsttable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+thead.scsttable
+  width: calc( 100% - 1em )
 /***************************************************/
 /*              Archive Dropdown                   */
 /***************************************************/

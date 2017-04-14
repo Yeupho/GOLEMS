@@ -1,0 +1,9 @@
+<div class="panel panel-default" style="float:left;margin-top:25px;width:40%">
+  <div class="panel-heading">
+    <h2 class="panel-title">Most Popular (1 Month)</h2>
+  </div>
+  <div class="panel-body">
+
+<%= pie_chart EventType.CountType, legend: "bottom",
+              colors:["#2956A8","#DE4276","#F5D857","#ECECD7","#4D4D4C"], donut: true %>
+  </div></div>

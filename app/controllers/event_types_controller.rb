@@ -32,7 +32,6 @@ class EventTypesController < ApplicationController
         #BEFORE
         # format.html { redirect_to @event_type, notice: 'Event type was successfully created.' }
         # format.json { render :show, status: :created, location: @event_type }
-
         #AFTER
         format.html { redirect_to '/admin#event_types_tab', notice: 'Event type was successfully created.' }
       else
@@ -77,7 +76,7 @@ class EventTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event_type
-      @event_type = EventType.find(params[:id])
+      @event_type = EventType.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
