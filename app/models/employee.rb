@@ -28,9 +28,6 @@ class Employee < ApplicationRecord
     self.first_name + ' ' + self.last_name
   end
 
-  def employee
-    Employee.unscoped { super }
-  end
 
   def self.employees
     Employee.select("employees.id, first_name, last_name, phone, email, employee_status_id")
