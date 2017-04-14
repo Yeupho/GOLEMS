@@ -1,0 +1,34 @@
+<div class="panel panel-default shadow-pane">
+  <div class="panel-heading">
+    <h2 class="panel-title">Today's Hosting Assignments</h2>
+  </div>
+  <div class="panel-body">
+    <div class="imaginary_container">
+      <table class="table table-hover text-center">
+        <thead>
+        <tr class="text-wrap">
+          <th class="col-lg-3 text-center">Host</th>
+          <th class="col-lg-3 text-center">Date</th>
+          <th class="col-lg-3 text-center">Start Time</th>
+          <th class="col-lg-3 text-center">Event</th>
+        </tr>
+        </thead>
+
+        <% unless @employee_list.blank? %>
+            <tbody>
+            <% @employee_list.each do |h| %>
+                <tr class="no-pointer">
+                  <td><%= h.first_name %> <%= h.last_name %></td>
+                  <td><%= h.event_date.strftime("%m/%d/%y") %></td>
+                  <td><%= h.start_time.strftime("%l:%M %p") %></td>
+                  <td><%= h.event_name %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        <% else %>
+            <tr class="no-pointer"><td colspan="4">No Assignments for Today: <%= Date.today.strftime("%B %-d, %Y") %></td></tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

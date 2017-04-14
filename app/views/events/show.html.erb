@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% taxes = 0 %>
+<% customer_total = 0 %>
+<% event_total = 0 %>
+
 <div class="page-header">
   <div class="row">
     <div class="col-lg-8">
@@ -50,7 +54,7 @@
     <h3 style="color: #C33764">Hosts</h3>
 
     <div class="row">
-      <div class="col-lg-2"><h4>Add Hosts:</h4></div>
+      <div class="col-lg-3"><h4>Add Hosts:</h4></div>
       <%= render 'events/show/hosts_form' %>
     </div>
 
@@ -83,19 +87,11 @@
     <th class="col-lg-1 text-center">Visitors</th>
     <th class="col-lg-1 text-center">Number in party</th>
     <th class="col-lg-2 text-center">Customer Total</th>
-    <th class="col-lg-1 text-center">Actions</th>
+    <th class="col-lg-1 text-center">Action</th>
   </tr>
   </thead>
   <tbody id="customer_events">
-  <% event_total = 0 %>
-  <% taxes = 0 %>
-  <% customer_total = 0 %>
   <% @customer_events.each do |customer_event| %>
-      <% @customer_total.where("customer_events.id = ?", customer_event).each do |t| %>
-          <% customer_total = t.sales.to_f %>
-          <% taxes = (customer_total * 825)/10000 %>
-          <% event_total = event_total + customer_total + taxes %>
-      <% end %>
       <% visitor =  customer_event.number_in_party - (customer_event.kids_painting + customer_event.adults_painting) %>
       <tr data-link="<%= customer_event_path(customer_event) %>" class="clickable-row" id="customer_event_<%= customer_event.id %>">
         <td><%= customer_event.first_name %> <%= customer_event.last_name %></td>
@@ -103,11 +99,19 @@
         <td><%= customer_event.adults_painting %></td>
         <td><%= visitor %></td>
         <td><%= customer_event.number_in_party %></td>
-        <td><%=  number_to_currency(customer_total + taxes) %></td>
+        <td>
+          <% @customer_total.where("customer_events.id = ?", customer_event).each do |t| %>
+              <% studio_fee = (customer_event.kids_painting.to_i * 5) + (customer_event.adults_painting.to_i * 6) %>
+              <% customer_total = t.sales.to_f + studio_fee %>
+              <% taxes = (customer_total * 825)/10000 %>
+              <% event_total = event_total + customer_total + taxes %>
+          <% end %>
+          <%=  number_to_currency(customer_total + taxes) %>
+        </td>
         <td><div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Archive', customer_event_path(customer_event, type: :normal),method: :delete,class: ' ', data: { confirm: 'Remove this customer?' } %></li>
+            <li><%= link_to 'Delete', customer_event_path(customer_event, type: :normal),method: :delete,class: ' ', data: { confirm: 'Remove this customer?' } %></li>
           </ul>
         </div></td>
       </tr>

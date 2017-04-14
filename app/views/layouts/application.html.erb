@@ -13,7 +13,7 @@
 <div id="wrapper">
   <% if user_signed_in? %>
       <div id="sidebar-wrapper">
-        <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-home"><br>Logo</span>'.html_safe %></div>
+        <div class="sidebar-logo text-center"><%= link_to '<span class="glyphicon glyphicon-home"><br>Logo</span>'.html_safe %></div>
         <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-stats"><br>Dashboard</span>'.html_safe, dashboards_path%></div>
         <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-calendar"><br>Event</span>'.html_safe, events_path, method: :get %></div>
         <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-list-alt"><br>Walk-In</span>'.html_safe, walk_ins_path, method: :get %></div>

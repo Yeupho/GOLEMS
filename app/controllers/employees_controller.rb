@@ -15,7 +15,7 @@ class EmployeesController < ApplicationController
   # GET /employees/1
   # GET /employees/1.json
   def show
-    @past_assignments = EmployeeEvent.past_assignments.where("employees.id = ?", params[:id])
+    @past_assignments = EmployeeEvent.past_assignments.where("employees.id = ?", params[:id]).limit(5)
     @upcoming_assignments = Event.upcoming_assignments.where("employees.id = ?", params[:id])
     @co_host = Employee.co_host.where("employees.id <> ?", params[:id])
     @position = Position.new
@@ -40,7 +40,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
+        format.html { redirect_to :back, notice: 'Employee was successfully Added.' }
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new }

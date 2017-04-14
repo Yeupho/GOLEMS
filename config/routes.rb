@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   get 'admin/tabs/colors' => 'admin#colortab'
 
+  get 'customers/all_transactions' => 'customers#all_transactions'
 
   match '/customer_events/create' => 'customer_events#create', via: [:get, :post], :as => :create_customer_event
 

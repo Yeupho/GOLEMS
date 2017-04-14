@@ -33,7 +33,6 @@ body
   padding-right: 0 !important
   padding-left: 15px !important
 
-
 .footer
   padding: 15px
   border-top: 1px solid #E5E5E5
@@ -124,7 +123,7 @@ body
 #sidebar-wrapper
   z-index: 1
   position: absolute
-  min-width: 8%
+  width: 8%
   height: 100%
   overflow-y: hidden
   background: linear-gradient(to bottom, #1D2671, #C33764)
@@ -132,7 +131,7 @@ body
   margin: 0
 
 .sidebar-item
-  height: 10%
+  height: 9%
   display: flex
   justify-content: center
   align-items: center
@@ -142,11 +141,22 @@ body
     display: block
     text-decoration: none
     color: $white-smoke
+    &:hover
+      color: $white-smoke
 
 .sidebar-logo
-  padding-top: 30px
-  padding-bottom: 20px
-  color: $white-smoke
+  height: 14%
+  display: flex
+  justify-content: center
+  align-items: center
+  &:hover
+    opacity: .6
+  a
+    display: block
+    text-decoration: none
+    color: $white-smoke
+    &:hover
+      color: $white-smoke
 
 /***************************************************/
 /*                    SEARCH BAR                   */
@@ -256,11 +266,11 @@ ul.ui-autocomplete
   font-size: 16px !important
 
 p
-  margin-top: 10px
+  margin-top: 5px
   margin-bottom: 5px
 
 .note-header
-  border-bottom: 1px solid #4281A4
+  border-bottom: 1px solid #C33764
 
 .note-body
   font-size: 16px
@@ -352,7 +362,7 @@ thead.scsttable
   padding-right: 50px
 
 .tab-spacing
-  margin-top: 10px
+  margin-top: 16px
   margin-bottom: 0px
 /***************************************************/
 /*              Reports Padding                    */
@@ -389,9 +399,6 @@ thead.scsttable
   width: 200px
 .container .two-thirds.column
   width: 620px
-
-
-
 
 .btn-primary
   background: #C33764
@@ -442,7 +449,7 @@ tbody > tr
   font-weight: bold !important
 
 .line-up
-  margin-left: 15px
+  margin-right: 15px
   margin-bottom: 18px
 
 h3
@@ -455,3 +462,29 @@ h3
 
 .no-margin-bottom
   margin-bottom: 0px
+
+a
+  text-decoration: none
+  color: inherit
+  &:hover
+    color: inherit
+
+.view-more
+  margin: 0
+  text-decoration: underline
+  &:hover
+    opacity: .6
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus
+  background: #C33764
+  border-color: #C33764
+
+.pagination > li > a, .pagination > li > span
+  color: #C33764
+
+.page-header
+  margin-top: 10px !important
+  margin-bottom: 10px !important
+
+h2
+  margin-top: 10px !important

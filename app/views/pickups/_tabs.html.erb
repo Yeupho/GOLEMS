@@ -2,33 +2,33 @@
 <ul class="nav nav-tabs text-center" role="tablist">
   <li class="tab-header"><h1  class="tab-spacing"><%= link_to 'Pick-Up', pickups_path, style: "color: #C33764" %></h1></li>
   <li role="presentation" class="active"><a href="#progress" role="tab" data-toggle="tab">
-    <span class="glyphicon glyphicon-fire"></span>
+    <span class="glyphicon glyphicon-fire" style="color: #d9534f"></span>
     <br>
     In-Progress
     <% if @progress_count.any? %>
-        <span class="badge"><%= @progress_count.count %></span>
+        <span class="badge" style="background-color: #d9534f"><%= @progress_count.count %></span>
     <% else %>
-        <span class="badge">0</span>
+        <span class="badge" style="background-color: #d9534f">0</span>
     <% end %>
   </a></li>
   <li role="presentation"><a href="#ready" role="tab" data-toggle="tab">
-    <span class="glyphicon glyphicon-gift" class="tab2"></span>
+    <span class="glyphicon glyphicon-gift" style="color: #f0ad4e"></span>
     <br>
     Ready
     <% if @ready_count.any? %>
-        <span class="badge"><%= @ready_count.count %></span>
+        <span class="badge" style="background-color: #f0ad4e"><%= @ready_count.count %></span>
     <% else %>
         <span class="badge">0</span>
     <% end %>
   </a></li>
   <li role="presentation"><a href="#picked_up" role="tab" data-toggle="tab">
-    <span class="glyphicon glyphicon-ok-circle"></span>
+    <span class="glyphicon glyphicon-ok-circle" style="color: #5cb85c"></span>
     <br>
     Picked-Up
     <% if @picked_up_count.any? %>
-        <span class="badge"><%= @picked_up_count.count %></span>
+        <span class="badge" style="background-color: #5cb85c"><%= @picked_up_count.count %></span>
     <% else %>
-        <span class="badge">0</span>
+        <span class="badge" style="background-color: #5cb85c">0</span>
     <% end %>
   </a></li>
 </ul>
