@@ -17,9 +17,9 @@ class Event < ApplicationRecord
   def self.upcoming_assignments
     Event.select("employee_events.event_id, event_name, event_date, start_time, end_time, employees.employee_status_id")
         .joins(employee_events: :employee)
-        .where("events.event_date >= ?", Date.today)
-        .order("events.event_date ASC")
-        .order("events.start_time ASC")
+        .where("event_date >= ?", Date.today)
+        .order("event_date ASC")
+        .order("start_time ASC")
   end
 
   def self.event_list
@@ -33,5 +33,9 @@ class Event < ApplicationRecord
 
   def self.find_walk_in
     Event.select("events.id").where("events.event_date = ?", Date.today).where("events.event_type_id = '7'")
+  end
+  
+  def self.upcoming_count
+    Event.joins(employee_events: :employee).where("event_date >= ?", Date.today)
   end
 end

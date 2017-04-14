@@ -61,16 +61,13 @@
 
     <br>
 
-    <div class="row">
-      <% @employee.positions.each do |p| %>
-          <div class="col-lg-3 text-left">
-            <%= button_to position_path(p, type: :normal),method: :delete, data: { confirm: 'Remove position?' }, class: 'btn btn-default btn-lg show-btn' do %>
-                <span class="glyphicon glyphicon-remove-sign" style="color: red"></span>
-                <%= p.employee_type.employee_type_desc %>
-            <% end %>
-          </div>
-      <% end %>
-    </div>
+    <% @employee.positions.each do |p| %>
+        <%= link_to position_path(p, type: :normal),method: :delete, data: { confirm: 'Remove position?' }, class: 'btn btn-default btn-lg show-btn line-up' do %>
+            <span class="glyphicon glyphicon-remove-sign" style="color: red"></span>
+            <%= p.employee_type.employee_type_desc %>
+        <% end %>
+    <% end %>
+
   </div>
 </div>
 

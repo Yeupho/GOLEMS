@@ -47,6 +47,7 @@ class CustomerEventProduct < ApplicationRecord
         .joins(:pickup_status)
         .order("events.event_date DESC")
         .where(pickup_status_id: '3')
+        .where("events.event_date > ?", (Date.today - 1.month))
   end
 
   def self.transactions
@@ -76,12 +77,22 @@ class CustomerEventProduct < ApplicationRecord
         .order("customers.first_name ASC, customers.last_name ASC")
   end
   def self.pickup_picked
-    CustomerEventProduct.select("customer_event_products.id, customers.first_name, customers.last_name, customers.phone, products.product_name, quantity, colors.color_code, events.event_name, events.event_date, events.start_time, pickup_status_id")
+    CustomerEventProduct.select("customer_event_products.id, customers.first_name, customers.last_name, customers.phone, products.product_name, quantity, colors.color_code, events.event_name, events.event_date, events.start_time, pickup_status_id, customer_event_products.updated_at")
         .joins(:product)
         .joins(customer_event: :customer)
         .joins(customer_event: {event: :color})
         .where(pickup_status_id: 3)
         .where("events.event_date > ?", (Date.today - 1.month))
-        .order("events.event_date DESC")
+        .order("customer_event_products.updated_at DESC")
+  end
+
+  def self.progress_count
+    CustomerEventProduct.joins(customer_event: :customer).where("pickup_status_id = '1'")
+  end
+  def self.ready_count
+    CustomerEventProduct.joins(customer_event: :customer).where("pickup_status_id = '2'").joins(customer_event: :event)
+  end
+  def self.picked_up_count
+    CustomerEventProduct.joins(customer_event: :customer).joins(customer_event: :event).where("pickup_status_id = '3'").where("events.event_date > ?", (Date.today - 1.month))
   end
 end

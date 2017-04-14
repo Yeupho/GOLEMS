@@ -4,6 +4,11 @@
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Upcoming Event Assignments
+          <% if @upcoming_count.any? %>
+              <span class="badge"><%= @upcoming_count.count %></span>
+          <% else %>
+              <span class="badge">0</span>
+          <% end %>
         </a>
       </h4>
     </div>
