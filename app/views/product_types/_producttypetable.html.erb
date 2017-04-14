@@ -35,8 +35,8 @@
       <table class="scshtable">
         <thead class="scshtable">
         <tr>
-          <th class="col-lg-5">Product type desc</th>
-          <th class="col-lg-5"Action></th>
+          <th class="col-lg-5">Product Type Name </th>
+          <th class="col-lg-4">Action</th>
         </tr>
         </thead>
 
@@ -44,7 +44,7 @@
         <% @product_types.each do |product_type| %>
             <tr class="scshtable" data-link="<%= product_type_path(product_type) %>">
               <td class="col-lg-5"><%= product_type.product_type_desc %></td>
-              <td class="col-lg-5"><div class="dropdown">
+              <td class="col-lg-4"><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', product_type %></li>

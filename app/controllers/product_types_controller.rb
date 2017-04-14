@@ -19,6 +19,7 @@ class ProductTypesController < ApplicationController
 
   # GET /product_types/1/edit
   def edit
+
   end
 
   # POST /product_types
@@ -28,7 +29,7 @@ class ProductTypesController < ApplicationController
 
     respond_to do |format|
       if @product_type.save
-        format.html { redirect_to @product_type, notice: 'Product type was successfully created.' }
+        format.html { redirect_to '/admin#products_tab' }
         format.json { render :show, status: :created, location: @product_type }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class ProductTypesController < ApplicationController
   def update
     respond_to do |format|
       if @product_type.update(product_type_params)
-        format.html { redirect_to @product_type, notice: 'Product type was successfully updated.' }
+        format.html { redirect_to '/admin#products_tab'  }
         format.json { render :show, status: :ok, location: @product_type }
       else
         format.html { render :edit }

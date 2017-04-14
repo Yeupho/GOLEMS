@@ -8,13 +8,13 @@ class Employee < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :zipcode, presence: true
-  has_many :employee_events
-  has_many :positions
+  has_many :employee_events, -> { with_deleted }
+  has_many :positions, -> { with_deleted }
   has_many :employee_types, :through => :positions
   has_many :events, :through => :employee_events
-  belongs_to :employee_status
-  belongs_to :state
-  belongs_to :country
+  belongs_to :employee_status, -> { with_deleted }
+  belongs_to :state, -> { with_deleted }
+  belongs_to :country, -> { with_deleted }
 
   def set_defaults
     self.employee_status_id ||= 1
@@ -22,6 +22,10 @@ class Employee < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def full_name2
+    self.first_name + ' ' + self.last_name
   end
 
   def self.employees

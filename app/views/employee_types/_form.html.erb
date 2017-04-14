@@ -12,8 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :employee_type_desc %>
-    <%= f.text_field :employee_type_desc %>
+    <%= f.label 'Enter a new Employee Type' %>
+    <div style="width:200px"><%= f.text_field :employee_type_desc, class: 'form-control' %>
+    </div>
+
   </div>
 
     <br>

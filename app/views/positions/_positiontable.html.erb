@@ -36,9 +36,9 @@
         </thead>
 
         <tbody class="sctable">
-        <% @positions.without_deleted.each do |position| %>
+        <% @positions.with_deleted.each do |position| %>
             <tr class="sctable" data-link="<%= position_path(position) %>">
-              <td class="col-lg-5"><%= position.employee.first_name %></td>
+              <td class="col-lg-5"><%= position.employee.full_name2 %></td>
               <td class="col-lg-4"><%= position.employee_type.employee_type_desc %></td>
               <td class="col-lg-4"><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
