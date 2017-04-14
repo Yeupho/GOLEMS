@@ -16,7 +16,10 @@
         <td><%= customer.last_name %></td>
         <td><%= number_to_phone(customer.phone, area_code: true) %></td>
         <td><%= customer.email %></td>
-        <td><%= link_to 'Restore', customer_path(customer, type: :restore),method: :delete,class: 'btn btm-mini btn-warning', data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Restore', customer_path(customer, type: :restore),
+                        method: :delete,class: 'btn btm-mini btn-warning',
+                        data: { confirm: 'Are you sure?' },
+                        redirect_to: '/admin#customers_tab1' %></td>
       </tr>
   <% end %>
   </tbody>

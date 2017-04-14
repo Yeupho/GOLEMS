@@ -28,7 +28,7 @@ class CountriesController < ApplicationController
 
     respond_to do |format|
       if @country.save
-        format.html { redirect_to @country }
+        format.html { redirect_to '/admin#locations_tab' }
         format.json { render :show, status: :created, location: @country }
       else
         format.html { render :new }
@@ -61,9 +61,9 @@ class CountriesController < ApplicationController
       @country.restore
       @country.update(deleted_at: nil)
     end
-    @country.destroy
+
     respond_to do |format|
-      format.html { redirect_to countries_url }
+      format.html { redirect_to '/admin#locations_tab' }
       format.json { head :no_content }
     end
   end

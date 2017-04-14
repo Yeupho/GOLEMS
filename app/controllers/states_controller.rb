@@ -28,7 +28,7 @@ class StatesController < ApplicationController
 
     respond_to do |format|
       if @state.save
-        format.html { redirect_to @state }
+        format.html { redirect_to '/admin#locations_tab' }
         format.json { render :show, status: :created, location: @state }
       else
         format.html { render :new }
@@ -62,9 +62,8 @@ class StatesController < ApplicationController
       @state.update(deleted_at: nil)
     end
 
-    @state.destroy
     respond_to do |format|
-      format.html { redirect_to states_url }
+      format.html { redirect_to '/admin#locations_tab' }
       format.json { head :no_content }
     end
   end

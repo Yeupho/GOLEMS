@@ -62,9 +62,9 @@ class ProductTypesController < ApplicationController
       @product_type.restore
       @product_type.update(deleted_at: nil)
     end
-    @product_type.destroy
+
     respond_to do |format|
-      format.html { redirect_to product_types_url, notice: 'Product type was successfully destroyed.' }
+      format.html { redirect_to '/admin#products_tab' }
       format.json { head :no_content }
     end
   end

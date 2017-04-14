@@ -9,8 +9,8 @@ class Customer < ApplicationRecord
   has_many :customer_events
   has_many :events, :through => :customer_events
   belongs_to :customer_status
-  belongs_to :state
-  belongs_to :country
+  belongs_to :state,-> { with_deleted }
+  belongs_to :country,-> { with_deleted }
 
   def self.search(search)
     if search
@@ -33,6 +33,7 @@ class Customer < ApplicationRecord
         .where("customer_status_id = '1'")
         .order("updated_at DESC, created_at DESC")
   end
+
 end
 
 
