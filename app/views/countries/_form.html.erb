@@ -11,25 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :country_name %>
-    <%= f.text_field :country_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :country_abbrev %>
-    <%= f.text_field :country_abbrev %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-    <div class="row footer">
-      <div class="col-lg-3 col-lg-offset-5 text-right">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+    <div style="width:300px;">
+      <div class="field">
+        <%= f.label :country_name %>
+        <%= f.text_field :country_name, class: 'form-control' %>
       </div>
+
+      <div class="field">
+        <%= f.label :country_abbrev %>
+        <%= f.text_field :country_abbrev, class: 'form-control' %>
+      </div>
+      <br>
+    </div>
+
+
+    <div class="row footer">
+
       <div class="col-lg-4 text-left">
-        <%= f.submit class: "btn btn-primary" %>
+        <%= f.submit class: "btn btn-primary", redirect_to: '/admin' %>
       </div>
     </div>
 <% end %>

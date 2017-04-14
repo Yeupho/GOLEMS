@@ -27,18 +27,18 @@
 
     <div class="imaginary_container">
       <table class="sctable">
-        <thead>
+        <thead class="sctable">
         <tr>
-          <th class="col-lg-5">Employee type desc</th>
-          <th class="col-lg-5">Action</th>
+          <th class="col-lg-5">Employee Type Name</th>
+          <th class="col-lg-2">Action</th>
         </tr>
         </thead>
 
-        <tbody>
+        <tbody class="sctable">
         <% @employee_types.each do |employee_type| %>
-            <tr data-link="<%= employee_type_path(employee_type) %>">
+            <tr class="sctable" data-link="<%= employee_type_path(employee_type) %>">
               <td class="col-lg-5"><%= employee_type.employee_type_desc %></td>
-              <td class="col-lg-5"><div class="dropdown">
+              <td class="col-lg-2"><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', employee_type %></li>

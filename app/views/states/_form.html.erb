@@ -11,26 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :state_name %>
-    <%= f.text_field :state_name %>
-  </div>
+  <div style="margin-left:50px;width:200px;">
+    <div class="table">
+      <%= f.label :state_name %>
+      <div class="row"> <%= f.text_field :state_name, class: 'form-control' %></div>
+    </div>
 
-  <div class="field">
-    <%= f.label :state_abbrev %>
-    <%= f.text_field :state_abbrev %>
-  </div>
+    <div class="table">
+      <%= f.label :state_abbrev %>
+      <div class="row"><%= f.text_field :state_abbrev, class: 'form-control' %></div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
   </div>
 
     <div class="row footer">
-      <div class="col-lg-3 col-lg-offset-5 text-right">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-      </div>
+
       <div class="col-lg-4 text-left">
-        <%= f.submit class: "btn btn-primary" %>
+        <%= f.submit class: "btn btn-primary", redirect_to: '/admin#locations_tab' %>
       </div>
     </div>
 <% end %>

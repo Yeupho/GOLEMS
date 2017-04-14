@@ -14,7 +14,7 @@
 
     <div class="imaginary_container">
       <table class="sctable">
-        <thead>
+        <thead class="sctable">
         <tr>
           <th class="col-lg-5">State Name</th>
           <th class="col-lg-5">State Abbrev.</th>
@@ -22,10 +22,10 @@
         </tr>
         </thead>
 
-        <tbody>
+        <tbody class="sctable">
         <% @states.each do |state| %>
             <div class="row">
-              <tr data-link="<%= state_path(state) %>">
+              <tr class="sctable" data-link="<%= state_path(state) %>">
                 <td class="col-lg-5"><%= state.state_name %></td>
                 <td class="col-lg-5"><%= state.state_abbrev %></td>
                 <td class="col-lg-5 col-lg-offset-1"><div class="dropdown">

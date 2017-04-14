@@ -13,7 +13,7 @@
 
     <div class="imaginary_container">
       <table class="sctable">
-        <thead>
+        <thead class="sctable">
         <tr>
           <th class="col-lg-5">Country name</th>
           <th class="col-lg-5">Country abbrev</th>
@@ -21,9 +21,9 @@
         </tr>
         </thead>
 
-        <tbody>
+        <tbody class="sctable">
         <% @countries.each do |country| %>
-            <tr data-link="<%= country_path(country) %>">
+            <tr class="sctable" data-link="<%= country_path(country) %>">
               <td class="col-lg-5"><%= country.country_name %></td>
               <td class="col-lg-5"><%= country.country_abbrev %></td>
               <td class="col-lg-5"><div class="dropdown">
