@@ -47,13 +47,13 @@
               <td class="col-lg-4"><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><%= link_to 'Detail', product_type %></li>
                   <li><%= link_to 'Edit', edit_product_type_path(product_type) %></li>
                   <li><%= link_to 'Delete', product_type_path(product_type, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div></td>
             </tr>
         <% end %>
+        <br>
         </tbody>
       </table>
     </div>
