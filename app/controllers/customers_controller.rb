@@ -36,6 +36,7 @@ class CustomersController < ApplicationController
   end
 
   def all_transactions
+    @all_transactions = CustomerEventProduct.transactions
   end
 
   # POST /customers
@@ -86,6 +87,23 @@ class CustomersController < ApplicationController
     end
   end
 
+  # DELETE /customers/1
+  # DELETE /customers/1.json
+  def delete_index
+    @customer = Customer.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @customer.delete
+    elsif params[:type]=='restore'
+      @customer.restore
+      @customer.update(deleted_at: nil)
+    end
+
+    @customer.destroy
+    respond_to do |format|
+      format.html { redirect_to customers_path, notice: 'Customer was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

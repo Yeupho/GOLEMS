@@ -18,7 +18,7 @@
           <th class="col-lg-3 text-center">Email</th>
           <th class="col-lg-1 text-center">In Progress</th>
           <th class="col-lg-2 text-center">Ready for Pick-Up</th>
-          <th class="col-lg-1 text-center">Actions</th>
+          <th class="col-lg-1 text-center">Action</th>
         </tr>
         </thead>
 
@@ -44,7 +44,7 @@
               </td>
               <td><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-                <ul class="dropdown-menu"><li><%= link_to 'Delete', customer_path(customer, type: :normal),method: :delete,class: ' ', data: { confirm: 'Remove this customer?' } %></li></ul>
+                <ul class="dropdown-menu"><li><%= link_to 'Delete', delete_customer_index_path(id: customer.id, type: :normal),method: :delete,class: ' ', data: { confirm: 'Remove this customer?' } %></li></ul>
               </div></td>
             </tr>
         <% end %>

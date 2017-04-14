@@ -27,6 +27,8 @@ Rails.application.routes.draw do
 
   get 'customers/all_transactions' => 'customers#all_transactions'
 
+  get 'employees/all_assignments' => 'employees#all_assignments'
+
   match '/customer_events/create' => 'customer_events#create', via: [:get, :post], :as => :create_customer_event
 
   get '/customers/search' => 'customers#search', :as => :search_customer
@@ -38,6 +40,8 @@ Rails.application.routes.draw do
   post '/employee_events/create' => 'employee_events#create', :as => :create_host
 
   post '/customer_event_products/create' => 'customer_event_products#create', :as => :create_product
+
+  delete '/customers/delete_index' => 'customers#delete_index', :as => :delete_customer_index
 
   devise_for :users, controllers: { registrations: 'registrations' }
 

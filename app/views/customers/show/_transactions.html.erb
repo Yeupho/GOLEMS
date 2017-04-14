@@ -16,7 +16,7 @@
 
         <tbody>
         <h4 class="text-right view-more">
-          <%= link_to 'view more', customers_all_transactions_path %>
+          <%= link_to 'view all', customers_all_transactions_path(customer: @customer.id) %>
         </h4>
         <% @transactions.each do |t| %>
             <tr data-link="<%= customer_event_path(t) %>" class="clickable-row">

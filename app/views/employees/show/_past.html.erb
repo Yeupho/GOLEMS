@@ -14,6 +14,9 @@
     </thead>
 
     <tbody>
+    <h4 class="text-right view-more">
+      <%= link_to 'view all', employees_all_assignments_path(employee: @employee.id) %>
+    </h4>
     <% running_total = 0 %>
     <% @past_assignments.each do |h| %>
         <% running_total = running_total + (h.number_in_party - h.kids_painting - h.adults_painting) %>

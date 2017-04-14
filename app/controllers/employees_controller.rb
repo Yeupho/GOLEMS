@@ -24,13 +24,9 @@ class EmployeesController < ApplicationController
     @upcoming_count = Event.upcoming_count.where("employees.id = ?", params[:id])
   end
 
-  # GET /employees/new
-  def new
-    @employee = Employee.new
-  end
-
-  # GET /employees/1/edit
-  def edit
+  def all_assignments
+    @all_assignments = EmployeeEvent.past_assignments
+    @co_host = Employee.co_host
   end
 
   # POST /employees
@@ -76,7 +72,7 @@ class EmployeesController < ApplicationController
 
     @employee.destroy
     respond_to do |format|
-      format.html { redirect_to employees_url, notice: 'Employee was successfully Archived.' }
+      format.html { redirect_to employees_path, notice: 'Employee was successfully Archived.' }
       format.json { head :no_content }
     end
   end

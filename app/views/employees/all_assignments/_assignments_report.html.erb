@@ -1,0 +1,45 @@
+<div class="panel panel-default shadow-pane">
+  <div class="panel-heading">
+    <h2 class="panel-title">Assignments History</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover text-center">
+      <thead>
+      <tr>
+        <th class="col-lg-3 text-center">Event</th>
+        <th class="col-lg-1 text-center">Date</th>
+        <th class="col-lg-2 text-center">Time</th>
+        <th class="col-lg-1 text-center">Kids</th>
+        <th class="col-lg-1 text-center">Adults</th>
+        <th class="col-lg-1 text-center">Visitors</th>
+        <th class="col-lg-1 text-center">Event Size</th>
+        <th class="col-lg-2 text-center">Co-Host</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% running_total = 0 %>
+      <% @all_assignments.where("employees.id = ?", params[:employee]).each do |h| %>
+          <% running_total = running_total + (h.number_in_party - h.kids_painting - h.adults_painting) %>
+          <tr class="no-pointer">
+            <td><%= h.event_name %></td>
+            <td><%= h.event_date.strftime("%m/%d/%y") %></td>
+            <td><%= h.start_time.strftime("%l:%M %p") %> - <%= h.end_time.strftime("%l:%M %p") %></td>
+            <td><%= h.kids_painting %></td>
+            <td><%= h.adults_painting %></td>
+            <td><%= running_total %></td>
+            <td><%= h.number_in_party %></td>
+            <td>
+              <% @co_host.where("events.id = ?", h.event_id).where("employees.id <> ?", params[:employee]).each do |e| %>
+                  <div class="row">
+                    <%= e.first_name %> <%= e.last_name %>
+                  </div>
+              <% end %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
