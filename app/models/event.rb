@@ -15,7 +15,8 @@ class Event < ApplicationRecord
   end
 
   def self.calendar
-    Event.select("events.id, event_name, event_date || ' ' || start_time AS date, colors.color_code").joins(:color).where("events.event_type_id <> '7'")
+    Event.select("events.id, event_name, event_date || ' ' || start_time AS date, colors.color_code")
+        .joins(:color).where("events.event_type_id <> '7'")
   end
 
   def self.upcoming_assignments
