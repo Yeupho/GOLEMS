@@ -41,7 +41,9 @@ class Admin < ApplicationRecord
     #     .joins(:customer_event_products)
     #     .joins(:products)
     #     .sum("(products.product_price * customer_event_products.quantity)+ (customer_events.adults_painting + 10)")
-    Event.find_by_sql('SELECT e.event_name, e.event_date, (prod.product_price * cep.quantity) as revenue
+    Event.find_by_sql('SELECT e.event_name, e.event_date,
+          ((prod.product_price * cep.quantity)+(ce.adults_painting*6)+(ce.kids_painting*5)
+            +((prod.product_price * cep.quantity)*.0825) + ((ce.adults_painting*6)*0.085) + ((ce.kids_painting*5)*0.0825)) as revenue
           FROM events e JOIN customer_events ce on e.id = ce.event_id
           JOIN customer_event_products cep ON ce.id=cep.customer_event_id
           JOIN products prod on prod.id = cep.product_id order by revenue desc').first(5)
