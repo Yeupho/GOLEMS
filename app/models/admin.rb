@@ -102,6 +102,7 @@ class Admin < ApplicationRecord
         .joins(:customer_event_products)
         .sum("customer_events.number_in_party")
   end
+
   # Query to view the number of products sold during the past week
   def self.productsold
     Event.where(:event_date => 1.week.ago .. Time.now)
