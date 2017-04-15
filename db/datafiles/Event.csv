@@ -11,7 +11,7 @@ Spring Is Coming,2017-02-27,2:00 PM,4:00 PM,1,4,2,Bright Flowery colors
 Monster Camp,2017-03-14,10:00 AM,12:00 PM,6,20,2,Monster Inc Theme Party
 Monster Camp,2017-03-15,10:00 AM,12:00 PM,6,10,2,Monster Inc Theme Party
 Ladies Night Out,2017-03-24,7:00 PM,9:00 PM,1,7,2,Collect Mixers and Snacks
-Ladies Night Out,2017-03-31,7:00 PM,9:00 PM,1,15,2,Collect Mixers and Snacks
+Ladies Night Out,2017-03-31,7:00 PM,9:00 PM,1,50,2,Collect Mixers and Snacks
 Ladies Night Out,2017-04-07,7:00 PM,9:00 PM,1,25,2,Collect Mixers and Snacks
 Johnny's Party,2017-01-24,12:00 PM,1:30 PM,2,20,2,
 Sam's Party,2017-02-12,12:00 PM,1:30 PM,3,22,2,
@@ -277,9 +277,9 @@ Memorial Day,2017-05-29,7:00 PM,9:00 PM,1,17,1,
 Xylus Bday,2017-05-06,2:00 PM,4:00 PM,3,6,1,
 Austin Bday,2017-05-20,5:00 PM,7:00 PM,2,20,1,
 Mother's Day,2017-05-14,10:00 AM,12:00 PM,1,14,1,
-Mother's Day,2017-05-15,1:00 PM,3:00 PM,1,15,1,
-Mother's Day,2017-05-16,4:00 PM,6:00 PM,1,16,1,
-Mother's Day,2017-05-17,7:00 PM,9:00 PM,1,18,1,
+Mother's Day,2017-05-14,1:00 PM,3:00 PM,1,15,1,
+Mother's Day,2017-05-14,4:00 PM,6:00 PM,1,16,1,
+Mother's Day,2017-05-14,7:00 PM,9:00 PM,1,18,1,
 That Special Grad,2017-05-13,10:00 AM,12:00 PM,1,13,1,
 That Special Grad,2017-05-14,10:00 AM,12:00 PM,1,14,1,
 Father's Day,2017-06-18,10:00 AM,12:00 PM,1,18,1,
