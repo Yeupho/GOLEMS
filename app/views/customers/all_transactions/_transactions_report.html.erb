@@ -20,8 +20,9 @@
             <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= t.color_code %>;"></span></td>
             <td><%= t.event_date.strftime("%m/%d/%y") %></td>
             <td>
+              <% sales = @transaction_total.where("customer_events.id = ?", t.id).collect{|m| m.sales}.join("").to_f %>
               <% studio_fee = (t.kids_painting.to_i * 5) + (t.adults_painting.to_i * 6) %>
-              <% customer_total = t.sales.to_f + studio_fee %>
+              <% customer_total = sales + studio_fee %>
               <% taxes = (customer_total * 825)/10000 %>
               <%= number_to_currency(customer_total + taxes) %>
             </td>

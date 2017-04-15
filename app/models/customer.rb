@@ -33,12 +33,6 @@ class Customer < ApplicationRecord
         .where("customer_status_id = '1'")
         .order("first_name ASC")
   end
-
-  def self.total_spending
-    Customer.select("sum(products.product_price * customer_event_products.quantity) AS sales, (customer_events.kids_painting * 5) AS kids, (customer_events.adults_painting * 6) AS adults, customer_status_id")
-        .joins(customer_events: {customer_event_products: :product})
-        .group("customer_events.kids_painting, customer_events.adults_painting, customer_status_id")
-  end
 end
 
 

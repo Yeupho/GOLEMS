@@ -50,15 +50,6 @@ class CustomerEventProduct < ApplicationRecord
         .where("events.event_date > ?", (Date.today - 1.month))
   end
 
-  def self.transactions
-    CustomerEvent.select("customer_events.id, events.event_name, colors.color_code, events.event_date, kids_painting, adults_painting, sum(products.product_price * customer_event_products.quantity) AS sales")
-        .joins(:customer)
-        .joins(event: :color)
-        .joins(customer_event_products: :product)
-        .group("customer_events.id, events.event_name, colors.color_code, events.event_date, kids_painting, adults_painting")
-        .order("events.event_date DESC")
-  end
-
   def self.pickup_progress
     CustomerEventProduct.select("customer_event_products.id, customers.first_name, customers.last_name, customers.phone, products.product_name, quantity, colors.color_code, events.event_name, events.event_date, events.start_time, pickup_status_id")
         .joins(:product)

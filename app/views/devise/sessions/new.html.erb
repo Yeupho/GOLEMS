@@ -4,11 +4,9 @@
 
         <div class="item">
 
-<%= render "devise/shared/links" %>
-
           <div class="content">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="logo"></div>
+                <div class="logo"><%= image_tag 'golems.svg' %></div>
 
                 <div class="input-group input-group-2">
                   <span class="input-group-addon input-group-addon-2 glyphicon glyphicon-envelope" aria-hidden="true"></span>
@@ -33,6 +31,7 @@
             <% end %>
           </div>
 
+          <div class="row"><div class="col-lg-8 col-lg-offset-2"><%= render "devise/shared/links" %></div></div>
 
         </div>
     </div>

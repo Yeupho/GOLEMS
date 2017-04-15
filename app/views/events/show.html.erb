@@ -3,6 +3,9 @@
 <% taxes = 0 %>
 <% customer_total = 0 %>
 <% event_total = 0 %>
+<% total_kids = 0 %>
+<% total_adults = 0 %>
+<% total_party = 0 %>
 
 <div class="page-header">
   <div class="row">
@@ -52,7 +55,6 @@
 
   <div class="col-lg-6">
     <h3 style="color: #C33764">Hosts</h3>
-
     <div class="row">
       <div class="col-lg-3"><h4>Add Hosts:</h4></div>
       <%= render 'events/show/hosts_form' %>
@@ -66,7 +68,6 @@
             <%= h.first_name %> <%= h.last_name %>
         <% end %>
     <% end %>
-
   </div>
 </div>
 
@@ -92,6 +93,9 @@
   </thead>
   <tbody id="customer_events">
   <% @customer_events.each do |customer_event| %>
+      <% total_kids = total_kids + customer_event.kids_painting %>
+      <% total_adults = total_adults + customer_event.adults_painting %>
+      <% total_party = total_party + customer_event.number_in_party %>
       <% visitor =  customer_event.number_in_party - (customer_event.kids_painting + customer_event.adults_painting) %>
       <tr data-link="<%= customer_event_path(customer_event) %>" class="clickable-row" id="customer_event_<%= customer_event.id %>">
         <td><%= customer_event.first_name %> <%= customer_event.last_name %></td>
@@ -121,9 +125,20 @@
 
 <br>
 
+<div class="row text-wrap">
+  <div class="col-lg-2 col-lg-offset-3 text-center k-party">Total Kids</div>
+  <div class="col-lg-2">Total Adults</div>
+  <div class="col-lg-1 text-right p-title">Event Size</div>
+  <div class="col-lg-2 text-right e-title"><h4>Event Total:</h4></div>
+</div>
+
+<br>
+
 <div class="row">
-  <div class="col-lg-9 text-right"><h4>Event Total:</h4></div>
-  <div class="col-lg-1 text-center"><h4><%= number_to_currency(event_total) %></h4></div>
+  <div class="col-lg-2 col-lg-offset-3 text-center k-party"><%= total_kids %></div>
+  <div class="col-lg-2 a-party"><%= total_adults %></div>
+  <div class="col-lg-1 text-right p-party"><%= total_party %></div>
+  <div class="col-lg-1 col-lg-offset-1 text-center e-total"><h3 class=""><%= number_to_currency(event_total) %></h3></div>
 </div>
 
 

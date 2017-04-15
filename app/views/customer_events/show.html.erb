@@ -60,7 +60,7 @@
 
   <tbody>
   <% @customer_event_products.each do |customer_event_product| %>
-      <% customer_total = customer_total + customer_event_product.sales.to_f %>
+      <% customer_total = customer_total + customer_event_product.sales.to_d %>
       <tr class="no-pointer">
         <td><%= customer_event_product.product_name %></td>
         <td><%= customer_event_product.quantity %></td>
@@ -95,11 +95,11 @@
 </div>
 <div class="row">
   <div class="col-lg-7 text-right"><h4>Taxes:</h4></div>
-  <% customer_total = customer_total + studio_fee %>
-  <% taxes = (customer_total * 825)/10000 %>
+  <% subtotal = customer_total + studio_fee %>
+  <% taxes = ((subtotal * 825.0)/10000) %>
   <div class="col-lg-2 text-center pleft"><h4><%= number_to_currency(taxes) %></h4></div>
 </div>
 <div class="row">
   <div class="col-lg-7 text-right"><h4>Customer Total:</h4></div>
-  <div class="col-lg-2 text-center pleft"><h4><%= number_to_currency(customer_total + taxes) %></h4></div>
+  <div class="col-lg-2 text-center pleft"><h3 style="color: #5cb85c"><%= number_to_currency(subtotal.to_d + taxes.to_d) %></h3></div>
 </div>

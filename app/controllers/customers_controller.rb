@@ -18,9 +18,10 @@ class CustomersController < ApplicationController
   def show
     @customer_event_product = CustomerEventProduct.new
 
-    @total_spending = Customer.total_spending.where("customers.id = ?", params[:id])
+    @transactions = Event.transactions.where("customers.id = ?", params[:id]).limit(3)
+    @total_spending = Event.transactions.where("customers.id = ?", params[:id])
+    @transaction_total = Event.transaction_total
 
-    @transactions = CustomerEventProduct.transactions.where("customers.id = ?", params[:id]).limit(3)
     @not_ready = CustomerEventProduct.customer_not_ready.where("customers.id = ?", params[:id])
     @ready = CustomerEventProduct.customer_ready.where("customers.id = ?", params[:id])
     @collected = CustomerEventProduct.customer_collected.where("customers.id = ?", params[:id])
@@ -36,7 +37,8 @@ class CustomersController < ApplicationController
   end
 
   def all_transactions
-    @all_transactions = CustomerEventProduct.transactions
+    @all_transactions = Event.transactions
+    @transaction_total = Event.transaction_total
   end
 
   # POST /customers

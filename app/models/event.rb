@@ -38,4 +38,14 @@ class Event < ApplicationRecord
   def self.upcoming_count
     Event.joins(employee_events: :employee).where("event_date >= ?", Date.today)
   end
+
+  def self.transactions
+    Event.select("customer_events.id, event_name, colors.color_code, event_date, kids_painting, adults_painting")
+        .joins(customer_events: :customer)
+        .joins(:color)
+        .order("events.event_date DESC")
+  end
+  def self.transaction_total
+    Event.select("sum(products.product_price * customer_event_products.quantity) AS sales").joins(customer_events: {customer_event_products: :product}).joins(customer_events: :customer)
+  end
 end
