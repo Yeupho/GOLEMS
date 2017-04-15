@@ -38,6 +38,7 @@
 
 <!--adds tab href to url + opens tab based on hash on page load:-->
 <script>
+  <!--Returns you back to the current tab you are on, on refresh of page-->
     $(document).ready(function() {
         if (location.hash) {
             $("a[href='" + location.hash + "']").tab("show");
@@ -50,11 +51,13 @@
         var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
         $("a[href='" + anchor + "']").tab("show");
     });
+
     window.onload = function() {
         if(!window.location.hash) {
             window.location = window.location + '#loaded';
             window.location.reload();
         }
     }
+
 
 </script>
