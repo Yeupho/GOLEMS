@@ -79,3 +79,6 @@ gem 'bootstrap-toggle-rails'
 #gem 'bcrypt', platforms: :ruby
 
 gem 'devise', '~> 4.2'
+
+# Used to log into heroku
+gem 'rails_12factor', group: :production
