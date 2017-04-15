@@ -66,7 +66,7 @@ class EmployeesController < ApplicationController
   # DELETE /employees/1
   # DELETE /employees/1.json
   def destroy
-    @employee = Employee.with_deleted.find(params[:id])
+    @employees = Employee.with_deleted.find(params[:id])
     if params[:type]=='normal'
       @employee.delete
     elsif params[:type]=='restore'

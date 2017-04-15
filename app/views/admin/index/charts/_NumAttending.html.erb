@@ -1,0 +1,49 @@
+<div class="panel panel-default" style="position:absolute;top:200px;left: 600px;">
+  <div class="panel panel-heading">
+    <h2 class="panel-title" style="font-size:20px">Number of People Attending Each Week</h2>
+    <span class="dropdown" style="float:right;margin-top:-20px;">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <span class="glyphicon glyphicon-menu-hamburger" style="color:white;"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#montha1">1 Month</a></li>
+          <li><a href="#montha3">3 Months</a></li>
+          <li><a href="#montha6">6 Months</a></li>
+          <li><a href="#yeara1">1 Year</a></li>
+        </ul>
+      </span>
+  </div>
+  <div class="panel panel-body" style="padding:0px;padding-left:10px;">
+    <span id="maina1">
+      <div id="montha1">
+        <%= column_chart numattend(1.month.ago, Time.now),
+                         ytitle:["Number of People"],xtitle:["Date"],
+                         height:"300px",width:"540px",download:true %>
+      </div>
+       <div id="montha3" class="hide">
+        <%= column_chart numattend(3.month.ago, Time.now),
+                         ytitle:["Number of People"],xtitle:["Date"],
+                         height:"300px",width:"540px",download:true %>
+      </div>
+       <div id="montha6" class="hide">
+        <%= column_chart numattend(6.month.ago, Time.now),
+                         ytitle:["Number of People"],xtitle:["Date"],
+                         height:"300px",width:"540px",download:true %>
+      </div>
+       <div id="yeara1" class="hide">
+        <%= column_chart numattend(1.year.ago, Time.now),
+                         ytitle:["Number of People"],xtitle:["Date"],
+                         height:"300px",width:"540px",download:true %>
+      </div>
+    </span>
+  </div>
+</div>
+
+<script>
+    $('#body2').on('click','ul li a', function(e) {
+        $('#maina1').children().removeClass('active');
+        $('#maina1').children().addClass('hide');
+        $('#maina1').children().addClass('active');
+        $($(this).attr('href')).removeClass('hide');
+        e.preventDefault();
+    });
+</script>

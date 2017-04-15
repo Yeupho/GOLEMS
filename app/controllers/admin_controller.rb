@@ -1,16 +1,18 @@
 class AdminController < ApplicationController
+  helper AdminHelper
+
   require 'will_paginate/array'
   def index
     @colors = Color.all
     @products = Product.all
-    @product_types = ProductType.all.paginate(page:params[:product_type_page], per_page:10)
-    @event_types = EventType.all.paginate(page: params[:event_type_page], per_page: 10)
+    @product_types = ProductType.all
+    @event_types = EventType.all
     @positions = Position.all
     @employee_types = EmployeeType.all
     @states = State.all
     @countries = Country.all
-    @customer_statuses = CustomerStatus.all.paginate(page: params[:customer_status_page],per_page:10)
-    @employee_statuses = EmployeeStatus.all.paginate(page: params[:employee_status_page],per_page:10)
+    @customer_statuses = CustomerStatus.all
+    @employee_statuses = EmployeeStatus.all
 
     @customers = Customer.all
     @events = Event.all

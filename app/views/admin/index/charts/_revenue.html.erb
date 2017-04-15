@@ -1,0 +1,50 @@
+<div class="panel panel-default" style="position:absolute;top:610px;">
+  <div class="panel panel-heading">
+    <div style="display:inline">
+      <h2 class="panel-title" style="font-size:20px;">Most popular products in the past month</h2>
+      <span class="dropdown" style="float:right;margin-top:-20px;">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <span class="glyphicon glyphicon-menu-hamburger" style="color:white;"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#monthb1">1 Month</a></li>
+          <li><a href="#monthb3">3 Months</a></li>
+          <li><a href="#monthb6">6 Months</a></li>
+          <li><a href="#yearb">1 Year</a></li>
+        </ul>
+      </span>
+    </div>
+  </div>
+  <div class="panel panel-body" style="padding:0px;padding-left:10px;">
+      <span id="mainb">
+        <div id="monthb1">
+          <%= area_chart revenuegla(1.month.ago,Time.now) ,
+                         colors:["#DA70D6"], xtitle:["Date"],
+                         ytitle: ["Monetary Value"],
+                         height:"300px",width:"750px",download:true %>        </div>
+        <div id="monthb3" class="hide">
+          <%= area_chart revenuegla(3.months.ago,Time.now) ,
+                         colors:["#DA70D6"], xtitle:["Date"],
+                         ytitle: ["Monetary Value"],
+                         height:"300px",width:"750px",download:true %>        </div>
+        <div id="monthb6" class="hide">
+          <%= area_chart revenuegla(6.months.ago,Time.now) ,
+                         colors:["#DA70D6"], xtitle:["Date"],
+                         ytitle: ["Monetary Value"],
+                         height:"300px",width:"750px",download:true %>        </div>
+        <div id="yearb" class="hide">
+          <%= area_chart revenuegla(1.year.ago,Time.now) ,
+                         colors:["#DA70D6"], xtitle:["Date"],
+                         ytitle: ["Monetary Value"],
+                         height:"300px",width:"750px",download:true %>        </div>
+      </span>
+  </div>
+</div>
+<script>
+    $('#bodyb').on('click','ul li a', function(e) {
+        $('#mainb').children().removeClass('active');
+        $('#mainb').children().addClass('hide');
+        $('#mainb').children().addClass('active');
+        $($(this).attr('href')).removeClass('hide');
+        e.preventDefault();
+    });
+</script>
