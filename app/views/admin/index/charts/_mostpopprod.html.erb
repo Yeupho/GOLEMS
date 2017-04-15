@@ -1,0 +1,8 @@
+<div class="panel panel-default" style="position:absolute;top:200px;background-color:#FFFFFF  ">
+  <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px;">Most popular products in the past month</h2></div>
+  <div class="panel panel-body" style="padding:0px;padding-left:10px;">
+    <%= pie_chart Admin.MostPopProd5, library: {legend: {position: "right"}},
+                  colors:["#4d9de0","#e15554","#e1bc29","#3bb273","#7768ae"],
+                  height:"300px",width:"540px",donut:true,download:true %>
+  </div>
+</div>

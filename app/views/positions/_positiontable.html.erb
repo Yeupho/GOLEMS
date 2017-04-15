@@ -37,7 +37,7 @@
 
         <tbody class="sctable">
         <% @positions.with_deleted.each do |position| %>
-            <tr class="sctable" data-link="<%= position_path(position) %>">
+            <tr class="sctable" data-link="<%= position_path(position) %>" class="clickable-row">
               <td class="col-lg-5"><%= position.employee.full_name2 %></td>
               <td class="col-lg-4"><%= position.employee_type.employee_type_desc %></td>
               <td class="col-lg-4"><div class="dropdown">
