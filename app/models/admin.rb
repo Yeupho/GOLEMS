@@ -7,11 +7,13 @@ class Admin < ApplicationRecord
         .joins(:customer_events).joins(:customer_event_products).joins(:products).group(:product_name)
         .sum('customer_event_products.quantity').first(5)
   end
-  # Graph for Numbers attenidng for 1 month
+
+  # Graph for Numbers attending for 3 month
   def self.NumAttending
     Event.where(:event_date => 3.months.ago .. Time.now).group_by_week(:event_date)
         .joins(:customer_events).sum("customer_events.number_in_party")
   end
+
   # Graph for earned revenue
   def self.EarningsRevenue
     Event.group_by_day(:event_date).where(:event_date => 1.months.ago .. Time.now)
