@@ -33,7 +33,6 @@ body
   padding-right: 0 !important
   padding-left: 15px !important
 
-
 .footer
   padding: 15px
   border-top: 1px solid #E5E5E5
@@ -72,7 +71,7 @@ body
   box-shadow: 15px 25px 15px -10px rgba(0, 0, 0, .1)
 
 .content
-  height: 100%
+  height: 85%
   padding: 70px
   display: flex
   align-items: center
@@ -82,14 +81,15 @@ body
   padding: 15px
 
 .logo
-  width: 90px
-  height: 90px
+  width: 150px
+  height: 170px
   margin-bottom: 20px
   padding: 2px
   line-height: 90px
-  border: 3px solid #94979c
-  border-radius: 50%
   margin: 0 auto
+  display: flex
+  justify-content: center
+  align-items: center
 
 .checkbox-label, .checkbox
   padding-left: 5px !important
@@ -124,7 +124,7 @@ body
 #sidebar-wrapper
   z-index: 1
   position: absolute
-  min-width: 8%
+  width: 8%
   height: 100%
   overflow-y: hidden
   background: linear-gradient(to bottom, #1D2671, #C33764)
@@ -132,7 +132,7 @@ body
   margin: 0
 
 .sidebar-item
-  height: 10%
+  height: 9%
   display: flex
   justify-content: center
   align-items: center
@@ -142,11 +142,22 @@ body
     display: block
     text-decoration: none
     color: $white-smoke
+    &:hover
+      color: $white-smoke
 
 .sidebar-logo
-  padding-top: 30px
-  padding-bottom: 20px
-  color: $white-smoke
+  height: 14%
+  display: flex
+  justify-content: center
+  align-items: center
+  &:hover
+    opacity: .6
+  a
+    display: block
+    text-decoration: none
+    color: $white-smoke
+    &:hover
+      color: $white-smoke
 
 /***************************************************/
 /*                    SEARCH BAR                   */
@@ -256,11 +267,11 @@ ul.ui-autocomplete
   font-size: 16px !important
 
 p
-  margin-top: 10px
+  margin-top: 5px
   margin-bottom: 5px
 
 .note-header
-  border-bottom: 1px solid #4281A4
+  border-bottom: 1px solid #C33764
 
 .note-body
   font-size: 16px
@@ -385,7 +396,7 @@ tbody.scevtable
   padding-right: 50px
 
 .tab-spacing
-  margin-top: 10px
+  margin-top: 16px
   margin-bottom: 0px
 /***************************************************/
 /*              Reports Padding                    */
@@ -423,9 +434,6 @@ tbody.scevtable
 .container .two-thirds.column
   width: 620px
 
-
-
-
 .btn-primary
   background: #C33764
   border: 1px solid #C33764
@@ -459,7 +467,7 @@ tbody.scevtable
   word-wrap: normal
 
 .pleft
-  padding-right: 108px
+  padding-right: 135px
 
 tbody > tr
   cursor: pointer
@@ -475,7 +483,7 @@ tbody > tr
   font-weight: bold !important
 
 .line-up
-  margin-left: 15px
+  margin-right: 15px
   margin-bottom: 18px
 
 h3
@@ -488,3 +496,57 @@ h3
 
 .no-margin-bottom
   margin-bottom: 0px
+
+a
+  text-decoration: none
+  color: inherit
+  &:hover
+    color: inherit
+
+.view-more
+  margin: 0
+  text-decoration: underline
+  &:hover
+    opacity: .6
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus
+  background: #C33764
+  border-color: #C33764
+
+.pagination > li > a, .pagination > li > span
+  color: #C33764
+  &:hover
+    color: #C33764
+
+.page-header
+  margin-top: 10px !important
+  margin-bottom: 10px !important
+
+h2
+  margin-top: 10px !important
+
+#logo-title
+  font-family: 'Holtwood One SC', serif !important
+  font-size: 25px
+  font-weight: bold
+
+.k-party
+  padding-left: 87px
+
+.a-party
+  padding-left: 57px
+
+.p-party
+  padding-right: 25px
+
+.p-title
+  margin-left: 21px
+
+.e-title
+  padding-right: 45px
+
+.e-total
+  color: #5cb85c
+  padding-left: 20px
+  h3
+    margin-top: 0

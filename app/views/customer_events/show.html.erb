@@ -15,7 +15,7 @@
 </div>
 
 <div class="row">
-  <div class="col-lg-3 col-lg-offset-1 float-down">
+  <div class="col-lg-4 float-down">
     <h3 class="text-center", style="color: #C33764">Customer Information</h3>
   </div>
 
@@ -23,13 +23,13 @@
     <h3 class="text-center", style="color: #C33764">Customer Total</h3>
   </div>
 
-  <div class="col-lg-3 float-down">
+  <div class="col-lg-4 float-down">
     <h3 class="text-center", style="color: #C33764">Event Information</h3>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-lg-3 col-lg-offset-1 float-down">
+  <div class="col-lg-4 float-down">
     <%= render 'customer_events/show/customer' %>
   </div>
 
@@ -37,7 +37,7 @@
     <%= render 'customer_events/show/total' %>
   </div>
 
-  <div class="col-lg-3 float-down">
+  <div class="col-lg-4 float-down">
     <%= render 'customer_events/show/event' %>
   </div>
 </div>
@@ -56,15 +56,15 @@
     <th class="col-lg-4 text-center">Product</th>
     <th class="col-lg-1 text-center">Quantity</th>
     <th class="col-lg-1 text-center">Price</th>
-    <th class="col-lg-2 text-center">Product total</th>
+    <th class="col-lg-2 text-center">Amount</th>
     <th class="col-lg-2 text-center">Pickup status</th>
-    <th class="col-lg-1 text-center">Actions</th>
+    <th class="col-lg-1 text-center">Action</th>
   </tr>
   </thead>
 
   <tbody>
   <% @customer_event_products.each do |customer_event_product| %>
-      <% customer_total = customer_total + customer_event_product.sales %>
+      <% customer_total = customer_total + customer_event_product.sales.to_d %>
       <tr class="no-pointer">
         <td><%= customer_event_product.product_name %></td>
         <td><%= customer_event_product.quantity %></td>
@@ -88,17 +88,22 @@
 
 <br>
 
-<% taxes = (customer_total * 825)/10000 %>
-
 <div class="row">
-  <div class="col-lg-7 text-right"><h4 class="text-right">Overall Product Total:</h4></div>
+  <div class="col-lg-7 text-right"><h4 class="text-right">Subtotal:</h4></div>
   <div class="col-lg-2 text-center pleft"><h4><%= number_to_currency(customer_total) %></h4></div>
 </div>
 <div class="row">
+  <div class="col-lg-7 text-right"><h4 class="text-right">Studio Fees:</h4></div>
+  <% studio_fee = (@customer_event.kids_painting.to_i * 5) + (@customer_event.adults_painting.to_i * 6) %>
+  <div class="col-lg-2 text-center pleft"><h4><%= number_to_currency(studio_fee) %></h4></div>
+</div>
+<div class="row">
   <div class="col-lg-7 text-right"><h4>Taxes:</h4></div>
+  <% subtotal = customer_total + studio_fee %>
+  <% taxes = ((subtotal * 825.0)/10000) %>
   <div class="col-lg-2 text-center pleft"><h4><%= number_to_currency(taxes) %></h4></div>
 </div>
 <div class="row">
   <div class="col-lg-7 text-right"><h4>Customer Total:</h4></div>
-  <div class="col-lg-2 text-center pleft"><h4><%= number_to_currency(customer_total + taxes) %></h4></div>
+  <div class="col-lg-2 text-center pleft"><h3 style="color: #5cb85c"><%= number_to_currency(subtotal.to_d + taxes.to_d) %></h3></div>
 </div>

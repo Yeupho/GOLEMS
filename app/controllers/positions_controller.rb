@@ -28,7 +28,7 @@ class PositionsController < ApplicationController
 
     respond_to do |format|
       if @position.save
-        format.html { redirect_to '/admin#positions_tab', notice: 'Position was successfully added.' }
+        format.html { redirect_to :back, notice: 'Position was successfully added.' }
       else
         format.html { render :new }
         format.json { render json: @position.errors, status: :unprocessable_entity }

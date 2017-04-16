@@ -5,7 +5,7 @@
       <%= f.collection_select(:product_id, Product.all.order(:product_name), :id, :product_name, {prompt: "Select Product"}, {class: "form-control"}) %>
     </div>
 
-    <div class="col-lg-1">
+    <div class="col-lg-2">
       <%= f.number_field :quantity, class: "form-control", placeholder: "Quantity" %>
     </div>
 

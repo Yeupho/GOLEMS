@@ -14,8 +14,8 @@
     <div class="row"><h4 class="col-lg-10 col-lg-offset-1">Event</h4></div>
 
     <div class="row">
-      <div class="col-lg-6 col-lg-offset-1"><%= f.text_field :event_name, placeholder: "Event", class: "form-control" %></div>
-      <div class="col-lg-4"><%= f.collection_select(:event_type_id, EventType.all, :id, :event_type_desc, {}, {class: "form-control"}) %></div>
+      <div class="col-lg-6 col-lg-offset-1"><%= f.text_field :event_name, placeholder: "Event Name", class: "form-control" %></div>
+      <div class="col-lg-4"><%= f.collection_select(:event_type_id, EventType.all, :id, :event_type_desc, {prompt: "Event Category"}, {class: "form-control"}) %></div>
     </div>
 
     <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Date</h4></div>
@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-lg-5 col-lg-offset-1">
         <div class='input-group' id='datepicker'>
-          <%= f.text_field :event_date, class: "form-control", :value => (@event.event_date.blank? ? '' : @event.event_date.strftime('%B %d, %Y')) %>
+          <%= f.text_field :event_date, placeholder: 'Event Date', class: 'form-control', :value => (@event.event_date.blank? ? '' : @event.event_date.strftime('%B %d, %Y')) %>
           <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
             </span>
@@ -36,7 +36,7 @@
     <div class="row">
       <div class='col-lg-5 col-lg-offset-1'>
         <div class='input-group timepicker'>
-          <%= f.text_field :start_time, value: @event.start_time, class: "form-control", :value => (@event.start_time.blank? ? '' : @event.start_time.strftime('%l:%M %p')) %>
+          <%= f.text_field :start_time, value: @event.start_time, class: "form-control", placeholder: "Start Time", :value => (@event.start_time.blank? ? '' : @event.start_time.strftime('%l:%M %p')) %>
           <span class="input-group-addon">
               <span class="glyphicon glyphicon-time"></span>
 
@@ -46,7 +46,7 @@
 
       <div class='col-lg-5'>
         <div class='input-group timepicker'>
-          <%= f.text_field :end_time, class: "form-control", :value => (@event.end_time.blank? ? '' : @event.end_time.strftime('%l:%M %p')) %>
+          <%= f.text_field :end_time, class: "form-control", placeholder: "End Time", :value => (@event.end_time.blank? ? '' : @event.end_time.strftime('%l:%M %p')) %>
           <span class="input-group-addon">
               <span class="glyphicon glyphicon-time"></span>
             </span>
@@ -69,7 +69,7 @@
     <br><div class="row"><h4 class="row col-lg-10 col-lg-offset-1">Description</h4></div>
 
     <div class="row">
-      <div class="col-lg-10 col-lg-offset-1"><%= f.text_area :event_description, rows: "3", class: "form-control" %></div>
+      <div class="col-lg-10 col-lg-offset-1"><%= f.text_area :event_description, rows: "3", class: "form-control", placeholder: "Any notes or messages regarding event..." %></div>
     </div>
 
     <br>

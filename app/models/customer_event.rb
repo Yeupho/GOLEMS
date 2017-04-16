@@ -28,10 +28,7 @@ class CustomerEvent < ApplicationRecord
         .order("customers.first_name ASC")
   end
   def self.customer_total
-    CustomerEvent.select("sum((((products.product_price * customer_event_products.quantity)*.0825)
-      + (products.product_price * customer_event_products.quantity)) +
-      + (((customer_events.adults_painting*6)*0.0825)+(customer_events.adults_painting*6))
-      + (customer_events.kids_painting*5)+((customer_events.kids_painting*5)*.0825)) AS sales").joins(customer_event_products: :product)
+    CustomerEvent.select("sum(products.product_price * customer_event_products.quantity) AS sales").joins(customer_event_products: :product)
   end
 
   def self.check_in

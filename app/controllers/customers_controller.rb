@@ -18,7 +18,10 @@ class CustomersController < ApplicationController
   def show
     @customer_event_product = CustomerEventProduct.new
 
-    @transactions = CustomerEventProduct.transactions.where("customers.id = ?", params[:id]).limit(3)
+    @transactions = Event.transactions.where("customers.id = ?", params[:id]).limit(3)
+    @total_spending = Event.transactions.where("customers.id = ?", params[:id])
+    @transaction_total = Event.transaction_total
+
     @not_ready = CustomerEventProduct.customer_not_ready.where("customers.id = ?", params[:id])
     @ready = CustomerEventProduct.customer_ready.where("customers.id = ?", params[:id])
     @collected = CustomerEventProduct.customer_collected.where("customers.id = ?", params[:id])
@@ -31,6 +34,11 @@ class CustomersController < ApplicationController
   def search
     @customers = Customer.order(:phone).where("phone like ?", "%#{params[:term]}%")
     render json: @customers.map(&:phone)
+  end
+
+  def all_transactions
+    @all_transactions = Event.transactions
+    @transaction_total = Event.transaction_total
   end
 
   # POST /customers
@@ -80,6 +88,23 @@ class CustomersController < ApplicationController
     end
   end
 
+  # DELETE /customers/1
+  # DELETE /customers/1.json
+  def delete_index
+    @customer = Customer.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @customer.delete
+    elsif params[:type]=='restore'
+      @customer.restore
+      @customer.update(deleted_at: nil)
+    end
+
+    @customer.destroy
+    respond_to do |format|
+      format.html { redirect_to customers_path, notice: 'Customer was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

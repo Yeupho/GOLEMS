@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<% customer_total = 0 %>
+
 <div class="page-header">
   <div class="row">
     <div class="col-lg-8">
@@ -29,6 +31,12 @@
           </div>
           <br>
           <p><strong>Total Spending</strong></p>
+          <% @total_spending.each do |t| %>
+              <% studio_fee = (t.kids_painting.to_i * 5) + (t.adults_painting.to_i * 6) %>
+              <% customer_total = customer_total + @transaction_total.where("customer_events.id = ?", t.id).collect{|m| m.sales}.join("").to_f + studio_fee %>
+          <% end %>
+          <% taxes = (customer_total * 825)/10000 %>
+          <h2 style="color: #5cb85c"><%= number_to_currency(customer_total + taxes) %></h2>
         </div>
 
         <div class="col-lg-5 col-lg-offset-2">

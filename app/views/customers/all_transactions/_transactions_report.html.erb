@@ -1,0 +1,35 @@
+<div class="panel panel-default shadow-pane">
+  <div class="panel-heading">
+    <h2 class="panel-title">Transactions History</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover text-center">
+      <thead>
+      <tr>
+        <th class="col-lg-3 text-center">Event</th>
+        <th class="col-lg-2 text-center">Event Color</th>
+        <th class="col-lg-2 text-center">Event Date</th>
+        <th class="col-lg-3 text-center">Total</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @all_transactions.where("customers.id = ?", params[:customer]).each do |t| %>
+          <tr data-link="<%= customer_event_path(t) %>" class="clickable-row">
+            <td><%= t.event_name %></td>
+            <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= t.color_code %>;"></span></td>
+            <td><%= t.event_date.strftime("%m/%d/%y") %></td>
+            <td>
+              <% sales = @transaction_total.where("customer_events.id = ?", t.id).collect{|m| m.sales}.join("").to_f %>
+              <% studio_fee = (t.kids_painting.to_i * 5) + (t.adults_painting.to_i * 6) %>
+              <% customer_total = sales + studio_fee %>
+              <% taxes = (customer_total * 825)/10000 %>
+              <%= number_to_currency(customer_total + taxes) %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
