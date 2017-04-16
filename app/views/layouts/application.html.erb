@@ -10,6 +10,11 @@
 </head>
 
 <body>
+  <% if user_signed_in? %>
+  <div class="pull-right" style="padding:30px;">
+    <!--<= link_to '<span class="glyphicon glyphicon-question-sign" style="color: #019ff9 "></span>'.html_safe, about_path %>-->
+  </div>
+  <% end %>
 <div id="wrapper">
   <% if user_signed_in? %>
       <div id="sidebar-wrapper">

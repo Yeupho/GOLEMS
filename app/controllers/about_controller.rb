@@ -1,7 +1,7 @@
 class AboutController < ApplicationController
 
   def index
-
+    @user=Admin.DailyPurchase
   end
   def new
   end
