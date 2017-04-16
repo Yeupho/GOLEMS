@@ -18,7 +18,7 @@
 
 <% unless @event_list.blank? %>
     <% @event_list.each do |event_list| %>
-        <%= link_to event_path(event_list) do %>
+        <%= link_to event_path(event_list, event_history: dashboards_path) do %>
             <div class="panel pane-default shadow-pane parent">
               <div class="child" style="background-color: <%= event_list.color_code %>"></div>
               <div>

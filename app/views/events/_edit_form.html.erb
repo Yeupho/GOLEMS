@@ -15,7 +15,7 @@
 
     <div class="row">
       <div class="col-lg-6 col-lg-offset-1"><%= f.text_field :event_name, placeholder: "Event Name", class: "form-control" %></div>
-      <div class="col-lg-4"><%= f.collection_select(:event_type_id, EventType.all, :id, :event_type_desc, {prompt: "Event Category"}, {class: "form-control"}) %></div>
+      <div class="col-lg-4"><%= f.collection_select(:event_type_id, EventType.all.where("event_types.id <> '7'"), :id, :event_type_desc, {prompt: "Event Category"}, {class: "form-control"}) %></div>
     </div>
 
     <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Date</h4></div>

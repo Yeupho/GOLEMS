@@ -4,7 +4,9 @@
   <div class="row">
     <div class="col-lg-8">
       <h1><%= @employee.first_name %> <%= @employee.last_name %>
-        <input type="checkbox" checked data-toggle="toggle" data-on="Active" data-off="Inactive">
+        <%= form_for @employee, :html => {style: "display: inline-block"} do |f| %>
+            <%= f.collection_select(:employee_status_id, EmployeeStatus.all, :id, :employee_status_desc, {}, {class: "form-control", onchange: "this.form.submit();"}) %>
+        <% end %>
       </h1>
     </div>
 
@@ -41,7 +43,7 @@
         <div class="col-lg-12">
           <p class="note-header"><strong>Notes</strong></p>
           <% if @employee.comment.blank? %>
-              <div class="note-body">No Notes...</div>
+              <div class="note-body">None at this time...</div>
           <% else %>
               <div class="note-body"><%= @employee.comment %></div>
           <% end %>

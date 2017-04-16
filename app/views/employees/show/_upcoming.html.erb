@@ -38,10 +38,14 @@
           <td><%= visitors %></td>
           <td><%= party %></td>
           <td>
-            <% @co_host.where("events.id = ?", h.event_id).each do |e| %>
-                <div class="row">
-                  <%= e.first_name %> <%= e.last_name %>
-                </div>
+            <% if @co_host.where("events.id = ?", h.event_id).any? %>
+                <% @co_host.where("events.id = ?", h.event_id).each do |e| %>
+                    <div class="row">
+                      <%= e.first_name %> <%= e.last_name %>
+                    </div>
+                <% end %>
+            <% else %>
+                None
             <% end %>
           </td>
         </tr>

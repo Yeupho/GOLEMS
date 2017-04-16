@@ -77,6 +77,7 @@ gem 'bootstrap-toggle-rails'
 
 # used for logging in securely
 #gem 'bcrypt', platforms: :ruby
+gem 'bcrypt', platforms: :ruby
 
 gem 'devise', '~> 4.2'
 

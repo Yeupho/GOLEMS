@@ -44,7 +44,7 @@
         <div class="col-lg-12">
           <p class="note-header"><strong>Description</strong></p>
           <% if @event.event_description.blank? %>
-              <div class="note-body">No Notes...</div>
+              <div class="note-body">None at this time...</div>
           <% else %>
               <div class="note-body"><%= @event.event_description %></div>
           <% end %>
@@ -97,7 +97,7 @@
       <% total_adults = total_adults + customer_event.adults_painting.to_i %>
       <% total_party = total_party + customer_event.number_in_party.to_i %>
       <% visitor =  customer_event.number_in_party.to_i - (customer_event.kids_painting.to_i + customer_event.adults_painting.to_i) %>
-      <tr data-link="<%= customer_event_path(customer_event) %>" class="clickable-row" id="customer_event_<%= customer_event.id %>">
+      <tr data-link="<%= customer_event_path(customer_event, customer_event_history: event_path(@event)) %>" class="clickable-row" id="customer_event_<%= customer_event.id %>">
         <td><%= customer_event.first_name %> <%= customer_event.last_name %></td>
         <td><%= customer_event.kids_painting %></td>
         <td><%= customer_event.adults_painting %></td>
