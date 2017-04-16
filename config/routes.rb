@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin#index'
 
+  get 'about' => 'about#index'
+
   get 'admin/tabs/colors' => 'admin#colortab'
 
   get 'customers/all_transactions' => 'customers#all_transactions'

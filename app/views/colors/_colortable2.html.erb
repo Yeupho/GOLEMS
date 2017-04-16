@@ -23,10 +23,15 @@
             <tr data-link="<%= color_path(color) %>">
               <h3 style="text-shadow: 2px 2px 4px gainsboro;"><%= color.color_code %></h3>
               <td><div class="dropdown" style="margin-left:100px;margin-top:-40px;">
-                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
+                <button class="btn btn-default dropdown-toggle"
+                        type="button"
+                        data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Edit', edit_color_path(color) %></li>
-                  <li><%= link_to 'Delete', admin_path(color, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' }, redirect_to: '/admin#colors_tab' %></li>
+                  <li><%= link_to 'Delete', color_path(color, type: :normal),
+                                  method: :delete,class: ' ',
+                                  data: { confirm: 'Are you sure?' },
+                                  redirect_to: '/admin#colors_tab' %></li>
                 </ul>
               </div></td>
             </tr>
