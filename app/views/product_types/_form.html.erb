@@ -11,11 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label 'Product Type Name' %>
-    <%= f.text_field :product_type_desc,class: 'form-control' %>
-  </div>
-  <br>
+    <div class="field">
+      <%= f.label 'Product Type Name' %>
+      <div style="width:200px"><%= f.text_field :product_type_desc,class: 'form-control' %></div>
+    </div>
+    <br>
     <div class="row footer">
       <%= f.submit class: "btn btn-primary", redirect_to: '/admin#locations_tab' %>
     </div>

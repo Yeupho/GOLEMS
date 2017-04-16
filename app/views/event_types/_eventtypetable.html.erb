@@ -39,7 +39,7 @@
 
         <tbody class="scevtable">
         <% @event_types.each do |event_type| %>
-            <tr class="scshtable" data-link="<%= event_type_path(event_type) %>">
+            <tr class="scshtable" data-link="<%= event_type_path(event_type) %>" >
               <td class="col-lg-5"><%= event_type.event_type_desc %></td>
               <td class="col-lg-3"><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>

@@ -1,6 +1,10 @@
-<h1>Editing Product Type</h1>
+<div class="container">
+  <div class="page-header">
+    <h1>Editing Product Type</h1>
+  </div>
+    <%= render 'form', product_type: @product_type %>
 
-<%= render 'form', product_type: @product_type %>
-
-<%= link_to 'Show', @product_type %> |
-<%= link_to 'Back', product_types_path %>
+  <div>
+    <%= link_to 'Back', '/admin#products_tab01', class:'btn btn-default' %>
+  </div>
+</div>

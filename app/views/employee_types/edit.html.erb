@@ -1,6 +1,9 @@
-<h1>Editing Employee Type</h1>
-
-<%= render 'form', employee_type: @employee_type %>
-
-<%= link_to 'Show', @employee_type %> |
-<%= link_to 'Back', employee_types_path %>
+<div class="container">
+  <div class="page-header">
+    <h1>Editing Employee Type</h1>
+  </div>
+  <%= render 'form', employee_type: @employee_type %>
+  <div class="btn-group">
+    <%= link_to 'Back', '/admin#positions_tab', class:'btn btn-default'%>
+  </div>
+</div>
