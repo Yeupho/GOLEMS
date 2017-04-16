@@ -29,7 +29,7 @@
               <td><%= customer_event_product.event_name %></td>
               <td><%= customer_event_product.event_date.strftime("%m/%d/%Y") %> <%= customer_event_product.start_time.strftime("%l:%M %p")%></td>
               <td>
-                <%= form_for customer_event_product, :url => url_for(:controller => 'customer_event_products', :action => 'update', :id => customer_event_product.id), :method => "patch" do |f| %>
+                <%= form_for customer_event_product, :url => url_for(:controller => 'customer_event_products', :action => :ready_tab_update, :id => customer_event_product.id), :method => "patch" do |f| %>
                     <%= f.collection_select(:pickup_status_id, PickupStatus.all, :id, :pickup_status_desc, {}, {class: "form-control", onchange: "this.form.submit();"}) %>
                 <% end %>
               </td>

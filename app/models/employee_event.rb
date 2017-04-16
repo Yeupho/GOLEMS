@@ -1,10 +1,13 @@
 class EmployeeEvent < ApplicationRecord
   acts_as_paranoid
-  belongs_to :employee
-  belongs_to :event
+  belongs_to :employee,-> { with_deleted }
+  belongs_to :event,-> { with_deleted }
 
   def self.past_assignments
-    EmployeeEvent.select("employee_events.event_id, events.event_name, events.event_date, events.start_time, events.end_time, sum(customer_events.kids_painting) AS kids_painting, sum(customer_events.adults_painting) AS adults_painting, sum(customer_events.number_in_party) AS number_in_party")
+    EmployeeEvent.select("employee_events.event_id, events.event_name, events.event_date,
+        events.start_time, events.end_time, sum(customer_events.kids_painting)
+        AS kids_painting, sum(customer_events.adults_painting) AS adults_painting,
+        sum(customer_events.number_in_party) AS number_in_party")
         .joins(:event)
         .joins(:employee)
         .joins(event: :customer_events)

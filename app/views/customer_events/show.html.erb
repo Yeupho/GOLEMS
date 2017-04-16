@@ -4,41 +4,60 @@
 
 <div class="page-header">
   <div class="row">
-    <div class="col-lg-3 col-lg-offset-8">
+    <% if @customer_event.event.event_type_id == 7 %>
+        <div class="col-lg-6">
+          <h1>
+            Walk In
+            <span class="glyphicon glyphicon-chevron-right" style="color: #C33764"></span>
+            <%= @customer_event.customer.first_name%> <%= @customer_event.customer.last_name%>
+          </h1>
+        </div>
+
+        <div class="col-lg-2 text-right">
+          <%= link_to walk_in_destroy_path(id: @customer_event, type: :normal),method: :delete, data: { confirm: 'Remove this walk-in?' }, class: 'btn btn-primary btn-md show-btn' do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              <br>
+              Delete
+          <% end %>
+        </div>
+
+    <% else %>
+        <div class="col-lg-8">
+          <h1>
+            <%= @customer_event.event.event_name %>
+            <span class="glyphicon glyphicon-chevron-right" style="color: #C33764"></span>
+            <%= @customer_event.customer.first_name%> <%= @customer_event.customer.last_name%>
+          </h1>
+        </div>
+    <% end %>
+
+    <div class="col-lg-3">
       <%= render 'customer_events/show/buttons' %>
     </div>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-lg-4 float-down">
+  <div class="col-lg-4 col-lg-offset-2">
     <h3 class="text-center", style="color: #C33764">Customer Information</h3>
   </div>
 
   <div class="col-lg-4">
-    <h3 class="text-center", style="color: #C33764">Customer Total</h3>
-  </div>
-
-  <div class="col-lg-4 float-down">
     <h3 class="text-center", style="color: #C33764">Event Information</h3>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-lg-4 float-down">
+  <div class="col-lg-4 col-lg-offset-2">
     <%= render 'customer_events/show/customer' %>
   </div>
 
   <div class="col-lg-4">
-    <%= render 'customer_events/show/total' %>
-  </div>
-
-  <div class="col-lg-4 float-down">
-    <%= render 'customer_events/show/event' %>
+    <%= render 'customer_events/show/event', type: @customer_event.event.event_type_id %>
   </div>
 </div>
 
-<h3 class="product">Products</h3>
+<h3>Products</h3>
 
 <div class="row">
   <%= render 'customer_events/show/products_form' %>

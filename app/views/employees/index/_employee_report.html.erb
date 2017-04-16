@@ -3,14 +3,6 @@
     <h2 class="panel-title">Employee Information</h2>
   </div>
   <div class="panel-body">
-    <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
-        <% if @employees.length > 0 && @employees.total_pages > 1 %>
-            <%= render 'employees/index/search' %>
-        <% end %>
-      </div>
-    </div>
-
     <div class="imaginary_container">
       <table class="table table-hover text-center">
         <thead>
@@ -38,28 +30,26 @@
                 <% end %>
               </td>
               <td>
-                <% @positions.where("employees.id =?", employee).each do |p| %>
-                    <div class="row"><%= p.employee_type_desc %></div>
+                <% if @positions.where("employees.id =?", employee).any? %>
+                    <% @positions.where("employees.id =?", employee).each do |p| %>
+                        <div class="row"><%= p.employee_type_desc %></div>
+                    <% end %>
+                <% else %>
+                    None
                 <% end %>
               </td>
               <td><div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
-                <ul class="dropdown-menu"><li><%= link_to 'Delete', employee_path(employee, type: :normal),method: :delete,class: ' ', data: { confirm: 'Remove this employee?' } %></li></ul>
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                  <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Delete', employee_path(employee, type: :normal),method: :delete,class: ' ',
+                                  data: { confirm: 'Remove this employee?' } %></li></ul>
               </div></td>
             </tr>
         <% end %>
         </tbody>
 
       </table>
-    </div>
-
-    <div class="row text-center">
-      <% if @employees.length > 0 && @employees.total_pages > 1 %>
-          <%= will_paginate @employees, renderer: BootstrapPagination::Rails, :param_name => 'employee_page' %>
-          <div class="page_info">
-            <%= page_entries_info @employees %>
-          </div>
-      <% end %>
     </div>
   </div>
 </div>

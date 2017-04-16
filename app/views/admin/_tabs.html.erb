@@ -1,7 +1,7 @@
 <!-- Nav index -->
 <ul class="nav nav-tabs text-center" role="tablist" onClick="reload">
   <li class="tab-header"><h1  class="tab-spacing", style="color: #C33764">Admin</h1></li>
-  <li role="presentation"><a href="#reports_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span><br>Analytics</a></li>
+  <li role="presentation" class="active"><a href="#reports_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span><br>Analytics</a></li>
   <li role="presentation"><a href="#colors_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-tint"></span><br>Colors</a></li>
   <li role="presentation"><a href="#event_types_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-calendar"></span><br>Event Types</a>
   <li role="presentation"><a href="#positions_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-briefcase"></span><br>Employees</a></li>
@@ -38,6 +38,7 @@
 
 <!--adds tab href to url + opens tab based on hash on page load:-->
 <script>
+  <!--Returns you back to the current tab you are on, on refresh of page-->
     $(document).ready(function() {
         if (location.hash) {
             $("a[href='" + location.hash + "']").tab("show");
@@ -50,11 +51,11 @@
         var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
         $("a[href='" + anchor + "']").tab("show");
     });
+
     window.onload = function() {
         if(!window.location.hash) {
             window.location = window.location + '#loaded';
             window.location.reload();
         }
     }
-
 </script>

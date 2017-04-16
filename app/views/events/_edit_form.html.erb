@@ -15,7 +15,7 @@
 
     <div class="row">
       <div class="col-lg-6 col-lg-offset-1"><%= f.text_field :event_name, placeholder: "Event Name", class: "form-control" %></div>
-      <div class="col-lg-4"><%= f.collection_select(:event_type_id, EventType.all, :id, :event_type_desc, {prompt: "Event Category"}, {class: "form-control"}) %></div>
+      <div class="col-lg-4"><%= f.collection_select(:event_type_id, EventType.all.where("event_types.id <> '7'"), :id, :event_type_desc, {prompt: "Event Category"}, {class: "form-control"}) %></div>
     </div>
 
     <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Date</h4></div>
@@ -54,15 +54,18 @@
       </div>
     </div>
 
-    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Color</h4></div>
+    <br><div class="row"><h4 class="col-lg-10 col-lg-offset-1">Select a Color</h4></div>
 
     <div class="row">
-      <div class="col-lg-9 col-lg-offset-1">
-        <%= select_tag :color_id, options_for_select(Color.all.where("colors.id <> '26'").collect{ |c| [c.color_name, c.color_code, {'id' => c.id}]}, {selected: @event.color.color_code}) %>
-        <div id="result"></div>
-      </div>
-      <div class="col-lg-1">
-        <%= f.collection_select(:color_id, Color.all, :id, :color_name, {class: "form-control"}) %>
+      <div class="col-lg-10 col-lg-offset-1">
+        <% Color.all.where("colors.id <> '26'").each do |color| %>
+            <div class="btn-group">
+              <span class="simplecolorpicker icon color-circle" style="background-color: <%= color.color_code %>"></span>
+              <br>
+              <%= color.color_name %>
+              <%= f.radio_button :color_id, color.id %>
+            </div>
+        <% end %>
       </div>
     </div>
 
@@ -95,21 +98,5 @@
         $('#datepicker').datetimepicker({
             format: 'MMMM DD, YYYY'
         });
-    });
-
-    var selectedOption = "";
-
-    $(document).ready(function() {
-
-        $('#color_id').change(function() {
-            selectedOption = $(this).find('option:selected').attr('id');
-            $('#result').html(selectedOption);
-        });
-
-        $('#color_id').on('click', function() {
-            $('select[name="color_id"]').simplecolorpicker({picker: true, theme: 'glyphicons'});
-        });
-        $('#color_id').trigger('click');
-
     });
 </script>

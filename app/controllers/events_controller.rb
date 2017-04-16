@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   require 'will_paginate/array'
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -17,15 +17,6 @@ class EventsController < ApplicationController
     @customer_events = CustomerEvent.customer_events.where("customer_events.event_id = ?", params[:id])
     @customer_total = CustomerEvent.customer_total
     @hosts = EmployeeEvent.host.where("events.id = ?", params[:id])
-  end
-
-  # GET /events/new
-  def new
-    @event = Event.new(event_params)
-  end
-
-  # GET /events/1/edit
-  def edit
   end
 
   # POST /events

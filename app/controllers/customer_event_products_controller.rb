@@ -1,5 +1,5 @@
 class CustomerEventProductsController < ApplicationController
-  before_action :set_customer_event_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer_event_product, only: [:show, :edit, :update, :destroy, :ready_tab_update, :progress_tab_update, :picked_tab_update]
 
   # GET /customer_event_products
   # GET /customer_event_products.json
@@ -29,7 +29,7 @@ class CustomerEventProductsController < ApplicationController
 
     respond_to do |format|
       if @customer_event_product.save
-        format.html { redirect_to :back, notice: 'Products were successfully added.', method: :get }
+        format.html { redirect_to :back, notice: 'Product was successfully added.', method: :get }
         format.js
       else
         format.html { render :new }
@@ -43,10 +43,52 @@ class CustomerEventProductsController < ApplicationController
   def update
     respond_to do |format|
       if @customer_event_product.update(customer_event_product_params)
-        format.html { redirect_to :back, notice: 'Product was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Piece was successfully updated.' }
         format.json { head :no_content}
       else
         format.html { render :edit }
+        format.json { render json: @customer_event_product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /customer_event_products/1
+  # PATCH/PUT /customer_event_products/1.json
+  def ready_tab_update
+    respond_to do |format|
+      if @customer_event_product.update(customer_event_product_params)
+        format.html { redirect_to '/pickups#ready', notice: 'Piece was successfully updated.' }
+        format.json { head :no_content}
+      else
+        format.html { render :back }
+        format.json { render json: @customer_event_product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /customer_event_products/1
+  # PATCH/PUT /customer_event_products/1.json
+  def progress_tab_update
+    respond_to do |format|
+      if @customer_event_product.update(customer_event_product_params)
+        format.html { redirect_to '/pickups#progress', notice: 'Piece was successfully updated.' }
+        format.json { head :no_content}
+      else
+        format.html { render :back }
+        format.json { render json: @customer_event_product.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /customer_event_products/1
+  # PATCH/PUT /customer_event_products/1.json
+  def picked_tab_update
+    respond_to do |format|
+      if @customer_event_product.update(customer_event_product_params)
+        format.html { redirect_to '/pickups#picked_up', notice: 'Piece was successfully updated.' }
+        format.json { head :no_content}
+      else
+        format.html { render :back }
         format.json { render json: @customer_event_product.errors, status: :unprocessable_entity }
       end
     end

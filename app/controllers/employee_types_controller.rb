@@ -29,7 +29,7 @@ class EmployeeTypesController < ApplicationController
 
     respond_to do |format|
       if @employee_type.save
-        format.html { redirect_to '/admin#positions_tab', notice: 'Employee type was successfully created.' }
+        format.html { redirect_to '/admin#positions_tab' }
         format.json { render :show, status: :created, location: @employee_type }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class EmployeeTypesController < ApplicationController
   def update
     respond_to do |format|
       if @employee_type.update(employee_type_params)
-        format.html { redirect_to @employee_type, notice: 'Employee type was successfully updated.' }
+        format.html { redirect_to '/admin#positions_tab' }
         format.json { render :show, status: :ok, location: @employee_type }
       else
         format.html { render :edit }
@@ -63,9 +63,8 @@ class EmployeeTypesController < ApplicationController
       @employee_type.update(deleted_at: nil)
     end
 
-    @employee_type.destroy
     respond_to do |format|
-      format.html { redirect_to employee_types_url, notice: 'Employee type was successfully destroyed.' }
+      format.html { redirect_to '/admin#positions_tab' }
       format.json { head :no_content }
     end
   end

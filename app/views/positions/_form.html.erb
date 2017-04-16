@@ -13,18 +13,16 @@
 
   <div>
     <div class="field">
-      <%= 'Employee Name: ' %>
-      <%= f.collection_select :employee_id,Employee.all, :id, :first_name,class: "form-control" %>
+      <%= f.collection_select :employee_id,Employee.all, :id, :full_name2 ,{prompt: "Employee Name"}, {class: "form-control"}  %>
     </div>
   </div>
-
+  <br>
   <div>
     <div class="field">
-      <%= 'Employee Type: ' %>
-      <%= f.collection_select :employee_type_id, EmployeeType.all, :id, :employee_type_desc,class: "form-control" %>
+      <%= f.collection_select :employee_type_id, EmployeeType.all, :id, :employee_type_desc,{prompt: "Employee Type"}, {class: "form-control"} %>
     </div>
   </div>
-
+  <br>
     <div class="row footer">
       <div class="col-lg-3 col-lg-offset-5 text-right">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

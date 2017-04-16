@@ -1,6 +1,6 @@
 class ColorsController < ApplicationController
   require 'will_paginate/array'
-  before_action :set_color, only: [:show, :edit, :update, :destroy]
+  before_action :set_color, only: [:show, :edit, :update, :destroy, :restore]
 
   # GET /colors
   # GET /colors.json
@@ -13,14 +13,6 @@ class ColorsController < ApplicationController
   def show
   end
 
-  # GET /colors/new
-  def new
-    @color = Color.new
-  end
-
-  # GET /colors/1/edit
-  def edit
-  end
 
   # POST /colors
   # POST /colors.json
@@ -62,18 +54,25 @@ class ColorsController < ApplicationController
       @color.restore
       @color.update(deleted_at: nil)
     end
-
-    @color.destroy
     respond_to do |format|
-      format.html { redirect_to colors_url, notice: 'Color was successfully destroyed.' }
+      format.html { redirect_to '/admin#colors_tab', notice: 'Color was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def restore
+    @color = Color.with_deleted.find(params[:id])
+    @color.restore(:id)
+    @color.update(deleted_at: nil)
+    respond_to do |format|
+      format.html { redirect_to '/admin#colors_tab' }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_color
-      @color = Color.find(params[:id])
+      @color = Color.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

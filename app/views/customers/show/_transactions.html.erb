@@ -19,7 +19,7 @@
           <%= link_to 'view all', customers_all_transactions_path(customer: @customer.id) %>
         </h4>
         <% @transactions.each do |t| %>
-            <tr data-link="<%= customer_event_path(t) %>" class="clickable-row">
+            <tr data-link="<%= customer_event_path(t, customer_event_history: customer_path(@customer)) %>" class="clickable-row">
               <td><%= t.event_name %></td>
               <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= t.color_code %>;"></span></td>
               <td>

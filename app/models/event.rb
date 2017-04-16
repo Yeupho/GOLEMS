@@ -7,11 +7,16 @@ class Event < ApplicationRecord
   has_many :customers, :through => :customer_events
   has_many :employee_events
   has_many :employees, :through => :employee_events
-  belongs_to :color
-  belongs_to :event_type
+  belongs_to :color,-> { with_deleted }
+  belongs_to :event_type,-> { with_deleted }
+
+  def self.studiofee
+    Event.select(())
+  end
 
   def self.calendar
-    Event.select("events.id, event_name, event_date || ' ' || start_time AS date, colors.color_code").joins(:color).where("events.event_type_id <> '7'")
+    Event.select("events.id, event_name, event_date || ' ' || start_time AS date, colors.color_code")
+        .joins(:color).where("events.event_type_id <> '7'")
   end
 
   def self.upcoming_assignments

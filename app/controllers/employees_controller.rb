@@ -1,11 +1,10 @@
 class EmployeesController < ApplicationController
-  require 'will_paginate/array'
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.employees.paginate(page: params[:employee_page], per_page: 13)
+    @employees = Employee.employees
     @employee = Employee.new
     @positions = EmployeeType.positions
 
@@ -70,9 +69,8 @@ class EmployeesController < ApplicationController
       @employee.update(deleted_at: nil)
     end
 
-    @employee.destroy
     respond_to do |format|
-      format.html { redirect_to employees_path, notice: 'Employee was successfully Archived.' }
+      format.html { redirect_to '/employees' }
       format.json { head :no_content }
     end
   end
@@ -80,7 +78,7 @@ class EmployeesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
-      @employee = Employee.find(params[:id])
+      @employee = Employee.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

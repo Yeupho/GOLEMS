@@ -299,13 +299,12 @@ p
 
 thead.sctable
   border-bottom: solid 1px #D3D3D3
-  margin-top: 5px
+  margin-top: 10px
   margin-bottom: 10px
   display: table
   width: 100%
   table-layout: fixed
 tbody.sctable
-  border-bottom: solid 1px #D3D3D3
   margin-top: 5px
   margin-bottom: 10px
   display: table
@@ -331,13 +330,12 @@ tbody.scsttable
   overflow: auto
 thead.scsttable
   border-bottom: solid 1px #D3D3D3
-  margin-top: 5px
+  margin-top: 10px
   margin-bottom: 10px
   display: table
   width: 100%
   table-layout: fixed
 tbody.scsttable
-  border-bottom: solid 1px #D3D3D3
   margin-top: 5px
   margin-bottom: 10px
   display: table
@@ -352,6 +350,41 @@ tr.scsttable
   table-layout: fixed
 thead.scsttable
   width: calc( 100% - 1em )
+
+// Short Tables
+thead.scshtable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 10px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+tbody.scshtable
+  margin-top: 5px
+  display: table
+  width: 100%
+  table-layout: fixed
+  display: block
+  max-height: 300px
+  overflow: auto
+tr.scshtable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+thead.scshtable
+  margin-top: 10px
+  width: calc( 100% - 1em )
+tbody.scevtable
+  margin-top: 5px
+  display: table
+  width: 100%
+  table-layout: fixed
+  display: block
+  max-height: 500px
+  overflow: auto
 /***************************************************/
 /*              Archive Dropdown                   */
 /***************************************************/
@@ -419,16 +452,6 @@ thead.scsttable
   &:focus
     background: #C33764
     border: 1px solid #C33764
-
-.float-down
-  position: relative
-  top: 50px
-  .panel
-    min-height: 182px
-    max-height: 182px
-
-.product
-  padding-top: 50px
 
 .text-wrap
   word-wrap: normal
@@ -517,3 +540,21 @@ h2
   padding-left: 20px
   h3
     margin-top: 0
+
+.form-size
+  height: 36px
+  width: 94px
+
+#login-title
+  position: absolute
+  font-family: 'Holtwood One SC', serif !important
+  font-weight: bold
+  font-size: 100px
+  color: $white
+  text-align: center
+  width: 100%
+  margin-top: 4%
+
+.btn-group
+  margin-bottom: 20px
+  margin-right: 17px

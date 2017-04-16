@@ -13,7 +13,7 @@
         <tr data-link="<%= color_path(color) %>">
           <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= color.color_code %>;"><%= color.color_code %></span></td>
           <td><%= color.color_name %></td>
-          <td><%= link_to 'Restore', color_path(color, type: :restore),method: :delete,
+          <td><%= link_to 'Restore', color_path(color, type: :restore),method: :restore,
                           class: 'btn btm-mini btn-warning',
                           data: {
                               confirm: 'Are you sure you want to restore this color?'
