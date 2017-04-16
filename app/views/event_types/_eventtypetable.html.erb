@@ -28,23 +28,22 @@
       </div>
     </div>
 
-    <div class="imaginary_container" style="height:400px !important; ">
-      <table class="sctable">
-        <thead>
+    <div class="imaginary_container">
+      <table class="scshtable">
+        <thead class="scshtable">
         <tr>
           <th class="col-lg-5">Event Type</th>
-          <th class="col-lg-5">Action</th>
+          <th class="col-lg-3">Action</th>
         </tr>
         </thead>
 
-        <tbody>
+        <tbody class="scevtable">
         <% @event_types.each do |event_type| %>
-            <tr data-link="<%= event_type_path(event_type) %>">
+            <tr class="scshtable" data-link="<%= event_type_path(event_type) %>">
               <td class="col-lg-5"><%= event_type.event_type_desc %></td>
-              <td class="col-lg-5"><div class="dropdown">
+              <td class="col-lg-3"><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><%= link_to 'Detail', event_type %></li>
                   <li><%= link_to 'Edit', edit_event_type_path(event_type) %></li>
                   <li><%= link_to 'Delete', event_type_path(event_type, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>

@@ -3,14 +3,14 @@ class Customer < ApplicationRecord
   acts_as_paranoid
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, presence: true
+  validates :email, presence: true,format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :phone, presence: true
   validates :zipcode, presence: true
   has_many :customer_events
   has_many :events, :through => :customer_events
   belongs_to :customer_status
-  belongs_to :state
-  belongs_to :country
+  belongs_to :state,-> { with_deleted }
+  belongs_to :country,-> { with_deleted }
 
   def self.search(search)
     if search
@@ -33,6 +33,7 @@ class Customer < ApplicationRecord
         .where("customer_status_id = '1'")
         .order("first_name ASC")
   end
+
 end
 
 

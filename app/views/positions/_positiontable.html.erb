@@ -27,23 +27,22 @@
 
     <div class="imaginary_container">
       <table class="sctable">
-        <thead>
+        <thead class="sctable">
         <tr>
           <th class="col-lg-5">Employee</th>
-          <th class="col-lg-5">Position</th>
-          <th class="col-lg-5">Action</th>
+          <th class="col-lg-4">Position</th>
+          <th>Action</th>
         </tr>
         </thead>
 
-        <tbody>
-        <% @positions.without_deleted.each do |position| %>
-            <tr data-link="<%= position_path(position) %>">
-              <td class="col-lg-5"><%= position.employee.first_name %></td>
-              <td class="col-lg-5"><%= position.employee_type.employee_type_desc %></td>
-              <td class="col-lg-5"><div class="dropdown">
+        <tbody class="sctable">
+        <% @positions.with_deleted.each do |position| %>
+            <tr class="sctable" data-link="<%= position_path(position) %>" class="clickable-row">
+              <td class="col-lg-5"><%= position.employee.full_name2 %></td>
+              <td class="col-lg-4"><%= position.employee_type.employee_type_desc %></td>
+              <td class="col-lg-4"><div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><%= link_to 'Detail', position %></li>
                   <li><%= link_to 'Edit', edit_position_path(position) %></li>
                   <li><%= link_to 'Delete', position_path(position, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' } %></li>
                 </ul>

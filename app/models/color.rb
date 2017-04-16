@@ -4,4 +4,7 @@ class Color < ApplicationRecord
   validates :color_name, presence: true
   has_many :events
 
+  def color
+    Color.unscoped {super}
+  end
 end

@@ -1,5 +1,5 @@
-New Year's Camp,2017-01-01,10:00 AM,12:00 PM,5,3,2,"Use red/white/blue for colors"
-New Year's Camp,2017-01-01,2:00 PM,4:00 PM,5,16,2,"Use red/white/blue for colors"
+New Year's Camp,2017-01-01,10:00 AM,12:00 PM,5,3,2,Use red/white/blue for colors
+New Year's Camp,2017-01-01,2:00 PM,4:00 PM,5,16,2,Use red/white/blue for colors
 Oh Oh It's Magic,2017-01-10,10:00 AM,12:00 PM,5,22,2,Wizardry theme colors
 Oh Oh It's Magic,2017-01-10,2:00 PM,4:00 PM,5,13,2,Wizardry theme colors
 Oh Oh It's Magic,2017-01-11,10:00 AM,12:00 PM,5,20,2,Wizardry theme colors
@@ -11,8 +11,8 @@ Spring Is Coming,2017-02-27,2:00 PM,4:00 PM,1,4,2,Bright Flowery colors
 Monster Camp,2017-03-14,10:00 AM,12:00 PM,6,20,2,Monster Inc Theme Party
 Monster Camp,2017-03-15,10:00 AM,12:00 PM,6,10,2,Monster Inc Theme Party
 Ladies Night Out,2017-03-24,7:00 PM,9:00 PM,1,7,2,Collect Mixers and Snacks
-Ladies Night Out,2017-03-31,7:00 PM,9:00 PM,1,15,2,Collect Mixers and Snacks
-Ladies Night Out,2017-04-07,7:00 PM,9:00 PM,1,25,2,Collect Mixers and Snacks
+Ladies Night Out,2017-03-31,7:00 PM,9:00 PM,1,22,2,Collect Mixers and Snacks
+Ladies Night Out,2017-04-07,7:00 PM,9:00 PM,1,21,2,Collect Mixers and Snacks
 Johnny's Party,2017-01-24,12:00 PM,1:30 PM,2,20,2,
 Sam's Party,2017-02-12,12:00 PM,1:30 PM,3,22,2,
 Klaus' Party,2017-03-20,12:00 PM,2:00 PM,2,18,2,
@@ -50,12 +50,243 @@ Walk in ,2017-04-30,12:00 AM,11:59 PM,7,26,1,
 Eggstravagza,2017-04-17,10:00 AM,12:00 PM,1,11,1,Easter Event
 Eggstravagza,2017-04-17,1:00 PM,3:00 PM,1,12,1,Easter Event
 Eggstravagza,2017-04-17,4:00 PM,6:00 PM,1,13,1,Easter Event
-Get Over The Hump,2017-03-29,7:00 PM,9:00 PM,2,0,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-03-29,7:00 PM,9:00 PM,2,1,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-04-05,7:00 PM,9:00 PM,2,13,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-04-12,7:00 PM,9:00 PM,2,25,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-04-19,7:00 PM,9:00 PM,2,3,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-04-26,7:00 PM,9:00 PM,2,10,1,21 and Over. Relieve stress from work
-Hailey's Party,	2017-04-01,2:00 PM,4:00 PM,3,15,1,
+Hailey's Party,"	2017-04-01",2:00 PM,4:00 PM,3,15,1,
 Farrah's Party,2017-04-09,4:00 PM,6:00 PM,3,1,1,
 David's Party,2017-04-22,12:00 PM,2:00 PM,3,20,1,
-Pet Prints,	2017-04-15,10:00 AM,11:30 AM,1,7,1,Small pets only
+Pet Prints,"	2017-04-15",10:00 AM,11:30 AM,1,7,1,Small pets only
+Get Over The Hump,2017-01-04,7:00 PM,9:00 PM,2,5,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-01-11,7:00 PM,9:00 PM,2,10,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-01-18,7:00 PM,9:00 PM,2,15,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-01-25,7:00 PM,9:00 PM,2,1,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-02-01,7:00 PM,9:00 PM,2,22,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-02-08,7:00 PM,9:00 PM,2,20,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-02-15,7:00 PM,9:00 PM,2,13,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-02-22,7:00 PM,9:00 PM,2,8,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-03-01,7:00 PM,9:00 PM,2,19,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-03-08,7:00 PM,9:00 PM,2,25,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-03-15,7:00 PM,9:00 PM,2,13,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-03-22,7:00 PM,9:00 PM,2,8,1,21 and Over. Relieve stress from work
+Get Over The Hump,2007-05-03,7:00 PM,9:00 PM,2,22,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-05-10,7:00 PM,9:00 PM,2,10,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-05-17,7:00 PM,9:00 PM,2,20,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-05-24,7:00 PM,9:00 PM,2,22,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-05-31,7:00 PM,9:00 PM,2,21,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-06-07,7:00 PM,9:00 PM,2,14,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-06-14,7:00 PM,9:00 PM,2,23,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-06-21,7:00 PM,9:00 PM,2,11,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-06-28,7:00 PM,9:00 PM,2,06,1,21 and Over. Relieve stress from work
+I Have a Dream,2017-01-16,10:00 AM,11:00 AM,1,2,1,Quotes on plates
+I Have a Dream,2017-01-16,2:00 PM,3:00 PM,1,5,1,Quotes on plates
+Favorite President,2017-02-20,12:00 PM,2:00 PM,1,12,1,Who's your favorite President
+Jenny's Bday,2017-02-03,7:00 PM,9:00 PM,2,20,1,Only wants shades of purple
+Chris Bday,2017-03-06,7:00 PM,9:00 PM,2,6,1,Basketball Theme
+Rand Group,2017-03-17,6:00 PM,9:00 PM,2,17,1,Work Mixer
+Aiden Bday,2017-03-08,12:00 PM,2:00 PM,3,7,1,Sports Theme
+Trey Bday,2017-03-29,12:00 PM,2:00 PM,3,20,1,Car Theme
+Walk in,2017-01-01,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-02,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-03,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-04,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-05,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-06,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-07,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-08,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-09,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-10,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-11,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-12,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-13,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-14,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-15,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-16,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-17,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-18,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-19,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-20,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-21,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-22,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-23,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-24,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-25,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-26,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-27,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-28,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-29,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-30,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-01-31,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-01,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-02,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-03,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-04,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-05,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-06,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-07,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-08,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-09,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-10,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-11,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-12,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-13,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-14,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-15,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-16,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-17,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-18,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-19,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-20,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-21,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-22,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-23,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-24,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-25,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-26,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-27,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-02-28,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-01,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-02,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-03,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-04,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-05,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-06,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-07,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-08,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-09,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-10,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-11,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-12,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-13,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-14,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-15,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-16,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-17,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-18,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-19,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-20,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-21,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-22,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-23,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-24,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-25,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-26,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-27,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-28,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-29,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-30,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-03-31,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-01,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-02,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-03,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-04,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-05,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-06,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-07,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-08,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-09,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-10,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-11,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-12,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-13,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-14,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-15,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-16,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-17,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-18,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-19,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-20,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-21,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-22,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-23,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-24,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-25,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-26,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-27,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-28,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-29,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-04-30,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-01,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-02,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-03,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-04,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-05,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-06,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-07,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-08,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-09,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-10,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-11,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-12,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-13,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-14,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-15,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-16,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-17,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-18,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-19,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-20,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-21,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-22,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-23,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-24,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-25,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-26,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-27,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-28,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-29,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-30,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-05-31,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-01,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-02,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-03,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-04,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-05,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-06,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-07,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-08,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-09,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-10,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-11,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-12,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-13,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-14,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-15,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-16,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-17,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-18,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-19,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-20,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-21,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-22,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-23,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-24,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-25,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-26,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-27,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-28,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-29,12:00 AM,11:59 PM,7,26,1,
+Walk in,2017-06-30,12:00 AM,11:59 PM,7,26,1,
+Memorial Day,2017-05-29,10:00 AM,12:00 PM,1,1,1,
+Memorial Day,2017-05-29,1:00 PM,3:00 PM,1,5,1,
+Memorial Day,2017-05-29,4:00 PM,6:00 PM,1,9,1,
+Memorial Day,2017-05-29,7:00 PM,9:00 PM,1,17,1,
+Xylus Bday,2017-05-06,2:00 PM,4:00 PM,3,6,1,
+Austin Bday,2017-05-20,5:00 PM,7:00 PM,2,20,1,
+Mother's Day,2017-05-14,10:00 AM,12:00 PM,1,14,1,
+Mother's Day,2017-05-14,1:00 PM,3:00 PM,1,15,1,
+Mother's Day,2017-05-14,4:00 PM,6:00 PM,1,16,1,
+Mother's Day,2017-05-14,7:00 PM,9:00 PM,1,18,1,
+That Special Grad,2017-05-13,10:00 AM,12:00 PM,1,13,1,
+That Special Grad,2017-05-14,10:00 AM,12:00 PM,1,14,1,
+Father's Day,2017-06-18,10:00 AM,12:00 PM,1,18,1,
+Father's Day,2017-06-18,1:00 PM,3:00 PM,1,19,1,
+Father's Day,2017-06-18,4:00 PM,6:00 PM,1,10,1,
+Father's Day,2017-06-18,7:00 PM,9:00 PM,1,15,1,
+Daniel's Bday,2017-06-24,7:00 PM,9:00 PM,2,10,1,
+Ladies Night Out,2017-06-02,7:00 PM,9:00 PM,2,1,1,
+Ladies Night Out,2017-06-09,7:00 PM,9:00 PM,2,10,1,
+Ladies Night Out,2017-06-17,7:00 PM,9:00 PM,2,22,1,
+Ladies Night Out,2017-06-24,7:00 PM,9:00 PM,2,8,1,

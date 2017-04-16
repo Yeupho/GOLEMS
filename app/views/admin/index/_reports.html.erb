@@ -9,41 +9,12 @@
 </div>
 
 <div>
+  <%= render 'admin/index/charts/mostpopprod' %>
+  <%= render 'admin/index/charts/numberattendee' %>
+  <%= render 'admin/index/charts/evrevenue' %>
+  <%= render 'admin/index/charts/prodpurchase' %>
 
-  <div class="panel panel-default" style="position:absolute;top:200px;background-color:#FFFFFF  ">
-    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px;">Most popular products in the past month</h2></div>
-    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
-      <%= pie_chart Admin.MostPopProd5, library: {legend: {position: "right"}},
-                    colors:["#4d9de0","#e15554","#e1bc29","#3bb273","#7768ae"],
-                    height:"300px",width:"540px",donut:true,download:true %>
-    </div>
-  </div>
 
-  <div class="panel panel-default" style="position:absolute;top:200px;left: 600px;">
-    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Number of People Attending Each Week</h2></div>
-    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
-      <%= column_chart Admin.NumAttending,
-                     ytitle:["Number of People"],xtitle:["Date"],
-                     height:"300px",width:"540px",download:true %>
-    </div>
-  </div>
-
-  <div class="panel panel-default" style="position:absolute;top:610px;">
-    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Revenue</h2></div>
-    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
-    <%= area_chart Admin.EarningsRevenue ,
-                   colors:["#DA70D6"], xtitle:["Date"],
-                   ytitle: ["Monetary Value"],
-                   height:"300px",width:"750px",download:true %></div>
-  </div>
-  <div class="panel panel-default" style="position:absolute;top:1030px;left:600px;">
-    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Number of Products Purchased Daily</h2></div>
-    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
-      <%= area_chart Admin.DailyPurchase ,
-                     colors:["#4C9C51"], xtitle:["Date"],
-                     ytitle: ["Number of Products"],
-                     height:"300px",width:"540px",download:true %></div>
-  </div>
   <div class="panel panel-default" style="position:absolute;top:610px;left:800px;height:390px;width:355px;">
     <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Most Profitable Events</h2></div>
     <div class="panel panel-body" style="padding:0px;padding-left:10px;">
@@ -51,47 +22,25 @@
         <thead>
         <tr>
           <th>Event</th>
-          <th class="pull-right">Profit</th>
+          <th>Date</th>
+          <th>Profit</th>
         </tr>
         </thead>
         <tbody>
-            <tr>
-              <td>Oh OH It's Magic</td>
-              <td class="pull-right">$1,500.00</td>
-            </tr>
-            <tr>
-              <td>Ladies Night Out</td>
-              <td class="pull-right">$593.35</td>
-            </tr>
-            <tr>
-              <td>Farrah's Party</td>
-              <td class="pull-right">$330.10</td>
-            </tr>
-            <tr>
-              <td>Get Over The Hump</td>
-              <td class="pull-right">$143.76</td>
-            </tr>
-            <tr>
-              <td>Ladies Night Out</td>
-              <td class="pull-right">$95.67</td>
-            </tr>
-            <tr>
-              <td>Oh OH It's Magic</td>
-              <td class="pull-right">$20.95</td>
-            </tr>
+          <% @mostprofit.each do |f| %>
+           <tr>
+             <td><%= f.event_name%> </td>
+             <td><%= f.event_date.strftime('%m/%d/%Y') %> </td>
+             <td>$<%= number_with_precision(f.revenue,:precision=>2) %> </td>
+           </tr>
+            <% end %>
         </tbody>
+
       </table>
 
     </div>
   </div>
-  <div class="panel panel-default" style="position:absolute;top:1030px">
-    <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Count of Event Hosts</h2></div>
-    <div class="panel panel-body" style="padding:0px;padding-left:10px;">
-      <%= line_chart Admin.RecognizeEmployee ,
-                     xtitle:["Date"],
-                     ytitle: ["Events Hosted"], curved:true,
-                     height:"300px",width:"540px",download:true %></div>
-  </div>
+  <%= render 'admin/index/charts/recogemp' %>
   <!--<div style="position:absolute; left: 700px;top: 840px;">-->
     <!--<h1 style="color: #C33764">Number of Events Scheduled</h1>-->
     <!--<= line_chart Event.where(:event_date => 1.days.ago .. 1.months.from_now).group_by_day(:event_date)-->

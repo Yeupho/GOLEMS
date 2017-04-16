@@ -10,13 +10,14 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :employee_status_desc %>
-    <%= f.number_field :employee_status_desc %>
+    <div style="width:200px"><%= f.text_field :employee_status_desc,class:'form-control' %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<br>
+    <div class="row footer">
+        <%= f.submit class: "btn btn-primary", redirect_to: '/admin' %>
+    </div>
+    <br>
 <% end %>
