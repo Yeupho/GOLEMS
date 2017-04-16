@@ -29,7 +29,7 @@ class ColorsController < ApplicationController
 
     respond_to do |format|
       if @color.save
-        format.html { redirect_to '/admin#colors_tab', notice: 'Color was successfully created.' }
+        format.html { redirect_to '/admin#colors_tab01', notice: 'Color was successfully created.' }
         format.json { render :show, status: :created, location: @color }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ColorsController < ApplicationController
   def update
     respond_to do |format|
       if @color.update(color_params)
-        format.html { redirect_to '/admin#colors_tab', notice: 'Color was successfully updated.' }
+        format.html { redirect_to '/admin#colors_tab01', notice: 'Color was successfully updated.' }
         format.json { render :show, status: :ok, location: @color }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class ColorsController < ApplicationController
       @color.update(deleted_at: nil)
     end
     respond_to do |format|
-      format.html { redirect_to '/admin#colors_tab', notice: 'Color was successfully destroyed.' }
+      format.html { redirect_to '/admin#colors_tab01', notice: 'Color was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -73,7 +73,7 @@ class ColorsController < ApplicationController
     @color.restore(:id)
     @color.update(deleted_at: nil)
     respond_to do |format|
-      format.html { redirect_to '/admin#colors_tab' }
+      format.html { redirect_to '/admin#colors_tab01' }
     end
   end
 
