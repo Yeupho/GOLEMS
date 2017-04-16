@@ -93,10 +93,10 @@
   </thead>
   <tbody id="customer_events">
   <% @customer_events.each do |customer_event| %>
-      <% total_kids = total_kids + customer_event.kids_painting %>
-      <% total_adults = total_adults + customer_event.adults_painting %>
-      <% total_party = total_party + customer_event.number_in_party %>
-      <% visitor =  customer_event.number_in_party - (customer_event.kids_painting + customer_event.adults_painting) %>
+      <% total_kids = total_kids + customer_event.kids_painting.to_i %>
+      <% total_adults = total_adults + customer_event.adults_painting.to_i %>
+      <% total_party = total_party + customer_event.number_in_party.to_i %>
+      <% visitor =  customer_event.number_in_party.to_i - (customer_event.kids_painting.to_i + customer_event.adults_painting.to_i) %>
       <tr data-link="<%= customer_event_path(customer_event) %>" class="clickable-row" id="customer_event_<%= customer_event.id %>">
         <td><%= customer_event.first_name %> <%= customer_event.last_name %></td>
         <td><%= customer_event.kids_painting %></td>
