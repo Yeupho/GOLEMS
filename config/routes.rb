@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # Customer_event
   match '/customer_events/create' => 'customer_events#create', via: [:get, :post], :as => :create_customer_event
+  delete '/customer_events/walk_in_destroy' => 'customer_events#walk_in_destroy', :as => :walk_in_destroy
 
   # Customer_event_product
   post '/customer_event_products/create' => 'customer_event_products#create', :as => :create_product
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
 
   # Admin
   get 'admin' => 'admin#index'
+  get 'about' => 'about#index'
   get 'admin/tabs/colors' => 'admin#colortab'
 
   # Archive

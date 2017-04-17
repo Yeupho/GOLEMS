@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Employee:</strong>
-  <%= @position.employee.first_name %>
-</p>
+  <p>
+    <strong>Employee:</strong>
+    <%= @position.employee.first_name %>
+  </p>
 
-<p>
-  <strong>Employee type:</strong>
-  <%= @position.employee_type.employee_type_desc %>
-</p>
+  <p>
+    <strong>Employee type:</strong>
+    <%= @position.employee_type.employee_type_desc %>
+  </p>
 
-<%= link_to 'Edit', edit_position_path(@position) %> |
-<a href="javascript:history.back()">Back</a>
+  <%= link_to 'Edit', edit_position_path(@position) %> |
+  <a href="javascript:history.back()">Back</a>
+</div>

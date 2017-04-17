@@ -54,3 +54,7 @@ OR
 - View sessions with lsof -wni tcp:3000
 
 -if Hirb is in stalled, do require 'hirb' then Hirb.enable
+
+# bcrypt error
+- Follow instruction at 
+- https://github.com/codahale/bcrypt-ruby/issues/142

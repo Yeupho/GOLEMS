@@ -9,8 +9,16 @@
 
 <div class="page-header">
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-6">
       <h1><%= @event.event_name %></h1>
+    </div>
+
+    <div class="col-lg-2 text-right">
+      <%= link_to event_path(@event, type: :normal),method: :delete, data: { confirm: 'Remove event?' }, class: 'btn btn-primary btn-md show-btn' do %>
+          <span class="glyphicon glyphicon-trash"></span>
+          <br>
+          Delete
+      <% end %>
     </div>
 
     <div class="col-lg-3">
