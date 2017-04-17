@@ -4,5 +4,5 @@ json.array!(@calendar) do |event|
   json.start event.date
   json.color event.color_code
   json.textColor '#2b2b2b'
-  json.url event_url(event, event_history: events_path, format: :html)
+  json.url event_url(event, format: :html)
 end
