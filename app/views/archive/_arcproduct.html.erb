@@ -5,7 +5,7 @@
       <th>Product Name</th>
       <th>Price</th>
       <th>Type</th>
-      <th></th>
+      <th>Action</th>
     </tr>
     </thead>
 
@@ -15,7 +15,10 @@
           <td><%= product.product_name %></td>
           <td><%= number_to_currency(product.product_price) %></td>
           <td><%= product.product_type.product_type_desc %></td>
-          <td><%= link_to 'Restore', product_path(product, type: :restore),method: :delete,class: 'btn btm-mini btn-warning', data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Restore', product_path(product, type: :restore),
+                          method: :delete,class: 'btn btm-mini btn-warning',
+                          data: { confirm: 'Are you sure?' },
+                          redirect_to: '/admin#products_tab01'%></td>
 
         </tr>
     <% end %>

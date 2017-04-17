@@ -1,6 +1,10 @@
-<h1>Editing Position</h1>
+<div class="container">
+  <div class="page-header">
+    <h1>Editing Position</h1>
+  </div>
 
-<%= render 'form', position: @position %>
-
-<%= link_to 'Show', @position %> |
-<a href="javascript:history.back()">Back</a>
+  <%= render 'form', position: @position %>
+  <div class="btn-group">
+    <%= link_to 'Back', '/admin#positions_tab', class:'btn btn-default'%>
+  </div>
+</div>
