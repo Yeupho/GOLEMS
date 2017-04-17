@@ -1,5 +1,16 @@
 <div class="panel panel-default" style="position:absolute;top:200px;left: 600px;">
-  <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Number of People Attending Each Week</h2></div>
+  <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Number of People Attending Each Week</h2>
+    <span style="float:right;margin-top:-30px;">
+    <button type="button" class="btn btn-primary"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Number of total attendees scheduled to
+            attend the events that customers paid for.
+            Range: <%= 1.month.ago.strftime('%B %d, %y') %> to <%= Time.now.strftime('%B %d, %y') %>">
+      <span class="glyphicon glyphicon-info-sign"></span>
+    </button>
+    </span>
+  </div>
   <div class="panel panel-body" style="padding:0px;padding-left:10px;">
     <%= column_chart Admin.NumAttending,
                      ytitle:["Number of People"],xtitle:["Date"],

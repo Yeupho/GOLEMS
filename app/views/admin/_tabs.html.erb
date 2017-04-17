@@ -1,5 +1,5 @@
 <!-- Nav index -->
-<ul class="nav nav-tabs text-center" role="tablist" onClick="reload" sty>
+<ul class="nav nav-tabs text-center" role="tablist">
   <li class="tab-header"><h1  class="tab-spacing", style="color: #C33764">Admin</h1></li>
   <li role="presentation" class="active"><a href="#reports_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span><br>Analytics</a></li>
   <li role="presentation"><a href="#colors_tab01" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-tint"></span><br>Colors</a></li>
@@ -25,9 +25,12 @@
   <div role="tabpanel" class="tab-pane" id="products_tab01">
     <%= render 'products/producttable' %><%= render 'product_types/producttypetable'%></div>
   <div role="tabpanel" class="tab-pane" id="locations_tab">
+    <!--Display USA first, then states then countries-->
     <%= render 'admin/index/locationcharts' %>
     <%= render 'states/statetable' %>
     <%= render 'countries/countrytable'%>
+
+
   </div>
   <div role="tabpanel" class="tab-pane" id="status_tab">
     <%= render 'admin/index/statuses' %></div>
@@ -53,10 +56,4 @@
         $("a[href='" + anchor + "']").tab("show");
     });
 
-    window.onload = function() {
-        if(!window.location.hash) {
-            window.location = window.location + '#loaded';
-            window.location.reload();
-        }
-    }
 </script>

@@ -1,5 +1,14 @@
 <div class="panel panel-default" style="position:absolute;top:1030px;left:600px;">
-  <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Number of Products Purchased Daily</h2></div>
+  <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Number of Products Purchased Daily</h2>
+    <span style="float:right;margin-top:-30px;">
+    <button type="button" class="btn btn-primary"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Total number of products purchased for events.
+            Range: <%= 1.month.ago.strftime('%B %d, %y') %> to <%= Time.now.strftime('%B %d, %y') %>">
+      <span class="glyphicon glyphicon-info-sign"></span>
+    </button>
+    </span></div>
   <div class="panel panel-body" style="padding:0px;padding-left:10px;">
     <%= area_chart Admin.DailyPurchase ,
                    colors:["#4C9C51"], xtitle:["Date"],
