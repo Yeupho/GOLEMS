@@ -72,7 +72,7 @@ class ProductTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product_type
-      @product_type = ProductType.find(params[:id])
+      @product_type = ProductType.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

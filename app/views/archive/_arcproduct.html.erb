@@ -1,4 +1,8 @@
 <div class="imaginary_container">
+  <div class="panel panel-defeault">
+    <div class="panel panel-heading"><h4>Products</h4>
+    </div>
+    <div class="panel panel-body">
   <table class="table table-hover">
     <thead>
     <tr>
@@ -23,5 +27,29 @@
         </tr>
     <% end %>
     </tbody>
+  </table></div></div>
+  <br>
+  <div class="panel panel-defeault">
+    <div class="panel panel-heading"><h4>Product Types</h4>
+    </div>
+    <div class="panel panel-body">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Product Type</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @product_types.only_deleted.each do |product_type| %>
+        <tr data-link="<%= product_type_path(product_type) %>">
+          <td><%= product_type.product_type_desc %></td>
+          <td><%= link_to 'Restore', product_type_path(product_type, type: :restore),
+                          method: :delete,class: 'btn btm-mini btn-warning',
+                          data: { confirm: 'Are you sure?' },
+                          redirect_to: '/admin#products_tab01'%>
+        </tr>
+    <% end %>
+    </tbody>
   </table>
-</div>
+    </div></div></div>

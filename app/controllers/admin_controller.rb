@@ -4,7 +4,7 @@ class AdminController < ApplicationController
     @colors = Color.all
     @products = Product.all
     @product_types = ProductType.all.paginate(page:params[:product_type_page], per_page:10)
-    @event_types = EventType.all.paginate(page: params[:event_type_page], per_page: 10)
+    @event_types = EventType.where('id <> 7').all
     @positions = Position.all
     @employee_types = EmployeeType.all
     @states = State.all
