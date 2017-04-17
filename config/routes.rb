@@ -38,7 +38,6 @@ Rails.application.routes.draw do
 
   # Admin
   get 'admin' => 'admin#index'
-
   get 'about' => 'about#index'
   get 'admin/tabs/colors' => 'admin#colortab'
 
