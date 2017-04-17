@@ -13,14 +13,6 @@ class ColorsController < ApplicationController
   def show
   end
 
-  # GET /colors/new
-  def new
-    @color = Color.new
-  end
-
-  # GET /colors/1/edit
-  def edit
-  end
 
   # POST /colors
   # POST /colors.json

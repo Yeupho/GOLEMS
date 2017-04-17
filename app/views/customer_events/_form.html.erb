@@ -15,7 +15,7 @@
     <%= f.hidden_field(:event_id, value: @customer_event.event_id) %>
 
     <div class="row">
-      <div class="col-lg-4 text-center">
+      <div class="col-lg-4 col-lg-offset-2 text-center">
         <h4>Party Size</h4>
         <%= f.number_field :number_in_party, class: "form-control" %>
       </div>
@@ -24,18 +24,13 @@
     <br>
 
     <div class="row">
-      <div class="col-lg-4 text-center">
+      <div class="col-lg-4 col-lg-offset-2 text-center">
         <h4>Kids</h4>
         <%= f.number_field :kids_painting, class: "form-control" %>
       </div>
       <div class="col-lg-4 text-center">
         <h4>Adults</h4>
         <%= f.number_field :adults_painting, class: "form-control" %>
-      </div>
-      <div class="col-lg-4">
-        <% visitor = @customer_event.number_in_party - (@customer_event.kids_painting + @customer_event.adults_painting) %>
-        <h4 class="text-center">Visitors</h4>
-        <div class="form-control"><%= visitor %></div>
       </div>
     </div>
 

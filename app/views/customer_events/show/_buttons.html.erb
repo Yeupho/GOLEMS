@@ -7,7 +7,11 @@
     </button>
   </div>
   <div class="col-lg-6">
-    <%= link_to '<span class="glyphicon glyphicon-remove-sign"></span><br>Back'.html_safe, :back, class: "btn btn-primary btn-md show-btn", method: :get %>
+    <% if @customer_event.event.event_type_id == 7 %>
+        <%= link_to '<span class="glyphicon glyphicon-remove-sign"></span><br>Back'.html_safe, walk_ins_path, class: "btn btn-primary btn-md show-btn", method: :get %>
+        <% else %>
+    <%= link_to '<span class="glyphicon glyphicon-remove-sign"></span><br>Back'.html_safe, params[:customer_event_history], class: "btn btn-primary btn-md show-btn", method: :get %>
+        <% end %>
   </div>
 </div>
 

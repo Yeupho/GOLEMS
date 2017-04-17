@@ -1,5 +1,5 @@
 class CustomerEventsController < ApplicationController
-  before_action :set_customer_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer_event, only: [:show, :edit, :update, :destroy, :walk_in_destroy]
 
   # GET /customer_events/1
   # GET /customer_events/1.json
@@ -61,6 +61,24 @@ class CustomerEventsController < ApplicationController
     @customer_event.destroy
     respond_to do |format|
       format.html { redirect_to :back, notice: 'Customer was successfully removed.', method: :get }
+      format.json { head :no_content }
+    end
+  end
+
+  # DELETE /customer_events/1
+  # DELETE /customer_events/1.json
+  def walk_in_destroy
+    @customer_events = CustomerEvent.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @customer_event.delete
+    elsif params[:type]=='restore'
+      @customer_event.restore
+      @customer_event.update(deleted_at: nil)
+    end
+
+    @customer_event.destroy
+    respond_to do |format|
+      format.html { redirect_to walk_ins_path, notice: 'Walk-In was successfully removed.', method: :get }
       format.json { head :no_content }
     end
   end

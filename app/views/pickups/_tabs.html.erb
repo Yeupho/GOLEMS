@@ -11,7 +11,7 @@
         <span class="badge" style="background-color: #d9534f">0</span>
     <% end %>
   </a></li>
-  <li role="presentation"><a href="#ready" role="tab" data-toggle="tab">
+  <li role="presentation"><a href="#ready" role="tab" data-toggle="tab" onClick="reload">
     <span class="glyphicon glyphicon-gift" style="color: #f0ad4e"></span>
     <br>
     Ready
@@ -21,7 +21,7 @@
         <span class="badge">0</span>
     <% end %>
   </a></li>
-  <li role="presentation"><a href="#picked_up" role="tab" data-toggle="tab">
+  <li role="presentation"><a href="#picked_up" role="tab" data-toggle="tab" onClick="reload">
     <span class="glyphicon glyphicon-ok-circle" style="color: #5cb85c"></span>
     <br>
     Picked-Up
@@ -39,3 +39,27 @@
   <div role="tabpanel" class="tab-pane" id="ready"><%= render 'ready' %></div>
   <div role="tabpanel" class="tab-pane" id="picked_up"><%= render 'picked_up' %></div>
 </div>
+
+<!--adds tab href to url + opens tab based on hash on page load:-->
+<script>
+    <!--Returns you back to the current tab you are on, on refresh of page-->
+    $(document).ready(function() {
+        if (location.hash) {
+            $("a[href='" + location.hash + "']").tab("show");
+        }
+        $(document.body).on("click", "a[data-toggle]", function(event) {
+            location.hash = this.getAttribute("href");
+        });
+    });
+    $(window).on("popstate", function() {
+        var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
+        $("a[href='" + anchor + "']").tab("show");
+    });
+
+    window.onload = function() {
+        if(!window.location.hash) {
+            window.location = window.location + '#loaded';
+            window.location.reload();
+        }
+    }
+</script>

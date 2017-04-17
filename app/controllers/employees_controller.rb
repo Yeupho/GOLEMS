@@ -1,11 +1,10 @@
 class EmployeesController < ApplicationController
-  require 'will_paginate/array'
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.employees.paginate(page: params[:employee_page], per_page: 13)
+    @employees = Employee.employees
     @employee = Employee.new
     @positions = EmployeeType.positions
 

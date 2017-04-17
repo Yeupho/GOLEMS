@@ -15,7 +15,7 @@
 
       <tbody>
       <% @all_transactions.where("customers.id = ?", params[:customer]).each do |t| %>
-          <tr data-link="<%= customer_event_path(t) %>" class="clickable-row">
+          <tr data-link="<%= customer_event_path(t, customer_event_history: customers_all_transactions_path(customer: params[:customer])) %>" class="clickable-row">
             <td><%= t.event_name %></td>
             <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= t.color_code %>;"></span></td>
             <td><%= t.event_date.strftime("%m/%d/%y") %></td>
