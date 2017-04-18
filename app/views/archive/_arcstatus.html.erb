@@ -1,0 +1,50 @@
+<div class="imaginary_container">
+  <div class="panel panel-defeault" style="float:left;width:40%;margin-left:20px;">
+    <div class="panel panel-heading"><h4>Employee Statuses</h4>
+    </div>
+    <div class="panel panel-body">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Employee Status Name</th>
+          <th colspan="3">Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @employee_statuses.only_deleted.each do |employee_status| %>
+            <tr data-link="<%= employee_status_path(employee_status) %>">
+              <td><%= employee_status.employee_status_desc %></td>
+              <td><%= link_to 'Restore', employee_status_path(employee_status, type: :restore),method: :delete,
+                              class: 'btn btm-mini btn-warning',
+                              data: {confirm: 'Are you sure you want to restore?'} %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel panel-defeault" style="float:left;width:40%;margin-left:20px">
+    <div class="panel panel-heading"><h4>Customer Statuses</h4>
+    </div>
+    <div class="panel panel-body">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Customer Status Name</th>
+          <th colspan="3">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @customer_statuses.only_deleted.each do |customer_status| %>
+            <tr data-link="<%= customer_status_path(customer_status) %>">
+              <td><%= customer_status.customer_status_description %></td>
+              <td><%= link_to 'Restore', customer_status_path(customer_status, type: :restore),method: :delete,
+                              class: 'btn btm-mini btn-warning',
+                              data: {confirm: 'Are you sure you want to restore?'} %></td>            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

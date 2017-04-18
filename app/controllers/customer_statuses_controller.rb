@@ -54,7 +54,13 @@ class CustomerStatusesController < ApplicationController
   # DELETE /customer_statuses/1
   # DELETE /customer_statuses/1.json
   def destroy
-    @customer_status.destroy
+    @customer_statuses = CustomerStatus.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @customer_status.delete
+    elsif params[:type]=='restore'
+      @customer_status.restore
+      @customer_status.update(deleted_at: nil)
+    end
     respond_to do |format|
       format.html { redirect_to '/admin#status_tab' }
       format.json { head :no_content }
@@ -64,7 +70,7 @@ class CustomerStatusesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer_status
-      @customer_status = CustomerStatus.find(params[:id])
+      @customer_status = CustomerStatus.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

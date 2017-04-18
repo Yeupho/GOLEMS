@@ -11,10 +11,12 @@ class CustomerEventProduct < ApplicationRecord
   end
 
   def self.customer_event_products
-    CustomerEventProduct.select("customer_event_products.id, products.product_name, quantity, products.product_price, pickup_status_id, pickup_statuses.pickup_status_desc, sum(quantity * products.product_price) AS sales")
+    CustomerEventProduct.select("customer_event_products.id, products.product_name, quantity, products.product_price,
+        pickup_status_id, pickup_statuses.pickup_status_desc, sum(quantity * products.product_price) AS sales")
         .joins(:product)
         .joins(:pickup_status)
-        .group("customer_event_products.id, products.product_name, quantity, products.product_price, pickup_status_id, pickup_statuses.pickup_status_desc")
+        .group("customer_event_products.id, products.product_name, quantity, products.product_price,
+        pickup_status_id, pickup_statuses.pickup_status_desc")
         .order("pickup_status_id ASC")
   end
 

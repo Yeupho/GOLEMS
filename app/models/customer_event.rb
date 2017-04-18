@@ -23,16 +23,20 @@ class CustomerEvent < ApplicationRecord
   end
 
   def self.customer_events
-    CustomerEvent.select("customer_events.id, event_id, customers.first_name, customers.last_name, kids_painting, adults_painting, number_in_party")
+    CustomerEvent.select("customer_events.id, event_id, customers.first_name,
+        customers.last_name, kids_painting, adults_painting, number_in_party")
         .joins(:customer)
         .order("customers.first_name ASC")
   end
+
   def self.customer_total
-    CustomerEvent.select("sum(products.product_price * customer_event_products.quantity) AS sales").joins(customer_event_products: :product)
+    CustomerEvent.select("sum(products.product_price * customer_event_products.quantity) AS sales")
+        .joins(customer_event_products: :product)
   end
 
   def self.check_in
-    CustomerEvent.select("customers.first_name, customers.last_name, events.event_date, events.start_time, events.end_time, events.event_name, customer_events.number_in_party")
+    CustomerEvent.select("customers.first_name, customers.last_name, events.event_date,
+        events.start_time, events.end_time, events.event_name, customer_events.number_in_party")
         .joins(:customer)
         .joins(:event)
         .where("events.event_date = ?", Date.today)
