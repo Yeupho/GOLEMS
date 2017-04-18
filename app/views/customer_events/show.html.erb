@@ -14,13 +14,12 @@
         </div>
 
         <div class="col-lg-2 text-right">
-          <%= link_to walk_in_destroy_path(id: @customer_event, type: :normal),method: :delete, data: { confirm: 'Remove this walk-in?' }, class: 'btn btn-primary btn-md show-btn' do %>
+          <%= link_to walk_in_destroy_path(id: @customer_event.id, type: :normal),method: :delete, data: { confirm: 'Remove Walk-In?' }, class: 'btn btn-primary btn-md show-btn' do %>
               <span class="glyphicon glyphicon-trash"></span>
               <br>
               Delete
           <% end %>
         </div>
-
     <% else %>
         <div class="col-lg-8">
           <h1>

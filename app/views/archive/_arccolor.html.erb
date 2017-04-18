@@ -2,8 +2,10 @@
   <table class="table table-hover">
     <thead>
     <tr>
+      <th>Color</th>
       <th>Color Code</th>
       <th>Color Name</th>
+      <th>Action</th>
       <th></th>
     </tr>
     </thead>
@@ -11,7 +13,8 @@
     <tbody>
     <% @colors.only_deleted.each do |color| %>
         <tr data-link="<%= color_path(color) %>">
-          <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= color.color_code %>;"><%= color.color_code %></span></td>
+          <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= color.color_code %>;"></span></td>
+          <td><%= color.color_code %></td>
           <td><%= color.color_name %></td>
           <td><%= link_to 'Restore', color_path(color, type: :restore),method: :restore,
                           class: 'btn btm-mini btn-warning',

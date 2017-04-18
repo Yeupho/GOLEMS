@@ -209,6 +209,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  bcrypt
   bootstrap-sass (~> 3.3.6)
   bootstrap-toggle-rails
   bootstrap3-datetimepicker-rails (~> 4.17.47)

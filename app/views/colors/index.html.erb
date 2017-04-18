@@ -45,7 +45,7 @@
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span></button>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Detail', color %></li>
-                  <li><%= link_to 'Edit', edit_color_path(color), 'data-toggle'=>'modal', 'data-target' => '#editModal' %></li>
+                  <li><%= link_to 'Edit', edit_color_path(color) %></li>
                   <li><%= link_to 'Delete', admin_path(color, type: :normal),method: :delete,class: ' ', data: { confirm: 'Are you sure?' }, redirect_to: '/admin#colors_tab' %></li>
                 </ul>
               </div></td>
@@ -60,6 +60,6 @@
 </div>
 <script type="text/javascript">
 
-        window.location="/admin#colors_tab";
+//        window.location="/admin#colors_tab";
 
 </script>

@@ -29,7 +29,7 @@ class ProductTypesController < ApplicationController
 
     respond_to do |format|
       if @product_type.save
-        format.html { redirect_to '/admin#products_tab' }
+        format.html { redirect_to '/admin#products_tab01' }
         format.json { render :show, status: :created, location: @product_type }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ProductTypesController < ApplicationController
   def update
     respond_to do |format|
       if @product_type.update(product_type_params)
-        format.html { redirect_to '/admin#products_tab'  }
+        format.html { redirect_to '/admin#products_tab01'  }
         format.json { render :show, status: :ok, location: @product_type }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class ProductTypesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to '/admin#products_tab' }
+      format.html { redirect_to '/admin#products_tab01' }
       format.json { head :no_content }
     end
   end

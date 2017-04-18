@@ -42,6 +42,7 @@ class AdminController < ApplicationController
     @twoproductsready = Admin.twoproductsready
 
     @mostprofit = Admin.mostprofit
+    render stream: true
   end
 
   def new

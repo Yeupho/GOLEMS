@@ -48,7 +48,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.html { redirect_to @customer, notice: 'Customer was successfully added.' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :index }
@@ -101,7 +101,7 @@ class CustomersController < ApplicationController
 
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to customers_path, notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to customers_path, notice: 'Customer was successfully removed.' }
       format.json { head :no_content }
     end
   end

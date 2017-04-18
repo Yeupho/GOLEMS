@@ -1,29 +1,28 @@
 <!-- Nav index -->
-<ul class="nav nav-tabs text-center" role="tablist" onClick="reload">
+<ul class="nav nav-tabs text-center" role="tablist" onClick="reload" sty>
   <li class="tab-header"><h1  class="tab-spacing", style="color: #C33764">Admin</h1></li>
   <li role="presentation" class="active"><a href="#reports_tab" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-stats"></span><br>Analytics</a></li>
-  <li role="presentation"><a href="#colors_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-tint"></span><br>Colors</a></li>
+  <li role="presentation"><a href="#colors_tab01" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-tint"></span><br>Colors</a></li>
   <li role="presentation"><a href="#event_types_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-calendar"></span><br>Event Types</a>
   <li role="presentation"><a href="#positions_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-briefcase"></span><br>Employees</a></li>
-  <li role="presentation"><a href="#products_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-tags"></span><br>Products</a></li>
+  <li role="presentation"><a href="#products_tab01" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-tags"></span><br>Products</a></li>
   <li role="presentation"><a href="#locations_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-globe"></span><br>Locations</a></li>
   <li role="presentation"><a href="#status_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-adjust"></span><br>Statuses</a></li>
   <li role="presentation"><a href="#activity_tab" role="tab" data-toggle="tab" onClick="reload"><span class="glyphicon glyphicon-trash"></span><br>Inactive</a></li>
-
-
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="reports_tab">
     <%= render 'admin/index/reports' %></div>
-  <div role="tabpanel" class="tab-pane" id="colors_tab">
-    <%= render 'colors/colortable' %></div>
-  <div role="tabpanel" class="tab-pane" id="event_types_tab"
-  ><%= render 'event_types/eventtypetable' %></div>
+  <!--This did not work, saving for future references-->
+  <!--<div role="tabpanel" class="tab-pane" id="colors_tab">-->
+    <!--<= render 'colors/colortable' %></div>-->
+  <div role="tabpanel" class="tab-pane" id="event_types_tab">
+    <%= render 'event_types/eventtypetable' %></div>
   <div role="tabpanel" class="tab-pane" id="positions_tab">
     <%= render 'positions/positiontable' %><%= render 'employee_types/employeetypetable' %></div>
-  <div role="tabpanel" class="tab-pane" id="products_tab">
+  <div role="tabpanel" class="tab-pane" id="products_tab01">
     <%= render 'products/producttable' %><%= render 'product_types/producttypetable'%></div>
   <div role="tabpanel" class="tab-pane" id="locations_tab">
     <%= render 'admin/index/locationcharts' %>
@@ -34,6 +33,8 @@
     <%= render 'admin/index/statuses' %></div>
   <div role="tabpanel" class="tab-pane" id="activity_tab">
     <%= render 'archive/tabs' %></div>
+  <div role="tabpanel" class="tab-pane" id="colors_tab01">
+    <%= render 'colors/colortable2' %></div>
 </div>
 
 <!--adds tab href to url + opens tab based on hash on page load:-->

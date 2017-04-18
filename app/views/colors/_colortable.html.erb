@@ -24,7 +24,30 @@
         <!--</div>-->
       </div>
     </div>
-
+    <div class="imaginary_container">
+    <% @colors.each do |color| %>
+        <div style="float:left;margin-left:30px;margin-right:30px;margin-bottom:30px;">
+          <div style="background-color:<%= color.color_code %>;height:100px;width:100px;border-radius:25px;margin-left:15px;">
+            <h1 style="text-align:center;padding-top:30px;color:ghostwhite;text-shadow: 2px 2px 4px #000000;"><%= color.color_name %></h1>
+          </div>
+          <tr data-link="<%= color_path(color) %>">
+            <h3 style="text-shadow: 2px 2px 4px gainsboro ;"><%= color.color_code %></h3>
+            <div class="dropdown" style="margin-left:100px;margin-top:-40px;">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Edit', edit_color_path(color), 'data-toggle'=>'modal', 'data-target' => '#editModal' %></li>
+                <li><%= link_to 'Delete', color_path(color, type: :normal),
+                                method: :delete,class: ' ', data: { confirm: 'Are you sure?' },
+                                redirect_to: '/admin#colors_tab' %></li>
+              </ul>
+            </div>
+          </tr>
+        </div>
+    <% end %>
+    </div>
+  </div>
+</div>
     <!--<div class="imaginary_container">-->
       <!--<table class="sctable" >-->
         <!--<thead class="sctable">-->
@@ -56,33 +79,10 @@
       <!--</table>-->
     <!--</div>-->
 
-    <% @colors.each do |color| %>
-          <div style="float:left;margin-left:30px;margin-right:30px;margin-bottom:30px;">
-            <div style="background-color:<%= color.color_code %>;height:100px;width:100px;border-radius:25px;margin-left:15px;">
-              <h1 style="text-align:center;padding-top:30px;color:ghostwhite;text-shadow: 2px 2px 4px #000000;"><%= color.color_name %></h1>
-            </div>
-            <tr>
-              <h3 style="text-shadow: 2px 2px 4px gainsboro ;"><%= color.color_code %></h3>
-              <div class="dropdown" style="margin-left:100px;margin-top:-40px;">
-                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                  <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><%= link_to 'Edit', edit_color_path(color), 'data-toggle'=>'modal', 'data-target' => '#editModal' %></li>
-                  <li><%= link_to 'Delete', color_path(color, type: :normal),
-                                  method: :delete,class: ' ', data: { confirm: 'Are you sure?' },
-                                  redirect_to: '/admin#colors_tab' %></li>
-                </ul>
-              </div>
-            </tr>
-          </div>
-    <% end %>
-    <div class="row text-center">
+    <!--This was used for paginate-->
       <!--< if @colors.length > 0 && @colors.total_pages > 1 %>-->
           <!--<= will_paginate @colors, renderer: BootstrapPagination::Rails, :param_name => 'color_page' %>-->
           <!--<div class="page_info">-->
             <!--<= page_entries_info @colors %>-->
           <!--</div>-->
       <!--< end %>-->
-    </div>
-  </div>
-</div>
