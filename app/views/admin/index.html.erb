@@ -2,7 +2,9 @@
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <div class="row" >
   <div class="col-lg-12">
+    <% ActiveRecord::Base.default_timezone = :utc %>
     <%= render 'tabs' %>
+    <% ActiveRecord::Base.default_timezone = :local %>
   </div>
 </div>
 
