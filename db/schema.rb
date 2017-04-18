@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170412015024) do
+ActiveRecord::Schema.define(version: 20170418032023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20170412015024) do
     t.string   "customer_status_description"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_customer_statuses_on_deleted_at", using: :btree
   end
 
   create_table "customers", force: :cascade do |t|
@@ -93,6 +95,8 @@ ActiveRecord::Schema.define(version: 20170412015024) do
     t.string   "employee_status_desc"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_employee_statuses_on_deleted_at", using: :btree
   end
 
   create_table "employee_types", force: :cascade do |t|
@@ -140,7 +144,7 @@ ActiveRecord::Schema.define(version: 20170412015024) do
     t.date     "event_date"
     t.time     "start_time"
     t.time     "end_time"
-    t.integer  "event_type_id",     default: nil
+    t.integer  "event_type_id"
     t.integer  "color_id",          default: 1
     t.integer  "event_status_id",   default: 1
     t.string   "event_description"
