@@ -5,6 +5,8 @@
     <div class="col-lg-8">
       <h1>
         <%= Customer.where("id = ?", params[:customer]).map{|c| [c.first_name, c.last_name]}.join(" ") %>
+        <span class="glyphicon glyphicon-chevron-right" style="color: #C33764"></span>
+        All Transactions
       </h1>
     </div>
 

@@ -1,0 +1,561 @@
+@import 'bootstrap-sprockets'
+@import 'bootstrap'
+@import 'bootstrap-datetimepicker'
+@import 'fullcalendar'
+@import 'jquery.simplecolorpicker.css'
+@import "jquery.simplecolorpicker-glyphicons.css"
+@import 'bootstrap-toggle'
+
+$white: #FFFFFF
+$white-smoke: #F7F5F5
+$celestial: #C33764 , #C33764, #1D2671
+$change: #4281A4
+
+@import 'buttons'
+
+body
+  background: $white-smoke
+  font-family: 'Roboto', Sans-Serif
+  font-size: 18px !important
+
+.imaginary_container
+  margin-top: .8%
+
+#page-content-wrapper
+  width: 100%
+  position: absolute
+  height: 100%
+  padding-right: 15px
+  padding-left: 8%
+  overflow: auto
+
+.container-fluid
+  padding-right: 0 !important
+  padding-left: 15px !important
+
+.footer
+  padding: 15px
+  border-top: 1px solid #E5E5E5
+
+/***************************************************/
+/*                    Login                        */
+/***************************************************/
+#bg-img
+  background: image_url('coffee-cup.jpg') no-repeat center center
+  background-size: cover
+  position: relative
+  top: 0
+  bottom: 0
+  height: 100vh
+
+#bg-gradient
+  position: absolute
+  background: linear-gradient(45deg, rgba(190,242,236,.6) 1%,rgba(190,242,236,.6) 46%,rgba(192,207,240,.6) 81%)
+  top: 0
+  bottom: 0
+  height: 100%
+  width: 100%
+
+.home
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+
+.item
+  height: 500px
+  width: 500px
+  background: $white-smoke
+  border-radius: 8px
+  box-shadow: 15px 25px 15px -10px rgba(0, 0, 0, .1)
+
+.content
+  height: 85%
+  padding: 70px
+  display: flex
+  align-items: center
+  justify-content: center
+
+.in
+  padding: 15px
+
+.logo
+  width: 150px
+  height: 170px
+  margin-bottom: 20px
+  padding: 2px
+  line-height: 90px
+  margin: 0 auto
+  display: flex
+  justify-content: center
+  align-items: center
+
+.checkbox-label, .checkbox
+  padding-left: 5px !important
+  margin: 0 !important
+  color: #585b5e
+
+.form-control-2
+  background: 0 0
+  border: 0
+  box-shadow: none
+  border-bottom: 1px solid #AFB3C1
+  border-radius: 0
+
+.input-group-addon-2
+  background: 0 0
+  border: 0
+  color: #AFB5C1
+
+.input-group-2, .form-group
+  padding-top: 8%
+
+.btn-info
+  background: linear-gradient(45deg, rgba(192,207,240,270) 1% ,rgba(192,207,240,350) 40%)
+  border: 0
+  border-radius: 12px
+  &:hover
+    box-shadow: 0px 16px 5px -15px rgba(0,0,0,.15)
+
+/***************************************************/
+/*                    SideBar                      */
+/***************************************************/
+#sidebar-wrapper
+  z-index: 1
+  position: absolute
+  width: 8%
+  height: 100%
+  overflow-y: hidden
+  background: linear-gradient(to bottom, #1D2671, #C33764)
+  font-size: 20px
+  margin: 0
+
+.sidebar-item
+  height: 9%
+  display: flex
+  justify-content: center
+  align-items: center
+  &:hover
+    opacity: .6
+  a
+    display: block
+    text-decoration: none
+    color: $white-smoke
+    &:hover
+      color: $white-smoke
+
+.sidebar-logo
+  height: 14%
+  display: flex
+  justify-content: center
+  align-items: center
+  &:hover
+    opacity: .6
+  a
+    display: block
+    text-decoration: none
+    color: $white-smoke
+    &:hover
+      color: $white-smoke
+
+/***************************************************/
+/*                    SEARCH BAR                   */
+/***************************************************/
+.stylish-input-group
+  box-shadow: 0px 3px 5px -2px rgba(0,0,0,.2)
+
+.stylish-input-group .input-group-addon
+  background: $white !important
+
+.stylish-input-group .form-control
+  border-right: 0
+  box-shadow: 0 0 0
+  border-color: #ccc
+
+.stylish-input-group button
+  border: 0
+  background: transparent
+
+/***************************************************/
+/*                    Table                        */
+/***************************************************/
+
+.panel > .panel-heading
+  background-image: none
+  background: #C33764
+  color: $white-smoke
+
+.simplecolorpicker
+  min-width: 200px
+  border: 1px solid #E5E5E5
+  border-radius: 4px
+
+.color
+  min-width: 25px
+  border-radius: 4px
+
+.color-picked
+  min-width: 50px !important
+  border-radius: 9px
+
+.shadow-pane
+  box-shadow: 0px 7px 7px 0px rgba(0,0,0,.2)
+
+.event-list
+  border-radius: 25px
+  border: 0
+  min-width: 215px
+
+.date
+  line-height: 120px
+  font-size: 60px
+  color: #C33764
+
+.month
+  border-top-right-radius: 25px
+  border-top-left-radius: 25px
+
+.parent
+  position: relative
+  border: 0
+
+.child
+  position: absolute
+  height: 100%
+  width: 30%
+
+.table tbody>tr>td
+  vertical-align: middle
+
+.ui-helper-hidden-accessible
+  display: none
+
+ul.ui-autocomplete
+  position: absolute
+  list-style: none
+  margin: 0
+  padding: 0
+  border: solid 1px #999
+  cursor: default
+  li
+    background-color: #FFF
+    border-top: solid 1px #DDD
+    margin: 0
+    padding: 0
+    a
+      color: #000
+      display: block
+      padding: 3px
+  a.ui-state-hover, a.ui-state-active
+    background-color: #FFFCB2
+
+.color-circle
+  min-width: 40px !important
+  min-height: 40px !important
+  border-radius: 20px
+
+.close
+  color: #B00100
+  opacity: .5
+  font-size: 25px
+  &:hover
+    opacity: 1
+    color: #B00100
+
+.inline-paragraph
+  font-size: 16px !important
+
+p
+  margin-top: 5px
+  margin-bottom: 5px
+
+.note-header
+  border-bottom: 1px solid #C33764
+
+.note-body
+  font-size: 16px
+  padding-left: 15px
+  padding-right: 15px
+
+/***************************************************/
+/*                  Table Scroll                   */
+/***************************************************/
+.table-fixed thead
+  width: 100%
+
+.table-fixed tbody
+  height: 600px
+  overflow-y: auto
+  width: 100%
+
+.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th
+  display: block
+
+.table-fixed tbody td, .table-fixed thead > tr> th
+  float: left
+  border-bottom-width: 0
+// Large tables
+
+thead.sctable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 10px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+tbody.sctable
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+  display: block
+  height: 550px
+  overflow: auto
+tr.sctable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+thead.sctable
+  width: calc( 100% - 1em )
+
+// Status tables
+tbody.scsttable
+  display: block
+  height: 100%
+  overflow: auto
+thead.scsttable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 10px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+tbody.scsttable
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+tr.scsttable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+thead.scsttable
+  width: calc( 100% - 1em )
+
+// Short Tables
+thead.scshtable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 10px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+tbody.scshtable
+  margin-top: 5px
+  display: table
+  width: 100%
+  table-layout: fixed
+  display: block
+  max-height: 300px
+  overflow: auto
+tr.scshtable
+  border-bottom: solid 1px #D3D3D3
+  margin-top: 5px
+  margin-bottom: 10px
+  display: table
+  width: 100%
+  table-layout: fixed
+thead.scshtable
+  margin-top: 10px
+  width: calc( 100% - 1em )
+tbody.scevtable
+  margin-top: 5px
+  display: table
+  width: 100%
+  table-layout: fixed
+  display: block
+  max-height: 500px
+  overflow: auto
+/***************************************************/
+/*              Archive Dropdown                   */
+/***************************************************/
+.dropdown-menu
+  min-width: 50px
+  padding: 5px 5px 5px 10px
+
+.tab-header
+  padding-right: 50px
+
+.tab-spacing
+  margin-top: 16px
+  margin-bottom: 0px
+/***************************************************/
+/*              Reports Padding                    */
+/***************************************************/
+.vertical-divider 
+  clear: both 
+  position: relative
+.vertical-divider:after  
+  clear: both 
+  content: " " 
+  display: block 
+  height: 0 
+  visibility: hidden 
+.vertical-divider .column:not(:first-child):after, .vertical-divider .columns:not(:first-child):after
+  background: #DDDDDD 
+  bottom: 0 
+  content: " " 
+  margin-left: -10px 
+  position: absolute 
+  top: 0 
+  width: 1px 
+/* Very simple grid for example */
+.container
+  position: relative
+  width: 1100px
+  margin: 20px auto
+  padding: 0
+.container .column, .container .columns
+  float: left
+  display: inline
+  margin-left: 10px
+  margin-right: 10px
+.container .one-third.column
+  width: 200px
+.container .two-thirds.column
+  width: 620px
+
+.btn-primary
+  background: #C33764
+  border: 1px solid #C33764
+  &:hover
+    background: #C33764
+    border: 1px solid #C33764
+  &:active
+    background: #C33764
+    border: 1px solid #C33764
+    &:focus
+      background: #C33764
+      border: 1px solid #C33764
+  &:target
+    background: #C33764
+    border: 1px solid #C33764
+  &:focus
+    background: #C33764
+    border: 1px solid #C33764
+
+.text-wrap
+  word-wrap: normal
+
+.pleft
+  padding-right: 135px
+
+tbody > tr
+  cursor: pointer
+
+.no-pointer
+  cursor: auto !important
+
+.fc-content
+  font-size: 16px !important
+  padding: 2px
+
+.fc-title
+  font-weight: bold !important
+
+.line-up
+  margin-right: 15px
+  margin-bottom: 18px
+
+h3
+  margin-top: 10px
+
+.event-box
+  height: 22%
+  width: 100%
+  position: absolute
+
+.no-margin-bottom
+  margin-bottom: 0px
+
+a
+  text-decoration: none
+  color: inherit
+  &:hover
+    color: inherit
+
+.view-more
+  margin: 0
+  text-decoration: underline
+  &:hover
+    opacity: .6
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus
+  background: #C33764
+  border-color: #C33764
+
+.pagination > li > a, .pagination > li > span
+  color: #C33764
+  &:hover
+    color: #C33764
+
+.page-header
+  margin-top: 10px !important
+  margin-bottom: 10px !important
+
+h2
+  margin-top: 10px !important
+
+#logo-title
+  font-family: 'Holtwood One SC', serif !important
+  font-size: 25px
+  font-weight: bold
+
+.k-party
+  padding-left: 87px
+
+.a-party
+  padding-left: 57px
+
+.p-party
+  padding-right: 25px
+
+.p-title
+  margin-left: 21px
+
+.e-title
+  padding-right: 45px
+
+.e-total
+  color: #5cb85c
+  padding-left: 20px
+  h3
+    margin-top: 0
+
+.form-size
+  height: 36px
+  width: 94px
+
+#login-title
+  position: absolute
+  font-family: 'Holtwood One SC', serif !important
+  font-weight: bold
+  font-size: 100px
+  color: $white
+  text-align: center
+  width: 100%
+  margin-top: 4%
+
+.btn-group
+  margin-bottom: 20px
+  margin-right: 17px
+

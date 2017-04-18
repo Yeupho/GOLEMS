@@ -1,4 +1,4 @@
-<% visitor =  @customer_event.number_in_party - (@customer_event.kids_painting + @customer_event.adults_painting) %>
+<% visitor =  @customer_event.number_in_party.to_i - (@customer_event.kids_painting.to_i + @customer_event.adults_painting.to_i) %>
 
 <div class="panel pane-default shadow-pane parent">
 
