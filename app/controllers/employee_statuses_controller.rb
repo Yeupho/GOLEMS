@@ -57,14 +57,19 @@ class EmployeeStatusesController < ApplicationController
     @employee_statuses = EmployeeStatus.with_deleted.find(params[:id])
     if params[:type]=='normal'
       @employee_status.delete
+      respond_to do |format|
+        format.html { redirect_to '/admin#status_tab', notice: 'Employee status was successfully deleted.' }
+        format.json { head :no_content }
+      end
     elsif params[:type]=='restore'
       @employee_status.restore
       @employee_status.update(deleted_at: nil)
+      respond_to do |format|
+        format.html { redirect_to '/admin#status_tab', notice: 'Employee status was successfully restored.' }
+        format.json { head :no_content }
+      end
     end
-    respond_to do |format|
-      format.html { redirect_to '/admin#status_tab', notice: 'Employee status was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
   end
 
   private

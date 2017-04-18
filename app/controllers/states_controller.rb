@@ -28,7 +28,7 @@ class StatesController < ApplicationController
 
     respond_to do |format|
       if @state.save
-        format.html { redirect_to '/admin#locations_tab' }
+        format.html { redirect_to '/admin#locations_tab',notice: 'State was successfully created.' }
         format.json { render :show, status: :created, location: @state }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class StatesController < ApplicationController
   def update
     respond_to do |format|
       if @state.update(state_params)
-        format.html { redirect_to '/admin#locations_tab' }
+        format.html { redirect_to '/admin#locations_tab',notice: 'State was successfully updated.' }
         format.json { render :show, status: :ok, location: @state }
       else
         format.html { render :edit }
@@ -57,15 +57,20 @@ class StatesController < ApplicationController
     @states = State.with_deleted.find(params[:id])
     if params[:type]=='normal'
       @state.destroy
+      respond_to do |format|
+        format.html { redirect_to '/admin#locations_tab',notice: 'State was successfully deleted.' }
+        format.json { head :no_content }
+      end
     elsif params[:type]=='restore'
       @state.restore
       @state.update(deleted_at: nil)
+      respond_to do |format|
+        format.html { redirect_to '/admin#locations_tab',notice: 'State was successfully restored.' }
+        format.json { head :no_content }
+      end
     end
 
-    respond_to do |format|
-      format.html { redirect_to '/admin#locations_tab' }
-      format.json { head :no_content }
-    end
+
   end
 
   private
