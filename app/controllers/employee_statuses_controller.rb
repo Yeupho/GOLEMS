@@ -1,4 +1,5 @@
 class EmployeeStatusesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_employee_status, only: [:show, :edit, :update, :destroy]
 
   # GET /employee_statuses

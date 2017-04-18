@@ -25,7 +25,9 @@
         <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-shopping-cart"><br>Customer</span>'.html_safe, customers_path, method: :get %></div>
         <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-briefcase"><br>Employee</span>'.html_safe, employees_path, method: :get %></div>
         <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-gift"><br>Pick-Up</span>'.html_safe, pickups_path, method: :get %></div>
+        <% if current_user.try(:admin?) %>
         <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-user"><br>Admin</span>'.html_safe, admin_path, method: :get %></div>
+            <% end %>
         <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-question-sign"><br>About</span>'.html_safe, about_path, method: :get %></div>
         <div class="sidebar-item text-center"><%= link_to '<span class="glyphicon glyphicon-off"><br>Logout</span>'.html_safe, destroy_user_session_path, :method => 'delete' %></div>
       </div>

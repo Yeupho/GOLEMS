@@ -1,3 +1,4 @@
+<% if current_user.try(:admin?) %>
 <p id="notice"><%= notice %></p>
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
 <div class="row" >
@@ -14,3 +15,6 @@
         $(this).tab('show')
     })
 </script>
+<% else %>
+    <h3>You Do Not Belong Here..</h3>
+<% end %>

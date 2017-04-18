@@ -1,4 +1,5 @@
 class CustomerEventProductsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_customer_event_product, only: [:show, :edit, :update, :destroy, :ready_tab_update, :progress_tab_update, :picked_tab_update]
 
   # GET /customer_event_products

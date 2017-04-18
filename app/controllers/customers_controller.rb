@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_user!
   require 'will_paginate/array'
   before_action :set_customer, only: [:show, :update, :destroy]
 

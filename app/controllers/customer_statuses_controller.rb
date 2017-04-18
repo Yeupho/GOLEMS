@@ -1,4 +1,5 @@
 class CustomerStatusesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_customer_status, only: [:show, :edit, :update, :destroy]
 
   # GET /customer_statuses

@@ -1,4 +1,5 @@
 class EmployeeTypesController < ApplicationController
+  before_action :authenticate_user!
   require 'will_paginate/array'
   before_action :set_employee_type, only: [:show, :edit, :update, :destroy]
 

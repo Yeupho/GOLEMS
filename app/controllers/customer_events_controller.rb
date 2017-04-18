@@ -1,4 +1,5 @@
 class CustomerEventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_customer_event, only: [:show, :edit, :update, :destroy, :walk_in_destroy]
 
   # GET /customer_events/1

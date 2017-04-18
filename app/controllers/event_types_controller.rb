@@ -1,4 +1,5 @@
 class EventTypesController < ApplicationController
+  before_action :authenticate_user!
   require 'will_paginate/array'
   before_action :set_event_type, only: [:show, :edit, :update, :destroy]
 

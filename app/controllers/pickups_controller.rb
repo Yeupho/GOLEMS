@@ -1,4 +1,6 @@
 class PickupsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @n_ready = CustomerEventProduct.pickup_progress
     @picked  = CustomerEventProduct.pickup_picked

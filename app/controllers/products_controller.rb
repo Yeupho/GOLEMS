@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
   require 'will_paginate/array'
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 

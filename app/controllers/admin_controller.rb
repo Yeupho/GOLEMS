@@ -1,4 +1,5 @@
 class AdminController < ApplicationController
+  before_action :authenticate_user!
   require 'will_paginate/array'
   def index
     @colors = Color.all

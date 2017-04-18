@@ -1,4 +1,5 @@
 class PickupStatusesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_pickup_status, only: [:show, :edit, :update, :destroy]
 
   # GET /pickup_statuses
