@@ -28,7 +28,7 @@ class CustomerStatusesController < ApplicationController
 
     respond_to do |format|
       if @customer_status.save
-        format.html { redirect_to '/admin#status_tab' }
+        format.html { redirect_to '/admin#status_tab', notice: 'Customer Status was successfully created.' }
         format.json { render :show, status: :created, location: @customer_status }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class CustomerStatusesController < ApplicationController
   def update
     respond_to do |format|
       if @customer_status.update(customer_status_params)
-        format.html { redirect_to '/admin#status_tab' }
+        format.html { redirect_to '/admin#status_tab', notice: 'Customer Status was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer_status }
       else
         format.html { render :edit }
@@ -54,17 +54,28 @@ class CustomerStatusesController < ApplicationController
   # DELETE /customer_statuses/1
   # DELETE /customer_statuses/1.json
   def destroy
-    @customer_status.destroy
-    respond_to do |format|
-      format.html { redirect_to '/admin#status_tab' }
-      format.json { head :no_content }
+    @customer_statuses = CustomerStatus.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @customer_status.delete
+      respond_to do |format|
+        format.html { redirect_to '/admin#status_tab', notice: 'Customer Status was successfully deleted.' }
+        format.json { head :no_content }
+      end
+    elsif params[:type]=='restore'
+      @customer_status.restore
+      @customer_status.update(deleted_at: nil)
+      respond_to do |format|
+        format.html { redirect_to '/admin#status_tab', notice: 'Customer Status was successfully restored.' }
+        format.json { head :no_content }
+      end
     end
+
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer_status
-      @customer_status = CustomerStatus.find(params[:id])
+      @customer_status = CustomerStatus.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

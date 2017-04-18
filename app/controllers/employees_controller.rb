@@ -35,7 +35,7 @@ class EmployeesController < ApplicationController
 
     respond_to do |format|
       if @employee.save
-        format.html { redirect_to :back, notice: 'Employee was successfully Added.' }
+        format.html { redirect_to :back, notice: 'Employee was successfully added.' }
         format.json { render :show, status: :created, location: @employee }
       else
         format.html { render :new }
@@ -64,14 +64,17 @@ class EmployeesController < ApplicationController
     @employee = Employee.with_deleted.find(params[:id])
     if params[:type]=='normal'
       @employee.delete
+      respond_to do |format|
+        format.html { redirect_to '/employees',notice: 'Employee was successfully deleted.' }
+        format.json { head :no_content }
+      end
     elsif params[:type]=='restore'
       @employee.restore
       @employee.update(deleted_at: nil)
-    end
-
-    respond_to do |format|
-      format.html { redirect_to '/employees', notice: 'Employee was successfully removed.' }
-      format.json { head :no_content }
+      respond_to do |format|
+        format.html { redirect_to '/employees',notice: 'Employee was successfully restored.' }
+        format.json { head :no_content }
+      end
     end
   end
 

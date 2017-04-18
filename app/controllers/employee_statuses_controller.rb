@@ -42,7 +42,7 @@ class EmployeeStatusesController < ApplicationController
   def update
     respond_to do |format|
       if @employee_status.update(employee_status_params)
-        format.html { redirect_to @employee_status, notice: 'Employee status was successfully updated.' }
+        format.html { redirect_to '/admin#status_tab', notice: 'Employee status was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee_status }
       else
         format.html { render :edit }
@@ -54,17 +54,28 @@ class EmployeeStatusesController < ApplicationController
   # DELETE /employee_statuses/1
   # DELETE /employee_statuses/1.json
   def destroy
-    @employee_status.destroy
-    respond_to do |format|
-      format.html { redirect_to employee_statuses_url, notice: 'Employee status was successfully destroyed.' }
-      format.json { head :no_content }
+    @employee_statuses = EmployeeStatus.with_deleted.find(params[:id])
+    if params[:type]=='normal'
+      @employee_status.delete
+      respond_to do |format|
+        format.html { redirect_to '/admin#status_tab', notice: 'Employee status was successfully deleted.' }
+        format.json { head :no_content }
+      end
+    elsif params[:type]=='restore'
+      @employee_status.restore
+      @employee_status.update(deleted_at: nil)
+      respond_to do |format|
+        format.html { redirect_to '/admin#status_tab', notice: 'Employee status was successfully restored.' }
+        format.json { head :no_content }
+      end
     end
+
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee_status
-      @employee_status = EmployeeStatus.find(params[:id])
+      @employee_status = EmployeeStatus.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

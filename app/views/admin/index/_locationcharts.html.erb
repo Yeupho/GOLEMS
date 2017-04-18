@@ -1,34 +1,25 @@
 <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
-<div class="panel panel-default" style="float:left;margin-top:15px;margin-right:25px;width:500px;">
+<div class="panel panel-default" style="float:left;margin-top:15px;margin-right:25px;">
   <div class="panel-heading">
     <h2 class="panel-title">Client Location of Origin (USA)</h2>
+    <span style="float:right;margin-top:-30px;">
+    <button type="button" class="btn btn-primary"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Displays all customers' state of origin in the USA">
+      <span class="glyphicon glyphicon-info-sign"></span>
+    </button>
+    </span>
   </div>
 
   <div class="panel panel-body">
     <div style="float:left;">
       <%= geo_chart Customer.joins(:state).group(:state_name).count(),
                     library: {region: 'US', resolution: 'provinces'},label: "Clients",
-                    width:"450px"%></div>
-  </div>
-</div>
-
-<div class="panel panel-default" style="float:left;margin-top:15px;width:600px;">
-  <div class="panel-heading">
-    <h2 class="panel-title">Client Location of Origin (World)</h2>
-  </div>
-
-  <div class="panel panel-body">
-    <div style="float:left;">
-      <%= geo_chart Customer.joins(:country).group(:country_name).count(),
-                    label: "Clients", width:"580px"%></div>
+                    width:"1100px", height:"600px"%></div>
   </div>
 </div>
 
 <script>
-    window.onload = function() {
-        if(!window.location.hash) {
-            window.location = window.location + '#loaded';
-            window.location.reload();
-        }
-    }
+
 </script>

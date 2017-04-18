@@ -83,7 +83,7 @@ class CustomersController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to '/admin#activity_tab'}
+      format.html { redirect_to '/admin#activity_tab',notice: 'Customer was successfully restored.' }
       format.json { head :no_content }
     end
   end
@@ -101,7 +101,7 @@ class CustomersController < ApplicationController
 
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to customers_path, notice: 'Customer was successfully removed.' }
+      format.html { redirect_to customers_path, notice: 'Customer was successfully deleted.' }
       format.json { head :no_content }
     end
   end

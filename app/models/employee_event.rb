@@ -22,7 +22,8 @@ class EmployeeEvent < ApplicationRecord
   end
 
   def self.employee_list
-    EmployeeEvent.select("employees.first_name, employees.last_name, events.event_date, events.start_time, events.event_name")
+    EmployeeEvent.select("employees.first_name, employees.last_name, events.event_date, events.start_time,
+        events.event_name")
         .joins(:employee)
         .joins(:event)
         .where("events.event_date = ?", Date.today)

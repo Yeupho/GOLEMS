@@ -10,6 +10,8 @@ class ArchiveController < ApplicationController
     @colors = Color.all
     @positions = Position.all
     @event_types = EventType.all
+    @employee_types = EmployeeType.all
+    @product_types=ProductType.all
   end
 
 end

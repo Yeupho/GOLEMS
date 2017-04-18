@@ -1,5 +1,14 @@
 <div class="panel panel-default" style="position:absolute;top:1030px">
-  <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Count of Event Hosts</h2></div>
+  <div class="panel panel-heading"><h2 class="panel-title" style="font-size:20px">Count of Event Hosts</h2>
+    <span style="float:right;margin-top:-30px;">
+    <button type="button" class="btn btn-primary"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Count of events that eaach employee hosted for the course of all time.
+            Range: <%= 1.month.ago.strftime('%B %d, %y') %> to <%= Time.now.strftime('%B %d, %y') %>">
+      <span class="glyphicon glyphicon-info-sign"></span>
+    </button>
+    </span></div>
   <div class="panel panel-body" style="padding:0px;padding-left:10px;">
     <%= line_chart Admin.RecognizeEmployee ,
                    xtitle:["Date"],

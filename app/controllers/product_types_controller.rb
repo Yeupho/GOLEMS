@@ -29,7 +29,7 @@ class ProductTypesController < ApplicationController
 
     respond_to do |format|
       if @product_type.save
-        format.html { redirect_to '/admin#products_tab01' }
+        format.html { redirect_to '/admin#products_tab01', notice: 'Product Type was successfully created.' }
         format.json { render :show, status: :created, location: @product_type }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ProductTypesController < ApplicationController
   def update
     respond_to do |format|
       if @product_type.update(product_type_params)
-        format.html { redirect_to '/admin#products_tab01'  }
+        format.html { redirect_to '/admin#products_tab01', notice: 'Product Type was successfully updated.' }
         format.json { render :show, status: :ok, location: @product_type }
       else
         format.html { render :edit }
@@ -58,21 +58,26 @@ class ProductTypesController < ApplicationController
     @product_type = ProductType.with_deleted.find(params[:id])
     if params[:type]=='normal'
       @product_type.delete
+      respond_to do |format|
+        format.html { redirect_to '/admin#products_tab01', notice: 'Product Type was successfully deleted.' }
+        format.json { head :no_content }
+      end
     elsif params[:type]=='restore'
       @product_type.restore
       @product_type.update(deleted_at: nil)
+      respond_to do |format|
+        format.html { redirect_to '/admin#products_tab01', notice: 'Product Type was successfully restored.' }
+        format.json { head :no_content }
+      end
     end
 
-    respond_to do |format|
-      format.html { redirect_to '/admin#products_tab01' }
-      format.json { head :no_content }
-    end
+
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product_type
-      @product_type = ProductType.find(params[:id])
+      @product_type = ProductType.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

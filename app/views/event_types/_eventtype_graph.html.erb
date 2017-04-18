@@ -1,6 +1,15 @@
 <div class="panel panel-default" style="float:left;margin-top:25px;width:40%">
   <div class="panel-heading">
-    <h2 class="panel-title">Most Popular (1 Month)</h2>
+    <h2 class="panel-title">Most Popular Event Types</h2>
+    <span style="float:right;margin-top:-30px;">
+    <button type="button" class="btn btn-primary"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Count of all events grouped by type.
+            Range: <%= 1.month.ago.strftime('%B %d, %y') %> to <%= Time.now.strftime('%B %d, %y') %>">
+      <span class="glyphicon glyphicon-info-sign"></span>
+    </button>
+    </span>
   </div>
   <div class="panel-body">
 

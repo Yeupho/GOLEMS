@@ -46,7 +46,7 @@ class EventTypesController < ApplicationController
   def update
     respond_to do |format|
       if @event_type.update(event_type_params)
-        format.html { redirect_to @event_type, notice: 'Event type was successfully updated.' }
+        format.html { redirect_to '/admin#event_types_tab', notice: 'Event type was successfully updated.' }
         format.json { render :show, status: :ok, location: @event_type }
       else
         format.html { render :edit }
@@ -61,16 +61,20 @@ class EventTypesController < ApplicationController
     @event_types = EventType.with_deleted.find(params[:id])
     if params[:type]=='normal'
       @event_type.delete
+      respond_to do |format|
+        format.html { redirect_to event_types_url, notice: 'Event type was successfully deleted.' }
+        format.json { head :no_content }
+      end
     elsif params[:type]=='restore'
       @event_type.restore
       @event_type.update(deleted_at: nil)
+      respond_to do |format|
+        format.html { redirect_to event_types_url, notice: 'Event type was successfully restored.' }
+        format.json { head :no_content }
+      end
     end
 
-    @event_type.destroy
-    respond_to do |format|
-      format.html { redirect_to event_types_url, notice: 'Event type was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
   end
 
   private

@@ -37,9 +37,13 @@
                 <span class="caret"></span></button>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Edit', edit_color_path(color), 'data-toggle'=>'modal', 'data-target' => '#editModal' %></li>
-                <li><%= link_to 'Delete', color_path(color, type: :normal),
-                                method: :delete,class: ' ', data: { confirm: 'Are you sure?' },
-                                redirect_to: '/admin#colors_tab' %></li>
+                <%= if color.color_code = 92  %>
+                <li>Yes</li>
+                <%= else %>
+                    <li><%= link_to 'Delete', color_path(color, type: :normal),
+                                    method: :delete,class: ' ', data: { confirm: 'Are you sure?' },
+                                    redirect_to: '/admin#colors_tab' %></li>
+                <% end %>
               </ul>
             </div>
           </tr>
