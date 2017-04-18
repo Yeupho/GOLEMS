@@ -5,8 +5,6 @@
     <div class="col-lg-8">
       <h1>
         <%= Employee.where("id = ?", params[:employee]).map{|e| [e.first_name, e.last_name]}.join(" ") %>
-        <span class="glyphicon glyphicon-chevron-right" style="color: #C33764"></span>
-        Past Assignments
       </h1>
     </div>
 

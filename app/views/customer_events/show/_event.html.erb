@@ -2,17 +2,19 @@
 
   <div class="row">
     <div class="col-lg-2 col-lg-offset-1"><h4 style="text-decoration: underline">Event</h4></div>
-    <div class="col-lg-6 text-center"><h4><%= @customer_event.event.event_date.strftime("%B %-d, %Y") %></h4></div>
+    <% if type != 7 %>
+        <div class="col-lg-6 text-center"><h4><%= @customer_event.event.event_date.strftime("%B %-d, %Y") %></h4></div>
+    <% end %>
   </div>
 
   <div class="row text-center"><div class="col-lg-10 col-lg-offset-1">
     <% if type == 7 %>
-        <h3>Walk In</h3>
-        <h4><%= @customer_event.created_at.strftime("%l:%M %p") %></h4>
-    <% else %>
+        <h3>Walk-In</h3>
+       <h4><%= @customer_event.event.event_date.strftime("%B %-d, %Y") %></h4>
+        <% else %>
         <h3><%= @customer_event.event.event_name %></h3>
-        <h4><%= @customer_event.event.event_type.event_type_desc %></h4>
-    <% end %>
+    <h4><%= @customer_event.event.event_type.event_type_desc %></h4>
+        <% end %>
   </div></div>
 
   <div class="row"><div class="col-lg-10 col-lg-offset-1"><h4 class="no-margin-bottom" style="text-decoration: underline">Event Color</h4></div></div>

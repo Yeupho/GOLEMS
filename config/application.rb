@@ -24,8 +24,5 @@ module GOLEMS
 
     config.serve_static_assets = false
 
-    config.time_zone = 'Central Time (US & Canada)'
-    config.active_record.default_timezone = :local
-
   end
 end
