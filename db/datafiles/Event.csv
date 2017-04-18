@@ -47,18 +47,18 @@ Walk in ,2017-04-27,12:00 AM,11:59 PM,7,26,1,
 Walk in ,2017-04-28,12:00 AM,11:59 PM,7,26,1,
 Walk in ,2017-04-29,12:00 AM,11:59 PM,7,26,1,
 Walk in ,2017-04-30,12:00 AM,11:59 PM,7,26,1,
-Eggstravagza,2017-04-17,10:00 AM,12:00 PM,1,11,1,Easter Event
+Eggstravagza,2017-04-17,10:00 AM,12:00 PM,1,9,1,Easter Event
 Eggstravagza,2017-04-17,1:00 PM,3:00 PM,1,12,1,Easter Event
 Eggstravagza,2017-04-17,4:00 PM,6:00 PM,1,13,1,Easter Event
-Get Over The Hump,2017-03-29,7:00 PM,9:00 PM,2,1,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-03-29,7:00 PM,9:00 PM,2,2,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-04-05,7:00 PM,9:00 PM,2,13,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-04-12,7:00 PM,9:00 PM,2,25,1,21 and Over. Relieve stress from work
-Get Over The Hump,2017-04-19,7:00 PM,9:00 PM,2,3,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-04-19,7:00 PM,9:00 PM,2,30,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-04-26,7:00 PM,9:00 PM,2,10,1,21 and Over. Relieve stress from work
-Hailey's Party,"	2017-04-01",2:00 PM,4:00 PM,3,15,1,
-Farrah's Party,2017-04-09,4:00 PM,6:00 PM,3,1,1,
+Hailey's Party,2017-04-01,2:00 PM,4:00 PM,3,15,1,
+Farrah's Party,2017-04-09,4:00 PM,6:00 PM,3,2,1,
 David's Party,2017-04-22,12:00 PM,2:00 PM,3,20,1,
-Pet Prints,"	2017-04-15",10:00 AM,11:30 AM,1,7,1,Small pets only
+Pet Prints,2017-04-15,10:00 AM,11:30 AM,1,7,1,Small pets only
 Get Over The Hump,2017-01-04,7:00 PM,9:00 PM,2,5,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-01-11,7:00 PM,9:00 PM,2,10,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-01-18,7:00 PM,9:00 PM,2,15,1,21 and Over. Relieve stress from work
@@ -71,7 +71,7 @@ Get Over The Hump,2017-03-01,7:00 PM,9:00 PM,2,19,1,21 and Over. Relieve stress 
 Get Over The Hump,2017-03-08,7:00 PM,9:00 PM,2,25,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-03-15,7:00 PM,9:00 PM,2,13,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-03-22,7:00 PM,9:00 PM,2,8,1,21 and Over. Relieve stress from work
-Get Over The Hump,2007-05-03,7:00 PM,9:00 PM,2,22,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-05-03,7:00 PM,9:00 PM,2,22,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-05-10,7:00 PM,9:00 PM,2,10,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-05-17,7:00 PM,9:00 PM,2,20,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-05-24,7:00 PM,9:00 PM,2,22,1,21 and Over. Relieve stress from work
@@ -79,7 +79,7 @@ Get Over The Hump,2017-05-31,7:00 PM,9:00 PM,2,21,1,21 and Over. Relieve stress 
 Get Over The Hump,2017-06-07,7:00 PM,9:00 PM,2,14,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-06-14,7:00 PM,9:00 PM,2,23,1,21 and Over. Relieve stress from work
 Get Over The Hump,2017-06-21,7:00 PM,9:00 PM,2,11,1,21 and Over. Relieve stress from work
-Get Over The Hump,2017-06-28,7:00 PM,9:00 PM,2,06,1,21 and Over. Relieve stress from work
+Get Over The Hump,2017-06-28,7:00 PM,9:00 PM,2,6,1,21 and Over. Relieve stress from work
 I Have a Dream,2017-01-16,10:00 AM,11:00 AM,1,2,1,Quotes on plates
 I Have a Dream,2017-01-16,2:00 PM,3:00 PM,1,5,1,Quotes on plates
 Favorite President,2017-02-20,12:00 PM,2:00 PM,1,12,1,Who's your favorite President
@@ -178,36 +178,6 @@ Walk in,2017-03-28,12:00 AM,11:59 PM,7,26,1,
 Walk in,2017-03-29,12:00 AM,11:59 PM,7,26,1,
 Walk in,2017-03-30,12:00 AM,11:59 PM,7,26,1,
 Walk in,2017-03-31,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-01,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-02,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-03,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-04,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-05,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-06,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-07,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-08,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-09,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-10,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-11,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-12,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-13,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-14,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-15,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-16,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-17,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-18,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-19,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-20,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-21,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-22,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-23,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-24,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-25,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-26,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-27,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-28,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-29,12:00 AM,11:59 PM,7,26,1,
-Walk in,2017-04-30,12:00 AM,11:59 PM,7,26,1,
 Walk in,2017-05-01,12:00 AM,11:59 PM,7,26,1,
 Walk in,2017-05-02,12:00 AM,11:59 PM,7,26,1,
 Walk in,2017-05-03,12:00 AM,11:59 PM,7,26,1,
@@ -290,3 +260,9 @@ Ladies Night Out,2017-06-02,7:00 PM,9:00 PM,2,1,1,
 Ladies Night Out,2017-06-09,7:00 PM,9:00 PM,2,10,1,
 Ladies Night Out,2017-06-17,7:00 PM,9:00 PM,2,22,1,
 Ladies Night Out,2017-06-24,7:00 PM,9:00 PM,2,8,1,
+Sunshine With Wine,2017-04-23,12:00 PM,2:00 PM,2,32,1,Wine Goblet or Magarita Glass
+Sunshit With Wine,2017-04-23,7:00 PM,9:00 PM,2,45,1,Wine Goblet or Margarita Glass
+Taco Tuesday,2017-04-25,5:00 PM,7:00 PM,2,23,1,Salsa Bowls
+Michael Party,2017-04-28,7:00 PM,9:00 PM,3,17,1,Spiderman Theme
+What's Bloomin',2017-04-30,10:00 AM,12:00 PM,1,4,1,Flower Pieces
+Quit Muggin' Around,2017-05-05,5:00 PM,7:00 PM,1,9,1,Just Mugs
