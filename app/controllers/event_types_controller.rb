@@ -61,15 +61,20 @@ class EventTypesController < ApplicationController
     @event_types = EventType.with_deleted.find(params[:id])
     if params[:type]=='normal'
       @event_type.delete
+      respond_to do |format|
+        format.html { redirect_to event_types_url, notice: 'Event type was successfully deleted.' }
+        format.json { head :no_content }
+      end
     elsif params[:type]=='restore'
       @event_type.restore
       @event_type.update(deleted_at: nil)
+      respond_to do |format|
+        format.html { redirect_to event_types_url, notice: 'Event type was successfully restored.' }
+        format.json { head :no_content }
+      end
     end
 
-    respond_to do |format|
-      format.html { redirect_to event_types_url, notice: 'Event type was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
   end
 
   private

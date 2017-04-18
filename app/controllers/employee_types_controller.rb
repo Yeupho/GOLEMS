@@ -29,7 +29,7 @@ class EmployeeTypesController < ApplicationController
 
     respond_to do |format|
       if @employee_type.save
-        format.html { redirect_to '/admin#positions_tab' }
+        format.html { redirect_to '/admin#positions_tab', notice: 'Employee Type was successfully created.' }
         format.json { render :show, status: :created, location: @employee_type }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class EmployeeTypesController < ApplicationController
   def update
     respond_to do |format|
       if @employee_type.update(employee_type_params)
-        format.html { redirect_to '/admin#positions_tab' }
+        format.html { redirect_to '/admin#positions_tab',notice: 'Employee Type was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee_type }
       else
         format.html { render :edit }
@@ -58,15 +58,20 @@ class EmployeeTypesController < ApplicationController
     @employee_type = EmployeeType.with_deleted.find(params[:id])
     if params[:type]=='normal'
       @employee_type.delete
+      respond_to do |format|
+        format.html { redirect_to '/admin#positions_tab', notice: 'Employee Type was successfully deleted.' }
+        format.json { head :no_content }
+      end
     elsif params[:type]=='restore'
       @employee_type.restore
       @employee_type.update(deleted_at: nil)
+      respond_to do |format|
+        format.html { redirect_to '/admin#positions_tab', notice: 'Employee Type was successfully restored.' }
+        format.json { head :no_content }
+      end
     end
 
-    respond_to do |format|
-      format.html { redirect_to '/admin#positions_tab' }
-      format.json { head :no_content }
-    end
+
   end
 
   private

@@ -50,14 +50,19 @@ class ColorsController < ApplicationController
     @colors = Color.with_deleted.find(params[:id])
     if params[:type]=='normal'
       @color.delete
+      respond_to do |format|
+        format.html { redirect_to '/admin#colors_tab01', notice: 'Color was successfully deleted.' }
+        format.json { head :no_content }
+      end
     elsif params[:type]=='restore'
       @color.restore
       @color.update(deleted_at: nil)
+      respond_to do |format|
+        format.html { redirect_to '/admin#colors_tab01', notice: 'Color was successfully restored.' }
+        format.json { head :no_content }
+      end
     end
-    respond_to do |format|
-      format.html { redirect_to '/admin#colors_tab01', notice: 'Color was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+
   end
 
   def restore
