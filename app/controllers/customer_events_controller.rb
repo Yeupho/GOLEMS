@@ -34,6 +34,22 @@ class CustomerEventsController < ApplicationController
     end
   end
 
+  # POST /customer_events
+  # POST /customer_events.json
+  def create_walk_in
+    @customer_event = CustomerEvent.new(customer_event_params)
+
+    respond_to do |format|
+      if @customer_event.save
+        format.html { redirect_to @customer_event, notice: 'Customer was successfully added.', method: :get}
+        format.js
+      else
+        format.html { render :new }
+        format.json { render json: @customer_event.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PATCH/PUT /customer_events/1
   # PATCH/PUT /customer_events/1.json
   def update
