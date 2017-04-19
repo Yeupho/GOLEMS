@@ -20,23 +20,38 @@ class Fake < ApplicationRecord
 
 
 
+  # def self.productsready
+  #   Event.select("sum(customer_event_products.quantity) AS ready")
+  #       .joins(customer_events: :customer_event_products)
+  #       .where("events.event_date >= ?", (Date.today - 1.week))
+  #       .where("pickup_status_id = '2'")
+  #       .where("events.event_date <= ?", Date.today)
+  # end
+  #
+  # def self.twoproductsready
+  #   Event.select("sum(customer_event_products.quantity) AS ready")
+  #       .joins(customer_events: :customer_event_products)
+  #       .where("events.event_date <= ?", (Date.today - 1.week))
+  #       .where("events.event_date >= ?", (Date.today - 2.week))
+  #       .where("pickup_status_id = '2'")
+  #
+  # end
+
   def self.productsready
     Event.select("sum(customer_event_products.quantity) AS ready")
         .joins(customer_events: :customer_event_products)
-        .where("events.event_date >= ?", (Date.today - 1.week))
+        .where("customer_events.updated_at >= ?", (Date.today - 1.week))
         .where("pickup_status_id = '2'")
-        .where("events.event_date <= ?", Date.today)
+        .where("customer_events.updated_at <= ?", 8.hours.from_now)
   end
 
   def self.twoproductsready
     Event.select("sum(customer_event_products.quantity) AS ready")
         .joins(customer_events: :customer_event_products)
-        .where("events.event_date <= ?", (Date.today - 1.week))
-        .where("events.event_date >= ?", (Date.today - 2.week))
+        .where("customer_events.updated_at <= ?", (Date.today - 1.week))
+        .where("customer_events.updated_at >= ?", (Date.today - 2.week))
         .where("pickup_status_id = '2'")
   end
-
-
 
 
 
@@ -71,11 +86,6 @@ class Fake < ApplicationRecord
         .where("events.event_date >= ?", (Date.today - 1.week))
         .where("events.event_date <= ?", Date.today)
   end
-
-
-
-
-
 
 
   # Query to find total kids and adults to be used in calculation from two weeks prior
