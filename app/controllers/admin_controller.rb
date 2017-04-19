@@ -30,17 +30,20 @@ class AdminController < ApplicationController
     @customer_status = CustomerStatus.new
 
 # Used to call the various percentage data
-    @weeklysales = Admin.weeklysales
-    @twoweeksprior = Admin.twoweeksprior
+    @studio_fee = Fake.weeklysales_studio
+    @transaction = Fake.weeklysales_transactions
+    @studio_fee2 = Fake.twoweeksprior_studio
+    @transactions2 = Fake.twoweeksprior_transactions
 
-    @totalvisitors = Admin.totalvisitors
-    @twototalvisitors = Admin.twototalvisitors
 
-    @productsold = Admin.productsold
-    @twoproductsold = Admin.twoproductsold
+    @totalvisitors = Fake.totalvisitors
+    @twototalvisitors = Fake.twototalvisitors
 
-    @productsready = Admin.productsready
-    @twoproductsready = Admin.twoproductsready
+    @productsold = Fake.productsold
+    @twoproductsold = Fake.twoproductsold
+
+    @productsready = Fake.productsready
+    @twoproductsready = Fake.twoproductsready
 
     @mostprofit = Admin.mostprofit
     render stream: true

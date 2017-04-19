@@ -88,4 +88,5 @@ class CustomerEventProduct < ApplicationRecord
   def self.picked_up_count
     CustomerEventProduct.joins(customer_event: :customer).joins(customer_event: :event).where("pickup_status_id = '3'").where("events.event_date > ?", (Date.today - 1.month))
   end
+
 end
