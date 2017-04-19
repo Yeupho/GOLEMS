@@ -7,9 +7,11 @@
     <div class="col-lg-8">
       <h1>
         <%= @customer.first_name %> <%= @customer.last_name %>
+        <% if current_user.try(:admin?) %>
         <%= form_for @customer, :html => {style: "display: inline-block"} do |f| %>
             <%= f.collection_select(:customer_status_id, CustomerStatus.all, :id, :customer_status_description, {}, {class: "form-control", onchange: "this.form.submit();"}) %>
         <% end %>
+            <% end %>
       </h1>
     </div>
 

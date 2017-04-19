@@ -25,6 +25,8 @@
   </div>
   <br>
   <div class="row">
-    <button class="btn btn-primary" style="width:50%">Click here to view User Manual</button>
+    <%= link_to asset_path("User_Manual.pdf"), target: :_blank do %>
+        <div class="btn btn-primary" style="width:50%">Click here to view User Manual</div>
+    <% end %>
   </div>
 </div>

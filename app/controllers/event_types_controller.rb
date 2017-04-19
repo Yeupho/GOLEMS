@@ -1,4 +1,5 @@
 class EventTypesController < ApplicationController
+  before_action :authenticate_user!
   require 'will_paginate/array'
   before_action :set_event_type, only: [:show, :edit, :update, :destroy]
 
@@ -62,14 +63,14 @@ class EventTypesController < ApplicationController
     if params[:type]=='normal'
       @event_type.delete
       respond_to do |format|
-        format.html { redirect_to event_types_url, notice: 'Event type was successfully deleted.' }
+        format.html { redirect_to event_types_url, notice: 'Event type was successfully removed.' }
         format.json { head :no_content }
       end
     elsif params[:type]=='restore'
       @event_type.restore
       @event_type.update(deleted_at: nil)
       respond_to do |format|
-        format.html { redirect_to event_types_url, notice: 'Event type was successfully restored.' }
+        format.html { redirect_to '/admin#activity_tab', notice: 'Event type was successfully restored.' }
         format.json { head :no_content }
       end
     end

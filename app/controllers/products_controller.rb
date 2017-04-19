@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
   require 'will_paginate/array'
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
@@ -59,14 +60,14 @@ class ProductsController < ApplicationController
     if params[:type]=='normal'
       @product.destroy
       respond_to do |format|
-        format.html { redirect_to '/admin#products_tab01',notice: 'Product was successfully deleted.' }
+        format.html { redirect_to '/admin#products_tab01',notice: 'Product was successfully removed.' }
         format.json { head :no_content }
       end
     elsif params[:type]=='restore'
       @product.restore
       @product.update(deleted_at: nil)
       respond_to do |format|
-        format.html { redirect_to '/admin#products_tab01',notice: 'Product was successfully restored.' }
+        format.html { redirect_to '/admin#activity_tab',notice: 'Product was successfully restored.' }
         format.json { head :no_content }
       end
     end

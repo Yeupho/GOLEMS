@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_employee, only: [:show, :edit, :update, :destroy]
 
   # GET /employees
@@ -65,14 +66,14 @@ class EmployeesController < ApplicationController
     if params[:type]=='normal'
       @employee.delete
       respond_to do |format|
-        format.html { redirect_to '/employees',notice: 'Employee was successfully deleted.' }
+        format.html { redirect_to '/employees',notice: 'Employee was successfully removed.' }
         format.json { head :no_content }
       end
     elsif params[:type]=='restore'
       @employee.restore
       @employee.update(deleted_at: nil)
       respond_to do |format|
-        format.html { redirect_to '/employees',notice: 'Employee was successfully restored.' }
+        format.html { redirect_to '/admin#activity_tab',notice: 'Employee was successfully restored.' }
         format.json { head :no_content }
       end
     end

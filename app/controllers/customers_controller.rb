@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_user!
   require 'will_paginate/array'
   before_action :set_customer, only: [:show, :update, :destroy]
 
@@ -101,7 +102,7 @@ class CustomersController < ApplicationController
 
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to customers_path, notice: 'Customer was successfully deleted.' }
+      format.html { redirect_to customers_path, notice: 'Customer was successfully removed.' }
       format.json { head :no_content }
     end
   end

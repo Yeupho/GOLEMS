@@ -1,4 +1,5 @@
 class EmployeeTypesController < ApplicationController
+  before_action :authenticate_user!
   require 'will_paginate/array'
   before_action :set_employee_type, only: [:show, :edit, :update, :destroy]
 
@@ -59,7 +60,7 @@ class EmployeeTypesController < ApplicationController
     if params[:type]=='normal'
       @employee_type.delete
       respond_to do |format|
-        format.html { redirect_to '/admin#positions_tab', notice: 'Employee Type was successfully deleted.' }
+        format.html { redirect_to '/admin#positions_tab', notice: 'Employee Type was successfully removed.' }
         format.json { head :no_content }
       end
     elsif params[:type]=='restore'

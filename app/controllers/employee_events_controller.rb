@@ -1,4 +1,5 @@
 class EmployeeEventsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_employee_event, only: [:show, :edit, :update, :destroy]
 
   # GET /employee_events
@@ -30,7 +31,7 @@ class EmployeeEventsController < ApplicationController
       if @employee_event.save
         format.html { redirect_to :back, notice: 'Employee was successfully added.' }
       else
-        format.html { render :new }
+        format.html { render :back }
         format.json { render json: @employee_event.errors, status: :unprocessable_entity }
       end
     end
@@ -44,7 +45,7 @@ class EmployeeEventsController < ApplicationController
         format.html { redirect_to @employee_event, notice: 'Employee event was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee_event }
       else
-        format.html { render :edit }
+        format.html { render :back }
         format.json { render json: @employee_event.errors, status: :unprocessable_entity }
       end
     end

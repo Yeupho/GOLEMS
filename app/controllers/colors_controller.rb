@@ -1,4 +1,5 @@
 class ColorsController < ApplicationController
+  before_action :authenticate_user!
   require 'will_paginate/array'
   before_action :set_color, only: [:show, :edit, :update, :destroy, :restore]
 
@@ -51,7 +52,7 @@ class ColorsController < ApplicationController
     if params[:type]=='normal'
       @color.delete
       respond_to do |format|
-        format.html { redirect_to '/admin#colors_tab01', notice: 'Color was successfully deleted.' }
+        format.html { redirect_to '/admin#colors_tab01', notice: 'Color was successfully removed.' }
         format.json { head :no_content }
       end
     elsif params[:type]=='restore'

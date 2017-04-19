@@ -1,4 +1,5 @@
 class PositionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_position, only: [:show, :edit, :update, :destroy]
 
   # GET /positions
@@ -41,10 +42,10 @@ class PositionsController < ApplicationController
   def update
     respond_to do |format|
       if @position.update(position_params)
-        format.html { redirect_to @position, notice: 'Position was successfully updated.' }
+        format.html { redirect_to '/admin#positions_tab', notice: 'Position was successfully updated.' }
         format.json { render :show, status: :ok, location: @position }
       else
-        format.html { render :edit }
+        format.html { render '/admin#positions_tab' }
         format.json { render json: @position.errors, status: :unprocessable_entity }
       end
     end

@@ -16,15 +16,15 @@
 
     <tbody>
     <% @colors.only_deleted.each do |color| %>
-        <tr data-link="<%= color_path(color) %>">
+        <tr class="no-pointer">
           <td><span class="simplecolorpicker icon color-picked" style="background-color: <%= color.color_code %>;"></span></td>
           <td><%= color.color_code %></td>
           <td><%= color.color_name %></td>
-          <td><%= link_to 'Restore', color_path(color, type: :restore),method: :restore,
+          <td><%= link_to 'Restore', color_path(color, type: :restore),method: :delete,
                           class: 'btn btm-mini btn-warning',
                           data: {
                               confirm: 'Are you sure you want to restore this color?'
-                          } %></td>
+                          }, redirect_to: '/colors' %></td>
         </tr>
     <% end %>
     </tbody>

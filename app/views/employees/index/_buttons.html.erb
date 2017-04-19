@@ -1,5 +1,6 @@
+<% if current_user.try(:admin?) %>
 <div class="text-right">
-  <button type="button" class="btn btn-primary btn-md show-btn" data-toggle="modal" data-target="#newModal">
+  <button type="button" class="btn btn-primary btn-md show-btn too-close" data-toggle="modal" data-target="#newModal">
     <span class="glyphicon glyphicon-plus"></span>
     <br>
     New Employee
@@ -7,3 +8,4 @@
 </div>
 
 <%= render 'employees/index/new_modal' %>
+<% end %>

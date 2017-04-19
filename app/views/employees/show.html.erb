@@ -4,9 +4,11 @@
   <div class="row">
     <div class="col-lg-8">
       <h1><%= @employee.first_name %> <%= @employee.last_name %>
+        <% if current_user.try(:admin?) %>
         <%= form_for @employee, :html => {style: "display: inline-block"} do |f| %>
             <%= f.collection_select(:employee_status_id, EmployeeStatus.all, :id, :employee_status_desc, {}, {class: "form-control", onchange: "this.form.submit();"}) %>
         <% end %>
+            <% end %>
       </h1>
     </div>
 
@@ -56,17 +58,25 @@
   <div class="col-lg-6">
     <h3 style="color: #C33764">Positions</h3>
 
-    <div class="row">
-      <div class="col-lg-4"><h4>Add New Positions:</h4></div>
-      <%= render 'employees/show/position_form' %>
-    </div>
+    <% if current_user.try(:admin?) %>
+        <div class="row">
+          <div class="col-lg-4"><h4>Add New Positions:</h4></div>
+          <%= render 'employees/show/position_form' %>
+        </div>
 
-    <br>
+        <br>
+    <% end %>
 
     <% @employee.positions.each do |p| %>
+        <% if current_user.try(:admin?) %>
         <%= link_to position_path(p, type: :normal),method: :delete, data: { confirm: 'Remove position?' }, class: 'btn btn-default btn-lg show-btn line-up' do %>
             <span class="glyphicon glyphicon-remove-sign" style="color: red"></span>
             <%= p.employee_type.employee_type_desc %>
+        <% end %>
+            <% else %>
+            <div class="btn btn-default btn-lg show-btn line-up">
+              <%= p.employee_type.employee_type_desc %>
+            </div>
         <% end %>
     <% end %>
 

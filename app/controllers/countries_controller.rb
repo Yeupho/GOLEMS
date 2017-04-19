@@ -1,4 +1,5 @@
 class CountriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_country, only: [:show, :edit, :update, :destroy]
 
   # GET /countries
@@ -63,7 +64,7 @@ class CountriesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to '/admin#locations_tab',notice: 'Country was successfully deleted.' }
+      format.html { redirect_to '/admin#locations_tab',notice: 'Country was successfully removed.' }
       format.json { head :no_content }
     end
   end
