@@ -70,7 +70,7 @@ class EventTypesController < ApplicationController
       @event_type.restore
       @event_type.update(deleted_at: nil)
       respond_to do |format|
-        format.html { redirect_to '/admin#activity_tab', notice: 'Event type was successfully restored.' }
+        format.html { redirect_to event_types_url, notice: 'Event type was successfully restored.' }
         format.json { head :no_content }
       end
     end

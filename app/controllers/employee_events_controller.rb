@@ -31,7 +31,7 @@ class EmployeeEventsController < ApplicationController
       if @employee_event.save
         format.html { redirect_to :back, notice: 'Employee was successfully added.' }
       else
-        format.html { render :back }
+        format.html { render :new }
         format.json { render json: @employee_event.errors, status: :unprocessable_entity }
       end
     end
@@ -45,7 +45,7 @@ class EmployeeEventsController < ApplicationController
         format.html { redirect_to @employee_event, notice: 'Employee event was successfully updated.' }
         format.json { render :show, status: :ok, location: @employee_event }
       else
-        format.html { render :back }
+        format.html { render :edit }
         format.json { render json: @employee_event.errors, status: :unprocessable_entity }
       end
     end

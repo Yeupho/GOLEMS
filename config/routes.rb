@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # Customer_event
   match '/customer_events/create' => 'customer_events#create', via: [:get, :post], :as => :create_customer_event
+  match '/customer_events/create_walk_in' => 'customer_events#create_walk_in', via: [:get, :post], :as => :create_walk_in
   delete '/customer_events/walk_in_destroy' => 'customer_events#walk_in_destroy', :as => :walk_in_destroy
 
   # Customer_event_product

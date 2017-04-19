@@ -66,7 +66,7 @@ class CustomerStatusesController < ApplicationController
       @customer_status.restore
       @customer_status.update(deleted_at: nil)
       respond_to do |format|
-        format.html { redirect_to '/admin#activity_tab', notice: 'Customer Status was successfully restored.' }
+        format.html { redirect_to '/admin#status_tab', notice: 'Customer Status was successfully restored.' }
         format.json { head :no_content }
       end
     end

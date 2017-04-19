@@ -66,7 +66,7 @@ class EmployeeStatusesController < ApplicationController
       @employee_status.restore
       @employee_status.update(deleted_at: nil)
       respond_to do |format|
-        format.html { redirect_to '/admin#activity_tab', notice: 'Employee status was successfully restored.' }
+        format.html { redirect_to '/admin#status_tab', notice: 'Employee status was successfully restored.' }
         format.json { head :no_content }
       end
     end

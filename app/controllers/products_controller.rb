@@ -67,7 +67,7 @@ class ProductsController < ApplicationController
       @product.restore
       @product.update(deleted_at: nil)
       respond_to do |format|
-        format.html { redirect_to '/admin#activity_tab',notice: 'Product was successfully restored.' }
+        format.html { redirect_to '/admin#products_tab01',notice: 'Product was successfully restored.' }
         format.json { head :no_content }
       end
     end
