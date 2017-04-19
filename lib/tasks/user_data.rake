@@ -4,6 +4,9 @@ namespace :db do
     admin = User.create!(email: "steventl214@hotmail.com", password: "password", password_confirmation: "password")
     admin.toggle!(:admin)
 
+    admin2 = User.create!(email: "aznmato@gmail.com", password: "password", password_confirmation: "password")
+    admin2.toggle!(:admin)
+
     User.create!(email: "tranle.steven@gmail.com", password: "password", password_confirmation: "password")
     User.create!(email: "joshm2050@gmail.com", password: "password", password_confirmation: "password")
     User.create!(email: "fontwanhood@gmail.com", password: "password", password_confirmation: "password")
