@@ -58,9 +58,9 @@ class EmployeeTypesController < ApplicationController
   def destroy
     @employee_type = EmployeeType.with_deleted.find(params[:id])
     if params[:type]=='normal'
-      @employee_type.delete
+      @employee_type.destroy
       respond_to do |format|
-        format.html { redirect_to '/admin#positions_tab', notice: 'Employee Type was successfully deleted.' }
+        format.html { redirect_to '/admin#positions_tab', notice: 'Employee Type was successfully removed.' }
         format.json { head :no_content }
       end
     elsif params[:type]=='restore'
@@ -78,7 +78,7 @@ class EmployeeTypesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee_type
-      @employee_type = EmployeeType.find(params[:id])
+      @employee_type = EmployeeType.with_deleted.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

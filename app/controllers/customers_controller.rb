@@ -102,7 +102,7 @@ class CustomersController < ApplicationController
 
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to customers_path, notice: 'Customer was successfully deleted.' }
+      format.html { redirect_to customers_path, notice: 'Customer was successfully removed.' }
       format.json { head :no_content }
     end
   end

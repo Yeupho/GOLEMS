@@ -63,7 +63,7 @@ class EventTypesController < ApplicationController
     if params[:type]=='normal'
       @event_type.delete
       respond_to do |format|
-        format.html { redirect_to event_types_url, notice: 'Event type was successfully deleted.' }
+        format.html { redirect_to event_types_url, notice: 'Event type was successfully removed.' }
         format.json { head :no_content }
       end
     elsif params[:type]=='restore'

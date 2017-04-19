@@ -64,7 +64,7 @@ class CountriesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to '/admin#locations_tab',notice: 'Country was successfully deleted.' }
+      format.html { redirect_to '/admin#locations_tab',notice: 'Country was successfully removed.' }
       format.json { head :no_content }
     end
   end

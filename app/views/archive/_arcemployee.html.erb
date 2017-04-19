@@ -49,7 +49,7 @@
     <% @employee_types.only_deleted.each do |f| %>
         <tr data-link="<%= employee_path(f) %>" class="clickable-row">
           <td><%= f.employee_type_desc %></td>
-          <td><%= link_to 'Restore', employee_path(f, type: :restore),method: :delete,
+          <td><%= link_to 'Restore', employee_type_path(f, type: :restore),method: :delete,
                           class: 'btn btm-mini btn-warning',
                           data: {
                               confirm: 'Are you sure you want to restore ' + f.employee_type_desc + '?'

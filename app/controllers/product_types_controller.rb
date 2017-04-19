@@ -60,7 +60,7 @@ class ProductTypesController < ApplicationController
     if params[:type]=='normal'
       @product_type.delete
       respond_to do |format|
-        format.html { redirect_to '/admin#products_tab01', notice: 'Product Type was successfully deleted.' }
+        format.html { redirect_to '/admin#products_tab01', notice: 'Product Type was successfully removed.' }
         format.json { head :no_content }
       end
     elsif params[:type]=='restore'

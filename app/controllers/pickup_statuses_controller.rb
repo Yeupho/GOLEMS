@@ -57,7 +57,7 @@ class PickupStatusesController < ApplicationController
   def destroy
     @pickup_status.destroy
     respond_to do |format|
-      format.html { redirect_to pickup_statuses_url, notice: 'Pickup status was successfully deleted.' }
+      format.html { redirect_to pickup_statuses_url, notice: 'Pickup status was successfully removed.' }
       format.json { head :no_content }
     end
   end

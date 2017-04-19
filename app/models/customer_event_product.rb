@@ -57,7 +57,7 @@ class CustomerEventProduct < ApplicationRecord
         .joins(:product)
         .joins(customer_event: :customer)
         .joins(customer_event: {event: :color})
-        .where(pickup_status_id: 1)
+        .where(pickup_status_id: 1).where("events.event_date <= ?", Date.today)
         .order("events.event_date ASC")
   end
   def self.pickup_ready

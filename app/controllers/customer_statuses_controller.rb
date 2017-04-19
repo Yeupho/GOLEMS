@@ -59,7 +59,7 @@ class CustomerStatusesController < ApplicationController
     if params[:type]=='normal'
       @customer_status.delete
       respond_to do |format|
-        format.html { redirect_to '/admin#status_tab', notice: 'Customer Status was successfully deleted.' }
+        format.html { redirect_to '/admin#status_tab', notice: 'Customer Status was successfully removed.' }
         format.json { head :no_content }
       end
     elsif params[:type]=='restore'

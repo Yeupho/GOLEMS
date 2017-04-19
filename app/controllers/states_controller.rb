@@ -59,7 +59,7 @@ class StatesController < ApplicationController
     if params[:type]=='normal'
       @state.destroy
       respond_to do |format|
-        format.html { redirect_to '/admin#locations_tab',notice: 'State was successfully deleted.' }
+        format.html { redirect_to '/admin#locations_tab',notice: 'State was successfully removed.' }
         format.json { head :no_content }
       end
     elsif params[:type]=='restore'
