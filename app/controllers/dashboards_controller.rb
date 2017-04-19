@@ -8,8 +8,6 @@ class DashboardsController < ApplicationController
     @event_list = Event.event_list.paginate(page: params[:event_list_page], per_page: 2)
     @party_size = CustomerEvent.party_size
 
-    @studio_fee = Fake.twoweeksprior_studio
-    @transactions = Fake.twoweeksprior_transactions
   end
 end
 

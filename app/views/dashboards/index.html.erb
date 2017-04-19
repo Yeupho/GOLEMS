@@ -1,28 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-
-  <% kids = 0 %>
-  <% adults = 0 %>
-  <% sales = 0 %>
-
-  <% @studio_fee.each do |studio_fee| %>
-      <% kids = studio_fee.kids_painting.to_i %>
-      <% adults = studio_fee.adults_painting.to_i %>
-  <% end %>
-
-  <% studio = (kids * 5) + (adults * 6) %>
-
-  <% @transactions.each do |transactions| %>
-      <% sales = sales + transactions.sales.to_d %>
-  <% end %>
-
-  <% taxes = (studio + sales)*825.0/10000 %>
-
-  <%= number_to_currency(sales + studio + taxes) %>
-
-</h1>
-
 <div class="row">
   <div class="col-lg-12">
     <h1><%= link_to 'Dashboard', dashboards_path, style: "color: #C33764" %></h1>

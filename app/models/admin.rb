@@ -16,16 +16,14 @@ class Admin < ApplicationRecord
 
   # Graph for earned revenue
   def self.EarningsRevenue
-    Event.group_by_day(:event_date).where(:event_date => 1.months.ago .. Time.now)
-        .joins(:customer_events)
-        .joins(:customer_event_products)
-        .joins(:products)
+    Event.group_by_day(:event_date)
+        .joins(customer_events: {customer_event_products: :product})
         .sum('(products.product_price * customer_event_products.quantity)
-            +((products.product_price * customer_event_products.quantity)*0.0825)
             +(customer_events.adults_painting*6)
             +(customer_events.kids_painting*5)
+            +((products.product_price * customer_event_products.quantity)*0.0825)
             +((customer_events.adults_painting*6)*0.0825)
-            +((customer_events.kids_painting*5)*0.0825)');
+            +((customer_events.kids_painting*5)*0.0825)')
   end
   def self.MostEvent
     EventType.group_by_day(:event_date).where(:event_date => 1.months.ago .. Time.now)
@@ -147,19 +145,19 @@ class Admin < ApplicationRecord
   end
 
   # Query to view the number of products sold during the past week
-  def self.productsold
-    Event.where(:event_date >= 1.week.ago .. Time.now)
-        .joins(:customer_events)
-        .joins(:customer_event_products)
-        .sum("customer_event_products.quantity")
-  end
-  # Query to view the number of products sold two weeks ago
-  def self.twoproductsold
-    Event.where(:event_date => 2.week.ago .. 8.days.ago)
-        .joins(:customer_events)
-        .joins(:customer_event_products)
-        .sum("customer_event_products.quantity")
-  end
+  # def self.productsold
+  #   Event.where(:event_date >= 1.week.ago .. Time.now)
+  #       .joins(:customer_events)
+  #       .joins(:customer_event_products)
+  #       .sum("customer_event_products.quantity")
+  # end
+  # # Query to view the number of products sold two weeks ago
+  # def self.twoproductsold
+  #   Event.where(:event_date => 2.week.ago .. 8.days.ago)
+  #       .joins(:customer_events)
+  #       .joins(:customer_event_products)
+  #       .sum("customer_event_products.quantity")
+  # end
 
   # Query to view the number of products that have been set to ready in the past week
   def self.productsready
